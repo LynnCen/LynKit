@@ -1,0 +1,29 @@
+{
+  "name": "@lynkit/ui",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "caizhongling <czl01684533@alibaba-inc.com>",
+  "homepage": "https://github.com/LynnCen/LynKit#readme",
+  "license": "ISC",
+  "main": "lib/ui.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.anpm.alibaba-inc.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LynnCen/LynKit.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/@lynkit/ui.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/LynnCen/LynKit/issues"
+  }
+}

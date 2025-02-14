@@ -1,0 +1,23 @@
+{
+  //  "extends": "./tsconfig.settings.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noUnusedLocals": false,   // 报告未使用的局部变量
+    "noUnusedParameters": false, // 报告未使用的函数参数
+    "jsx": "react",
+
+  },
+  "include": ["packages/**/*"],
+  "exclude": ["node_modules"]
+}
