@@ -1,7 +1,9 @@
 
 import { defineConfig } from 'vite';
 import alias from './alias';
-
+import react from '@vitejs/plugin-react';
+import babel from 'vite-plugin-babel';
+import commonjs from 'vite-plugin-commonjs';
 export default defineConfig({
   server: {
     // 在 Vite 中配置服务器的 host 为 0.0.0.0 是为了使开发服务器能够绑定到所有可用的网络接口。这种配置可以让其他设备通过网络访问你的开发服务器。
@@ -17,6 +19,20 @@ export default defineConfig({
   resolve: {
     // 路径简化 将 ../../components/Button 简化为 @/components/Button
     alias
-  }
+  },
+  plugins: [
+    babel({
+      babelConfig: {
+        presets: ['@babel/preset-react', '@babel/preset-typescript'],
+        babelrc: false,
+        configFile: false,
+        plugins: ['babel-plugin-transform-jsx-condition'],
+        exclude: ['node_modules/**'],
+      },
+      filter: /\.tsx?$/,
+    }),
+    react(),
+    commonjs()
+  ]
 
 })
