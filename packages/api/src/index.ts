@@ -24,3 +24,8 @@ export function throttle<T extends (...args: any[]) => any>(func: T, limit: numb
     }
   };
 }
+
+export const someApi = () => {
+  console.log('API called');
+  return Promise.resolve({ success: true });
+};

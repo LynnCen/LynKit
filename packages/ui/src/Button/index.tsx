@@ -1,8 +1,14 @@
 import React from 'react'
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode
 }
 
-export const Button: React.FC<ButtonProps> = ({ label, ...props }) => {
-  return <button {...props}>{label}</button>
+export const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
+  return (
+    <button {...props} style={{ padding: '8px 16px', cursor: 'pointer' }}>
+      {children}
+    </button>
+  )
 }
