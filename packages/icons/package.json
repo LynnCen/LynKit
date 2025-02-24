@@ -1,29 +1,35 @@
 {
-  "name": "@lynkit/icon",
+  "name": "@lynkit/icons",
   "version": "0.0.0",
-  "description": "> TODO: description",
+  "description": "Icon components for Lynkit",
   "author": "caizhongling <czl01684533@alibaba-inc.com>",
   "homepage": "https://github.com/LynnCen/LynKit#readme",
   "license": "ISC",
-  "main": "lib/icon.js",
+  "main": "lib/index.umd.js",
+  "module": "lib/index.es.js",
+  "types": "lib/types/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "lib",
+    "README.md"
   ],
   "publishConfig": {
-    "registry": "https://registry.anpm.alibaba-inc.com"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LynnCen/LynKit.git"
   },
   "scripts": {
-    "test": "node ./__tests__/@lynkit/icon.test.js"
+    "build": "vite build",
+    "prepublishOnly": "pnpm build"
   },
-  "bugs": {
-    "url": "https://github.com/LynnCen/LynKit/issues"
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   }
 }

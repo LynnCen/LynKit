@@ -5,3 +5,5 @@ export default {
   '@lynkit/icon': '/packages/icon/src',
 
 };
+
+

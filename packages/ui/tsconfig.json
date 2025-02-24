@@ -6,7 +6,10 @@
     "jsx": "react",
     "declaration": true,
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+        "@lynkit/ui/*": ["./src/*"]
+    }
   },
   "include": ["src"]
 }

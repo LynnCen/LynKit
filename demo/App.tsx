@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 // 引入需要调试的组件
 import { Button } from '../packages/ui/src'
 import { someApi } from '../packages/api/src'
+import { IconHome } from '../packages/icons/src'
 
 const App = () => {
   const [count, setCount] = useState(0)
