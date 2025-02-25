@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "module": "ESNext",
-    "target": "ES6",
     "jsx": "react",
-    "declaration": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "strict": true,
     "esModuleInterop": true,
-    "paths": {
-        "@lynkit/ui/*": ["./src/*"]
-    }
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src"]
 }

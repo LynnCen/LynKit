@@ -14,7 +14,7 @@ export default function useSetState<T extends object>(
   initObj: ISetState<T>,
 ): [T, ReturnSetStateFn<T>] {
   const [state, setState] = useState<T>(initObj);
-  const executeCb = useRef<(...args: any[]) => void>();
+  const executeCb = useRef<(...args: any[]) => void>(() => { });
   const newSetState = useCallback<ReturnSetStateFn<T>>((state, cb) => {
     let newState = state;
     setState((prevState: T) => {
