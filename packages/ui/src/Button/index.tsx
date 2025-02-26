@@ -1,13 +1,34 @@
 import React from 'react'
+import classNames from 'classnames'
+import { ButtonProps } from './interface'
+import './style/index.less'
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode
-}
+const Button: React.FC<ButtonProps> = ({
+  type = 'default',
+  size = 'middle',
+  disabled,
+  loading,
+  icon,
+  className,
+  children,
+  ...rest
+}) => {
+  const prefixCls = 'lyn-btn'
 
-const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
+  const classes = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-${type}`]: type,
+      [`${prefixCls}-${size}`]: size,
+      [`${prefixCls}-loading`]: loading,
+    },
+    className,
+  )
+
   return (
-    <button {...props} style={{ padding: '8px 16px', cursor: 'pointer' }}>
+    <button className={classes} disabled={disabled || loading} {...rest}>
+      {loading && <span className={`${prefixCls}-loading-icon`} />}
+      {icon && <span className={`${prefixCls}-icon`}>{icon}</span>}
       {children}
     </button>
   )

@@ -1,0 +1,91 @@
+@import '../../styles/variables.less';
+
+.lyn-input {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  
+  &-wrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
+    padding: @padding-sm;
+    color: @text-color;
+    font-size: @font-size-base;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid @border-color;
+    border-radius: @border-radius-base;
+    transition: all @animation-duration-base;
+    
+    &:hover {
+      border-color: @primary-color;
+    }
+    
+    &:focus-within {
+      border-color: @primary-color;
+      box-shadow: 0 0 0 2px fade(@primary-color, 20%);
+      outline: 0;
+    }
+  }
+  
+  &-disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    
+    &:hover {
+      border-color: @border-color;
+    }
+  }
+  
+  &-small {
+    padding: @padding-sm - 2px;
+    font-size: @font-size-sm;
+  }
+  
+  &-large {
+    padding: @padding-lg - 2px;
+    font-size: @font-size-lg;
+  }
+  
+  &-prefix {
+    margin-right: @padding-sm;
+  }
+  
+  &-suffix {
+    margin-left: @padding-sm;
+  }
+  
+  &-count {
+    color: @text-color-secondary;
+    font-size: @font-size-sm;
+    margin-left: @padding-sm;
+  }
+  
+  // 状态样式
+  &-status-error {
+    border-color: @error-color;
+    
+    &:hover {
+      border-color: @error-color;
+    }
+    
+    &:focus-within {
+      border-color: @error-color;
+      box-shadow: 0 0 0 2px fade(@error-color, 20%);
+    }
+  }
+  
+  &-status-warning {
+    border-color: @warning-color;
+    
+    &:hover {
+      border-color: @warning-color;
+    }
+    
+    &:focus-within {
+      border-color: @warning-color;
+      box-shadow: 0 0 0 2px fade(@warning-color, 20%);
+    }
+  }
+} 

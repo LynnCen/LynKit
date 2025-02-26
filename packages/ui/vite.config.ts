@@ -21,7 +21,18 @@ export default defineConfig({
       }
     },
     outDir: 'lib',
-    sourcemap: true
+    sourcemap: true,
+    cssCodeSplit: true
+  },
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+        modifyVars: {
+          '@primary-color': '#1890ff'
+        }
+      }
+    }
   },
   plugins: [
     react(),

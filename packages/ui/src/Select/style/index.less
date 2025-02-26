@@ -1,0 +1,177 @@
+@import '../../styles/variables.less';
+
+.lyn-select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  
+  &-selector {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 32px;
+    padding: 0 @padding-sm;
+    background-color: #fff;
+    border: 1px solid @border-color;
+    border-radius: @border-radius-base;
+    transition: all @animation-duration-base;
+    cursor: pointer;
+    
+    &:hover {
+      border-color: @primary-color;
+    }
+  }
+  
+  &-focused .lyn-select-selector {
+    border-color: @primary-color;
+    box-shadow: 0 0 0 2px fade(@primary-color, 20%);
+    outline: 0;
+  }
+  
+  &-disabled {
+    .lyn-select-selector {
+      background: #f5f5f5;
+      cursor: not-allowed;
+      
+      &:hover {
+        border-color: @border-color;
+      }
+    }
+  }
+  
+  &-single {
+    .lyn-select-selector {
+      .lyn-select-selection-search {
+        position: absolute;
+        top: 0;
+        left: @padding-sm;
+        right: @padding-sm;
+        
+        input {
+          width: 100%;
+          height: 30px;
+          border: none;
+          outline: none;
+          background: transparent;
+        }
+      }
+      
+      .lyn-select-selection-item {
+        line-height: 30px;
+      }
+    }
+  }
+  
+  &-arrow {
+    position: absolute;
+    top: 50%;
+    right: @padding-sm;
+    margin-top: -6px;
+    font-size: 12px;
+    color: @text-color-secondary;
+    transform: rotate(0);
+    transition: transform @animation-duration-base;
+  }
+  
+  &-open .lyn-select-arrow {
+    transform: rotate(180deg);
+  }
+  
+  &-clear {
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    margin-top: -6px;
+    font-size: 12px;
+    color: @text-color-secondary;
+    cursor: pointer;
+    
+    &:hover {
+      color: @text-color;
+    }
+  }
+  
+  // 下拉菜单样式
+  &-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin-top: 4px;
+    padding: @padding-sm 0;
+    background-color: #fff;
+    border-radius: @border-radius-base;
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12);
+    
+    .lyn-select-item {
+      padding: @padding-sm @padding-md;
+      cursor: pointer;
+      transition: background @animation-duration-base;
+      
+      &:hover {
+        background: fade(@primary-color, 10%);
+      }
+      
+      &-selected {
+        color: @primary-color;
+        font-weight: 500;
+        background: fade(@primary-color, 10%);
+      }
+      
+      &-disabled {
+        color: @text-color-secondary;
+        cursor: not-allowed;
+        
+        &:hover {
+          background: none;
+        }
+      }
+    }
+  }
+  
+  // 尺寸变体
+  &-lg {
+    .lyn-select-selector {
+      height: 40px;
+      
+      .lyn-select-selection-search input {
+        height: 38px;
+      }
+      
+      .lyn-select-selection-item {
+        line-height: 38px;
+      }
+    }
+  }
+  
+  &-sm {
+    .lyn-select-selector {
+      height: 24px;
+      
+      .lyn-select-selection-search input {
+        height: 22px;
+      }
+      
+      .lyn-select-selection-item {
+        line-height: 22px;
+      }
+    }
+  }
+  
+  // 状态样式
+  &-status-error .lyn-select-selector {
+    border-color: @error-color;
+    
+    &:hover {
+      border-color: @error-color;
+    }
+  }
+  
+  &-status-warning .lyn-select-selector {
+    border-color: @warning-color;
+    
+    &:hover {
+      border-color: @warning-color;
+    }
+  }
+} 
