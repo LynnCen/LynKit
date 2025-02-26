@@ -23,8 +23,8 @@ export default defineConfig({
   },
   plugins: [
     dts({
-      outDir: 'lib/types',
-      tsconfigPath: resolve(__dirname, 'tsconfig.json'),
+      outputDir: 'lib/types',
+      tsConfigFilePath: resolve(__dirname, 'tsconfig.json'),
     }),
   ],
 }); 
