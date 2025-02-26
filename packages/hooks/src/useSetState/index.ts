@@ -32,6 +32,6 @@ export default function useSetState<T extends object>(
   return [state, newSetState];
 }
 
-function isFunction<T>(value: T): boolean {
+export function isFunction<T>(value: T): boolean {
   return typeof value === 'function';
 }
