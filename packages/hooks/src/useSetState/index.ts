@@ -18,7 +18,9 @@ export default function useSetState<T extends object>(
   const newSetState = useCallback<ReturnSetStateFn<T>>((state, cb) => {
     let newState = state;
     setState((prevState: T) => {
-      executeCb.current = cb;
+      if (cb) {
+        executeCb.current = cb;
+      }
       if (isFunction(state) && typeof state === 'function') {
         newState = state(prevState);
       }

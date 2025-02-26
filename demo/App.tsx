@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 // 引入需要调试的组件
 import { Button } from '../packages/ui/src'
-import { someApi } from '../packages/api/src'
 import { IconHome } from '../packages/icons/src'
 
 const App = () => {
@@ -30,7 +29,7 @@ const App = () => {
 
       <section>
         <h2>API 调用</h2>
-        <Button onClick={() => someApi()}>调用 API</Button>
+        <Button onClick={() => {}}>调用 API</Button>
       </section>
     </div>
   )
