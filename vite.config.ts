@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
 import react from '@vitejs/plugin-react';
-import dts from 'vite-plugin-dts';
+import path from 'path';
+import { resolve } from 'path';
 
 // 路径别名配置
 const alias = {
@@ -11,24 +11,25 @@ const alias = {
   '@lynkit/hooks': resolve(__dirname, './packages/hooks/src'),
   '@lynkit/api': resolve(__dirname, './packages/api/src'),
 };
-
-// 开发环境配置
-const devConfig = {
-  root: 'demo',
+export default defineConfig({
+  plugins: [react()],
+  root: '.',
+  publicDir: 'public',
+  build: {
+    outDir: 'dist',
+  },
   server: {
-    host: '0.0.0.0',
-    port: 3001,
+    port: 3000,
+    host: true,
   },
   resolve: {
     alias
   },
-  plugins: [
-    react()
-  ]
-};
-
-// 获取需要构建的包名
-const packageName = process.env.PACKAGE_NAME;
-
-// 导出配置
-export default defineConfig(devConfig);
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+      },
+    },
+  },
+});
