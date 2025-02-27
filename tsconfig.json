@@ -17,7 +17,9 @@
     "noUnusedLocals": false,   // 报告未使用的局部变量
     "noUnusedParameters": false, // 报告未使用的函数参数
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+
+
   },
   "include": ["packages/**/*"],
   "exclude": ["node_modules"]
