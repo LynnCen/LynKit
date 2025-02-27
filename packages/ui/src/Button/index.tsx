@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { FC } from 'react'
 import classNames from 'classnames'
 import { ButtonProps } from './interface'
 import './style/index.less'
 
-const Button: React.FC<ButtonProps> = ({
+const Button: FC<ButtonProps> = ({
   type = 'default',
   size = 'middle',
   disabled,

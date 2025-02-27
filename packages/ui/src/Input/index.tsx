@@ -86,5 +86,4 @@ const Input: React.FC<InputProps> = ({
     </span>
   )
 }
-
 export default Input
