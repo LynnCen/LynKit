@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { SelectProps, SelectOption } from './interface'
 import './style/index.less'
 
-const Select: React.FC<SelectProps> = ({
+export default function Select({
   value,
   defaultValue,
   placeholder,
@@ -24,7 +24,7 @@ const Select: React.FC<SelectProps> = ({
   onFocus,
   onBlur,
   onClear,
-}) => {
+}: SelectProps) {
   const [innerValue, setInnerValue] = useState<string | number | undefined>(
     defaultValue,
   )
@@ -167,5 +167,3 @@ const Select: React.FC<SelectProps> = ({
     </div>
   )
 }
-
-export default Select

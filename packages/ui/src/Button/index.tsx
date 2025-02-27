@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
+import React from 'react'
 import classNames from 'classnames'
 import { ButtonProps } from './interface'
 import './style/index.less'
 
-const Button: FC<ButtonProps> = ({
+export default function Button({
   type = 'default',
   size = 'middle',
   disabled,
@@ -12,7 +12,7 @@ const Button: FC<ButtonProps> = ({
   className,
   children,
   ...rest
-}) => {
+}: ButtonProps) {
   const prefixCls = 'lyn-btn'
 
   const classes = classNames(
@@ -33,5 +33,3 @@ const Button: FC<ButtonProps> = ({
     </button>
   )
 }
-
-export default Button

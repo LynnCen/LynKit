@@ -1,9 +1,9 @@
-import React, { useState, useRef } from 'react'
+import React from 'react'
 import classNames from 'classnames'
 import { InputProps } from './interface'
 import './style/index.less'
 
-const Input: React.FC<InputProps> = ({
+export default function Input({
   value,
   defaultValue = '',
   placeholder,
@@ -21,7 +21,7 @@ const Input: React.FC<InputProps> = ({
   onFocus,
   onBlur,
   status,
-}) => {
+}: InputProps) {
   const [innerValue, setInnerValue] = useState(defaultValue)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -86,4 +86,3 @@ const Input: React.FC<InputProps> = ({
     </span>
   )
 }
-export default Input
