@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import classNames from 'classnames'
 import { InputProps } from './interface'
 import './style/index.less'
