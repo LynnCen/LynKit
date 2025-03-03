@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig.settings.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@theme/*": ["node_modules/@docusaurus/theme-classic/lib/theme/*"]
+    }
+  }
+} 

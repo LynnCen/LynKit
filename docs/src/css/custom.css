@@ -2,4 +2,141 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --ifm-color-primary: #4f46e5;
+  --ifm-color-primary-dark: #4338ca;
+  --ifm-color-primary-darker: #3730a3;
+  --ifm-color-primary-darkest: #312e81;
+  --ifm-color-primary-light: #6366f1;
+  --ifm-color-primary-lighter: #818cf8;
+  --ifm-color-primary-lightest: #a5b4fc;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* 首页样式 */
+.hero {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.hero__title {
+  @apply text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600;
+}
+
+.hero__subtitle {
+  @apply text-xl text-gray-600 mt-4;
+}
+
+/* 导航栏样式 */
+.navbar {
+  @apply backdrop-blur-md bg-white/80;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.navbar__brand {
+  @apply transition-transform hover:scale-105;
+}
+
+/* 侧边栏样式 */
+.menu {
+  @apply bg-gray-50/50;
+}
+
+.menu__link {
+  @apply transition-all duration-200;
+}
+
+.menu__link:hover {
+  @apply bg-indigo-50 text-indigo-600;
+}
+
+.menu__link--active {
+  @apply bg-indigo-100 text-indigo-600 font-medium;
+}
+
+/* 文档内容样式 */
+.markdown {
+  @apply leading-relaxed;
+}
+
+.markdown h1 {
+  @apply text-4xl font-bold mb-8 animate-[slideIn_0.5s_ease-out];
+}
+
+.markdown h2 {
+  @apply text-2xl font-semibold mt-12 mb-4 text-gray-800;
+  animation: slideIn 0.5s ease-out;
+}
+
+.markdown p {
+  @apply text-gray-600 mb-4 leading-relaxed;
+}
+
+/* 代码块样式 */
+.prism-code {
+  @apply rounded-lg shadow-lg !important;
+}
+
+/* 示例卡片样式 */
+.example-card {
+  @apply bg-white rounded-lg shadow-sm border border-gray-100 p-6 mb-8;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.example-card:hover {
+  @apply shadow-md transition-shadow;
+}
+
+/* API 表格样式 */
+.api-table {
+  @apply w-full border-collapse;
+}
+
+.api-table th {
+  @apply bg-gray-50 px-4 py-2 text-left text-sm font-medium text-gray-600;
+}
+
+.api-table td {
+  @apply border-t border-gray-100 px-4 py-2 text-sm text-gray-700;
+}
+
+/* 组件预览区域 */
+.preview-area {
+  @apply p-8 bg-gray-50 rounded-lg mb-8;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* 交互式示例 */
+.live-editor {
+  @apply rounded-lg overflow-hidden shadow-lg;
+}
+
+.live-preview {
+  @apply p-6 bg-white border-b border-gray-200;
+}
+
+.live-error {
+  @apply p-4 bg-red-50 text-red-600 rounded-b-lg;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .hero__title {
+    @apply text-4xl;
+  }
+  
+  .hero__subtitle {
+    @apply text-lg;
+  }
+}
+
 /* 其他自定义样式 */ 
