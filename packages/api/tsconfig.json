@@ -1,19 +1,14 @@
 {
   "compilerOptions": {
-     "module": "ESNext",
-    "target": "ESNext",
-    "moduleResolution": "node",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "strict": false,
+    "target": "ES2018",
+    "module": "ESNext",
+    "declaration": true,
+    "composite": true,
+    "outDir": "lib",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "strictNullChecks": false,
-    "noEmit": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "resolveJsonModule": true,
-    "isolatedModules": true
+    "moduleResolution": "node"
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules", "lib"]
 }

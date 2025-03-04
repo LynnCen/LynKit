@@ -1,9 +1,24 @@
 {
-  "extends": "../tsconfig.settings.json",
+  "extends": "@tsconfig/docusaurus/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "jsx": "react",
     "paths": {
-      "@theme/*": ["node_modules/@docusaurus/theme-classic/lib/theme/*"]
+      "@theme/*": ["node_modules/@docusaurus/theme-classic/lib/theme/*"],
+      "@lynkit/ui": ["../packages/ui/src"],
+      "@lynkit/hooks": ["../packages/hooks/src"],
+      "@lynkit/icons": ["../packages/icons/src"],
+      "@lynkit/api": ["../packages/api/src"]
     }
-  }
+  },
+  "include": [
+    "src/**/*",
+    "docs/**/*"
+  ],
+  "references": [
+    { "path": "../packages/ui" },
+    { "path": "../packages/hooks" },
+    { "path": "../packages/icons" },
+    { "path": "../packages/api" }
+  ]
 } 
