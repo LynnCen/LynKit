@@ -7,12 +7,17 @@
       "conventionalCommits": true,
       "message": "chore(release): publish",
       "registry": "https://registry.npmjs.org/",
+      "gitTagVersion": true,
+      "push": true,
+      "verifyAccess": true,
       "allowBranch": ["main", "master"],
       "ignoreChanges": ["**/*.md", "**/test/**", "**/docs/**"]
     },
     "version": {
       "conventionalCommits": true,
-      "message": "chore(release): version packages"
+      "message": "chore(release): version packages",
+      "gitTagVersion": true,
+      "push": true
     }
   },
   "packages": ["packages/*"]
