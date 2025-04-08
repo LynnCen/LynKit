@@ -2,7 +2,7 @@
   "name": "@lynkit/api",
   "version": "0.2.2",
   "description": "Utility functions for Lynkit",
-  "author": "Lynn Cen",
+  "author": "LynnCen",
   "license": "MIT",
   "main": "lib/index.umd.js",
   "module": "lib/index.es.js",
