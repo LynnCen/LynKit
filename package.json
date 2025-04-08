@@ -9,7 +9,7 @@
     "start": "vite",
     "dev": "vite",
     "build": "lerna run build",
-    "publish": "lerna publish --no-git-tag-version --no-push --no-verify-access",
+    "publish": "lerna publish",
     "version": "lerna version --yes --conventional-commits",
     "clean": "lerna clean",
     "test": "lerna run test",
