@@ -8,6 +8,7 @@ function usePrevious<T>(
   state: T,
   shouldUpdateFun: ShouldUpdateFunc<T> = defalutShouldUpdate,
 ): T | undefined {
+
   const prev = useRef<T>(null)
   const cur = useRef<T>(null)
 

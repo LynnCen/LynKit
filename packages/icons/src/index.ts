@@ -1,1 +1,3 @@
-export * from './IconHome'; 
+export * from './IconHome';
+
+

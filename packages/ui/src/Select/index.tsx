@@ -43,7 +43,6 @@ export default function Select({
   // 处理选项点击
   const handleOptionClick = (option: SelectOption) => {
     if (option.disabled) return
-
     const newValue = option.value
     setInnerValue(newValue)
     onChange?.(newValue)
