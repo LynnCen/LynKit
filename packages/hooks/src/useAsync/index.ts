@@ -11,6 +11,7 @@ interface AsyncState<T> {
   isError: boolean
   error?: Error
 }
+
 type Args = any[]
 type AsyncFunction<T, A extends Args> = A['length'] extends 0
   ? () => Promise<T>
