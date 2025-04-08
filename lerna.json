@@ -4,14 +4,14 @@
   "npmClient": "pnpm",
   "command": {
     "publish": {
-      "conventionalCommits": true,
+      "conventionalCommits": false,
       "message": "chore(release): publish",
       "registry": "https://registry.npmjs.org/",
       "allowBranch": ["main", "master"],
       "ignoreChanges": ["**/*.md", "**/test/**", "**/docs/**"]
     },
     "version": {
-      "conventionalCommits": true,
+      "conventionalCommits": false,
       "message": "chore(release): version packages"
     }
   },
