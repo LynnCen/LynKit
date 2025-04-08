@@ -13,6 +13,7 @@ export const IconHome: React.FC<IconProps> = ({
   color = 'currentColor',
   size = '1em',
 }) => {
+  // 使用 svg 标签来绘制图标
   return (
     <svg
       viewBox="0 0 24 24"
