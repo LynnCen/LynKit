@@ -1,5 +1,5 @@
-
-export { debounce } from './debounce';
-export { throttle } from './throttle';
+export * from './debounce';
+export * from './throttle';
+// 导出其他工具函数
 
 

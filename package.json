@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "lynkit",
   "private": true,
   "workspaces": [
     "packages/*",
@@ -9,11 +9,19 @@
     "start": "vite",
     "dev": "vite",
     "build": "lerna run build",
+    "publish": "lerna publish",
+    "version": "lerna version",
+    "clean": "lerna clean",
+    "test": "lerna run test",
     "build:package": "vite build",
     "ins": "rm -rf ./**/node_modules && pnpm install ",
     "docs": "cd docs && docusaurus start",
     "docs:build": "cd docs && docusaurus build",
     "docs:serve": "cd docs && docusaurus serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LynnCen/LynKit"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.26.3",

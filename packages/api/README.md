@@ -6,7 +6,31 @@
 
 ```bash
 npm install @lynkit/api
+# or
+yarn add @lynkit/api
+# or
+pnpm add @lynkit/api
 ```
+
+## 使用
+
+```typescript
+import { debounce, throttle } from '@lynkit/api';
+
+// 防抖示例
+const debouncedFn = debounce(() => {
+  console.log('debounced');
+}, 300);
+
+// 节流示例
+const throttledFn = throttle(() => {
+  console.log('throttled');
+}, 300);
+```
+
+## API 文档
+
+详见 [API 文档](./docs/README.md)
 
 ## 🎯 特性
 
