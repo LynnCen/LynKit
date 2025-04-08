@@ -20,6 +20,7 @@
     "types": ["react", "react-dom"],
     "typeRoots": ["./node_modules/@types"],
     "resolveJsonModule": true,
+    "composite": true,
     "isolatedModules": true
   },
   "include": ["src"],

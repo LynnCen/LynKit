@@ -1,6 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* 删除这三行 */
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */
 
 :root {
   --ifm-color-primary: #4f46e5;
@@ -10,11 +11,12 @@
   --ifm-color-primary-light: #6366f1;
   --ifm-color-primary-lighter: #818cf8;
   --ifm-color-primary-lightest: #a5b4fc;
+  --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 0.1);
 }
 
 /* 动画效果 */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -23,119 +25,214 @@
   to { transform: translateX(0); opacity: 1; }
 }
 
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
 /* 首页样式 */
 .hero {
   animation: fadeIn 0.8s ease-out;
 }
 
 .hero__title {
-  @apply text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600;
+  font-size: 3.75rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
 }
 
 .hero__subtitle {
-  @apply text-xl text-gray-600 mt-4;
+  font-size: 1.25rem;
+  color: #4b5563;
+  max-width: 42rem;
+  margin: 0 auto;
+  line-height: 1.7;
 }
 
 /* 导航栏样式 */
 .navbar {
-  @apply backdrop-blur-md bg-white/80;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
 }
 
 .navbar__brand {
-  @apply transition-transform hover:scale-105;
+  transition: transform 0.2s;
+}
+
+.navbar__brand:hover {
+  transform: scale(1.05);
+}
+
+.navbar__logo {
+  height: 2rem;
+}
+
+.navbar__items {
+  gap: 0.5rem;
+}
+
+.navbar__item {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.navbar__item:hover {
+  background-color: #f9fafb;
+  color: #4f46e5;
 }
 
 /* 侧边栏样式 */
 .menu {
-  @apply bg-gray-50/50;
+  background-color: rgba(249, 250, 251, 0.5);
 }
 
 .menu__link {
-  @apply transition-all duration-200;
+  transition: all 0.2s;
 }
 
 .menu__link:hover {
-  @apply bg-indigo-50 text-indigo-600;
+  background-color: #f9fafb;
+  color: #4f46e5;
 }
 
 .menu__link--active {
-  @apply bg-indigo-100 text-indigo-600 font-medium;
+  background-color: #f9fafb;
+  color: #4f46e5;
+  font-weight: 600;
 }
 
 /* 文档内容样式 */
 .markdown {
-  @apply leading-relaxed;
+  prose-indigo: true;
+  max-w-none: true;
 }
 
 .markdown h1 {
-  @apply text-4xl font-bold mb-8 animate-[slideIn_0.5s_ease-out];
+  text-4xl: true;
+  font-bold: true;
+  mb-8: true;
 }
 
 .markdown h2 {
-  @apply text-2xl font-semibold mt-12 mb-4 text-gray-800;
-  animation: slideIn 0.5s ease-out;
+  text-2xl: true;
+  font-semibold: true;
+  mt-12: true;
+  mb-4: true;
 }
 
 .markdown p {
-  @apply text-gray-600 mb-4 leading-relaxed;
+  text-gray-600: true;
+  mb-4: true;
+  leading-relaxed: true;
 }
 
 /* 代码块样式 */
 .prism-code {
-  @apply rounded-lg shadow-lg !important;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  background-color: #f8fafc !important;
 }
 
 /* 示例卡片样式 */
 .example-card {
-  @apply bg-white rounded-lg shadow-sm border border-gray-100 p-6 mb-8;
+  bg-white: true;
+  rounded-lg: true;
+  shadow-sm: true;
+  border: 1px solid #e5e7eb;
+  p-6: true;
+  mb-8: true;
   animation: fadeIn 0.5s ease-out;
 }
 
 .example-card:hover {
-  @apply shadow-md transition-shadow;
+  shadow-md: true;
+  transition-shadow: true;
 }
 
 /* API 表格样式 */
 .api-table {
-  @apply w-full border-collapse;
+  w-full: true;
+  border-collapse: true;
 }
 
 .api-table th {
-  @apply bg-gray-50 px-4 py-2 text-left text-sm font-medium text-gray-600;
+  bg-gray-50: true;
+  px-4: true;
+  py-2: true;
+  text-left: true;
+  text-sm: true;
+  font-medium: true;
+  text-gray-600: true;
 }
 
 .api-table td {
-  @apply border-t border-gray-100 px-4 py-2 text-sm text-gray-700;
+  border-t: 1px solid #e5e7eb;
+  px-4: true;
+  py-2: true;
+  text-sm: true;
+  text-gray-700: true;
 }
 
 /* 组件预览区域 */
 .preview-area {
-  @apply p-8 bg-gray-50 rounded-lg mb-8;
+  p-8: true;
+  bg-gray-50: true;
+  rounded-lg: true;
+  mb-8: true;
   animation: fadeIn 0.5s ease-out;
 }
 
 /* 交互式示例 */
 .live-editor {
-  @apply rounded-lg overflow-hidden shadow-lg;
+  rounded-lg: true;
+  overflow-hidden: true;
+  shadow-lg: true;
 }
 
 .live-preview {
-  @apply p-6 bg-white border-b border-gray-200;
+  p-6: true;
+  bg-white: true;
+  border-b: 1px solid #e5e7eb;
 }
 
 .live-error {
-  @apply p-4 bg-red-50 text-red-600 rounded-b-lg;
+  p-4: true;
+  bg-red-50: true;
+  text-red-600: true;
+  rounded-b-lg: true;
+}
+
+/* 特性卡片动画 */
+.feature-card {
+  transition: all 0.5s;
+  animation: float 6s ease-in-out infinite;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.2s; }
+.feature-card:nth-child(2) { animation-delay: 0.4s; }
+.feature-card:nth-child(3) { animation-delay: 0.6s; }
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
 /* 响应式调整 */
 @media (max-width: 768px) {
   .hero__title {
-    @apply text-4xl;
+    font-size: 2.25rem;
   }
   
   .hero__subtitle {
-    @apply text-lg;
+    font-size: 1.125rem;
+    padding: 0 1rem;
   }
 }
 
