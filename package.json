@@ -9,7 +9,7 @@
     "start": "vite",
     "dev": "vite",
     "build": "lerna run build",
-    "release": "lerna version --yes --conventional-commits && lerna publish from-package",
+    "release": "lerna version --yes --conventional-commits && lerna publish from-package --access public",
     "clean": "lerna clean",
     "test": "lerna run test",
     "build:package": "vite build",
