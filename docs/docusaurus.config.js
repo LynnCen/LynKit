@@ -21,6 +21,8 @@ const config = {
           path: 'docs',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/your-org/lynkit/edit/main/docs/',
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
         },
         theme: {
           customCss: [require.resolve('./src/css/custom.css')],
@@ -32,6 +34,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
+      image: 'img/social-card.png',
       navbar: {
         title: 'LynKit',
         logo: {
@@ -52,9 +60,29 @@ const config = {
             label: '组件',
           },
           {
+            type: 'dropdown',
+            label: '更多',
+            position: 'left',
+            items: [
+              {
+                label: 'Hooks',
+                to: '/docs/hooks',
+              },
+              {
+                label: '图标',
+                to: '/docs/icons',
+              },
+              {
+                label: 'API',
+                to: '/docs/api',
+              },
+            ],
+          },
+          {
             href: 'https://github.com/your-org/lynkit',
-            label: 'GitHub',
             position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
           },
         ],
       },
@@ -74,8 +102,34 @@ const config = {
               },
             ],
           },
+          {
+            title: '资源',
+            items: [
+              {
+                label: 'Hooks',
+                to: '/docs/hooks',
+              },
+              {
+                label: '图标',
+                to: '/docs/icons',
+              },
+            ],
+          },
+          {
+            title: '社区',
+            items: [
+              {
+                label: 'GitHub',
+                href: 'https://github.com/your-org/lynkit',
+              },
+              {
+                label: 'Issues',
+                href: 'https://github.com/your-org/lynkit/issues',
+              },
+            ],
+          },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} LynKit. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} LynKit. 基于 Docusaurus 构建。`,
       },
       prism: {
         theme: prismThemes.github,

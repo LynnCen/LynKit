@@ -1,7 +1,7 @@
-/* 删除这三行 */
-/* @tailwind base; */
-/* @tailwind components; */
-/* @tailwind utilities; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --ifm-color-primary: #4f46e5;
@@ -42,7 +42,10 @@
   letter-spacing: -0.025em;
   line-height: 1.2;
   margin-bottom: 1rem;
-  color: var(--ifm-color-primary);
+  background: linear-gradient(to right, var(--ifm-color-primary), var(--ifm-color-primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero__subtitle {
@@ -72,64 +75,23 @@
   height: 2rem;
 }
 
-.navbar__items {
-  gap: 0.5rem;
+/* GitHub 图标 */
+.header-github-link:hover {
+  opacity: 0.7;
 }
 
-.navbar__item {
-  padding: 1rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s;
+.header-github-link::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+    no-repeat;
 }
 
-.navbar__item:hover {
-  background-color: #f9fafb;
-  color: #4f46e5;
-}
-
-/* 侧边栏样式 */
-.menu {
-  background-color: rgba(249, 250, 251, 0.5);
-}
-
-.menu__link {
-  transition: all 0.2s;
-}
-
-.menu__link:hover {
-  background-color: #f9fafb;
-  color: #4f46e5;
-}
-
-.menu__link--active {
-  background-color: #f9fafb;
-  color: #4f46e5;
-  font-weight: 600;
-}
-
-/* 文档内容样式 */
-.markdown {
-  prose-indigo: true;
-  max-w-none: true;
-}
-
-.markdown h1 {
-  text-4xl: true;
-  font-bold: true;
-  mb-8: true;
-}
-
-.markdown h2 {
-  text-2xl: true;
-  font-semibold: true;
-  mt-12: true;
-  mb-4: true;
-}
-
-.markdown p {
-  text-gray-600: true;
-  mb-4: true;
-  leading-relaxed: true;
+html[data-theme='dark'] .header-github-link::before {
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E")
+    no-repeat;
 }
 
 /* 代码块样式 */
@@ -140,73 +102,16 @@
   background-color: #f8fafc !important;
 }
 
-/* 示例卡片样式 */
-.example-card {
-  bg-white: true;
-  rounded-lg: true;
-  shadow-sm: true;
-  border: 1px solid #e5e7eb;
-  p-6: true;
-  mb-8: true;
-  animation: fadeIn 0.5s ease-out;
+/* 暗黑模式 */
+html[data-theme='dark'] {
+  --ifm-background-color: #0f172a;
+  --ifm-background-surface-color: #1e293b;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
 }
 
-.example-card:hover {
-  shadow-md: true;
-  transition-shadow: true;
-}
-
-/* API 表格样式 */
-.api-table {
-  w-full: true;
-  border-collapse: true;
-}
-
-.api-table th {
-  bg-gray-50: true;
-  px-4: true;
-  py-2: true;
-  text-left: true;
-  text-sm: true;
-  font-medium: true;
-  text-gray-600: true;
-}
-
-.api-table td {
-  border-t: 1px solid #e5e7eb;
-  px-4: true;
-  py-2: true;
-  text-sm: true;
-  text-gray-700: true;
-}
-
-/* 组件预览区域 */
-.preview-area {
-  p-8: true;
-  bg-gray-50: true;
-  rounded-lg: true;
-  mb-8: true;
-  animation: fadeIn 0.5s ease-out;
-}
-
-/* 交互式示例 */
-.live-editor {
-  rounded-lg: true;
-  overflow-hidden: true;
-  shadow-lg: true;
-}
-
-.live-preview {
-  p-6: true;
-  bg-white: true;
-  border-b: 1px solid #e5e7eb;
-}
-
-.live-error {
-  p-4: true;
-  bg-red-50: true;
-  text-red-600: true;
-  rounded-b-lg: true;
+html[data-theme='dark'] .prism-code {
+  border-color: #334155;
+  background-color: #1e293b !important;
 }
 
 /* 特性卡片动画 */
@@ -222,6 +127,61 @@
 .feature-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* 示例卡片样式 */
+.example-wrapper {
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: #f9fafb;
+}
+
+.example-preview {
+  padding: 1.5rem;
+  background-color: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+html[data-theme='dark'] .example-preview {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+/* API 表格样式 */
+.api-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.api-table th {
+  background-color: #f9fafb;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #64748b;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.api-table td {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #475569;
+}
+
+html[data-theme='dark'] .api-table th {
+  background-color: #1e293b;
+  color: #94a3b8;
+  border-color: #334155;
+}
+
+html[data-theme='dark'] .api-table td {
+  border-color: #334155;
+  color: #cbd5e1;
 }
 
 /* 响应式调整 */
