@@ -44,7 +44,7 @@ const config = {
         title: 'LynKit',
         logo: {
           alt: 'LynKit Logo',
-          src: 'img/logo.svg',
+          src: 'img/logo1.svg',
         },
         items: [
           {
