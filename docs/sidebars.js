@@ -1,10 +1,9 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-  docs: [
-    'intro',
+  components: [
     {
       type: 'category',
-      label: '组件',
+      label: 'UI',
       items: [
         'components/index',
         'components/button',
@@ -12,16 +11,23 @@ const sidebars = {
         'components/select',
       ],
     },
+
+  ],
+  hooks: [
     {
       type: 'category',
       label: 'Hooks',
       items: ['hooks/index'],
     },
+  ],
+  icons: [
     {
       type: 'category',
-      label: '图标',
+      label: 'Icons',
       items: ['icons/index'],
     },
+  ],
+  api: [
     {
       type: 'category',
       label: 'API',

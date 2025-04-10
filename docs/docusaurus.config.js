@@ -9,7 +9,7 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'your-org',
+  organizationName: 'lynkit',
   projectName: 'lynkit',
 
   presets: [
@@ -50,33 +50,32 @@ const config = {
           {
             type: 'doc',
             docId: 'intro',
-            position: 'left',
-            label: '文档',
+            position: 'right',
+            label: 'Docs',
           },
           {
             type: 'doc',
             docId: 'components/index',
-            position: 'left',
-            label: '组件',
+            position: 'right',
+            label: 'UI',
           },
           {
-            type: 'dropdown',
-            label: '更多',
-            position: 'left',
-            items: [
-              {
-                label: 'Hooks',
-                to: '/docs/hooks',
-              },
-              {
-                label: '图标',
-                to: '/docs/icons',
-              },
-              {
-                label: 'API',
-                to: '/docs/api',
-              },
-            ],
+            type: 'doc',
+            docId: 'hooks/index',
+            position: 'right',
+            label: 'Hooks',
+          },
+          {
+            type: 'doc',
+            docId: 'icons/index',
+            position: 'right',
+            label: 'Icons',
+          },
+          {
+            type: 'doc',
+            docId: 'api/index',
+            position: 'right',
+            label: 'API',
           },
           {
             href: 'https://github.com/your-org/lynkit',
