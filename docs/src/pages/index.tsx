@@ -28,7 +28,6 @@ export default function Home() {
     }
 
     window.addEventListener('scroll', revealOnScroll)
-    // Initial check
     revealOnScroll()
 
     return () => window.removeEventListener('scroll', revealOnScroll)
