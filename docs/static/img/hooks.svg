@@ -1,0 +1,141 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hooksGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7" />
+      <stop offset="100%" stop-color="#7E22CE" />
+    </linearGradient>
+    <filter id="hooksShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#A855F7" flood-opacity="0.3" />
+    </filter>
+    <clipPath id="hooksClip">
+      <circle cx="100" cy="100" r="80" />
+    </clipPath>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="90" fill="#F1F5F9" />
+  
+  <!-- Main Hooks Container -->
+  <circle cx="100" cy="100" r="80" fill="url(#hooksGradient)" filter="url(#hooksShadow)" />
+  
+  <!-- Hook Symbols and Code -->
+  <g clip-path="url(#hooksClip)">
+    <!-- React Symbol -->
+    <g transform="translate(100, 100) scale(0.8)">
+      <circle cx="0" cy="0" r="18" fill="none" stroke="white" stroke-width="2" opacity="0.9">
+        <animate attributeName="r" values="18;20;18" dur="6s" repeatCount="indefinite" />
+      </circle>
+      
+      <ellipse cx="0" cy="0" rx="45" ry="18" fill="none" stroke="white" stroke-width="2" opacity="0.8" transform="rotate(0)">
+        <animate attributeName="rx" values="45;50;45" dur="8s" repeatCount="indefinite" />
+        <animate attributeName="transform" values="rotate(0);rotate(360)" dur="20s" repeatCount="indefinite" />
+      </ellipse>
+      
+      <ellipse cx="0" cy="0" rx="45" ry="18" fill="none" stroke="white" stroke-width="2" opacity="0.6" transform="rotate(60)">
+        <animate attributeName="ry" values="18;22;18" dur="7s" repeatCount="indefinite" />
+        <animate attributeName="transform" values="rotate(60);rotate(420)" dur="25s" repeatCount="indefinite" />
+      </ellipse>
+      
+      <ellipse cx="0" cy="0" rx="45" ry="18" fill="none" stroke="white" stroke-width="2" opacity="0.4" transform="rotate(120)">
+        <animate attributeName="rx" values="45;48;45" dur="9s" repeatCount="indefinite" />
+        <animate attributeName="transform" values="rotate(120);rotate(480)" dur="30s" repeatCount="indefinite" />
+      </ellipse>
+    </g>
+    
+    <!-- Code Lines -->
+    <g transform="translate(50, 50)">
+      <rect x="0" y="0" width="120" height="10" rx="5" fill="white" opacity="0.6">
+        <animate attributeName="width" values="120;110;120" dur="7s" repeatCount="indefinite" />
+      </rect>
+      <rect x="0" y="15" width="80" height="10" rx="5" fill="white" opacity="0.4">
+        <animate attributeName="width" values="80;90;80" dur="6s" repeatCount="indefinite" />
+      </rect>
+      <rect x="15" y="30" width="100" height="10" rx="5" fill="white" opacity="0.5">
+        <animate attributeName="width" values="100;110;100" dur="8s" repeatCount="indefinite" />
+      </rect>
+      <rect x="15" y="45" width="70" height="10" rx="5" fill="white" opacity="0.7">
+        <animate attributeName="width" values="70;75;70" dur="5s" repeatCount="indefinite" />
+      </rect>
+      <rect x="0" y="60" width="100" height="10" rx="5" fill="white" opacity="0.6">
+        <animate attributeName="width" values="100;95;100" dur="9s" repeatCount="indefinite" />
+      </rect>
+    </g>
+    
+    <!-- Hook Symbol -->
+    <path d="M140,60 C160,60 170,70 170,90 L170,110 C170,130 160,140 140,140 L130,140 L130,130 L140,130 C155,130 160,125 160,110 L160,90 C160,75 155,70 140,70 L130,70 L130,60 L140,60 Z" fill="white" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.6;0.8" dur="4s" repeatCount="indefinite" />
+    </path>
+    
+    <!-- Animated Particles -->
+    <g>
+      <!-- Particle 1 -->
+      <circle cx="40" cy="40" r="3" fill="white" opacity="0.8">
+        <animate attributeName="cx" values="40;45;40" dur="7s" repeatCount="indefinite" />
+        <animate attributeName="cy" values="40;50;40" dur="8s" repeatCount="indefinite" />
+        <animate attributeName="r" values="3;4;3" dur="4s" repeatCount="indefinite" />
+      </circle>
+      
+      <!-- Particle 2 -->
+      <circle cx="160" cy="40" r="4" fill="white" opacity="0.7">
+        <animate attributeName="cx" values="160;150;160" dur="9s" repeatCount="indefinite" />
+        <animate attributeName="cy" values="40;30;40" dur="10s" repeatCount="indefinite" />
+        <animate attributeName="r" values="4;3;4" dur="5s" repeatCount="indefinite" />
+      </circle>
+      
+      <!-- Particle 3 -->
+      <circle cx="40" cy="160" r="2" fill="white" opacity="0.9">
+        <animate attributeName="cx" values="40;50;40" dur="8s" repeatCount="indefinite" />
+        <animate attributeName="cy" values="160;150;160" dur="7s" repeatCount="indefinite" />
+        <animate attributeName="r" values="2;3;2" dur="6s" repeatCount="indefinite" />
+      </circle>
+      
+      <!-- Particle 4 -->
+      <circle cx="160" cy="160" r="3" fill="white" opacity="0.8">
+        <animate attributeName="cx" values="160;155;160" dur="10s" repeatCount="indefinite" />
+        <animate attributeName="cy" values="160;157;160" dur="9s" repeatCount="indefinite" />
+        <animate attributeName="r" values="3;4;3" dur="7s" repeatCount="indefinite" />
+      </circle>
+      
+      <!-- Particle 5 -->
+      <circle cx="100" cy="40" r="2.5" fill="white" opacity="0.6">
+        <animate attributeName="cx" values="100;110;100" dur="11s" repeatCount="indefinite" />
+        <animate attributeName="cy" values="40;45;40" dur="12s" repeatCount="indefinite" />
+        <animate attributeName="r" values="2.5;3.5;2.5" dur="8s" repeatCount="indefinite" />
+      </circle>
+      
+      <!-- Particle 6 -->
+      <circle cx="160" cy="100" r="3.5" fill="white" opacity="0.7">
+        <animate attributeName="cx" values="160;155;160" dur="13s" repeatCount="indefinite" />
+        <animate attributeName="cy" values="100;110;100" dur="14s" repeatCount="indefinite" />
+        <animate attributeName="r" values="3.5;2.5;3.5" dur="9s" repeatCount="indefinite" />
+      </circle>
+      
+      <!-- Particle 7 -->
+      <circle cx="100" cy="160" r="2" fill="white" opacity="0.8">
+        <animate attributeName="cx" values="100;105;100" dur="15s" repeatCount="indefinite" />
+        <animate attributeName="cy" values="160;155;160" dur="16s" repeatCount="indefinite" />
+        <animate attributeName="r" values="2;3;2" dur="10s" repeatCount="indefinite" />
+      </circle>
+      
+      <!-- Particle 8 -->
+      <circle cx="40" cy="100" r="3" fill="white" opacity="0.5">
+        <animate attributeName="cx" values="40;35;40" dur="17s" repeatCount="indefinite" />
+        <animate attributeName="cy" values="100;90;100" dur="18s" repeatCount="indefinite" />
+        <animate attributeName="r" values="3;4;3" dur="11s" repeatCount="indefinite" />
+      </circle>
+    </g>
+    
+    <!-- Function Lines -->
+    <g transform="translate(30, 100)">
+      <text x="0" y="0" font-family="monospace" font-size="8" fill="white" opacity="0.9">
+        const [state, setState] = useState()
+      </text>
+      <text x="0" y="15" font-family="monospace" font-size="8" fill="white" opacity="0.8">
+        useEffect(() => { ... }, [])
+      </text>
+      <text x="0" y="30" font-family="monospace" font-size="8" fill="white" opacity="0.7">
+        const value = useMemo(() => { ... })
+      </text>
+    </g>
+  </g>
+</svg> 

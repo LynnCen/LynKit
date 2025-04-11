@@ -51,7 +51,7 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'right',
-            label: 'Docs',
+            label: 'Introduce',
           },
           {
             type: 'doc',
@@ -65,6 +65,12 @@ const config = {
             position: 'right',
             label: 'Hooks',
           },
+           {
+            type: 'doc',
+            docId: 'api/index',
+            position: 'right',
+            label: 'API',
+          },
           {
             type: 'doc',
             docId: 'icons/index',
@@ -72,13 +78,7 @@ const config = {
             label: 'Icons',
           },
           {
-            type: 'doc',
-            docId: 'api/index',
-            position: 'right',
-            label: 'API',
-          },
-          {
-            href: 'https://github.com/your-org/lynkit',
+            href: 'https://github.com/LynnCen/LynKit',
             position: 'right',
             className: 'header-github-link',
             'aria-label': 'GitHub repository',
@@ -119,11 +119,11 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/your-org/lynkit',
+                href: 'https://github.com/LynnCen/LynKit',
               },
               {
                 label: 'Issues',
-                href: 'https://github.com/your-org/lynkit/issues',
+                href: 'https://github.com/LynnCen/LynKit/issues',
               },
             ],
           },
@@ -136,6 +136,8 @@ const config = {
       },
     }),
 
+  themes: ['@docusaurus/theme-live-codeblock'],
+
   plugins: [
     async function tailwindPlugin() {
       return {
@@ -146,6 +148,20 @@ const config = {
           return postcssOptions
         },
       }
+    },
+    function tailwindcssPlugin(context, options) {
+      return {
+        name: 'custom-webpack-plugin',
+        configureWebpack(config, isServer, utils) {
+          return {
+            resolve: {
+              alias: {
+                '@lynkit/hooks': require.resolve('../packages/hooks/src'),
+              },
+            },
+          };
+        },
+      };
     },
   ],
 }

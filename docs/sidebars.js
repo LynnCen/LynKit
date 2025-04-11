@@ -17,7 +17,14 @@ const sidebars = {
     {
       type: 'category',
       label: 'Hooks',
-      items: ['hooks/index'],
+      items: [
+        'hooks/index',
+        'hooks/useSetState',
+        'hooks/usePrevious',
+        'hooks/useIsFirstRender',
+        'hooks/useInterval',
+        'hooks/usePollingAI',
+      ],
     },
   ],
   icons: [
@@ -31,7 +38,13 @@ const sidebars = {
     {
       type: 'category',
       label: 'API',
-      items: ['api/index'],
+      items: [
+        'api/index',
+        'api/algorithm/LRU',
+        'api/algorithm/exponentialBackoff',
+        'api/throttle',
+        'api/debounce',
+      ],
     },
   ],
 };

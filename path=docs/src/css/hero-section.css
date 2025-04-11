@@ -1,0 +1,68 @@
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s infinite;
+}
+
+.animate-float-delay-1 {
+  animation: float 6s infinite 1.5s;
+}
+
+.animate-float-delay-2 {
+  animation: float 6s infinite 3s;
+}
+
+.animate-float-delay-3 {
+  animation: float 6s infinite 4.5s;
+}
+
+.animate-pulse-delay-1 {
+  animation: pulse 3s infinite 0.75s;
+}
+
+.animate-pulse-delay-2 {
+  animation: pulse 3s infinite 1.5s;
+}
+
+.animate-pulse-delay-3 {
+  animation: pulse 3s infinite 2.25s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+.reveal-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: reveal 1s forwards;
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 

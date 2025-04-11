@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import hero from '../../static/img/hero.svg'
 
 const HeroSection: React.FC = () => {
   const svgRef = useRef<SVGSVGElement>(null)
@@ -74,8 +75,8 @@ const HeroSection: React.FC = () => {
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
               <Link
-                to="/docs/introduction"
-                className="px-8 py-4 rounded-lg bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white text-lg font-medium transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full sm:w-auto text-center"
+                to="/docs/intro"
+                className="px-8 py-4 hover:text-white text-white rounded-lg bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600  text-lg font-medium transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full sm:w-auto text-center"
               >
                 Get Started
               </Link>

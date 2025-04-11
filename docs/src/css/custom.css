@@ -229,4 +229,112 @@ html[data-theme='dark'] .api-table td {
   }
 }
 
-/* 其他自定义样式 */ 
+/* 其他自定义样式 */
+.demo-block {
+  margin: 30px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.demo-preview {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.live-editor {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 14px;
+}
+
+.example-card {
+  background-color: white;
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.highlight {
+  color: #087ea4;
+  font-weight: bold;
+}
+
+.counter {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.log-container {
+  margin-top: 16px;
+  background: #f5f5f5;
+  border-radius: 4px;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.log-container ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.data-display {
+  margin: 16px 0;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+button {
+  background: #087ea4;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #065d7a;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.button-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.pause-btn {
+  background: #dc3545;
+}
+
+.play-btn {
+  background: #28a745;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.delay-value {
+  margin-left: 10px;
+  min-width: 60px;
+} 

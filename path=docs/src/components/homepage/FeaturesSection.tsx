@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from '@docusaurus/Link'
-import Uilogo from '../../static/img/ui-components.svg'
+
 type FeatureCardProps = {
   title: string
   description: string
@@ -29,26 +29,28 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       style={{ textDecoration: 'none', color: 'inherit' }}
     >
       <div
-        className={`feature-card reveal-item relative rounded-xl p-6 md:p-8 bg-white dark:bg-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 border-l-4 ${color} md:flex items-start gap-6 cursor-pointer`}
+        className={`feature-card reveal-item relative rounded-xl p-6 md:p-8 bg-white dark:bg-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 border-l-4 ${color} md:flex items-start gap-6 cursor-pointer overflow-hidden group transform hover:-translate-y-1`}
         style={{ animationDelay }}
       >
-        <div className="feature-icon-wrapper mb-4 md:mb-0 md:mt-1">
+        <div className="feature-icon-wrapper mb-4 md:mb-0 md:mt-1 relative z-10">
           <div
-            className={`feature-icon w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full ${color.replace('border-', 'bg-').replace('-600', '-100 dark:bg-gray-700')}`}
+            className={`feature-icon w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full ${color.replace('border-', 'bg-').replace('-600', '-100 dark:bg-gray-700')} transition-all duration-500 group-hover:scale-110`}
           >
             {icon}
           </div>
         </div>
 
-        <div className="feature-content flex-1">
-          <h3 className="text-xl md:text-2xl font-bold mb-3">{title}</h3>
+        <div className="feature-content flex-1 relative z-10">
+          <h3 className="text-xl md:text-2xl font-bold mb-3 transform transition-transform duration-500 group-hover:translate-x-1">
+            {title}
+          </h3>
           <p className="mb-4 text-gray-600 dark:text-gray-300">{description}</p>
           <span
-            className={`inline-flex items-center font-medium ${color.replace('border-', 'text-').replace('-600', '-500 dark:text-indigo-400')} hover:underline`}
+            className={`inline-flex items-center font-medium ${color.replace('border-', 'text-').replace('-600', '-500 dark:text-indigo-400')} group-hover:underline`}
           >
             {linkText}
             <svg
-              className="w-5 h-5 ml-1"
+              className="w-5 h-5 ml-1 transform transition-transform duration-300 group-hover:translate-x-1"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +64,22 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
           </span>
         </div>
 
-        <div className="glow-effect absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300"></div>
+        {/* 闪光效果 */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transform -translate-x-full group-hover:translate-x-full transition-all duration-1000 z-0"></div>
+
+        {/* 边框动画 */}
+        <div
+          className="absolute inset-0 border border-transparent group-hover:border-current opacity-0 group-hover:opacity-20 rounded-xl transition-all duration-500 z-0"
+          style={{
+            borderColor: color.replace('border-', '').replace('-600', ''),
+          }}
+        ></div>
+
+        {/* 背景装饰 */}
+        <div
+          className="absolute -bottom-20 -right-20 w-40 h-40 rounded-full opacity-10 bg-current transform scale-0 group-hover:scale-100 transition-transform duration-700 z-0"
+          style={{ color: color.replace('border-', '').replace('-600', '') }}
+        ></div>
       </div>
     </Link>
   )
@@ -87,7 +104,13 @@ const FeaturesSection: React.FC = () => {
           <FeatureCard
             title="UI Components"
             description="A collection of beautifully designed UI components built with Tailwind CSS. Each component is fully accessible, customizable, and responsive out of the box."
-            icon={<img src={'/img/ui-components.svg'} alt="UI Components" />}
+            icon={
+              <img
+                src="/img/ui-components.svg"
+                alt="UI Components"
+                className="w-8 h-8"
+              />
+            }
             linkTo="/docs/components"
             linkText="Browse UI Components"
             color="border-indigo-600"
@@ -98,7 +121,7 @@ const FeaturesSection: React.FC = () => {
           <FeatureCard
             title="Custom Hooks"
             description="Powerful, reusable React hooks that handle common patterns like form validation, animations, data fetching, and more to simplify your development workflow."
-            icon={<img src={'/img/hooks.svg'} alt="Hooks" />}
+            icon={<img src="/img/hooks.svg" alt="Hooks" className="w-8 h-8" />}
             linkTo="/docs/hooks"
             linkText="Explore Hooks"
             color="border-purple-600"
@@ -109,7 +132,13 @@ const FeaturesSection: React.FC = () => {
           <FeatureCard
             title="API Tools"
             description="Utilities for handling API requests, error handling, caching, and data transformation. Simplify your data management with our elegant abstractions."
-            icon={<img src={'/img/api-tools.svg'} alt="API Tools" />}
+            icon={
+              <img
+                src="/img/api-tools.svg"
+                alt="API Tools"
+                className="w-8 h-8"
+              />
+            }
             linkTo="/docs/api"
             linkText="View API Tools"
             color="border-blue-600"
@@ -120,22 +149,7 @@ const FeaturesSection: React.FC = () => {
           <FeatureCard
             title="Icon System"
             description="A comprehensive set of icons designed for modern web applications. Available as React components or font icons, fully customizable and optimized for performance."
-            icon={
-              <svg
-                className="w-8 h-8 text-green-500"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-            }
+            icon={<img src="/img/icons.svg" alt="Icons" className="w-8 h-8" />}
             linkTo="/docs/icons"
             linkText="Browse Icons"
             color="border-green-600"
