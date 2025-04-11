@@ -5,7 +5,7 @@ const config = {
   title: 'LynKit',
   tagline: '轻量级 React 组件库',
   url: 'https://your-docusaurus-site.example.com',
-  baseUrl: '/',
+  baseUrl: '/LynKit/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
