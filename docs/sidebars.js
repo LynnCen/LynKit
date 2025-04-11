@@ -8,7 +8,7 @@ const sidebars = {
         'components/index',
         'components/button',
         'components/input',
-        'components/select',
+   
       ],
     },
 

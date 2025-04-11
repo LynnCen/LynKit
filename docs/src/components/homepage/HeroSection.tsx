@@ -6,9 +6,7 @@ import hero from '../../static/img/hero.svg'
 const HeroSection: React.FC = () => {
   const svgRef = useRef<SVGSVGElement>(null)
   const { siteConfig } = useDocusaurusContext()
-  const [isDarkTheme, setIsDarkTheme] = useState(
-    document.documentElement.dataset.theme === 'dark',
-  )
+  const [isDarkTheme, setIsDarkTheme] = useState(false)
 
   // 监听颜色模式变化
   useEffect(() => {

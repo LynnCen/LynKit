@@ -11,6 +11,7 @@ const config = {
   favicon: 'img/favicon.ico',
   organizationName: 'lynkit',
   projectName: 'lynkit',
+  onBrokenLinks: 'warn', 
 
   presets: [
     [
