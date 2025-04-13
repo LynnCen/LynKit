@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from '@docusaurus/Link'
 import Uilogo from '../../static/img/ui-components.svg'
+import { ApiTools, UiComponents, HooksLogo } from '../icon'
 type FeatureCardProps = {
   title: string
   description: string
@@ -87,7 +88,7 @@ const FeaturesSection: React.FC = () => {
           <FeatureCard
             title="UI Components"
             description="A collection of beautifully designed UI components built with Tailwind CSS. Each component is fully accessible, customizable, and responsive out of the box."
-            icon={<img src={'/img/ui-components.svg'} alt="UI Components" />}
+            icon={UiComponents}
             linkTo="/docs/components"
             linkText="Browse UI Components"
             color="border-indigo-600"
@@ -98,7 +99,7 @@ const FeaturesSection: React.FC = () => {
           <FeatureCard
             title="Custom Hooks"
             description="Powerful, reusable React hooks that handle common patterns like form validation, animations, data fetching, and more to simplify your development workflow."
-            icon={<img src={'/img/hooks.svg'} alt="Hooks" />}
+            icon={HooksLogo}
             linkTo="/docs/hooks"
             linkText="Explore Hooks"
             color="border-purple-600"
@@ -109,7 +110,7 @@ const FeaturesSection: React.FC = () => {
           <FeatureCard
             title="API Tools"
             description="Utilities for handling API requests, error handling, caching, and data transformation. Simplify your data management with our elegant abstractions."
-            icon={<img src={'/img/api-tools.svg'} alt="API Tools" />}
+            icon={ApiTools}
             linkTo="/docs/api"
             linkText="View API Tools"
             color="border-blue-600"
