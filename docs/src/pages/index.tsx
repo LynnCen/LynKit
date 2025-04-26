@@ -33,6 +33,7 @@ export default function Home() {
   //   return () => window.removeEventListener('scroll', revealOnScroll)
   // }, [])
 
+  
   return (
     <Layout
       title={siteConfig.title}
