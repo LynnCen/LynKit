@@ -13,25 +13,25 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext()
 
   // Add scroll reveal animation
-  React.useEffect(() => {
-    const revealItems = document.querySelectorAll('.reveal-item')
+  // React.useEffect(() => {
+  //   const revealItems = document.querySelectorAll('.reveal-item')
 
-    const revealOnScroll = () => {
-      const windowHeight = window.innerHeight
+  //   const revealOnScroll = () => {
+  //     const windowHeight = window.innerHeight
 
-      revealItems.forEach((item) => {
-        const itemTop = item.getBoundingClientRect().top
-        if (itemTop < windowHeight - 100) {
-          item.classList.add('active')
-        }
-      })
-    }
+  //     revealItems.forEach((item) => {
+  //       const itemTop = item.getBoundingClientRect().top
+  //       if (itemTop < windowHeight - 100) {
+  //         item.classList.add('active')
+  //       }
+  //     })
+  //   }
 
-    window.addEventListener('scroll', revealOnScroll)
-    revealOnScroll()
+  //   window.addEventListener('scroll', revealOnScroll)
+  //   revealOnScroll()
 
-    return () => window.removeEventListener('scroll', revealOnScroll)
-  }, [])
+  //   return () => window.removeEventListener('scroll', revealOnScroll)
+  // }, [])
 
   return (
     <Layout
