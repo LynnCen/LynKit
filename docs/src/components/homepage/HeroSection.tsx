@@ -1,11 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import { HeroSVG } from '../../components/icon'
-import { cn } from '@/lib/utils'
-import { Logo } from '@/components/Logo'
-import { FrameworkRotation } from '@/components/FrameworkRotation'
-import { Button } from '@/components/ui/button'
+
 
 // Helper function for random values (can be placed outside or inside component)
 const rnd = (min: number, max: number) => Math.random() * (max - min) + min
@@ -42,7 +39,6 @@ const HeroSection: React.FC = () => {
   return (
     <section className="hero-section relative overflow-hidden bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 flex flex-col justify-center" 
       style={{ minHeight: 'calc(100vh - var(--ifm-navbar-height))' }}>
-      {/* Background Effects SVG Layer */}
 
       {/* Original Blur Backgrounds (kept for layered effect) */}
       <div className="absolute inset-0 z-1 opacity-20">
