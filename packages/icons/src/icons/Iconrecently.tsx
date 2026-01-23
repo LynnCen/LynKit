@@ -1,0 +1,33 @@
+import React from 'react'
+
+export interface IconrecentlyProps extends React.SVGProps<SVGSVGElement> {}
+
+/**
+ * recently
+ * @source figma
+ */
+export const Iconrecently = React.memo((props: IconrecentlyProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      {...props}
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 20.5C16.6944 20.5 20.5 16.6944 20.5 12C20.5 7.30558 16.6944 3.5 12 3.5C7.30558 3.5 3.5 7.30558 3.5 12C3.5 16.6944 7.30558 20.5 12 20.5ZM12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+        fill="#33383E"
+      />
+      <path d="M11.375 7H12.875V12H11.375V7Z" fill="#33383E" />
+      <path d="M11.375 12H16.375V13.5H11.375V12Z" fill="#33383E" />
+    </svg>
+  )
+})
+
+Iconrecently.displayName = 'Iconrecently'
+
+export default Iconrecently

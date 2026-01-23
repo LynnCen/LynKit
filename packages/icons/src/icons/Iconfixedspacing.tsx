@@ -1,0 +1,39 @@
+import React from 'react'
+
+export interface IconfixedspacingProps extends React.SVGProps<SVGSVGElement> {}
+
+/**
+ * fixed_spacing
+ * @source figma
+ */
+export const Iconfixedspacing = React.memo((props: IconfixedspacingProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      {...props}
+    >
+      <path
+        d="M7.5 8.5C7.5 7.94772 7.05228 7.5 6.5 7.5C5.94772 7.5 5.5 7.94772 5.5 8.5V15.5C5.5 16.0523 5.94772 16.5 6.5 16.5C7.05228 16.5 7.5 16.0523 7.5 15.5V8.5Z"
+        fill="#222529"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 6C2 4.89543 2.89543 4 4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6ZM4 5.5H20C20.2761 5.5 20.5 5.72386 20.5 6V18C20.5 18.2761 20.2761 18.5 20 18.5H4C3.72386 18.5 3.5 18.2761 3.5 18V6C3.5 5.72386 3.72386 5.5 4 5.5Z"
+        fill="#222529"
+      />
+      <path
+        d="M11.5 8.5C11.5 7.94772 11.0523 7.5 10.5 7.5C9.94772 7.5 9.5 7.94772 9.5 8.5V15.5C9.5 16.0523 9.94772 16.5 10.5 16.5C11.0523 16.5 11.5 16.0523 11.5 15.5V8.5Z"
+        fill="#222529"
+      />
+    </svg>
+  )
+})
+
+Iconfixedspacing.displayName = 'Iconfixedspacing'
+
+export default Iconfixedspacing

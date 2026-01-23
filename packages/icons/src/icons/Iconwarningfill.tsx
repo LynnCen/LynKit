@@ -1,0 +1,31 @@
+import React from 'react'
+
+export interface IconwarningfillProps extends React.SVGProps<SVGSVGElement> {}
+
+/**
+ * warning_fill
+ * @source figma
+ */
+export const Iconwarningfill = React.memo((props: IconwarningfillProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      {...props}
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM11 13V7H13V13H11ZM11 17V15H13V17H11Z"
+        fill="#222529"
+      />
+    </svg>
+  )
+})
+
+Iconwarningfill.displayName = 'Iconwarningfill'
+
+export default Iconwarningfill
