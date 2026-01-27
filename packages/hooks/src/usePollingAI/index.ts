@@ -2,26 +2,23 @@
 import { useEffect, useRef, useCallback, useState } from 'react';
 
 interface PollingConfig {
-  initialInterval?: number;    // 初始轮询间隔（毫秒）
-  maxInterval?: number;        // 最大轮询间隔（毫秒）
-  backoffFactor?: number;      // 退避因子
-  maxAttempts?: number;        // 最大尝试次数
-  onSuccess?: () => void;      // 成功回调
+  initialInterval?: number; // 初始轮询间隔（毫秒）
+  maxInterval?: number; // 最大轮询间隔（毫秒）
+  backoffFactor?: number; // 退避因子
+  maxAttempts?: number; // 最大尝试次数
+  onSuccess?: () => void; // 成功回调
   onError?: (error: Error) => void; // 错误回调
   retryCondition?: (error: Error) => boolean; // 重试条件
 }
 
 interface PollingState {
-  isPolling: boolean;          // 是否正在轮询
-  currentInterval: number;     // 当前轮询间隔
-  attempts: number;            // 当前尝试次数
-  error: Error | null;         // 错误信息
+  isPolling: boolean; // 是否正在轮询
+  currentInterval: number; // 当前轮询间隔
+  attempts: number; // 当前尝试次数
+  error: Error | null; // 错误信息
 }
 
-export function usePollingAI<T>(
-  pollingFunction: () => Promise<T>,
-  config: PollingConfig = {}
-) {
+export function usePollingAI<T>(pollingFunction: () => Promise<T>, config: PollingConfig = {}) {
   const {
     initialInterval = 1000,
     maxInterval = 32000,
@@ -39,8 +36,8 @@ export function usePollingAI<T>(
     error: null,
   });
 
-  const timeoutRef = useRef<NodeJS.Timeout>();
-  const abortControllerRef = useRef<AbortController>();
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   // 重置轮询状态
   const reset = useCallback(() => {
@@ -60,13 +57,16 @@ export function usePollingAI<T>(
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
     }
-    setState(prev => ({ ...prev, isPolling: false }));
+    setState((prev) => ({ ...prev, isPolling: false }));
   }, []);
 
   // 计算下一个轮询间隔
-  const calculateNextInterval = useCallback((currentInterval: number) => {
-    return Math.min(currentInterval * backoffFactor, maxInterval);
-  }, [backoffFactor, maxInterval]);
+  const calculateNextInterval = useCallback(
+    (currentInterval: number) => {
+      return Math.min(currentInterval * backoffFactor, maxInterval);
+    },
+    [backoffFactor, maxInterval]
+  );
 
   // 执行轮询
   const poll = useCallback(async () => {
@@ -74,10 +74,10 @@ export function usePollingAI<T>(
 
     try {
       abortControllerRef.current = new AbortController();
-      const result = await pollingFunction();
+      await pollingFunction();
 
       // 成功后重置间隔并继续轮询
-      setState(prev => ({
+      setState((prev) => ({
         ...prev,
         currentInterval: initialInterval,
         attempts: 0,
@@ -90,7 +90,7 @@ export function usePollingAI<T>(
       timeoutRef.current = setTimeout(poll, initialInterval);
     } catch (error) {
       if (error instanceof Error) {
-        setState(prev => ({
+        setState((prev) => ({
           ...prev,
           attempts: prev.attempts + 1,
           error,
@@ -99,12 +99,9 @@ export function usePollingAI<T>(
         onError?.(error);
 
         // 检查是否需要继续重试
-        if (
-          state.attempts < maxAttempts &&
-          retryCondition(error)
-        ) {
+        if (state.attempts < maxAttempts && retryCondition(error)) {
           const nextInterval = calculateNextInterval(state.currentInterval);
-          setState(prev => ({ ...prev, currentInterval: nextInterval }));
+          setState((prev) => ({ ...prev, currentInterval: nextInterval }));
           timeoutRef.current = setTimeout(poll, nextInterval);
         } else {
           stop();
@@ -127,7 +124,7 @@ export function usePollingAI<T>(
 
   // 开始轮询
   const start = useCallback(() => {
-    setState(prev => ({ ...prev, isPolling: true }));
+    setState((prev) => ({ ...prev, isPolling: true }));
     poll();
   }, [poll]);
 
@@ -137,8 +134,6 @@ export function usePollingAI<T>(
       stop();
     };
   }, [stop]);
-
-
 
   return {
     start,
@@ -150,7 +145,3 @@ export function usePollingAI<T>(
     error: state.error,
   };
 }
-
-
-
-

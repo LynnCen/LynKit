@@ -38,6 +38,8 @@ export default [
         module: 'readonly',
         require: 'readonly',
         __dirname: 'readonly',
+        NodeJS: 'readonly',
+        AbortController: 'readonly',
       },
     },
     rules: {
