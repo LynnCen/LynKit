@@ -7,6 +7,7 @@ export default defineConfig({
   server: {
     port: 8888,
     host: true,
+    open: true, // 自动打开浏览器
   },
   resolve: {
     alias: {
@@ -21,6 +22,8 @@ export default defineConfig({
     preprocessorOptions: {
       less: {
         javascriptEnabled: true,
+        // 注入全局变量
+        additionalData: `@import "${resolve(__dirname, '../../packages/ui/src/styles/variables.less')}";`,
       },
     },
   },

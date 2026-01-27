@@ -17,9 +17,14 @@
     "react-dom": "catalog:"
   },
   "devDependencies": {
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
+    "autoprefixer": "^10.4.20",
+    "less": "^4.2.0",
+    "postcss": "^8.5.0",
+    "tailwindcss": "^3.4.17",
     "typescript": "catalog:",
-    "vite": "catalog:",
-    "less": "^4.2.0"
+    "vite": "catalog:"
   }
 }

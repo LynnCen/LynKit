@@ -5,5 +5,9 @@
   "trailingComma": "es5",
   "printWidth": 100,
   "endOfLine": "lf",
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "jsxSingleQuote": false,
+  "proseWrap": "preserve",
+  "plugins": []
 }
