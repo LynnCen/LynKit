@@ -40,6 +40,15 @@ export default [
         __dirname: 'readonly',
         NodeJS: 'readonly',
         AbortController: 'readonly',
+        // DOM types
+        HTMLElement: 'readonly',
+        HTMLInputElement: 'readonly',
+        HTMLDivElement: 'readonly',
+        HTMLButtonElement: 'readonly',
+        Element: 'readonly',
+        Event: 'readonly',
+        MouseEvent: 'readonly',
+        KeyboardEvent: 'readonly',
       },
     },
     rules: {

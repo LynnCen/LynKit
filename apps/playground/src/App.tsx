@@ -1,122 +1,139 @@
 import React, { useState } from 'react';
-import { Button, Input, Select } from '@lynkit/ui';
-import { useSetState, useInterval } from '@lynkit/hooks';
+import {
+  ButtonDemo,
+  InputDemo,
+  SelectDemo,
+  UseSetStateDemo,
+  UseIntervalDemo,
+  UsePreviousDemo,
+  UseIsFirstRenderDemo,
+  DebounceDemo,
+  ThrottleDemo,
+  IconsDemo,
+} from './demos';
 import './index.css';
 
-const DemoSection = ({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) => (
-  <section className="bg-white rounded-lg p-6 mb-6 shadow">
-    <h2 className="text-xl font-semibold mb-4">{title}</h2>
-    {children}
-  </section>
-);
+type DemoId =
+  | 'button'
+  | 'input'
+  | 'select'
+  | 'useSetState'
+  | 'useInterval'
+  | 'usePrevious'
+  | 'useIsFirstRender'
+  | 'debounce'
+  | 'throttle'
+  | 'icons';
 
-const App = () => {
-  const [inputValue, setInputValue] = useState('');
-  const [state, setState] = useSetState({ count: 0, name: 'LynKit' });
+interface NavItem {
+  id: DemoId;
+  label: string;
+  icon: string;
+  category: string;
+}
 
-  const selectOptions = [
-    { label: '选项1', value: '1' },
-    { label: '选项2', value: '2' },
-    { label: '选项3', value: '3', disabled: true },
-  ];
+const navItems: NavItem[] = [
+  // UI Components
+  { id: 'button', label: 'Button', icon: '🔘', category: 'UI' },
+  { id: 'input', label: 'Input', icon: '📝', category: 'UI' },
+  { id: 'select', label: 'Select', icon: '📋', category: 'UI' },
+  // Hooks
+  { id: 'useSetState', label: 'useSetState', icon: '🔄', category: 'Hooks' },
+  { id: 'useInterval', label: 'useInterval', icon: '⏱️', category: 'Hooks' },
+  { id: 'usePrevious', label: 'usePrevious', icon: '⏮️', category: 'Hooks' },
+  { id: 'useIsFirstRender', label: 'useIsFirstRender', icon: '1️⃣', category: 'Hooks' },
+  // API
+  { id: 'debounce', label: 'debounce', icon: '⏳', category: 'API' },
+  { id: 'throttle', label: 'throttle', icon: '🚦', category: 'API' },
+  // Icons
+  { id: 'icons', label: 'Icons', icon: '🎨', category: 'Icons' },
+];
 
-  useInterval(() => {
-    console.log('Interval tick:', new Date().toLocaleTimeString());
-  }, 5000);
+const demoComponents: Record<DemoId, React.ComponentType> = {
+  button: ButtonDemo,
+  input: InputDemo,
+  select: SelectDemo,
+  useSetState: UseSetStateDemo,
+  useInterval: UseIntervalDemo,
+  usePrevious: UsePreviousDemo,
+  useIsFirstRender: UseIsFirstRenderDemo,
+  debounce: DebounceDemo,
+  throttle: ThrottleDemo,
+  icons: IconsDemo,
+};
+
+const App: React.FC = () => {
+  const [activeId, setActiveId] = useState<DemoId>('button');
+
+  const currentItem = navItems.find((item) => item.id === activeId);
+  const DemoComponent = demoComponents[activeId];
+
+  // 按分类分组
+  const categories = ['UI', 'Hooks', 'API', 'Icons'];
+  const groupedNavItems = categories.map((cat) => ({
+    category: cat,
+    items: navItems.filter((item) => item.category === cat),
+  }));
 
   return (
-    <div className="min-h-screen bg-gray-100 py-8">
-      <div className="max-w-5xl mx-auto px-4">
-        <h1 className="text-3xl font-bold text-gray-800 mb-8">
-          🎮 LynKit Playground
-        </h1>
-        <p className="text-gray-600 mb-8">
-          组件库开发测试平台 - 实时预览所有组件
-        </p>
+    <div className="min-h-screen bg-slate-50 flex">
+      {/* Sidebar */}
+      <aside className="w-56 bg-white border-r border-slate-200 flex flex-col">
+        <div className="p-5 border-b border-slate-100">
+          <h1 className="text-lg font-semibold text-slate-800 tracking-tight">LynKit</h1>
+          <p className="text-xs text-slate-400 mt-0.5">Playground</p>
+        </div>
 
-        <DemoSection title="📦 按钮组件 (Button)">
-          <div className="flex gap-4 flex-wrap">
-            <Button type="primary" onClick={() => alert('Primary clicked!')}>
-              Primary Button
-            </Button>
-            <Button type="default" onClick={() => alert('Default clicked!')}>
-              Default Button
-            </Button>
-            <Button type="dashed">Dashed Button</Button>
-            <Button type="text">Text Button</Button>
-            <Button type="link">Link Button</Button>
-            <Button type="primary" disabled>
-              Disabled Button
-            </Button>
-          </div>
-        </DemoSection>
-
-        <DemoSection title="📝 输入框组件 (Input)">
-          <div className="space-y-4 max-w-md">
-            <Input
-              placeholder="请输入内容"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-            />
-            <Input placeholder="带前缀的输入框" prefix="🔍" />
-            <Input placeholder="带后缀的输入框" suffix="✅" />
-            <Input placeholder="禁用状态" disabled />
-            <p className="text-sm text-gray-600">当前输入: {inputValue}</p>
-          </div>
-        </DemoSection>
-
-        <DemoSection title="🎯 选择器组件 (Select)">
-          <div className="max-w-md">
-            <Select
-              placeholder="请选择"
-              options={selectOptions}
-              onChange={(value) => console.log('Selected:', value)}
-            />
-          </div>
-        </DemoSection>
-
-        <DemoSection title="🪝 Hooks 示例">
-          <div className="space-y-4">
-            <div className="p-4 bg-blue-50 rounded">
-              <h3 className="font-semibold mb-2">useSetState</h3>
-              <p>Count: {state.count}</p>
-              <p>Name: {state.name}</p>
-              <div className="flex gap-2 mt-2">
-                <Button
-                  onClick={() => setState({ count: state.count + 1 })}
-                  type="primary"
-                  size="small"
-                >
-                  +1
-                </Button>
-                <Button
-                  onClick={() => setState({ name: 'Updated!' })}
-                  size="small"
-                >
-                  Change Name
-                </Button>
-              </div>
+        <nav className="flex-1 p-3 overflow-y-auto">
+          {groupedNavItems.map(({ category, items }) => (
+            <div key={category} className="mb-4">
+              <p className="px-3 py-1 text-xs font-medium text-slate-400 uppercase tracking-wider">
+                {category}
+              </p>
+              <ul className="space-y-0.5 mt-1">
+                {items.map((item) => (
+                  <li key={item.id}>
+                    <button
+                      onClick={() => setActiveId(item.id)}
+                      className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
+                        activeId === item.id
+                          ? 'bg-slate-900 text-white'
+                          : 'text-slate-600 hover:bg-slate-100'
+                      }`}
+                    >
+                      <span className="mr-2">{item.icon}</span>
+                      {item.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
             </div>
+          ))}
+        </nav>
 
-            <div className="p-4 bg-green-50 rounded">
-              <h3 className="font-semibold mb-2">useInterval</h3>
-              <p className="text-sm text-gray-600">
-                每 5 秒在控制台输出一次时间戳 (打开控制台查看)
+        <div className="p-4 border-t border-slate-100">
+          <p className="text-xs text-slate-400 text-center">Hot Reload Enabled 🔥</p>
+        </div>
+      </aside>
+
+      {/* Main Content */}
+      <main className="flex-1 overflow-auto">
+        <header className="bg-white border-b border-slate-200 px-8 py-5">
+          <div className="flex items-center gap-3">
+            <span className="text-2xl">{currentItem?.icon}</span>
+            <div>
+              <h2 className="text-xl font-semibold text-slate-800">{currentItem?.label}</h2>
+              <p className="text-sm text-slate-400">
+                @lynkit/{currentItem?.category.toLowerCase()}
               </p>
             </div>
           </div>
-        </DemoSection>
+        </header>
 
-        <footer className="text-center text-gray-500 mt-12">
-          <p>使用 workspace:* 引用本地包，实时热重载 🔥</p>
-        </footer>
-      </div>
+        <div className="p-8">
+          <DemoComponent />
+        </div>
+      </main>
     </div>
   );
 };
