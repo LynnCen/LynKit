@@ -3,29 +3,35 @@ packages:
   - 'apps/*'
 
 catalog:
-  # React (stable version 18)
-  react: ^18.3.1
-  react-dom: ^18.3.1
-  '@types/react': ^18.3.18
-  '@types/react-dom': ^18.3.5
-  
+  # React 19 (latest)
+  react: ^19.0.0
+  react-dom: ^19.0.0
+  '@types/react': ^19.0.8
+  '@types/react-dom': ^19.0.3
+
   # Build tools
   typescript: ^5.7.3
   vite: ^6.1.0
   tsup: ^8.3.5
   '@vitejs/plugin-react': ^4.3.4
-  
+
   # Testing
   vitest: ^2.1.8
   '@vitest/ui': ^2.1.8
-  
+
   # Code quality
   eslint: ^9.20.1
   prettier: ^3.5.0
-  
+
+  # CSS
+  tailwindcss: ^3.4.17
+  postcss: ^8.5.0
+  autoprefixer: ^10.4.20
+  less: ^4.2.0
+
   # Utils
   classnames: ^2.5.1
-  
+
   # Docusaurus
   '@docusaurus/core': ^3.7.0
   '@docusaurus/preset-classic': ^3.7.0
