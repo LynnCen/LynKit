@@ -157,7 +157,7 @@ const config = {
           return {
             resolve: {
               alias: {
-                '@lynkit/hooks': require.resolve('../packages/hooks/src'),
+                '@lynkit/hooks': require.resolve('../../packages/hooks/src'),
               },
             },
           };

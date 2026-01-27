@@ -14,6 +14,8 @@
     "type-check": "turbo type-check",
     "clean": "turbo clean && rm -rf node_modules .turbo",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "playground": "pnpm --filter @lynkit/playground dev",
+    "docs": "pnpm --filter @lynkit/docs start",
     "changeset": "changeset",
     "version": "changeset version",
     "publish": "turbo build && changeset publish"

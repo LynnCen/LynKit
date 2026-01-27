@@ -7,10 +7,7 @@ export default defineConfig({
   clean: true,
   sourcemap: true,
   outDir: 'lib',
-  external: ['react', 'react-dom'],
-  loader: {
-    '.less': 'copy',
-  },
+  external: ['react', 'react-dom', /\.less$/],
   esbuildOptions(options) {
     options.banner = {
       js: '"use client"',

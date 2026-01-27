@@ -1,6 +1,6 @@
 packages:
   - 'packages/*'
-  - 'docs'
+  - 'apps/*'
 
 catalog:
   # React (stable version 18)
