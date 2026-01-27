@@ -5,6 +5,22 @@
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
-    "serve": "docusaurus serve"
+    "serve": "docusaurus serve",
+    "clear": "docusaurus clear"
+  },
+  "dependencies": {
+    "@docusaurus/core": "catalog:",
+    "@docusaurus/preset-classic": "catalog:",
+    "@docusaurus/theme-live-codeblock": "^3.7.0",
+    "@mdx-js/react": "^3.0.0",
+    "clsx": "^2.1.0",
+    "prism-react-renderer": "^2.3.0",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-live": "^3.1.0"
+  },
+  "devDependencies": {
+    "@docusaurus/types": "^3.7.0",
+    "typescript": "catalog:"
   }
 }
