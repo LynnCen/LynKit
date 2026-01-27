@@ -4,17 +4,29 @@
   "description": "React UI Component Library",
   "author": "LynnCen",
   "homepage": "https://github.com/LynnCen/LynKit#readme",
-  "license": "ISC",
-  "main": "lib/index.umd.js",
-  "module": "lib/index.es.js",
-  "types": "lib/types/index.d.ts",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+  "license": "MIT",
+  "type": "module",
+  "main": "./lib/index.cjs",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js",
+      "require": "./lib/index.cjs"
+    }
   },
   "files": [
     "lib"
   ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "jest"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
@@ -23,30 +35,23 @@
     "type": "git",
     "url": "git+https://github.com/LynnCen/LynKit.git"
   },
-  "scripts": {
-    "build": "vite build",
-    "dev": "vite build --watch",
-    "test": "jest",
-    "clean": "rimraf lib"
-  },
   "bugs": {
     "url": "https://github.com/LynnCen/LynKit/issues"
   },
   "dependencies": {
-    "classnames": "^2.3.1"
+    "classnames": "catalog:"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "@vitejs/plugin-react": "^4.0.0",
-    "less": "^4.1.0",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.9.0",
-    "vite": "^4.0.0",
-    "vite-plugin-dts": "^2.0.0"
+    "tsup": "catalog:",
+    "typescript": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "less": "^4.2.0"
   }
 }

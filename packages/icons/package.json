@@ -4,18 +4,27 @@
   "description": "Icon components for Lynkit",
   "author": "LynnCen",
   "homepage": "https://github.com/LynnCen/LynKit#readme",
-  "license": "ISC",
-  "main": "lib/index.umd.js",
-  "module": "lib/index.es.js",
-  "types": "lib/types/index.d.ts",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+  "license": "MIT",
+  "type": "module",
+  "main": "./lib/index.cjs",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js",
+      "require": "./lib/index.cjs"
+    }
   },
   "files": [
     "lib",
     "README.md"
   ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
@@ -24,13 +33,16 @@
     "type": "git",
     "url": "git+https://github.com/LynnCen/LynKit.git"
   },
-  "scripts": {
-    "build": "vite build",
-    "prepublishOnly": "pnpm build"
-  },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
-  "gitHead": "dd148b8336b93bb2ea5840f6e1b305d699d412bc"
+  "devDependencies": {
+    "tsup": "catalog:",
+    "typescript": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  }
 }

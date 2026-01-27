@@ -53,6 +53,9 @@ coverage/
 # TypeScript cache
 *.tsbuildinfo
 
+# Turbo
+.turbo
+
 # Optional npm cache directory
 .npm
 

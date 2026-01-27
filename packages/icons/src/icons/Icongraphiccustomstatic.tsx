@@ -22,7 +22,6 @@ export const Icongraphiccustomstatic = React.memo((props: Icongraphiccustomstati
       />
       <foreignObject x="-0.701172" y="2.83386" width="21.8262" height="21.8259">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(1.5px)',
             clipPath: 'url(#bgblur_0_7293_3111_clip_path)',
@@ -45,7 +44,6 @@ export const Icongraphiccustomstatic = React.memo((props: Icongraphiccustomstati
       </g>
       <foreignObject x="-0.701172" y="2.83386" width="21.8262" height="21.8259">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(1.5px)',
             clipPath: 'url(#bgblur_1_7293_3111_clip_path)',

@@ -18,7 +18,6 @@ export const Iconvideocustomstatic = React.memo((props: IconvideocustomstaticPro
     >
       <foreignObject x="9.34766" y="3.46411" width="17.0908" height="17.4708">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(2px)',
             clipPath: 'url(#bgblur_0_7293_3126_clip_path)',
@@ -34,7 +33,6 @@ export const Iconvideocustomstatic = React.memo((props: IconvideocustomstaticPro
       />
       <foreignObject x="-0.438477" y="3.32251" width="20.877" height="17.813">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(1px)',
             clipPath: 'url(#bgblur_1_7293_3126_clip_path)',
@@ -57,7 +55,6 @@ export const Iconvideocustomstatic = React.memo((props: IconvideocustomstaticPro
       </g>
       <foreignObject x="-0.438477" y="3.32251" width="20.877" height="17.813">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(1px)',
             clipPath: 'url(#bgblur_2_7293_3126_clip_path)',

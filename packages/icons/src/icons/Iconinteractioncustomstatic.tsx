@@ -22,7 +22,6 @@ export const Iconinteractioncustomstatic = React.memo((props: Iconinteractioncus
       />
       <foreignObject x="-1" y="-1" width="23.5928" height="9.67749">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(1.5px)',
             clipPath: 'url(#bgblur_0_7293_3085_clip_path)',
@@ -40,7 +39,6 @@ export const Iconinteractioncustomstatic = React.memo((props: Iconinteractioncus
       <circle cx="7.25" cy="4.00122" r="0.75" fill="white" />
       <foreignObject x="2.88477" y="4.91504" width="22.915" height="21.2646">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(2px)',
             clipPath: 'url(#bgblur_1_7293_3085_clip_path)',
@@ -63,7 +61,6 @@ export const Iconinteractioncustomstatic = React.memo((props: Iconinteractioncus
       </g>
       <foreignObject x="2.88477" y="4.91504" width="22.915" height="21.2646">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(2px)',
             clipPath: 'url(#bgblur_2_7293_3085_clip_path)',
