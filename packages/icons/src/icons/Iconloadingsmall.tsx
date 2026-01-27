@@ -20,7 +20,6 @@ export const Iconloadingsmall = React.memo((props: IconloadingsmallProps) => {
         <g transform="matrix(0.00174476 0.00863781 -0.00863781 0.00174476 12 12)">
           <foreignObject x="-1804.94" y="-1804.94" width="3609.89" height="3609.89">
             <div
-              xmlns="http://www.w3.org/1999/xhtml"
               style={{
                 background:
                   'conic-gradient(from 90deg,rgba(240, 246, 255, 1) 0deg,rgba(34, 84, 244, 1) 360deg)',

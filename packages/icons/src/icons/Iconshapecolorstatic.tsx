@@ -22,7 +22,6 @@ export const Iconshapecolorstatic = React.memo((props: IconshapecolorstaticProps
             <g transform="matrix(0 0.0125 -0.0125 0 12 12)">
               <foreignObject x="-1213.33" y="-1213.33" width="2426.67" height="2426.67">
                 <div
-                  xmlns="http://www.w3.org/1999/xhtml"
                   style={{
                     background:
                       'conic-gradient(from 90deg,rgba(255, 64, 64, 1) 0deg,rgba(255, 62, 62, 1) 5.82477deg,rgba(187, 100, 255, 0.9057) 51.155deg,rgba(27, 91, 255, 1) 103.039deg,rgba(74, 255, 222, 1) 155.347deg,rgba(152, 255, 72, 1) 210.428deg,rgba(255, 242, 133, 1) 251.651deg,rgba(255, 192, 97, 1) 303.797deg,rgba(255, 67, 67, 1) 352.062deg,rgba(255, 64, 64, 1) 360deg)',

@@ -18,7 +18,6 @@ export const Iconcapitalcustomstatic = React.memo((props: Iconcapitalcustomstati
     >
       <foreignObject x="3" y="16.0001" width="18" height="8">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(1px)',
             clipPath: 'url(#bgblur_0_7293_3094_clip_path)',
@@ -34,7 +33,6 @@ export const Iconcapitalcustomstatic = React.memo((props: Iconcapitalcustomstati
       />
       <foreignObject x="-4" y="-0.00012207" width="32" height="26">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(3px)',
             clipPath: 'url(#bgblur_1_7293_3094_clip_path)',
@@ -49,7 +47,6 @@ export const Iconcapitalcustomstatic = React.memo((props: Iconcapitalcustomstati
       />
       <foreignObject x="3" y="0" width="18" height="13">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(1px)',
             clipPath: 'url(#bgblur_2_7293_3094_clip_path)',
@@ -65,7 +62,6 @@ export const Iconcapitalcustomstatic = React.memo((props: Iconcapitalcustomstati
       />
       <foreignObject x="3" y="0" width="18" height="13">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(1px)',
             clipPath: 'url(#bgblur_3_7293_3094_clip_path)',

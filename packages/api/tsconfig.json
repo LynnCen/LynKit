@@ -1,20 +1,9 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "ES2018",
-    "module": "ESNext",
-    "lib": ["DOM", "ESNext"],
-    "declaration": true,
-    "declarationDir": "lib/types",
-    "strict": true,
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "baseUrl": ".",
-    "outDir": "lib",
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "outDir": "./lib",
+    "rootDir": "./src"
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "lib", "**/__tests__/*"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "lib", "**/*.test.*"]
 }

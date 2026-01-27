@@ -30,7 +30,6 @@ export const Iconideacustomstatic = React.memo((props: IconideacustomstaticProps
       />
       <foreignObject x="0" y="2.21656" width="22.7721" height="23.7834">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(1.5px)',
             clipPath: 'url(#bgblur_0_7293_3118_clip_path)',
@@ -55,7 +54,6 @@ export const Iconideacustomstatic = React.memo((props: IconideacustomstaticProps
       </g>
       <foreignObject x="0" y="2.21656" width="22.7721" height="23.7834">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(1.5px)',
             clipPath: 'url(#bgblur_1_7293_3118_clip_path)',

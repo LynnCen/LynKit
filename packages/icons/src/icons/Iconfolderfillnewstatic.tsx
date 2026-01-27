@@ -27,7 +27,6 @@ export const Iconfolderfillnewstatic = React.memo((props: Iconfolderfillnewstati
       />
       <foreignObject x="1" y="4" width="22" height="18">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(0.5px)',
             clipPath: 'url(#bgblur_0_15109_4102_clip_path)',

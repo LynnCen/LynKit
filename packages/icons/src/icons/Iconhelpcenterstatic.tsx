@@ -18,7 +18,6 @@ export const Iconhelpcenterstatic = React.memo((props: IconhelpcenterstaticProps
     >
       <foreignObject x="0" y="0" width="0" height="0">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(11px)',
             clipPath: 'url(#bgblur_0_1660_613_clip_path)',

@@ -1,26 +1,32 @@
 {
-  //  "extends": "./tsconfig.settings.json",
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES2020",
     "module": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "moduleResolution": "node",
-    "jsx": "react",
+    "moduleResolution": "bundler",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    
     "strict": false,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "allowJs": true,
     "noImplicitAny": false,
     "strictNullChecks": false,
-    "noEmit": true,
-    "noUnusedLocals": false,   // 报告未使用的局部变量
-    "noUnusedParameters": false, // 报告未使用的函数参数
-    "resolveJsonModule": true,
+    
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": false,
+    
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-
-
+    
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   },
-  "include": ["packages/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist", "lib", "build"]
 }

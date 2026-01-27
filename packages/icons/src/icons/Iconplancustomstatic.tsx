@@ -22,7 +22,6 @@ export const Iconplancustomstatic = React.memo((props: IconplancustomstaticProps
       />
       <foreignObject x="-3" y="3" width="27" height="23">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(2.5px)',
             clipPath: 'url(#bgblur_0_7293_3101_clip_path)',
@@ -38,7 +37,6 @@ export const Iconplancustomstatic = React.memo((props: IconplancustomstaticProps
       />
       <foreignObject x="-3" y="3" width="27" height="23">
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
           style={{
             backdropFilter: 'blur(2.5px)',
             clipPath: 'url(#bgblur_1_7293_3101_clip_path)',
