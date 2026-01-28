@@ -11,12 +11,22 @@ function getComponentEntries() {
     index: resolve(srcDir, 'index.ts'),
   };
 
+  // 需要排除的目录
+  const excludeDirs = ['styles', 'interfaces'];
+
   const items = readdirSync(srcDir);
   for (const item of items) {
     const itemPath = resolve(srcDir, item);
-    if (statSync(itemPath).isDirectory() && item !== 'styles' && item !== 'interfaces') {
-      const indexFile = resolve(itemPath, 'index.tsx');
-      entries[`${item.toLowerCase()}/index`] = indexFile;
+    if (statSync(itemPath).isDirectory() && !excludeDirs.includes(item)) {
+      // 检查是否存在 index.tsx 或 index.ts
+      const indexTsx = resolve(itemPath, 'index.tsx');
+      const indexTs = resolve(itemPath, 'index.ts');
+
+      if (statSync(indexTsx, { throwIfNoEntry: false })?.isFile()) {
+        entries[`${item.toLowerCase()}/index`] = indexTsx;
+      } else if (statSync(indexTs, { throwIfNoEntry: false })?.isFile()) {
+        entries[`${item.toLowerCase()}/index`] = indexTs;
+      }
     }
   }
 
@@ -34,7 +44,7 @@ export default defineConfig({
       // 同时生成到 lib 目录
       afterBuild: async () => {
         const { copyFileSync, mkdirSync, readdirSync, statSync } = await import('fs');
-        const { resolve, dirname, relative } = await import('path');
+        const { resolve } = await import('path');
 
         function copyDir(src: string, dest: string) {
           mkdirSync(dest, { recursive: true });
