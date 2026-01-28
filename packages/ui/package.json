@@ -6,25 +6,29 @@
   "homepage": "https://github.com/LynnCen/LynKit#readme",
   "license": "MIT",
   "type": "module",
-  "main": "./lib/index.cjs",
-  "module": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
   "exports": {
     ".": {
-      "types": "./lib/index.d.ts",
-      "import": "./lib/index.js",
-      "require": "./lib/index.cjs"
-    }
+      "types": "./es/index.d.ts",
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./es/*": "./es/*",
+    "./lib/*": "./lib/*",
+    "./styles.css": "./es/style.css"
   },
   "files": [
+    "es",
     "lib"
   ],
   "sideEffects": [
     "**/*.css"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "vite build",
+    "dev": "vite build --watch",
     "test": "jest"
   },
   "publishConfig": {
@@ -46,7 +50,9 @@
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
-    "tsup": "catalog:",
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.0",
+    "vite-plugin-dts": "^4.4.0",
     "typescript": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",

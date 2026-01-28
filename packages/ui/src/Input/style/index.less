@@ -1,22 +1,26 @@
+@import '../../styles/tokens.css';
 @import '../../styles/variables.less';
 
 .lyn-input {
   position: relative;
   display: inline-block;
   width: 100%;
+  font-family: @font-family;
   
   &-wrapper {
     position: relative;
     display: flex;
+    align-items: center;
     width: 100%;
-    padding: @padding-sm;
+    height: @height-base;
+    padding: 0 @padding-md;
     color: @text-color;
     font-size: @font-size-base;
-    line-height: 1.5;
-    background-color: #fff;
+    line-height: @line-height-base;
+    background-color: @bg-color;
     border: 1px solid @border-color;
     border-radius: @border-radius-base;
-    transition: all @animation-duration-base;
+    transition: all @animation-duration-base @animation-timing-function;
     
     &:hover {
       border-color: @primary-color;
@@ -24,46 +28,74 @@
     
     &:focus-within {
       border-color: @primary-color;
-      box-shadow: 0 0 0 2px fade(@primary-color, 20%);
+      box-shadow: 0 0 0 2px var(--lynkit-color-primary-bg);
       outline: 0;
+    }
+
+    input {
+      flex: 1;
+      width: 100%;
+      padding: 0;
+      color: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      background: transparent;
+      border: none;
+      outline: none;
+
+      &::placeholder {
+        color: @text-color-disabled;
+      }
     }
   }
   
   &-disabled {
-    background-color: #f5f5f5;
-    cursor: not-allowed;
-    
-    &:hover {
-      border-color: @border-color;
+    .lyn-input-wrapper {
+      background-color: @bg-color-secondary;
+      cursor: not-allowed;
+      
+      &:hover {
+        border-color: @border-color;
+      }
+
+      input {
+        cursor: not-allowed;
+        color: @text-color-disabled;
+      }
     }
   }
   
-  &-small {
-    padding: @padding-sm - 2px;
+  // 尺寸变体
+  &-small .lyn-input-wrapper {
+    height: @height-sm;
+    padding: 0 @padding-sm;
     font-size: @font-size-sm;
   }
   
-  &-large {
-    padding: @padding-lg - 2px;
+  &-large .lyn-input-wrapper {
+    height: @height-lg;
+    padding: 0 @padding-lg;
     font-size: @font-size-lg;
   }
   
   &-prefix {
-    margin-right: @padding-sm;
+    margin-right: @spacing-sm;
+    color: @text-color-secondary;
   }
   
   &-suffix {
-    margin-left: @padding-sm;
+    margin-left: @spacing-sm;
+    color: @text-color-secondary;
   }
   
   &-count {
     color: @text-color-secondary;
     font-size: @font-size-sm;
-    margin-left: @padding-sm;
+    margin-left: @spacing-sm;
   }
   
   // 状态样式
-  &-status-error {
+  &-status-error .lyn-input-wrapper {
     border-color: @error-color;
     
     &:hover {
@@ -72,11 +104,11 @@
     
     &:focus-within {
       border-color: @error-color;
-      box-shadow: 0 0 0 2px fade(@error-color, 20%);
+      box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.1);
     }
   }
   
-  &-status-warning {
+  &-status-warning .lyn-input-wrapper {
     border-color: @warning-color;
     
     &:hover {
@@ -85,7 +117,7 @@
     
     &:focus-within {
       border-color: @warning-color;
-      box-shadow: 0 0 0 2px fade(@warning-color, 20%);
+      box-shadow: 0 0 0 2px rgba(250, 173, 20, 0.1);
     }
   }
-} 
+}

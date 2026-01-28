@@ -1,35 +1,120 @@
+@import '../../styles/tokens.css';
 @import '../../styles/variables.less';
 
 .lyn-btn {
-  padding: @padding-md @padding-lg;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: @height-base;
+  padding: 0 @padding-lg;
   font-size: @font-size-base;
+  font-family: @font-family;
+  line-height: @line-height-base;
   border-radius: @border-radius-base;
   border: 1px solid @border-color;
+  background: @bg-color;
+  color: @text-color;
   cursor: pointer;
-  transition: all @animation-duration-base;
+  transition: all @animation-duration-base @animation-timing-function;
+  user-select: none;
   
+  &:hover {
+    color: @primary-color;
+    border-color: @primary-color;
+  }
+
+  &:active {
+    color: @primary-color-active;
+    border-color: @primary-color-active;
+  }
+  
+  // 类型变体
   &-primary {
     background: @primary-color;
     border-color: @primary-color;
-    color: #fff;
+    color: @text-color-inverse;
     
     &:hover {
-      background: fade(@primary-color, 85%);
+      background: @primary-color-hover;
+      border-color: @primary-color-hover;
+      color: @text-color-inverse;
+    }
+
+    &:active {
+      background: @primary-color-active;
+      border-color: @primary-color-active;
+    }
+  }
+
+  &-link {
+    background: transparent;
+    border-color: transparent;
+    color: @primary-color;
+
+    &:hover {
+      color: @primary-color-hover;
+      border-color: transparent;
+    }
+  }
+
+  &-text {
+    background: transparent;
+    border-color: transparent;
+    color: @text-color;
+
+    &:hover {
+      background: @bg-color-secondary;
+      border-color: transparent;
     }
   }
   
+  // 尺寸变体
   &-small {
-    padding: @padding-sm;
+    height: @height-sm;
+    padding: 0 @padding-sm;
     font-size: @font-size-sm;
   }
   
   &-large {
-    padding: @padding-lg;
+    height: @height-lg;
+    padding: 0 @padding-lg;
     font-size: @font-size-lg;
   }
   
-  &[disabled] {
+  // 状态
+  &[disabled],
+  &-disabled {
     cursor: not-allowed;
-    opacity: 0.65;
+    opacity: 0.5;
+    pointer-events: none;
   }
-} 
+
+  &-loading {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &-loading-icon {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: @spacing-xs;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: lyn-btn-spin 1s linear infinite;
+  }
+
+  &-icon {
+    margin-right: @spacing-xs;
+  }
+}
+
+@keyframes lyn-btn-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

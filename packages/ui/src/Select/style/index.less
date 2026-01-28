@@ -1,20 +1,23 @@
+@import '../../styles/tokens.css';
 @import '../../styles/variables.less';
 
 .lyn-select {
   position: relative;
   display: inline-block;
   width: 100%;
+  font-family: @font-family;
   
   &-selector {
     position: relative;
     display: flex;
+    align-items: center;
     width: 100%;
-    height: 32px;
-    padding: 0 @padding-sm;
-    background-color: #fff;
+    height: @height-base;
+    padding: 0 @padding-md;
+    background-color: @bg-color;
     border: 1px solid @border-color;
     border-radius: @border-radius-base;
-    transition: all @animation-duration-base;
+    transition: all @animation-duration-base @animation-timing-function;
     cursor: pointer;
     
     &:hover {
@@ -24,14 +27,15 @@
   
   &-focused .lyn-select-selector {
     border-color: @primary-color;
-    box-shadow: 0 0 0 2px fade(@primary-color, 20%);
+    box-shadow: 0 0 0 2px var(--lynkit-color-primary-bg);
     outline: 0;
   }
   
   &-disabled {
     .lyn-select-selector {
-      background: #f5f5f5;
+      background: @bg-color-secondary;
       cursor: not-allowed;
+      color: @text-color-disabled;
       
       &:hover {
         border-color: @border-color;
@@ -44,20 +48,27 @@
       .lyn-select-selection-search {
         position: absolute;
         top: 0;
-        left: @padding-sm;
-        right: @padding-sm;
+        left: @padding-md;
+        right: @padding-md;
         
         input {
           width: 100%;
-          height: 30px;
+          height: calc(@height-base - 2px);
           border: none;
           outline: none;
           background: transparent;
+          color: @text-color;
         }
       }
       
       .lyn-select-selection-item {
-        line-height: 30px;
+        line-height: calc(@height-base - 2px);
+        color: @text-color;
+      }
+
+      .lyn-select-selection-placeholder {
+        line-height: calc(@height-base - 2px);
+        color: @text-color-disabled;
       }
     }
   }
@@ -65,12 +76,13 @@
   &-arrow {
     position: absolute;
     top: 50%;
-    right: @padding-sm;
+    right: @padding-md;
     margin-top: -6px;
-    font-size: 12px;
+    font-size: @font-size-sm;
     color: @text-color-secondary;
     transform: rotate(0);
-    transition: transform @animation-duration-base;
+    transition: transform @animation-duration-base @animation-timing-function;
+    pointer-events: none;
   }
   
   &-open .lyn-select-arrow {
@@ -80,11 +92,12 @@
   &-clear {
     position: absolute;
     top: 50%;
-    right: 24px;
+    right: 28px;
     margin-top: -6px;
-    font-size: 12px;
+    font-size: @font-size-sm;
     color: @text-color-secondary;
     cursor: pointer;
+    transition: color @animation-duration-base;
     
     &:hover {
       color: @text-color;
@@ -97,29 +110,31 @@
     top: 100%;
     left: 0;
     width: 100%;
-    margin-top: 4px;
-    padding: @padding-sm 0;
-    background-color: #fff;
+    margin-top: @spacing-xs;
+    padding: @spacing-xs 0;
+    background-color: @bg-color;
     border-radius: @border-radius-base;
-    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12);
+    box-shadow: @shadow-base;
+    z-index: 1050;
     
     .lyn-select-item {
-      padding: @padding-sm @padding-md;
+      padding: @spacing-sm @spacing-md;
+      color: @text-color;
       cursor: pointer;
-      transition: background @animation-duration-base;
+      transition: background @animation-duration-base @animation-timing-function;
       
       &:hover {
-        background: fade(@primary-color, 10%);
+        background: var(--lynkit-color-primary-bg);
       }
       
       &-selected {
         color: @primary-color;
         font-weight: 500;
-        background: fade(@primary-color, 10%);
+        background: var(--lynkit-color-primary-bg);
       }
       
       &-disabled {
-        color: @text-color-secondary;
+        color: @text-color-disabled;
         cursor: not-allowed;
         
         &:hover {
@@ -132,28 +147,32 @@
   // 尺寸变体
   &-lg {
     .lyn-select-selector {
-      height: 40px;
+      height: @height-lg;
+      font-size: @font-size-lg;
       
       .lyn-select-selection-search input {
-        height: 38px;
+        height: calc(@height-lg - 2px);
       }
       
-      .lyn-select-selection-item {
-        line-height: 38px;
+      .lyn-select-selection-item,
+      .lyn-select-selection-placeholder {
+        line-height: calc(@height-lg - 2px);
       }
     }
   }
   
   &-sm {
     .lyn-select-selector {
-      height: 24px;
+      height: @height-sm;
+      font-size: @font-size-sm;
       
       .lyn-select-selection-search input {
-        height: 22px;
+        height: calc(@height-sm - 2px);
       }
       
-      .lyn-select-selection-item {
-        line-height: 22px;
+      .lyn-select-selection-item,
+      .lyn-select-selection-placeholder {
+        line-height: calc(@height-sm - 2px);
       }
     }
   }
@@ -166,6 +185,10 @@
       border-color: @error-color;
     }
   }
+
+  &-status-error.lyn-select-focused .lyn-select-selector {
+    box-shadow: 0 0 0 2px rgba(245, 34, 45, 0.1);
+  }
   
   &-status-warning .lyn-select-selector {
     border-color: @warning-color;
@@ -174,4 +197,8 @@
       border-color: @warning-color;
     }
   }
-} 
+
+  &-status-warning.lyn-select-focused .lyn-select-selector {
+    box-shadow: 0 0 0 2px rgba(250, 173, 20, 0.1);
+  }
+}
