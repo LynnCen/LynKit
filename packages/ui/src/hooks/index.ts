@@ -1,1 +1,1 @@
-export { useConfig, default as useConfig_ } from './useConfig';
+export { useConfig } from './useConfig';
