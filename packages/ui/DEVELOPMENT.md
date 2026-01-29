@@ -1,10 +1,40 @@
-# @lynkit/ui 组件开发规范
+# @lynkit/ui 开发指南
 
-> 本文档定义了组件开发的标准和最佳实践，确保组件库的一致性和可维护性。
+> 组件库开发规范与最佳实践
 
 ---
 
-## 一、目录结构
+## 一、快速上手
+
+### 1.1 使用方式
+
+```typescript
+// 方式1：统一导入（推荐）
+import { Button, ConfigProvider } from '@lynkit/ui';
+import '@lynkit/ui/styles.css';
+
+// 方式2：按需导入
+import Button from '@lynkit/ui/es/button';
+import '@lynkit/ui/es/button/style/index.css';
+
+// 主题切换
+<ConfigProvider theme="dark">
+  <Button type="primary">按钮</Button>
+</ConfigProvider>
+```
+
+### 1.2 核心指标
+
+| 指标       | 目标状态               |
+| ---------- | ---------------------- |
+| 样式导入   | 统一入口 + 按需可选    |
+| 主题切换   | CSS Variables 动态切换 |
+| TypeScript | 100% 类型覆盖          |
+| 测试覆盖   | ≥80%                   |
+
+---
+
+## 二、目录结构
 
 每个组件应遵循以下目录结构：
 
@@ -12,7 +42,7 @@
 src/
 └── ComponentName/
     ├── index.tsx           # 组件入口（导出）
-    ├── ComponentName.tsx   # 组件实现（可选，简单组件可合并到 index.tsx）
+    ├── ComponentName.tsx   # 组件实现（可选）
     ├── interface.ts        # 类型定义
     ├── style/
     │   └── index.less      # 组件样式
@@ -25,11 +55,11 @@ src/
 
 ---
 
-## 二、组件实现规范
+## 三、组件实现规范
 
-### 2.1 基本结构
+### 3.1 基本结构
 
-````tsx
+```tsx
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 import { useConfig } from '../hooks';
@@ -38,13 +68,6 @@ import './style/index.less';
 
 /**
  * ComponentName 组件描述
- *
- * @example
- * ```tsx
- * import { ComponentName } from '@lynkit/ui';
- *
- * <ComponentName prop="value" />
- * ```
  */
 const ComponentName = forwardRef<HTMLElement, ComponentNameProps>(
   ({ prop1, prop2, className, children, ...rest }, ref) => {
@@ -53,13 +76,7 @@ const ComponentName = forwardRef<HTMLElement, ComponentNameProps>(
     const prefixCls = `${globalPrefixCls}-component-name`;
 
     // 2. 计算 className
-    const classes = classNames(
-      prefixCls,
-      {
-        [`${prefixCls}-variant`]: prop1,
-      },
-      className
-    );
+    const classes = classNames(prefixCls, { [`${prefixCls}-variant`]: prop1 }, className);
 
     // 3. 渲染
     return (
@@ -73,9 +90,9 @@ const ComponentName = forwardRef<HTMLElement, ComponentNameProps>(
 ComponentName.displayName = 'ComponentName';
 
 export default ComponentName;
-````
+```
 
-### 2.2 关键规则
+### 3.2 关键规则
 
 | 规则               | 说明                              |
 | ------------------ | --------------------------------- |
@@ -87,9 +104,9 @@ export default ComponentName;
 
 ---
 
-## 三、类型定义规范
+## 四、类型定义规范
 
-### 3.1 Props 定义
+### 4.1 Props 定义
 
 ```typescript
 // interface.ts
@@ -126,7 +143,7 @@ export interface ComponentNameProps extends Omit<HTMLAttributes<HTMLDivElement>,
 }
 ```
 
-### 3.2 命名规范
+### 4.2 命名规范
 
 | 类型     | 命名规则                     | 示例                             |
 | -------- | ---------------------------- | -------------------------------- |
@@ -138,11 +155,9 @@ export interface ComponentNameProps extends Omit<HTMLAttributes<HTMLDivElement>,
 
 ---
 
-## 四、样式规范
+## 五、样式规范
 
-### 4.1 CSS 类名规范
-
-使用 BEM 命名约定：
+### 5.1 CSS 类名规范（BEM）
 
 ```less
 .lyn-component-name {
@@ -162,7 +177,7 @@ export interface ComponentNameProps extends Omit<HTMLAttributes<HTMLDivElement>,
 }
 ```
 
-### 4.2 使用 Design Tokens
+### 5.2 使用 Design Tokens
 
 所有样式值必须使用 CSS Variables：
 
@@ -175,7 +190,6 @@ export interface ComponentNameProps extends Omit<HTMLAttributes<HTMLDivElement>,
   color: @text-color;
   padding: @spacing-md;
   border-radius: @border-radius-base;
-  transition: all @animation-duration-base @animation-timing-function;
 
   // ❌ 错误：硬编码值
   // color: #333;
@@ -183,23 +197,55 @@ export interface ComponentNameProps extends Omit<HTMLAttributes<HTMLDivElement>,
 }
 ```
 
-### 4.3 主题适配
+### 5.3 Design Tokens 定义
+
+```css
+/* tokens.css */
+:root {
+  /* 基础色板 */
+  --lynkit-blue-500: #1890ff;
+  --lynkit-blue-600: #096dd9;
+
+  /* 语义化颜色 */
+  --lynkit-color-primary: var(--lynkit-blue-500);
+  --lynkit-color-primary-hover: var(--lynkit-blue-600);
+  --lynkit-color-bg: #ffffff;
+  --lynkit-color-text: rgba(0, 0, 0, 0.85);
+
+  /* 间距 */
+  --lynkit-spacing-xs: 4px;
+  --lynkit-spacing-sm: 8px;
+  --lynkit-spacing-md: 16px;
+
+  /* 圆角 */
+  --lynkit-radius-sm: 4px;
+  --lynkit-radius-md: 8px;
+}
+
+/* 暗色主题 */
+[data-theme='dark'] {
+  --lynkit-color-primary: #177ddc;
+  --lynkit-color-bg: #141414;
+  --lynkit-color-text: rgba(255, 255, 255, 0.85);
+}
+```
+
+### 5.4 主题适配
 
 不需要为暗色主题单独写样式，CSS Variables 会自动切换：
 
 ```less
 .lyn-component-name {
   background: @bg-color; // 亮色: #fff, 暗色: #141414
-  color: @text-color; // 亮色: rgba(0,0,0,0.85), 暗色: rgba(255,255,255,0.85)
-  border-color: @border-color; // 自动适配
+  color: @text-color; // 自动适配
 }
 ```
 
 ---
 
-## 五、测试规范
+## 六、测试规范
 
-### 5.1 测试文件结构
+### 6.1 测试文件结构
 
 ```tsx
 // __tests__/index.test.tsx
@@ -241,7 +287,7 @@ describe('ComponentName', () => {
 });
 ```
 
-### 5.2 测试覆盖要求
+### 6.2 测试覆盖要求
 
 | 测试类型   | 覆盖内容             |
 | ---------- | -------------------- |
@@ -253,42 +299,39 @@ describe('ComponentName', () => {
 
 ---
 
-## 六、文档规范
+## 七、构建输出
 
-### 6.1 README 结构
+### 7.1 输出结构
 
-```markdown
-# ComponentName 组件名称
-
-组件的简短描述。
-
-## 何时使用
-
-- 使用场景 1
-- 使用场景 2
-
-## 代码演示
-
-### 基础用法
-
-描述基础用法...
-
-### 不同尺寸
-
-描述尺寸变体...
-
-## API
-
-| 参数     | 说明     | 类型                             | 默认值      |
-| -------- | -------- | -------------------------------- | ----------- |
-| variant  | 变体类型 | `'default' \| 'primary'`         | `'default'` |
-| size     | 尺寸     | `'small' \| 'middle' \| 'large'` | `'middle'`  |
-| disabled | 是否禁用 | `boolean`                        | `false`     |
 ```
+es/                      # ES Modules（主要格式）
+├── index.js             # 统一入口
+├── index.d.ts           # 类型入口
+├── style.css            # 统一样式
+├── button/
+│   ├── index.js
+│   ├── index.d.ts
+│   └── style/
+│       └── index.css
+└── input/
+    └── ...
+
+lib/                     # CommonJS（兼容格式）
+├── index.js
+├── index.d.ts
+└── ...
+```
+
+### 7.2 格式说明
+
+| 目录   | 格式       | 用途                                            |
+| ------ | ---------- | ----------------------------------------------- |
+| `es/`  | ES Modules | 现代打包工具（Vite/Webpack），支持 Tree-shaking |
+| `lib/` | CommonJS   | 兼容旧项目、Node.js 环境                        |
 
 ---
 
-## 七、Checklist
+## 八、开发 Checklist
 
 新组件开发前，确认以下事项：
 
@@ -305,5 +348,13 @@ describe('ComponentName', () => {
 
 ---
 
+## 九、参考
+
+- [Ant Design 5.x](https://ant.design/) - 主题系统设计
+- [Element Plus](https://element-plus.org/) - CSS Variables 实践
+- [Radix UI](https://www.radix-ui.com/) - 无障碍设计
+
+---
+
 _文档版本：v1.0_  
-_创建日期：2026-01-28_
+_更新日期：2026-01-29_

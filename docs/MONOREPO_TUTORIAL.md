@@ -1020,6 +1020,7 @@ tsconfig.base.json           # 基础配置
    ```
 
 2. **依赖解析**：
+
    - TypeScript 读取 `references` 字段
    - 检查被引用项目是否已构建
    - 如果未构建或过期，先构建依赖
@@ -1503,7 +1504,7 @@ async function collectDependencies() {
     } else {
       // 版本冲突：选择最高版本
       const sorted = versions.sort((a, b) =>
-        semver.compare(extractVersion(b[0]), extractVersion(a[0])),
+        semver.compare(extractVersion(b[0]), extractVersion(a[0]))
       );
       catalog[name] = sorted[0][0];
 
@@ -1886,7 +1887,7 @@ const server = createServer(async (req, res) => {
         new GetObjectCommand({
           Bucket: BUCKET,
           Key: cacheKey,
-        }),
+        })
       );
 
       res.writeHead(200, { 'Content-Type': 'application/octet-stream' });
@@ -1911,7 +1912,7 @@ const server = createServer(async (req, res) => {
           Bucket: BUCKET,
           Key: cacheKey,
           Body: body,
-        }),
+        })
       );
 
       res.writeHead(200);
@@ -2241,7 +2242,7 @@ async function createPackage() {
   // 4. 生成 package.json
   const pkgTemplate = await readFile(
     'tooling/generator/templates/package/package.json.hbs',
-    'utf-8',
+    'utf-8'
   );
   const compiledPkg = Handlebars.compile(pkgTemplate);
   const packageJson = compiledPkg({
@@ -2255,7 +2256,7 @@ async function createPackage() {
   // 5. 生成 tsconfig.json
   const tsconfigTemplate = await readFile(
     'tooling/generator/templates/package/tsconfig.json.hbs',
-    'utf-8',
+    'utf-8'
   );
   await writeFile(join(packagePath, 'tsconfig.json'), tsconfigTemplate);
 
@@ -2271,8 +2272,8 @@ async function createPackage() {
         tags: [layerTag, `${layerTag}:${answers.name}`],
       },
       null,
-      2,
-    ),
+      2
+    )
   );
 
   console.log(`✓ Created ${scope}/${answers.name} at ${packagePath}`);
