@@ -6,23 +6,30 @@
   "license": "MIT",
   "type": "module",
   "main": "./lib/index.cjs",
-  "module": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
   "exports": {
     ".": {
-      "types": "./lib/index.d.ts",
-      "import": "./lib/index.js",
+      "types": "./es/index.d.ts",
+      "import": "./es/index.js",
       "require": "./lib/index.cjs"
+    },
+    "./*": {
+      "types": "./es/*/index.d.ts",
+      "import": "./es/*/index.js",
+      "require": "./lib/*/index.cjs"
     }
   },
   "files": [
+    "es",
     "lib"
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "test": "jest"
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "publishConfig": {
     "access": "public",
@@ -34,11 +41,15 @@
   },
   "keywords": [
     "utils",
-    "api",
-    "functions"
+    "debounce",
+    "throttle",
+    "lru-cache",
+    "retry"
   ],
   "devDependencies": {
-    "tsup": "catalog:",
-    "typescript": "catalog:"
+    "vite": "catalog:",
+    "vite-plugin-dts": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
   }
 }

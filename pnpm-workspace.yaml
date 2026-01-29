@@ -14,6 +14,7 @@ catalog:
   vite: ^6.1.0
   tsup: ^8.3.5
   '@vitejs/plugin-react': ^4.3.4
+  vite-plugin-dts: ^4.4.0
 
   # Testing
   vitest: ^2.1.8
