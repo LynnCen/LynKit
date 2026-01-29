@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconmoretoolsProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * more_tools
  * @source figma
  */
-export const Iconmoretools = React.memo((props: IconmoretoolsProps) => {
+const Iconmoretools = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M17.7549 16.25H21V17.75H17.7549V21.0049H16.2549V17.75H13V16.25H16.2549V13.0049H17.7549V16.25Z"
@@ -39,9 +43,9 @@ export const Iconmoretools = React.memo((props: IconmoretoolsProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconmoretools.displayName = 'Iconmoretools'
+Iconmoretools.displayName = 'Iconmoretools';
 
-export default Iconmoretools
+export default Iconmoretools;

@@ -1,30 +1,34 @@
-import React from 'react'
-
-export interface IconflowchartProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * flow_chart
  * @source figma
  */
-export const Iconflowchart = React.memo((props: IconflowchartProps) => {
+const Iconflowchart = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M15 9C15 5.68629 12.3137 3 9 3C5.68629 3 3 5.68629 3 9C3 12.3137 5.68629 15 9 15V9H15Z"
-        fill="#45D582"
+        fill={color}
       />
-      <rect x="10" y="10" width="11" height="11" fill="#7146E8" />
+      <rect x="10" y="10" width="11" height="11" fill={color} />
     </svg>
-  )
-})
+  );
+});
 
-Iconflowchart.displayName = 'Iconflowchart'
+Iconflowchart.displayName = 'Iconflowchart';
 
-export default Iconflowchart
+export default Iconflowchart;

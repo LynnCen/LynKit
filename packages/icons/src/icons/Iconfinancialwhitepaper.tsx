@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconfinancialwhitepaperProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * financial_white_paper
  * @source figma
  */
-export const Iconfinancialwhitepaper = React.memo((props: IconfinancialwhitepaperProps) => {
+const Iconfinancialwhitepaper = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M18.9854 7.08295H17.4854V7.67297H18.9854V8.67297H17.4854V9.62534H16.4854V8.67297H14.9854V7.67297H16.4854V7.08295H14.9854V6.08295H15.8701L14.9345 5.14729L15.6416 4.44019L16.9853 5.78384L18.3289 4.44021L19.036 5.14732L18.1004 6.08295H18.9854V7.08295Z"
@@ -36,9 +40,9 @@ export const Iconfinancialwhitepaper = React.memo((props: Iconfinancialwhitepape
       <path d="M11.2517 10.6459H7.63574V9.14587H11.2517V10.6459Z" fill="black" />
       <path d="M7.63574 13.6841H13.3544V12.1841H7.63574V13.6841Z" fill="black" />
     </svg>
-  )
-})
+  );
+});
 
-Iconfinancialwhitepaper.displayName = 'Iconfinancialwhitepaper'
+Iconfinancialwhitepaper.displayName = 'Iconfinancialwhitepaper';
 
-export default Iconfinancialwhitepaper
+export default Iconfinancialwhitepaper;

@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IcontoolProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tool
  * @source figma
  */
-export const Icontool = React.memo((props: IcontoolProps) => {
+const Icontool = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M20.5 11.9999C20.5 7.30532 16.6943 3.49963 11.9998 3.49963C7.3052 3.49963 3.49951 7.30532 3.49951 11.9999C3.49951 14.9759 5.02887 17.5947 7.34452 19.1132L9.38844 12.4842C9.57996 11.8631 10.0953 11.4091 10.7147 11.2843L11.7127 7.95783C11.7982 7.67277 12.2018 7.67277 12.2873 7.95783L13.2853 11.2844C13.9045 11.4093 14.4196 11.8633 14.6111 12.4842L16.655 19.1132C18.9706 17.5947 20.5 14.9759 20.5 11.9999ZM13.1777 12.9262C13.1453 12.8214 13.0485 12.7499 12.9388 12.7499H11.0608C10.9511 12.7499 10.8542 12.8214 10.8219 12.9262L8.69236 19.8327C9.70897 20.2625 10.8266 20.5001 11.9998 20.5001C13.1729 20.5001 14.2905 20.2625 15.3071 19.8327L13.1777 12.9262ZM11.9998 1.99963C17.5227 1.99963 22 6.4769 22 11.9999C22 17.5229 17.5227 22.0001 11.9998 22.0001C6.47677 22.0001 1.99951 17.5229 1.99951 11.9999C1.99951 6.4769 6.47677 1.99963 11.9998 1.99963Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontool.displayName = 'Icontool'
+Icontool.displayName = 'Icontool';
 
-export default Icontool
+export default Icontool;

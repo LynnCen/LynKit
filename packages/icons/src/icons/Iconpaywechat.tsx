@@ -1,33 +1,37 @@
-import React from 'react'
-
-export interface IconpaywechatProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * pay_wechat
  * @source figma
  */
-export const Iconpaywechat = React.memo((props: IconpaywechatProps) => {
+const Iconpaywechat = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M5 3C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3H5Z"
-        fill="#1CCC66"
+        fill={color}
       />
       <path
         d="M10.0917 13.5907C10.0286 13.6217 9.95731 13.6396 9.88162 13.6396C9.70668 13.6396 9.55454 13.546 9.4747 13.4077L9.44409 13.3425L8.16973 10.6259C8.15598 10.5962 8.14738 10.563 8.14738 10.5305C8.14738 10.4053 8.25185 10.3037 8.38077 10.3037C8.43313 10.3037 8.48141 10.3205 8.52047 10.3487L10.0241 11.3888C10.1341 11.4587 10.2653 11.4997 10.4064 11.4997C10.4907 11.4997 10.5709 11.4844 10.6458 11.4579L17.7178 8.4C16.4503 6.94863 14.3625 6 11.9999 6C8.13389 6 5 8.53724 5 11.6671C5 13.3749 5.94294 14.912 7.41868 15.9508C7.53715 16.0328 7.61456 16.1677 7.61456 16.32C7.61456 16.3703 7.60343 16.4165 7.59003 16.4644C7.47216 16.8917 7.2834 17.5756 7.27461 17.6076C7.25992 17.6612 7.23686 17.7172 7.23686 17.7733C7.23686 17.8985 7.34142 18 7.47035 18C7.52114 18 7.56237 17.9817 7.60517 17.9578L9.13763 17.0984C9.25289 17.0336 9.37494 16.9937 9.50933 16.9937C9.58084 16.9937 9.64999 17.0043 9.71516 17.0237C10.43 17.2234 11.2013 17.3345 12 17.3345C15.8658 17.3345 19 14.7972 19 11.6672C19 10.7192 18.7109 9.82637 18.2027 9.04111L10.1428 13.562L10.0917 13.5907Z"
         fill="white"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconpaywechat.displayName = 'Iconpaywechat'
+Iconpaywechat.displayName = 'Iconpaywechat';
 
-export default Iconpaywechat
+export default Iconpaywechat;

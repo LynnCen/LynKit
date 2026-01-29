@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconwarningstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * warning_static
  * @source figma
  */
-export const Iconwarningstatic = React.memo((props: IconwarningstaticProps) => {
+const Iconwarningstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <circle cx="12" cy="12" r="10" fill="#DA8505" />
       <path
@@ -26,9 +30,9 @@ export const Iconwarningstatic = React.memo((props: IconwarningstaticProps) => {
       <path d="M11.1667 13.25L10.75 7.83337H13.25L12.8333 13.25H11.1667Z" fill="#222529" />
       <path d="M11.1667 14.5V16.1667H12.8333V14.5H11.1667Z" fill="#222529" />
     </svg>
-  )
-})
+  );
+});
 
-Iconwarningstatic.displayName = 'Iconwarningstatic'
+Iconwarningstatic.displayName = 'Iconwarningstatic';
 
-export default Iconwarningstatic
+export default Iconwarningstatic;

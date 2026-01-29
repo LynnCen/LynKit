@@ -1,22 +1,26 @@
-import React from 'react'
-
-export interface IconshapecolorProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * shape_color
  * @source figma
  */
-export const Iconshapecolor = React.memo((props: IconshapecolorProps) => {
+const Iconshapecolor = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
-      <rect x="2" y="2" width="20" height="20" rx="2" fill="#222529" />
+      <rect x="2" y="2" width="20" height="20" rx="2" fill={color} />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -25,9 +29,9 @@ export const Iconshapecolor = React.memo((props: IconshapecolorProps) => {
         fillOpacity={0.08}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconshapecolor.displayName = 'Iconshapecolor'
+Iconshapecolor.displayName = 'Iconshapecolor';
 
-export default Iconshapecolor
+export default Iconshapecolor;

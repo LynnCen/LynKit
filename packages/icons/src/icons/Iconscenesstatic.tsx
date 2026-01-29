@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconscenesstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * scenes_static
  * @source figma
  */
-export const Iconscenesstatic = React.memo((props: IconscenesstaticProps) => {
+const Iconscenesstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M21.5993 9.59995C21.5993 13.6846 19.0484 17.1734 15.4526 18.5601H11.9994H8.54607C4.95035 17.1734 2.3994 13.6846 2.3994 9.59995C2.3994 4.29802 6.69742 0 11.9994 0C17.3013 0 21.5993 4.29802 21.5993 9.59995Z"
@@ -29,9 +33,9 @@ export const Iconscenesstatic = React.memo((props: IconscenesstaticProps) => {
         fill="#8A6800"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconscenesstatic.displayName = 'Iconscenesstatic'
+Iconscenesstatic.displayName = 'Iconscenesstatic';
 
-export default Iconscenesstatic
+export default Iconscenesstatic;

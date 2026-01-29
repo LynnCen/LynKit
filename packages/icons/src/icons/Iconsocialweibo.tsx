@@ -1,24 +1,28 @@
-import React from 'react'
-
-export interface IconsocialweiboProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * social_weibo
  * @source figma
  */
-export const Iconsocialweibo = React.memo((props: IconsocialweiboProps) => {
+const Iconsocialweibo = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M0.608964 4.93853C0 6.4087 0 8.27247 0 12C0 15.7275 0 17.5913 0.608964 19.0615C1.42092 21.0217 2.97831 22.5791 4.93853 23.391C6.4087 24 8.27247 24 12 24C15.7275 24 17.5913 24 19.0615 23.391C21.0217 22.5791 22.5791 21.0217 23.391 19.0615C24 17.5913 24 15.7275 24 12C24 8.27247 24 6.4087 23.391 4.93853C22.5791 2.97831 21.0217 1.42092 19.0615 0.608964C17.5913 0 15.7275 0 12 0C8.27247 0 6.4087 0 4.93853 0.608964C2.97831 1.42092 1.42092 2.97831 0.608964 4.93853Z"
-        fill="#FB6622"
+        fill={color}
       />
       <path
         d="M18.3473 7.21559C17.409 6.20135 15.9778 5.73906 14.3456 5.88739L14.4729 7.28849L14.6745 7.27398C15.8047 7.21437 16.7284 7.53743 17.3146 8.17102C17.8976 8.80112 18.0765 9.6665 17.7974 10.5784L19.1427 10.9901L19.1938 10.81C19.539 9.48969 19.2378 8.17806 18.3473 7.21559Z"
@@ -37,9 +41,9 @@ export const Iconsocialweibo = React.memo((props: IconsocialweiboProps) => {
         fill="white"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconsocialweibo.displayName = 'Iconsocialweibo'
+Iconsocialweibo.displayName = 'Iconsocialweibo';
 
-export default Iconsocialweibo
+export default Iconsocialweibo;

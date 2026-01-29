@@ -1,39 +1,43 @@
-import React from 'react'
-
-export interface IconimagemultipleProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * image_multiple
  * @source figma
  */
-export const Iconimagemultiple = React.memo((props: IconimagemultipleProps) => {
+const Iconimagemultiple = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M19.9121 14.9004L22.4307 17.418L21.582 18.2666L20.0879 16.7725V21.0098H18.8887V16.7705L17.3936 18.2666L16.9697 17.8428L16.5459 17.418L19.4883 14.4756L19.9121 14.9004Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M15.6279 2.99023C16.7325 2.99023 17.6279 3.88566 17.6279 4.99023V6H18.6562C19.7608 6 20.6562 6.89543 20.6562 8V12.5957H19.1562V8C19.1562 7.72386 18.9324 7.5 18.6562 7.5H7.71191C7.43577 7.5 7.21192 7.72386 7.21191 8V11.792C11.8006 12.0533 15.5054 15.613 16.0049 20.1406C16.0403 20.4614 16.0566 20.576 16.0566 20.9443H7.71191C6.60735 20.9443 5.71191 20.0489 5.71191 18.9443V17.9346H4.68359C3.57906 17.9346 2.68364 17.0391 2.68359 15.9346V5.99023C2.6836 4.38513 3.94415 3.07445 5.5293 2.99414L5.68359 2.99023H15.6279ZM7.21191 18.9443C7.21191 19.2205 7.43577 19.4443 7.71191 19.4443H14.3682C13.6153 16.0838 10.73 13.534 7.21191 13.2949V18.9443ZM5.68359 4.49023C4.85517 4.49023 4.1836 5.16181 4.18359 5.99023V15.9346C4.18364 16.2107 4.40748 16.4346 4.68359 16.4346H5.71191V8C5.71192 6.89543 6.60735 6 7.71191 6H16.1279V4.99023C16.1279 4.71409 15.9041 4.49023 15.6279 4.49023H5.68359Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M16.1279 9C16.9564 9 17.6279 9.67157 17.6279 10.5C17.6279 11.3284 16.9564 12 16.1279 12C15.2995 12 14.6279 11.3284 14.6279 10.5C14.6279 9.67157 15.2995 9 16.1279 9Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconimagemultiple.displayName = 'Iconimagemultiple'
+Iconimagemultiple.displayName = 'Iconimagemultiple';
 
-export default Iconimagemultiple
+export default Iconimagemultiple;

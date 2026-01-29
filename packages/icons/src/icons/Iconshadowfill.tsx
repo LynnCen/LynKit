@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconshadowfillProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * shadow_fill
  * @source figma
  */
-export const Iconshadowfill = React.memo((props: IconshadowfillProps) => {
+const Iconshadowfill = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -23,9 +27,9 @@ export const Iconshadowfill = React.memo((props: IconshadowfillProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconshadowfill.displayName = 'Iconshadowfill'
+Iconshadowfill.displayName = 'Iconshadowfill';
 
-export default Iconshadowfill
+export default Iconshadowfill;

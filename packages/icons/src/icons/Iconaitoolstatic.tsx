@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconaitoolstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * ai_tool_static
  * @source figma
  */
-export const Iconaitoolstatic = React.memo((props: IconaitoolstaticProps) => {
+const Iconaitoolstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <g opacity="0.1">
         <path
@@ -53,9 +57,9 @@ export const Iconaitoolstatic = React.memo((props: IconaitoolstaticProps) => {
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconaitoolstatic.displayName = 'Iconaitoolstatic'
+Iconaitoolstatic.displayName = 'Iconaitoolstatic';
 
-export default Iconaitoolstatic
+export default Iconaitoolstatic;

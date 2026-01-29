@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IcontagbangwoxiestaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag_bangwoxie_static
  * @source figma
  */
-export const Icontagbangwoxiestatic = React.memo((props: IcontagbangwoxiestaticProps) => {
+const Icontagbangwoxiestatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Icontagbangwoxiestatic = React.memo((props: IcontagbangwoxiestaticP
       height="14"
       viewBox="0 0 63 14"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M0 3C0 1.34315 1.34315 0 3 0H60C61.6569 0 63 1.34315 63 3V11C63 12.6569 61.6569 14 60 14H3C1.34315 14 0 12.6569 0 11V3Z"
@@ -68,9 +71,9 @@ export const Icontagbangwoxiestatic = React.memo((props: IcontagbangwoxiestaticP
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Icontagbangwoxiestatic.displayName = 'Icontagbangwoxiestatic'
+Icontagbangwoxiestatic.displayName = 'Icontagbangwoxiestatic';
 
-export default Icontagbangwoxiestatic
+export default Icontagbangwoxiestatic;

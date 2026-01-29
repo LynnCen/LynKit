@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconeditsmallProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * edit_small
  * @source figma
  */
-export const Iconeditsmall = React.memo((props: IconeditsmallProps) => {
+const Iconeditsmall = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -23,9 +27,9 @@ export const Iconeditsmall = React.memo((props: IconeditsmallProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconeditsmall.displayName = 'Iconeditsmall'
+Iconeditsmall.displayName = 'Iconeditsmall';
 
-export default Iconeditsmall
+export default Iconeditsmall;

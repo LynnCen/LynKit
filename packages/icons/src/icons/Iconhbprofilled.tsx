@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhbprofilledProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_pro_filled
  * @source figma
  */
-export const Iconhbprofilled = React.memo((props: IconhbprofilledProps) => {
+const Iconhbprofilled = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M6.79521 11.8327H7.83462C8.14192 11.8327 8.37542 11.7558 8.53509 11.6022C8.69778 11.4485 8.77913 11.2316 8.77913 10.9514C8.77913 10.6441 8.69628 10.3986 8.53057 10.2148C8.36487 10.031 8.13891 9.93763 7.8527 9.93462H6.79521V11.8327Z"
@@ -29,9 +33,9 @@ export const Iconhbprofilled = React.memo((props: IconhbprofilledProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhbprofilled.displayName = 'Iconhbprofilled'
+Iconhbprofilled.displayName = 'Iconhbprofilled';
 
-export default Iconhbprofilled
+export default Iconhbprofilled;

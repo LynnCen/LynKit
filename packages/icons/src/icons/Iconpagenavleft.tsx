@@ -1,32 +1,36 @@
-import React from 'react'
-
-export interface IconpagenavleftProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * pagenav_left
  * @source figma
  */
-export const Iconpagenavleft = React.memo((props: IconpagenavleftProps) => {
+const Iconpagenavleft = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
-      <path d="M7.5 7.5H5.5V16.5H7.5V7.5Z" fill="#222529" />
+      <path d="M7.5 7.5H5.5V16.5H7.5V7.5Z" fill={color} />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M2 6C2 4.89543 2.89543 4 4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6ZM4 5.5H20C20.2761 5.5 20.5 5.72386 20.5 6V18C20.5 18.2761 20.2761 18.5 20 18.5H4C3.72386 18.5 3.5 18.2761 3.5 18V6C3.5 5.72386 3.72386 5.5 4 5.5Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconpagenavleft.displayName = 'Iconpagenavleft'
+Iconpagenavleft.displayName = 'Iconpagenavleft';
 
-export default Iconpagenavleft
+export default Iconpagenavleft;

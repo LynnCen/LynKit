@@ -1,29 +1,33 @@
-import React from 'react'
-
-export interface IconchangingtoneProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * changing_tone
  * @source figma
  */
-export const Iconchangingtone = React.memo((props: IconchangingtoneProps) => {
+const Iconchangingtone = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C10.3729 21 8.84636 20.5678 7.5293 19.8125L2.7373 20.6846C2.03331 20.8126 1.49139 20.0718 1.82617 19.4395L3.79883 15.7129C3.28558 14.581 3 13.3238 3 12C3 7.02952 7.02955 3.00014 12 3ZM12 4.5C7.85798 4.50014 4.5 7.85795 4.5 12C4.5 13.1059 4.73826 14.1525 5.16504 15.0938L5.46973 15.7637L3.77148 18.9717L7.80078 18.2393L8.27539 18.5117C9.37138 19.1402 10.6416 19.5 12 19.5C16.1421 19.5 19.5 16.1421 19.5 12C19.5 7.85786 16.1421 4.5 12 4.5ZM9.9834 13C10.3516 13.7409 11.1166 14.25 12 14.25C12.8833 14.25 13.6474 13.7407 14.0156 13H15.6152C15.1776 14.5856 13.7247 15.75 12 15.75C10.2752 15.75 8.82239 14.5856 8.38477 13H9.9834ZM10 9C10.5523 9.00002 11 9.44773 11 10C11 10.5523 10.5523 11 10 11C9.44772 11 9 10.5523 9 10C9 9.44772 9.44772 9 10 9ZM14 9C14.5523 9.00002 15 9.44773 15 10C15 10.5523 14.5523 11 14 11C13.4477 11 13 10.5523 13 10C13 9.44772 13.4477 9 14 9Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconchangingtone.displayName = 'Iconchangingtone'
+Iconchangingtone.displayName = 'Iconchangingtone';
 
-export default Iconchangingtone
+export default Iconchangingtone;

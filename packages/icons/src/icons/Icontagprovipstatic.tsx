@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IcontagprovipstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag_pro_vip_static
  * @source figma
  */
-export const Icontagprovipstatic = React.memo((props: IcontagprovipstaticProps) => {
+const Icontagprovipstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Icontagprovipstatic = React.memo((props: IcontagprovipstaticProps) 
       height="10"
       viewBox="0 0 20 10"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <rect width="20" height="10" rx="5" fill="url(#paint0_linear_8887_3222)" />
       <rect
@@ -71,9 +74,9 @@ export const Icontagprovipstatic = React.memo((props: IcontagprovipstaticProps) 
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Icontagprovipstatic.displayName = 'Icontagprovipstatic'
+Icontagprovipstatic.displayName = 'Icontagprovipstatic';
 
-export default Icontagprovipstatic
+export default Icontagprovipstatic;

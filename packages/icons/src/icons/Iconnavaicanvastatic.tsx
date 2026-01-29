@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconnavaicanvastaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * nav_ai_canva_static
  * @source figma
  */
-export const Iconnavaicanvastatic = React.memo((props: IconnavaicanvastaticProps) => {
+const Iconnavaicanvastatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M2.7002 7.50001C2.7002 4.84905 4.84923 2.70001 7.5002 2.70001H16.5002C19.1512 2.70001 21.3002 4.84905 21.3002 7.50001V16.5C21.3002 19.151 19.1512 21.3 16.5002 21.3H7.5002C4.84923 21.3 2.7002 19.151 2.7002 16.5V7.50001Z"
@@ -46,9 +50,9 @@ export const Iconnavaicanvastatic = React.memo((props: IconnavaicanvastaticProps
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconnavaicanvastatic.displayName = 'Iconnavaicanvastatic'
+Iconnavaicanvastatic.displayName = 'Iconnavaicanvastatic';
 
-export default Iconnavaicanvastatic
+export default Iconnavaicanvastatic;

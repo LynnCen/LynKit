@@ -1,43 +1,47 @@
-import React from 'react'
-
-export interface IcongetstartedProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * get_started
  * @source figma
  */
-export const Icongetstarted = React.memo((props: IcongetstartedProps) => {
+const Icongetstarted = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M15.6775 6.01247C17.3918 6.01247 18.8203 4.37611 18.8203 2.73975C18.8203 4.37611 19.9632 6.01247 21.6775 6.01247C19.9632 6.01247 18.8203 7.10338 18.8203 8.73975C18.8203 7.10338 17.3918 6.01247 15.6775 6.01247Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M6.94924 3.96606C6.94924 5.60243 5.52067 7.23879 3.80639 7.23879C5.52067 7.23879 6.94924 8.3297 6.94924 9.96606C6.94924 8.3297 8.0921 7.23879 9.80639 7.23879C8.0921 7.23879 6.94924 5.60243 6.94924 3.96606Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M11.6036 8.11595C12.3488 7.37079 13.5069 7.32074 14.1903 8.00416L15.6045 9.41837C16.2879 10.1018 16.2379 11.2599 15.4927 12.005L7.17968 20.3181C6.43452 21.0632 5.27644 21.1133 4.59302 20.4299L3.1788 19.0157C2.49539 18.3322 2.54544 17.1742 3.29059 16.429L11.6036 8.11595ZM13.0338 9.16064C12.9362 9.06301 12.7708 9.07016 12.6643 9.17661L11.0683 10.7726L12.836 12.5404L14.4321 10.9444C14.5385 10.8379 14.5457 10.6725 14.448 10.5749L13.0338 9.16064ZM11.7754 13.6011L10.0076 11.8333L4.35125 17.4897C4.2448 17.5961 4.23765 17.7616 4.33528 17.8592L5.7495 19.2734C5.84713 19.371 6.01257 19.3639 6.11902 19.2574L11.7754 13.6011Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M18.6852 11.5842C18.6852 13.2206 17.3918 14.8569 15.6775 14.8569C17.3918 14.8569 18.6852 16.1259 18.6852 17.7623C18.6852 16.1259 19.9632 14.8569 21.6775 14.8569C19.9632 14.8569 18.6852 13.2206 18.6852 11.5842Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Icongetstarted.displayName = 'Icongetstarted'
+Icongetstarted.displayName = 'Icongetstarted';
 
-export default Icongetstarted
+export default Icongetstarted;

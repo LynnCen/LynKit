@@ -1,52 +1,56 @@
-import React from 'react'
-
-export interface IconanchorpointnomirroringProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * anchorpoint_no_mirroring
  * @source figma
  */
-export const Iconanchorpointnomirroring = React.memo((props: IconanchorpointnomirroringProps) => {
+const Iconanchorpointnomirroring = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M7.39699 10.1964C7.69928 10.5997 8.06768 10.9506 8.48613 11.2329C7.88926 11.7758 7.28048 12.4328 6.71413 13.1517C5.93174 14.1447 5.24951 15.2313 4.79594 16.2628C4.33484 17.3114 4.14632 18.2209 4.24247 18.8939C4.30104 19.304 4.01612 19.6839 3.60607 19.7425C3.19602 19.801 2.81612 19.5161 2.75754 19.1061C2.60369 18.0291 2.91517 16.8136 3.42282 15.659C3.938 14.4874 4.69328 13.2928 5.53589 12.2233C6.12035 11.4815 6.75606 10.7882 7.39699 10.1964Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M13.4575 11.2703C13.8886 10.9887 14.2685 10.6352 14.5801 10.2267C16.667 11.7261 18.1514 13.411 19.1778 14.8837C19.9258 15.9569 20.4316 16.9186 20.752 17.6169C20.9123 17.9663 21.0264 18.2503 21.1015 18.4501C21.1391 18.5501 21.1669 18.629 21.1858 18.6847C21.1952 18.7125 21.2025 18.7345 21.2076 18.7504L21.2138 18.7696L21.2157 18.7757L21.2164 18.7779C21.2165 18.7782 21.2168 18.7794 20.5 19L21.2168 18.7794C21.3386 19.1753 21.1165 19.595 20.7206 19.7168C20.3249 19.8386 19.9054 19.6167 19.7833 19.2211L19.7804 19.2121C19.7776 19.2032 19.7727 19.1882 19.7656 19.1676C19.7516 19.1263 19.7291 19.0622 19.6973 18.9776C19.6337 18.8083 19.533 18.5572 19.3886 18.2425C19.0997 17.6126 18.6367 16.7306 17.9472 15.7413C16.9625 14.3285 15.5178 12.6994 13.4575 11.2703Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M8.04148 8C8.0142 7.8374 8 7.67036 8 7.5C8 7.32964 8.0142 7.1626 8.04148 7H3V8H8.04148Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M8 7.5C8 9.15685 9.34315 10.5 11 10.5C12.6569 10.5 14 9.15685 14 7.5C14 5.84315 12.6569 4.5 11 4.5C9.34315 4.5 8 5.84315 8 7.5ZM11 9C10.1716 9 9.5 8.32843 9.5 7.5C9.5 6.67157 10.1716 6 11 6C11.8284 6 12.5 6.67157 12.5 7.5C12.5 8.32843 11.8284 9 11 9Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M5 7C5 6.44772 4.55228 6 4 6H3C2.44772 6 2 6.44772 2 7V8C2 8.55228 2.44772 9 3 9H4C4.55228 9 5 8.55228 5 8V7Z"
-        fill="#222529"
+        fill={color}
       />
-      <path d="M21.4282 12L14.5 8L14 8.86603L20.9282 12.866L21.4282 12Z" fill="#222529" />
+      <path d="M21.4282 12L14.5 8L14 8.86603L20.9282 12.866L21.4282 12Z" fill={color} />
       <path
         d="M22.5981 12.366C22.8743 11.8877 22.7104 11.2761 22.2321 11L21.3661 10.5C20.8878 10.2239 20.2762 10.3877 20.0001 10.866L19.5001 11.7321C19.2239 12.2103 19.3878 12.8219 19.8661 13.0981L20.7321 13.5981C21.2104 13.8742 21.822 13.7103 22.0981 13.2321L22.5981 12.366Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconanchorpointnomirroring.displayName = 'Iconanchorpointnomirroring'
+Iconanchorpointnomirroring.displayName = 'Iconanchorpointnomirroring';
 
-export default Iconanchorpointnomirroring
+export default Iconanchorpointnomirroring;

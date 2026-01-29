@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhbboardProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_ board
  * @source figma
  */
-export const Iconhbboard = React.memo((props: IconhbboardProps) => {
+const Iconhbboard = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M9.5 15C10.3284 15 11 15.6716 11 16.5V19.5C11 20.3284 10.3284 21 9.5 21H4.5C3.67157 21 3 20.3284 3 19.5V16.5C3 15.6716 3.67157 15 4.5 15H9.5Z"
@@ -33,9 +37,9 @@ export const Iconhbboard = React.memo((props: IconhbboardProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhbboard.displayName = 'Iconhbboard'
+Iconhbboard.displayName = 'Iconhbboard';
 
-export default Iconhbboard
+export default Iconhbboard;

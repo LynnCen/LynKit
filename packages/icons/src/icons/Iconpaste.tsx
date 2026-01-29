@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconpasteProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * paste
  * @source figma
  */
-export const Iconpaste = React.memo((props: IconpasteProps) => {
+const Iconpaste = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M22 14C22 15.1046 21.1046 16 20 16H18.6477V14.5H20C20.2761 14.5 20.5 14.2761 20.5 14V12.4091H22V14Z"
@@ -38,9 +42,9 @@ export const Iconpaste = React.memo((props: IconpasteProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconpaste.displayName = 'Iconpaste'
+Iconpaste.displayName = 'Iconpaste';
 
-export default Iconpaste
+export default Iconpaste;

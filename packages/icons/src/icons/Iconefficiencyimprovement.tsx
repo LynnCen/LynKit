@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconefficiencyimprovementProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * efficiency_improvement
  * @source figma
  */
-export const Iconefficiencyimprovement = React.memo((props: IconefficiencyimprovementProps) => {
+const Iconefficiencyimprovement = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M6.37717 4.27469L5.55408 2.18042L4.73099 4.27469L2.63672 5.09778L4.73099 5.92087L5.55408 8.01514L6.37717 5.92087L8.47144 5.09778L6.37717 4.27469Z"
@@ -39,9 +43,9 @@ export const Iconefficiencyimprovement = React.memo((props: Iconefficiencyimprov
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconefficiencyimprovement.displayName = 'Iconefficiencyimprovement'
+Iconefficiencyimprovement.displayName = 'Iconefficiencyimprovement';
 
-export default Iconefficiencyimprovement
+export default Iconefficiencyimprovement;

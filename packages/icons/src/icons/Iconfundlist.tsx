@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconfundlistProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * fundlist
  * @source figma
  */
-export const Iconfundlist = React.memo((props: IconfundlistProps) => {
+const Iconfundlist = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M3.5459 4.5C3.5459 4.08579 3.88168 3.75 4.2959 3.75H14.1387C14.5529 3.75 14.8887 4.08579 14.8887 4.5V7.5C14.8887 7.91421 14.5529 8.25 14.1387 8.25H4.2959C3.88168 8.25 3.5459 7.91421 3.5459 7.5V4.5Z"
@@ -37,9 +41,9 @@ export const Iconfundlist = React.memo((props: IconfundlistProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconfundlist.displayName = 'Iconfundlist'
+Iconfundlist.displayName = 'Iconfundlist';
 
-export default Iconfundlist
+export default Iconfundlist;

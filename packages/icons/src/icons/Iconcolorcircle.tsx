@@ -1,22 +1,26 @@
-import React from 'react'
-
-export interface IconcolorcircleProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * color_circle
  * @source figma
  */
-export const Iconcolorcircle = React.memo((props: IconcolorcircleProps) => {
+const Iconcolorcircle = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
-      <circle cx="12" cy="12" r="10" fill="#222529" />
+      <circle cx="12" cy="12" r="10" fill={color} />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -25,9 +29,9 @@ export const Iconcolorcircle = React.memo((props: IconcolorcircleProps) => {
         fillOpacity={0.08}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconcolorcircle.displayName = 'Iconcolorcircle'
+Iconcolorcircle.displayName = 'Iconcolorcircle';
 
-export default Iconcolorcircle
+export default Iconcolorcircle;

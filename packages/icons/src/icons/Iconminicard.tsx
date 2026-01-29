@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconminicardProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * minicard
  * @source figma
  */
-export const Iconminicard = React.memo((props: IconminicardProps) => {
+const Iconminicard = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path d="M5.87891 8.15063H18.1211V11.1506H5.87891V8.15063Z" fill="black" />
       <path d="M15.1211 12.8494H5.87891V15.8494H15.1211V12.8494Z" fill="black" />
@@ -25,9 +29,9 @@ export const Iconminicard = React.memo((props: IconminicardProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconminicard.displayName = 'Iconminicard'
+Iconminicard.displayName = 'Iconminicard';
 
-export default Iconminicard
+export default Iconminicard;

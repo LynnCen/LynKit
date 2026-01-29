@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconcouponstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * coupon_static
  * @source figma
  */
-export const Iconcouponstatic = React.memo((props: IconcouponstaticProps) => {
+const Iconcouponstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         opacity="0.8"
@@ -41,9 +45,9 @@ export const Iconcouponstatic = React.memo((props: IconcouponstaticProps) => {
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconcouponstatic.displayName = 'Iconcouponstatic'
+Iconcouponstatic.displayName = 'Iconcouponstatic';
 
-export default Iconcouponstatic
+export default Iconcouponstatic;

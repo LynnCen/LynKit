@@ -45,10 +45,13 @@ export default [
         HTMLInputElement: 'readonly',
         HTMLDivElement: 'readonly',
         HTMLButtonElement: 'readonly',
+        SVGSVGElement: 'readonly',
         Element: 'readonly',
         Event: 'readonly',
         MouseEvent: 'readonly',
         KeyboardEvent: 'readonly',
+        MediaQueryList: 'readonly',
+        MediaQueryListEvent: 'readonly',
       },
     },
     rules: {

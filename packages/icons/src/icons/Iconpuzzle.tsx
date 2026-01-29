@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconpuzzleProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * puzzle
  * @source figma
  */
-export const Iconpuzzle = React.memo((props: IconpuzzleProps) => {
+const Iconpuzzle = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -24,9 +28,9 @@ export const Iconpuzzle = React.memo((props: IconpuzzleProps) => {
         fillOpacity={0.1}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconpuzzle.displayName = 'Iconpuzzle'
+Iconpuzzle.displayName = 'Iconpuzzle';
 
-export default Iconpuzzle
+export default Iconpuzzle;

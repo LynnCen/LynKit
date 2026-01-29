@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconinvestmentcardtextProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * Investment_card_text
  * @source figma
  */
-export const Iconinvestmentcardtext = React.memo((props: IconinvestmentcardtextProps) => {
+const Iconinvestmentcardtext = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M5.94238 9.52014C5.94238 9.10593 6.27817 8.77014 6.69238 8.77014H17.3068C17.721 8.77014 18.0568 9.10593 18.0568 9.52014C18.0568 9.93436 17.721 10.2701 17.3068 10.2701H6.69238C6.27817 10.2701 5.94238 9.93436 5.94238 9.52014Z"
@@ -31,9 +35,9 @@ export const Iconinvestmentcardtext = React.memo((props: IconinvestmentcardtextP
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconinvestmentcardtext.displayName = 'Iconinvestmentcardtext'
+Iconinvestmentcardtext.displayName = 'Iconinvestmentcardtext';
 
-export default Iconinvestmentcardtext
+export default Iconinvestmentcardtext;

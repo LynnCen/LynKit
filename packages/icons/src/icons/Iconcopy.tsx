@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconcopyProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * copy
  * @source figma
  */
-export const Iconcopy = React.memo((props: IconcopyProps) => {
+const Iconcopy = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M20 14.5H16V16H20C21.1046 16 22 15.1046 22 14V4C22 2.89543 21.1046 2 20 2H11.5C10.3954 2 9.5 2.89543 9.5 4V6.5H11V4C11 3.72386 11.2239 3.5 11.5 3.5H20C20.2761 3.5 20.5 3.72386 20.5 4V14C20.5 14.2761 20.2761 14.5 20 14.5Z"
@@ -27,9 +31,9 @@ export const Iconcopy = React.memo((props: IconcopyProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconcopy.displayName = 'Iconcopy'
+Iconcopy.displayName = 'Iconcopy';
 
-export default Iconcopy
+export default Iconcopy;

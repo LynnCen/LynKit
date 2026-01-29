@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconaieliminateProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * ai_eliminate
  * @source figma
  */
-export const Iconaieliminate = React.memo((props: IconaieliminateProps) => {
+const Iconaieliminate = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -24,9 +28,9 @@ export const Iconaieliminate = React.memo((props: IconaieliminateProps) => {
         fillOpacity={0.1}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconaieliminate.displayName = 'Iconaieliminate'
+Iconaieliminate.displayName = 'Iconaieliminate';
 
-export default Iconaieliminate
+export default Iconaieliminate;

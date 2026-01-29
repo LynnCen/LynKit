@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconfeaturecontentstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * feature_content_static
  * @source figma
  */
-export const Iconfeaturecontentstatic = React.memo((props: IconfeaturecontentstaticProps) => {
+const Iconfeaturecontentstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M13.0227 14.8035C13.0227 14.5273 12.7983 14.301 12.5234 14.3272C12.0033 14.3767 11.4924 14.5036 11.0079 14.7042C10.3691 14.9688 9.78875 15.3566 9.29986 15.8455C8.81097 16.3344 8.42316 16.9148 8.15858 17.5536C7.9579 18.038 7.83109 18.5489 7.78154 19.0691C7.75535 19.344 7.98167 19.5683 8.25781 19.5683L12.5227 19.5683C12.7988 19.5683 13.0227 19.3445 13.0227 19.0683V14.8035Z"
@@ -54,9 +58,9 @@ export const Iconfeaturecontentstatic = React.memo((props: Iconfeaturecontentsta
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconfeaturecontentstatic.displayName = 'Iconfeaturecontentstatic'
+Iconfeaturecontentstatic.displayName = 'Iconfeaturecontentstatic';
 
-export default Iconfeaturecontentstatic
+export default Iconfeaturecontentstatic;

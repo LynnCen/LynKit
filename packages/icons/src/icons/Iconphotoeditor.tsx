@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconphotoeditorProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * photo_editor
  * @source figma
  */
-export const Iconphotoeditor = React.memo((props: IconphotoeditorProps) => {
+const Iconphotoeditor = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -23,9 +27,9 @@ export const Iconphotoeditor = React.memo((props: IconphotoeditorProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconphotoeditor.displayName = 'Iconphotoeditor'
+Iconphotoeditor.displayName = 'Iconphotoeditor';
 
-export default Iconphotoeditor
+export default Iconphotoeditor;

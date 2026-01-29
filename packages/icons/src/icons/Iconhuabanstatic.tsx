@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhuabanstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * huaban_static
  * @source figma
  */
-export const Iconhuabanstatic = React.memo((props: IconhuabanstaticProps) => {
+const Iconhuabanstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M6 0C2.68629 0 0 2.68629 0 6V18C0 21.3137 2.68629 24 6 24H18C21.3137 24 24 21.3137 24 18V6C24 2.68629 21.3137 0 18 0H6Z"
@@ -44,9 +48,9 @@ export const Iconhuabanstatic = React.memo((props: IconhuabanstaticProps) => {
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconhuabanstatic.displayName = 'Iconhuabanstatic'
+Iconhuabanstatic.displayName = 'Iconhuabanstatic';
 
-export default Iconhuabanstatic
+export default Iconhuabanstatic;

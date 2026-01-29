@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconwechatpublishProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * wechat_publish
  * @source figma
  */
-export const Iconwechatpublish = React.memo((props: IconwechatpublishProps) => {
+const Iconwechatpublish = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M10.5011 3.14832C6.10672 3.14832 2.36834 6.28539 2.36834 10.3583C2.36834 11.5507 2.69487 12.6731 3.2674 13.6586L2.33617 16.5423C2.23645 16.8295 2.17815 17.3273 2.57236 17.6893C2.95181 18.0377 3.43157 17.9589 3.69893 17.8584L6.71574 16.7421C7.51322 17.1142 8.3875 17.3716 9.31025 17.4915C9.20367 17.0114 9.14746 16.5122 9.14746 16L9.14765 15.9491C8.41211 15.8177 7.72285 15.5814 7.10097 15.2606C6.91372 15.164 6.69447 15.1506 6.49687 15.2237L4.04533 16.1308L4.80111 13.7904C4.87073 13.5748 4.83917 13.3393 4.71526 13.1497C4.17302 12.3198 3.86834 11.3681 3.86834 10.3583C3.86834 7.29569 6.74074 4.64832 10.5011 4.64832C13.7856 4.64832 16.3926 6.66796 16.9999 9.2199C17.5567 9.30129 18.0917 9.44964 18.5965 9.65649C18.1962 5.93056 14.6396 3.14832 10.5011 3.14832Z"
@@ -35,9 +39,9 @@ export const Iconwechatpublish = React.memo((props: IconwechatpublishProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconwechatpublish.displayName = 'Iconwechatpublish'
+Iconwechatpublish.displayName = 'Iconwechatpublish';
 
-export default Iconwechatpublish
+export default Iconwechatpublish;

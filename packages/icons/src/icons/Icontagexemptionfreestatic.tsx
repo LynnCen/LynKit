@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IcontagexemptionfreestaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag_exemption_free_static
  * @source figma
  */
-export const Icontagexemptionfreestatic = React.memo((props: IcontagexemptionfreestaticProps) => {
+const Icontagexemptionfreestatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Icontagexemptionfreestatic = React.memo((props: Icontagexemptionfre
       height="14"
       viewBox="0 0 56 14"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M0 3C0 1.34315 1.34315 0 3 0H53C54.6569 0 56 1.34315 56 3V11C56 12.6569 54.6569 14 53 14H3C1.34315 14 0 12.6569 0 11V3Z"
@@ -80,9 +83,9 @@ export const Icontagexemptionfreestatic = React.memo((props: Icontagexemptionfre
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Icontagexemptionfreestatic.displayName = 'Icontagexemptionfreestatic'
+Icontagexemptionfreestatic.displayName = 'Icontagexemptionfreestatic';
 
-export default Icontagexemptionfreestatic
+export default Icontagexemptionfreestatic;

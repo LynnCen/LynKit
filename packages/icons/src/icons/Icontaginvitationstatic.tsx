@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IcontaginvitationstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag_invitation_static
  * @source figma
  */
-export const Icontaginvitationstatic = React.memo((props: IcontaginvitationstaticProps) => {
+const Icontaginvitationstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Icontaginvitationstatic = React.memo((props: Icontaginvitationstati
       height="14"
       viewBox="0 0 46 14"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M0 3C0 1.34315 1.34315 0 3 0H43C44.6569 0 46 1.34315 46 3V11C46 12.6569 44.6569 14 43 14H3C1.34315 14 0 12.6569 0 11V3Z"
@@ -37,9 +40,9 @@ export const Icontaginvitationstatic = React.memo((props: Icontaginvitationstati
         fill="white"
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontaginvitationstatic.displayName = 'Icontaginvitationstatic'
+Icontaginvitationstatic.displayName = 'Icontaginvitationstatic';
 
-export default Icontaginvitationstatic
+export default Icontaginvitationstatic;

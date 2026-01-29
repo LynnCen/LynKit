@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IconaiaddProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * ai_add
  * @source figma
  */
-export const Iconaiadd = React.memo((props: IconaiaddProps) => {
+const Iconaiadd = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Iconaiadd = React.memo((props: IconaiaddProps) => {
       height="20"
       viewBox="0 0 20 20"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -23,9 +26,9 @@ export const Iconaiadd = React.memo((props: IconaiaddProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconaiadd.displayName = 'Iconaiadd'
+Iconaiadd.displayName = 'Iconaiadd';
 
-export default Iconaiadd
+export default Iconaiadd;

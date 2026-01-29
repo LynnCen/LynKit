@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconaiwriteProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * ai write
  * @source figma
  */
-export const Iconaiwrite = React.memo((props: IconaiwriteProps) => {
+const Iconaiwrite = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path d="M22 5.78094H2V4.28094H22V5.78094Z" fill="black" />
       <path d="M22 9.78094H2V8.28094H22V9.78094Z" fill="black" />
@@ -25,9 +29,9 @@ export const Iconaiwrite = React.memo((props: IconaiwriteProps) => {
       />
       <path d="M2 17.7809H12V16.2809H2V17.7809Z" fill="black" />
     </svg>
-  )
-})
+  );
+});
 
-Iconaiwrite.displayName = 'Iconaiwrite'
+Iconaiwrite.displayName = 'Iconaiwrite';
 
-export default Iconaiwrite
+export default Iconaiwrite;

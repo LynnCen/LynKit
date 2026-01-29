@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IconcollectionProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * collection
  * @source figma
  */
-export const Iconcollection = React.memo((props: IconcollectionProps) => {
+const Iconcollection = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M10.8458 3.82196C11.2728 2.79535 12.7271 2.79535 13.1541 3.82196L15.1615 8.64845L20.3721 9.06618C21.4804 9.15504 21.9298 10.5382 21.0854 11.2615L17.1155 14.6622L18.3284 19.7468C18.5863 20.8284 17.4098 21.6832 16.4609 21.1036L11.9999 18.3789L7.53891 21.1036C6.59003 21.6832 5.41347 20.8284 5.67145 19.7468L6.88433 14.6622L2.9144 11.2615C2.06998 10.5382 2.51939 9.15504 3.62771 9.06618L8.83831 8.64845L10.8458 3.82196ZM11.9999 4.95299L10.1646 9.36549C9.98464 9.79828 9.57762 10.094 9.11039 10.1315L4.34673 10.5134L7.97613 13.6223C8.33212 13.9273 8.48758 14.4057 8.37883 14.8617L7.26998 19.5102L11.3483 17.0192C11.7484 16.7748 12.2515 16.7748 12.6515 17.0192L16.7298 19.5102L15.621 14.8617C15.5122 14.4057 15.6677 13.9273 16.0237 13.6223L19.6531 10.5134L14.8894 10.1315C14.4222 10.094 14.0152 9.79828 13.8352 9.36549L11.9999 4.95299Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconcollection.displayName = 'Iconcollection'
+Iconcollection.displayName = 'Iconcollection';
 
-export default Iconcollection
+export default Iconcollection;

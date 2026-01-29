@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconscenedesignProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * scene_design
  * @source figma
  */
-export const Iconscenedesign = React.memo((props: IconscenedesignProps) => {
+const Iconscenedesign = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M6.37717 4.48685L5.55408 2.39258L4.73099 4.48685L2.63672 5.30994L4.73099 6.13303L5.55408 8.22729L6.37717 6.13303L8.47144 5.30994L6.37717 4.48685Z"
@@ -39,9 +43,9 @@ export const Iconscenedesign = React.memo((props: IconscenedesignProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconscenedesign.displayName = 'Iconscenedesign'
+Iconscenedesign.displayName = 'Iconscenedesign';
 
-export default Iconscenedesign
+export default Iconscenedesign;

@@ -1,45 +1,49 @@
-import React from 'react'
-
-export interface IconcutoutautofillProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * cutout_auto_fill
  * @source figma
  */
-export const Iconcutoutautofill = React.memo((props: IconcutoutautofillProps) => {
+const Iconcutoutautofill = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M8.66675 3H5.34699C4.05078 3 3 4.05079 3 5.34699V8.03346H4.4082L4.4082 5.34699C4.4082 4.82851 4.82851 4.4082 5.34699 4.4082H8.66675V3Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M8.66675 19.5918H5.34699C4.82851 19.5918 4.4082 19.1715 4.4082 18.653V15.9665H3V18.653C3 19.9492 4.05079 21 5.34699 21H8.66675V19.5918Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M15.3334 21V19.5918H18.653C19.1715 19.5918 19.5918 19.1715 19.5918 18.653V15.9665H21V18.653C21 19.9492 19.9492 21 18.653 21H15.3334Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M15.3334 4.4082V3H18.653C19.9492 3 21 4.05078 21 5.34699V8.03346H19.5918V5.34699C19.5918 4.82851 19.1715 4.4082 18.653 4.4082H15.3334Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M8.689 9.43851C8.689 7.60966 10.1716 6.12708 12.0004 6.12708C13.8293 6.12708 15.3119 7.60966 15.3119 9.43851C15.3119 10.4519 14.8567 11.3589 14.1396 11.9664C15.5405 12.2273 16.4459 12.7468 17.0228 13.345C17.4326 13.77 17.6469 14.2058 17.7573 14.5492C17.8121 14.7198 17.841 14.8666 17.8563 14.9773C17.8639 15.0327 17.8682 15.0794 17.8705 15.1158C17.8717 15.1341 17.8724 15.1498 17.8728 15.1628L17.8732 15.1804L17.8733 15.1876L17.8733 15.1908L17.8733 15.1923C17.8733 15.1923 17.8733 15.1938 17.1237 15.1938L17.8733 15.1938V16.5219C17.8733 16.9361 17.5375 17.2719 17.1233 17.2719H6.87757C6.46335 17.2719 6.12757 16.9361 6.12757 16.5219V15.1938H6.87757C6.12757 15.1938 6.12757 15.1923 6.12757 15.1923L6.12757 15.1908L6.12759 15.1876L6.12767 15.1804L6.12808 15.1628C6.12849 15.1498 6.12919 15.1341 6.13036 15.1158C6.1327 15.0794 6.13695 15.0327 6.14459 14.9773C6.15983 14.8666 6.18875 14.7198 6.24359 14.5492C6.35396 14.2058 6.56827 13.77 6.97804 13.345C7.55492 12.7468 8.46038 12.2273 9.86128 11.9664C9.1442 11.3589 8.689 10.4519 8.689 9.43851Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconcutoutautofill.displayName = 'Iconcutoutautofill'
+Iconcutoutautofill.displayName = 'Iconcutoutautofill';
 
-export default Iconcutoutautofill
+export default Iconcutoutautofill;

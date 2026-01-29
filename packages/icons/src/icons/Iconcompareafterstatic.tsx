@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconcompareafterstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * compare_after_static
  * @source figma
  */
-export const Iconcompareafterstatic = React.memo((props: IconcompareafterstaticProps) => {
+const Iconcompareafterstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M12.75 12.4336H11.3438C11.3125 12.4336 11.2811 12.435 11.25 12.4355V5.75H4.75C4.61193 5.75 4.5 5.86193 4.5 6V18C4.5 18.1381 4.61193 18.25 4.75 18.25H6.11328C6.16874 18.7772 6.30245 19.2809 6.50195 19.75H4.75C3.7835 19.75 3 18.9665 3 18V6C3 5.0335 3.7835 4.25 4.75 4.25H11.25V2.25H12.75V12.4336ZM21 11.25H19.5V8.91699H21V11.25ZM19.25 4.25C20.2165 4.25 21 5.0335 21 6V7.41699H19.5V6C19.5 5.86193 19.3881 5.75 19.25 5.75H17.8174V4.25H19.25ZM16.3174 5.75H14.2461V4.25H16.3174V5.75Z"
@@ -25,9 +29,9 @@ export const Iconcompareafterstatic = React.memo((props: IconcompareafterstaticP
         fill="#1CCC66"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconcompareafterstatic.displayName = 'Iconcompareafterstatic'
+Iconcompareafterstatic.displayName = 'Iconcompareafterstatic';
 
-export default Iconcompareafterstatic
+export default Iconcompareafterstatic;

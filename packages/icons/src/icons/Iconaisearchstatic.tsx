@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconaisearchstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * ai_search_static
  * @source figma
  */
-export const Iconaisearchstatic = React.memo((props: IconaisearchstaticProps) => {
+const Iconaisearchstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M16.6262 2.25409C16.7603 1.9153 17.2397 1.9153 17.3738 2.25409L17.903 3.59115C18.1754 4.27953 18.7205 4.82456 19.4088 5.097L20.7459 5.62617C21.0847 5.76025 21.0847 6.23975 20.7459 6.37383L19.4088 6.903C18.7205 7.17544 18.1754 7.72047 17.903 8.40885L17.3738 9.74591C17.2397 10.0847 16.7603 10.0847 16.6262 9.74591L16.097 8.40885C15.8246 7.72047 15.2795 7.17544 14.5912 6.903L13.2541 6.37383C12.9153 6.23975 12.9153 5.76025 13.2541 5.62617L14.5912 5.097C15.2795 4.82456 15.8246 4.27953 16.097 3.59115L16.6262 2.25409Z"
@@ -41,9 +45,9 @@ export const Iconaisearchstatic = React.memo((props: IconaisearchstaticProps) =>
         </radialGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconaisearchstatic.displayName = 'Iconaisearchstatic'
+Iconaisearchstatic.displayName = 'Iconaisearchstatic';
 
-export default Iconaisearchstatic
+export default Iconaisearchstatic;

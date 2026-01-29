@@ -1,35 +1,39 @@
-import React from 'react'
-
-export interface IcontemplatesimilarProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * template_similar
  * @source figma
  */
-export const Icontemplatesimilar = React.memo((props: IcontemplatesimilarProps) => {
+const Icontemplatesimilar = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M8.93164 6.56836C9.04958 5.97879 9.89185 5.97877 10.0098 6.56836L10.2676 7.85645C10.3403 8.21902 10.6237 8.50253 10.9863 8.5752L12.2744 8.83301C12.8639 8.951 12.8639 9.79314 12.2744 9.91113L10.9863 10.1689C10.6236 10.2416 10.3401 10.5259 10.2676 10.8887L10.0098 12.1758C9.89185 12.7654 9.04957 12.7654 8.93164 12.1758L8.67383 10.8887C8.60124 10.5258 8.31702 10.2415 7.9541 10.1689L6.66699 9.91113C6.0774 9.79321 6.0774 8.95093 6.66699 8.83301L7.9541 8.5752C8.31688 8.50264 8.6011 8.21916 8.67383 7.85645L8.93164 6.56836Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M14.2002 3C15.3047 3.0001 16.2002 3.8955 16.2002 5V5.65723L20.7803 6.46484C21.8681 6.65665 22.5942 7.69444 22.4023 8.78223L20.626 18.8594C20.434 19.9469 19.3962 20.6732 18.3086 20.4814L15.8984 20.0566C15.5453 20.623 14.9168 20.9999 14.2002 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H14.2002ZM5 4.5C4.72386 4.5 4.5 4.72386 4.5 5V19C4.5 19.2761 4.72386 19.5 5 19.5H14.2002C14.4762 19.4999 14.7002 19.2761 14.7002 19V5C14.7002 4.72392 14.4762 4.5001 14.2002 4.5H5ZM16.2002 18.5859L18.5693 19.0039C18.8412 19.0518 19.1004 18.8705 19.1484 18.5986L20.9258 8.52148C20.9737 8.24957 20.7914 7.99033 20.5195 7.94238L16.2002 7.18066V18.5859Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontemplatesimilar.displayName = 'Icontemplatesimilar'
+Icontemplatesimilar.displayName = 'Icontemplatesimilar';
 
-export default Icontemplatesimilar
+export default Icontemplatesimilar;

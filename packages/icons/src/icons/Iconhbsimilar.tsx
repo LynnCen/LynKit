@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhbsimilarProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_similar
  * @source figma
  */
-export const Iconhbsimilar = React.memo((props: IconhbsimilarProps) => {
+const Iconhbsimilar = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M3.83398 14.9167C4.38627 14.9167 4.83398 15.3645 4.83398 15.9167V18.1667C4.83409 18.7189 5.28186 19.1666 5.83398 19.1667H8.08398C8.63627 19.1667 9.08398 19.6145 9.08398 20.1667C9.08398 20.719 8.63627 21.1667 8.08398 21.1667H5.83398C4.17728 21.1666 2.83409 19.8234 2.83398 18.1667V15.9167C2.83398 15.3645 3.2817 14.9167 3.83398 14.9167Z"
@@ -39,9 +43,9 @@ export const Iconhbsimilar = React.memo((props: IconhbsimilarProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhbsimilar.displayName = 'Iconhbsimilar'
+Iconhbsimilar.displayName = 'Iconhbsimilar';
 
-export default Iconhbsimilar
+export default Iconhbsimilar;

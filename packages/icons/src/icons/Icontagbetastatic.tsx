@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IcontagbetastaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag_beta_static
  * @source figma
  */
-export const Icontagbetastatic = React.memo((props: IcontagbetastaticProps) => {
+const Icontagbetastatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Icontagbetastatic = React.memo((props: IcontagbetastaticProps) => {
       height="14"
       viewBox="0 0 29 15"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M0.271037 3.37958C0.271037 1.67959 1.64915 0.301473 3.34914 0.301473H25.9219C27.6219 0.301473 29 1.67959 29 3.37958V11.5879C29 13.2878 27.6219 14.666 25.9219 14.666H3.34914C1.64915 14.666 0.271037 13.2878 0.271037 11.5879V3.37958Z"
@@ -42,9 +45,9 @@ export const Icontagbetastatic = React.memo((props: IcontagbetastaticProps) => {
         fillOpacity={0.25}
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontagbetastatic.displayName = 'Icontagbetastatic'
+Icontagbetastatic.displayName = 'Icontagbetastatic';
 
-export default Icontagbetastatic
+export default Icontagbetastatic;

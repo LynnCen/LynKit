@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IcontexteditingProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * text_editing
  * @source figma
  */
-export const Icontextediting = React.memo((props: IcontexteditingProps) => {
+const Icontextediting = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -28,9 +32,9 @@ export const Icontextediting = React.memo((props: IcontexteditingProps) => {
       />
       <path d="M16.5 8.82715H12.75V16H11.25V8.82715H7.5V7.32715H16.5V8.82715Z" fill="black" />
     </svg>
-  )
-})
+  );
+});
 
-Icontextediting.displayName = 'Icontextediting'
+Icontextediting.displayName = 'Icontextediting';
 
-export default Icontextediting
+export default Icontextediting;

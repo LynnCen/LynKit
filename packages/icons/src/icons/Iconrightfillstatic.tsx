@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconrightfillstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * right_fill_static
  * @source figma
  */
-export const Iconrightfillstatic = React.memo((props: IconrightfillstaticProps) => {
+const Iconrightfillstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -71,9 +75,9 @@ export const Iconrightfillstatic = React.memo((props: IconrightfillstaticProps) 
         </filter>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconrightfillstatic.displayName = 'Iconrightfillstatic'
+Iconrightfillstatic.displayName = 'Iconrightfillstatic';
 
-export default Iconrightfillstatic
+export default Iconrightfillstatic;

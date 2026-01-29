@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhbmaterialProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_material
  * @source figma
  */
-export const Iconhbmaterial = React.memo((props: IconhbmaterialProps) => {
+const Iconhbmaterial = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M11.8773 10.916C12.54 10.9161 13.0773 11.4533 13.0773 12.116V19.2L13.0809 19.1977V21L13.075 21.1102C13.0198 21.6549 12.5597 22.0805 12.0004 22.0805C11.4411 22.0805 10.981 21.6549 10.9258 21.1102L10.9199 21V14.6086L7.17578 18.3528L7.09375 18.4266C6.66961 18.7722 6.04412 18.7468 5.64883 18.3516C5.25371 17.9563 5.2282 17.3308 5.57383 16.9067L5.64766 16.8246L9.3918 13.0805H3.00039C2.40392 13.0805 1.91992 12.5965 1.91992 12C1.91992 11.4036 2.40392 10.9196 3.00039 10.9196H9.3918L9.38828 10.916H11.8773Z"
@@ -25,9 +29,9 @@ export const Iconhbmaterial = React.memo((props: IconhbmaterialProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhbmaterial.displayName = 'Iconhbmaterial'
+Iconhbmaterial.displayName = 'Iconhbmaterial';
 
-export default Iconhbmaterial
+export default Iconhbmaterial;

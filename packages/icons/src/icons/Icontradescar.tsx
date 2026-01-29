@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IcontradescarProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * trades_car
  * @source figma
  */
-export const Icontradescar = React.memo((props: IcontradescarProps) => {
+const Icontradescar = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M5.48796 13.5281C5.48796 13.1139 5.82374 12.7781 6.23796 12.7781H8.23796C8.65217 12.7781 8.98796 13.1139 8.98796 13.5281C8.98796 13.9423 8.65217 14.2781 8.23796 14.2781H6.23796C5.82374 14.2781 5.48796 13.9423 5.48796 13.5281Z"
@@ -31,9 +35,9 @@ export const Icontradescar = React.memo((props: IcontradescarProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontradescar.displayName = 'Icontradescar'
+Icontradescar.displayName = 'Icontradescar';
 
-export default Icontradescar
+export default Icontradescar;

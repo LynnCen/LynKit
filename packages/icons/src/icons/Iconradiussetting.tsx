@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconradiussettingProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * radius_setting
  * @source figma
  */
-export const Iconradiussetting = React.memo((props: IconradiussettingProps) => {
+const Iconradiussetting = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M14 4.5H16C17.933 4.5 19.5 6.067 19.5 8V10H21V8C21 5.23858 18.7614 3 16 3H14V4.5Z"
@@ -33,9 +37,9 @@ export const Iconradiussetting = React.memo((props: IconradiussettingProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconradiussetting.displayName = 'Iconradiussetting'
+Iconradiussetting.displayName = 'Iconradiussetting';
 
-export default Iconradiussetting
+export default Iconradiussetting;

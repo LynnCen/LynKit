@@ -1,37 +1,41 @@
-import React from 'react'
-
-export interface IconlayersfillProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * layers__fill
  * @source figma
  */
-export const Iconlayersfill = React.memo((props: IconlayersfillProps) => {
+const Iconlayersfill = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M10.6576 3.17109C11.5021 2.7488 12.4963 2.7488 13.3409 3.17109L20.8526 6.927C21.737 7.36924 21.737 8.6314 20.8526 9.07363L13.3408 12.8295C12.4963 13.2517 11.5022 13.2517 10.6576 12.8294L3.14583 9.07358C2.26137 8.63135 2.26137 7.36918 3.14583 6.92695L10.6576 3.17109Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M2.8225 11.1602C2.27914 11.7111 2.38689 12.6942 3.14577 13.0736L10.6575 16.8295C11.5021 17.2517 12.4962 17.2517 13.3408 16.8295L20.8525 13.0736C21.6114 12.6942 21.7192 11.711 21.1757 11.1602C21.0857 11.2513 20.978 11.3307 20.8524 11.3935L19.6418 11.9987L19.645 12.0003L12.67 15.4878C12.2477 15.699 11.7506 15.699 11.3283 15.4878L4.35324 12.0003L4.35632 11.9987L3.14565 11.3934C3.02012 11.3306 2.9124 11.2514 2.8225 11.1602Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M3.14577 17.0736C2.38689 16.6941 2.27914 15.7111 2.8225 15.1602C2.9124 15.2513 3.02012 15.3306 3.14565 15.3934L4.35632 15.9987L4.35324 16.0003L11.3283 19.4878C11.7506 19.6989 12.2477 19.6989 12.67 19.4878L19.645 16.0003L19.6418 15.9987L20.8524 15.3934C20.978 15.3306 21.0857 15.2513 21.1757 15.1602C21.7192 15.711 21.6114 16.6942 20.8525 17.0736L13.3408 20.8294C12.4962 21.2517 11.5021 21.2517 10.6575 20.8294L3.14577 17.0736Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconlayersfill.displayName = 'Iconlayersfill'
+Iconlayersfill.displayName = 'Iconlayersfill';
 
-export default Iconlayersfill
+export default Iconlayersfill;

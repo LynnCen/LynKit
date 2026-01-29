@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconpkProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * PK
  * @source figma
  */
-export const Iconpk = React.memo((props: IconpkProps) => {
+const Iconpk = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M2.16797 6.49868C2.16797 5.20081 3.2201 4.14868 4.51797 4.14868H14.4129L10.139 14.6487H4.51797C3.2201 14.6487 2.16797 13.5965 2.16797 12.2987V6.49868Z"
@@ -27,9 +31,9 @@ export const Iconpk = React.memo((props: IconpkProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconpk.displayName = 'Iconpk'
+Iconpk.displayName = 'Iconpk';
 
-export default Iconpk
+export default Iconpk;

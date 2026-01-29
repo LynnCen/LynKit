@@ -1,47 +1,51 @@
-import React from 'react'
-
-export interface IconbackgroundaifilledProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * backgroundai_filled
  * @source figma
  */
-export const Iconbackgroundaifilled = React.memo((props: IconbackgroundaifilledProps) => {
+const Iconbackgroundaifilled = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M17.5731 3.76328C17.4906 4.17563 17.1683 4.49796 16.756 4.58043L15.2929 4.87304C14.623 5.00702 14.623 5.96479 15.2929 6.09877L16.756 6.39138C17.1683 6.47385 17.4906 6.79617 17.5731 7.20853L17.8657 8.67159C17.9997 9.34149 18.9575 9.34149 19.0914 8.67159L19.3841 7.20853C19.4665 6.79617 19.7888 6.47385 20.2012 6.39138L21.6643 6.09877C22.3342 5.96479 22.3342 5.00702 21.6643 4.87304L20.2012 4.58043C19.7888 4.49796 19.4665 4.17563 19.3841 3.76328L19.0914 2.30022C18.9575 1.63032 17.9997 1.63031 17.8657 2.30022L17.5731 3.76328Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M16.5641 10.5492C16.6601 10.8772 16.8185 11.1496 17.0183 11.3664L7.3847 21H5C4.86192 21 4.72711 20.986 4.59691 20.9594L16.2118 9.34447L16.5641 10.5492Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M10.2129 21L19.4323 11.7806C19.7834 11.6032 20.0874 11.3182 20.2873 10.9256L21 10.2129V13.0413L13.0413 21H10.2129Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M14.0711 3L13.5302 3.54091L13.4508 3.56412C12.6746 3.79112 12.2099 4.36825 12.0566 5.01452L3 14.0711V11.2427L11.2427 3H14.0711Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M3 16.8993L12.7889 7.11041C12.9762 7.24983 13.1968 7.3616 13.4508 7.43588L14.8753 7.85245L3.10037 19.6273C3.03524 19.43 3 19.2191 3 19V16.8993Z"
-        fill="#222529"
+        fill={color}
       />
-      <path d="M15.8699 21H18.6983L21 18.6983V15.8699L15.8699 21Z" fill="#222529" />
-      <path d="M3 8.41412L8.41412 3H5.58569L3 5.58569V8.41412Z" fill="#222529" />
+      <path d="M15.8699 21H18.6983L21 18.6983V15.8699L15.8699 21Z" fill={color} />
+      <path d="M3 8.41412L8.41412 3H5.58569L3 5.58569V8.41412Z" fill={color} />
     </svg>
-  )
-})
+  );
+});
 
-Iconbackgroundaifilled.displayName = 'Iconbackgroundaifilled'
+Iconbackgroundaifilled.displayName = 'Iconbackgroundaifilled';
 
-export default Iconbackgroundaifilled
+export default Iconbackgroundaifilled;

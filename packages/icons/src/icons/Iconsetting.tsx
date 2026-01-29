@@ -1,37 +1,41 @@
-import React from 'react'
-
-export interface IconsettingProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * setting
  * @source figma
  */
-export const Iconsetting = React.memo((props: IconsettingProps) => {
+const Iconsetting = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M15.8453 4.83972C16.024 4.83972 16.189 4.93502 16.2784 5.08972L20.1237 11.75C20.213 11.9047 20.213 12.0953 20.1237 12.25L16.2784 18.9102C16.189 19.0649 16.024 19.1602 15.8453 19.1602L8.15475 19.1602C7.97611 19.1602 7.81105 19.0649 7.72174 18.9102L3.87644 12.25C3.78712 12.0953 3.78712 11.9047 3.87644 11.75L7.72174 5.08972C7.81105 4.93502 7.97612 4.83972 8.15475 4.83972L15.8453 4.83972ZM8.15475 3.33972C7.44022 3.33972 6.77996 3.72092 6.4227 4.33972L2.5774 11C2.22013 11.6188 2.22013 12.3812 2.5774 13L6.4227 19.6602C6.77996 20.279 7.44022 20.6602 8.15475 20.6602H15.8453C16.5599 20.6602 17.2201 20.279 17.5774 19.6602L21.4227 13C21.78 12.3812 21.78 11.6188 21.4227 11L17.5774 4.33972C17.2201 3.72092 16.5599 3.33972 15.8453 3.33972L8.15475 3.33972Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M12 14C10.8955 14 10 13.1045 10 12C10 10.8954 10.8955 9.99998 12 9.99998C13.1046 9.99998 14 10.8954 14 12C14 13.1045 13.1046 14 12 14ZM12 15.5C13.933 15.5 15.5 13.933 15.5 12C15.5 10.067 13.933 8.49998 12 8.49998C10.0671 8.49998 8.50005 10.067 8.50005 12C8.50005 13.933 10.0671 15.5 12 15.5Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconsetting.displayName = 'Iconsetting'
+Iconsetting.displayName = 'Iconsetting';
 
-export default Iconsetting
+export default Iconsetting;

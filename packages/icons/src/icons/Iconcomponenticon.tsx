@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconcomponenticonProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * component_icon
  * @source figma
  */
-export const Iconcomponenticon = React.memo((props: IconcomponenticonProps) => {
+const Iconcomponenticon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -23,9 +27,9 @@ export const Iconcomponenticon = React.memo((props: IconcomponenticonProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconcomponenticon.displayName = 'Iconcomponenticon'
+Iconcomponenticon.displayName = 'Iconcomponenticon';
 
-export default Iconcomponenticon
+export default Iconcomponenticon;

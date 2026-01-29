@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IconmakeupProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * makeup
  * @source figma
  */
-export const Iconmakeup = React.memo((props: IconmakeupProps) => {
+const Iconmakeup = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M6.7 2.70001C4.51848 2.70001 2.75 4.46849 2.75 6.65001V10.4815C2.31869 10.5925 2 10.9841 2 11.45V20.45C2 21.0023 2.44772 21.45 3 21.45H8C8.55228 21.45 9 21.0023 9 20.45V11.45C9 10.9841 8.68131 10.5925 8.25 10.4815V4.25001C8.25 3.39397 7.55604 2.70001 6.7 2.70001ZM6.75 10.45V4.25001C6.75 4.2224 6.72761 4.20001 6.7 4.20001C5.3469 4.20001 4.25 5.29691 4.25 6.65001V10.45H6.75ZM14.6667 6.20001C13.4697 6.20001 12.3487 6.52689 11.3819 7.09887C11.0254 7.30978 10.5654 7.19176 10.3545 6.83526C10.1436 6.47877 10.2616 6.01879 10.6181 5.80788C11.8086 5.10359 13.1922 4.70001 14.6667 4.70001C19.1468 4.70001 22.75 8.40964 22.75 12.95C22.75 17.4904 19.1468 21.2 14.6667 21.2C13.1922 21.2 11.8086 20.7964 10.6181 20.0921C10.2616 19.8812 10.1436 19.4213 10.3545 19.0648C10.5654 18.7083 11.0254 18.5902 11.3819 18.8012C12.3487 19.3731 13.4697 19.7 14.6667 19.7C18.2867 19.7 21.25 16.6939 21.25 12.95C21.25 9.20611 18.2867 6.20001 14.6667 6.20001ZM3.5 11.95V19.95H7.5V11.95H3.5ZM16.3588 9.91967C16.6517 10.2126 16.6517 10.6874 16.3588 10.9803L13.5303 13.8088C13.2374 14.1017 12.7626 14.1017 12.4697 13.8088C12.1768 13.5159 12.1768 13.041 12.4697 12.7481L15.2981 9.91967C15.591 9.62678 16.0659 9.62678 16.3588 9.91967ZM17.3588 13.9803C17.6517 13.6874 17.6517 13.2126 17.3588 12.9197C17.0659 12.6268 16.591 12.6268 16.2981 12.9197L13.4697 15.7481C13.1768 16.041 13.1768 16.5159 13.4697 16.8088C13.7626 17.1017 14.2374 17.1017 14.5303 16.8088L17.3588 13.9803Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconmakeup.displayName = 'Iconmakeup'
+Iconmakeup.displayName = 'Iconmakeup';
 
-export default Iconmakeup
+export default Iconmakeup;

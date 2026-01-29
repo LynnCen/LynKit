@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconvideocustomstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * video_custom_static
  * @source figma
  */
-export const Iconvideocustomstatic = React.memo((props: IconvideocustomstaticProps) => {
+const Iconvideocustomstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <foreignObject x="9.34766" y="3.46411" width="17.0908" height="17.4708">
         <div
@@ -128,9 +132,9 @@ export const Iconvideocustomstatic = React.memo((props: IconvideocustomstaticPro
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconvideocustomstatic.displayName = 'Iconvideocustomstatic'
+Iconvideocustomstatic.displayName = 'Iconvideocustomstatic';
 
-export default Iconvideocustomstatic
+export default Iconvideocustomstatic;

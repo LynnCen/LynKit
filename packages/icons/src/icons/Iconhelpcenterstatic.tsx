@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhelpcenterstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * help_center_static
  * @source figma
  */
-export const Iconhelpcenterstatic = React.memo((props: IconhelpcenterstaticProps) => {
+const Iconhelpcenterstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <foreignObject x="0" y="0" width="0" height="0">
         <div
@@ -39,9 +43,9 @@ export const Iconhelpcenterstatic = React.memo((props: IconhelpcenterstaticProps
         </clipPath>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconhelpcenterstatic.displayName = 'Iconhelpcenterstatic'
+Iconhelpcenterstatic.displayName = 'Iconhelpcenterstatic';
 
-export default Iconhelpcenterstatic
+export default Iconhelpcenterstatic;

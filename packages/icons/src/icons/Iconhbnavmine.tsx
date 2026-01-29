@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhbnavmineProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_nav_mine
  * @source figma
  */
-export const Iconhbnavmine = React.memo((props: IconhbnavmineProps) => {
+const Iconhbnavmine = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path d="M12.2031 12.5088H10.2031V8.70898H12.2031V12.5088Z" fill="black" />
       <path d="M7.96094 12.21H5.96094V9.00977H7.96094V12.21Z" fill="black" />
@@ -25,9 +29,9 @@ export const Iconhbnavmine = React.memo((props: IconhbnavmineProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhbnavmine.displayName = 'Iconhbnavmine'
+Iconhbnavmine.displayName = 'Iconhbnavmine';
 
-export default Iconhbnavmine
+export default Iconhbnavmine;

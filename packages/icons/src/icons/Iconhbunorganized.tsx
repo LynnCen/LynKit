@@ -1,29 +1,33 @@
-import React from 'react'
-
-export interface IconhbunorganizedProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_unorganized
  * @source figma
  */
-export const Iconhbunorganized = React.memo((props: IconhbunorganizedProps) => {
+const Iconhbunorganized = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M12.2314 2.01172C17.8046 2.01183 22.3438 6.47726 22.3438 12.0117C22.3438 17.5462 17.8046 22.0116 12.2314 22.0117C9.15519 22.0116 6.3958 20.6518 4.54102 18.5059C4.18005 18.0881 4.22588 17.4558 4.64355 17.0947C5.06124 16.7339 5.69256 16.78 6.05371 17.1973C7.54159 18.9189 9.75562 20.0116 12.2314 20.0117C16.7235 20.0116 20.3438 16.4183 20.3438 12.0117C20.3438 7.60518 16.7235 4.01183 12.2314 4.01172C9.87341 4.01179 7.75297 5.00355 6.27148 6.58496H7.96289C8.51518 6.58496 8.96289 7.03268 8.96289 7.58496C8.96263 8.13702 8.51501 8.58496 7.96289 8.58496H3.96289C3.41088 8.58483 2.96315 8.13694 2.96289 7.58496V3.58496C2.96289 3.03276 3.41072 2.58509 3.96289 2.58496C4.51518 2.58496 4.96289 3.03268 4.96289 3.58496V5.06055C6.80216 3.18039 9.37985 2.01179 12.2314 2.01172ZM12 7.50098C12.5521 7.50117 13 7.94881 13 8.50098V11.9824L14.6055 13.2051C15.0444 13.5396 15.1301 14.1672 14.7959 14.6064C14.4615 15.0455 13.8339 15.1307 13.3945 14.7969L11.3945 13.2734C11.1463 13.0845 11.0002 12.7904 11 12.4785V8.50098C11 7.94869 11.4477 7.50098 12 7.50098Z"
-        fill="#1C1F23"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhbunorganized.displayName = 'Iconhbunorganized'
+Iconhbunorganized.displayName = 'Iconhbunorganized';
 
-export default Iconhbunorganized
+export default Iconhbunorganized;

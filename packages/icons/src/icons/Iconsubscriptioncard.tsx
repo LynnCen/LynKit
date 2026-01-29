@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconsubscriptioncardProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * subscription_card
  * @source figma
  */
-export const Iconsubscriptioncard = React.memo((props: IconsubscriptioncardProps) => {
+const Iconsubscriptioncard = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M8.5 11C7.11929 11 6 12.1193 6 13.5C6 14.8807 7.11929 16 8.5 16H15.5C16.8807 16 18 14.8807 18 13.5C18 12.1193 16.8807 11 15.5 11H8.5Z"
@@ -27,9 +31,9 @@ export const Iconsubscriptioncard = React.memo((props: IconsubscriptioncardProps
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconsubscriptioncard.displayName = 'Iconsubscriptioncard'
+Iconsubscriptioncard.displayName = 'Iconsubscriptioncard';
 
-export default Iconsubscriptioncard
+export default Iconsubscriptioncard;

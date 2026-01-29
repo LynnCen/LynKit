@@ -1,33 +1,37 @@
-import React from 'react'
-
-export interface IconwatermarkfillProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * watermark_fill
  * @source figma
  */
-export const Iconwatermarkfill = React.memo((props: IconwatermarkfillProps) => {
+const Iconwatermarkfill = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M11.2718 1.68859C11.7247 1.43714 12.2753 1.43714 12.7282 1.68859L15.3148 3.12484C15.5101 3.23324 15.717 3.31897 15.9317 3.38037L18.7764 4.19385C19.2744 4.33627 19.6637 4.72558 19.8061 5.22362L20.6196 8.06826C20.681 8.28295 20.7668 8.48993 20.8752 8.68517L22.3114 11.2718C22.5629 11.7247 22.5629 12.2753 22.3114 12.7282L20.8752 15.3148C20.7668 15.5101 20.681 15.717 20.6196 15.9317L19.1774 15.5193C19.2703 15.1947 19.3999 14.8818 19.5638 14.5867L21 12L19.5638 9.41332C19.3999 9.11817 19.2703 8.80526 19.1774 8.48067L18.364 5.63604L15.5193 4.82256C15.1947 4.72974 14.8818 4.60013 14.5867 4.43625L12 3L9.41332 4.43625C9.11817 4.60013 8.80526 4.72974 8.48067 4.82256L5.63604 5.63604L4.82256 8.48068C4.72974 8.80526 4.60013 9.11817 4.43625 9.41332L3.12484 8.68517C3.23324 8.48993 3.31897 8.28296 3.38037 8.06826L4.19385 5.22362C4.33627 4.72558 4.72558 4.33627 5.22362 4.19385L8.06825 3.38037C8.28295 3.31898 8.48993 3.23324 8.68517 3.12484L11.2718 1.68859ZM3 12L4.43625 9.41332L3.12484 8.68517L1.68859 11.2718C1.43714 11.7247 1.43714 12.2753 1.68859 12.7282L3.12484 15.3148C3.23324 15.5101 3.31897 15.717 3.38037 15.9317L4.19385 18.7764C4.33627 19.2744 4.72558 19.6637 5.22362 19.8061L8.06825 20.6196C8.28296 20.681 8.48994 20.7668 8.68517 20.8752L11.2718 22.3114C11.7247 22.5629 12.2753 22.5629 12.7282 22.3114L15.3148 20.8752C15.5101 20.7668 15.717 20.681 15.9317 20.6196L18.7764 19.8061C19.2744 19.6637 19.6637 19.2744 19.8061 18.7764L20.6196 15.9317L19.1774 15.5193L18.364 18.364L15.5193 19.1774C15.1947 19.2703 14.8818 19.3999 14.5867 19.5638L12 21L9.41332 19.5638C9.11817 19.3999 8.80526 19.2703 8.48067 19.1774L5.63604 18.364L4.82256 15.5193C4.72974 15.1947 4.60013 14.8818 4.43625 14.5867L3 12Z"
-        fill="#222529"
+        fill={color}
       />
-      <path fillRule="evenodd" clipRule="evenodd" d="M15 10.5H9V9H15V10.5Z" fill="#222529" />
-      <path fillRule="evenodd" clipRule="evenodd" d="M15 15H9V13.5H15V15Z" fill="#222529" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M15 10.5H9V9H15V10.5Z" fill={color} />
+      <path fillRule="evenodd" clipRule="evenodd" d="M15 15H9V13.5H15V15Z" fill={color} />
     </svg>
-  )
-})
+  );
+});
 
-Iconwatermarkfill.displayName = 'Iconwatermarkfill'
+Iconwatermarkfill.displayName = 'Iconwatermarkfill';
 
-export default Iconwatermarkfill
+export default Iconwatermarkfill;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconvideostaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * video_static
  * @source figma
  */
-export const Iconvideostatic = React.memo((props: IconvideostaticProps) => {
+const Iconvideostatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M17.4414 14.6262V15.94C17.4414 17.3207 16.3221 18.44 14.9414 18.44H4.51562C3.13491 18.44 2.01562 17.3207 2.01562 15.94V8.06006C2.01562 6.67935 3.13491 5.56006 4.51562 5.56006H14.9414C16.3221 5.56006 17.4414 6.67935 17.4414 8.06006V9.67812C17.4414 9.75899 17.5324 9.80642 17.5987 9.76007L20.0928 8.01613C20.8882 7.45998 21.9805 8.02903 21.9805 8.99957V15.5236C21.9805 16.5257 20.8248 17.0864 20.0377 16.4661L17.6033 14.5476C17.5377 14.496 17.4414 14.5427 17.4414 14.6262Z"
@@ -26,9 +30,9 @@ export const Iconvideostatic = React.memo((props: IconvideostaticProps) => {
         fillOpacity={0.16}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconvideostatic.displayName = 'Iconvideostatic'
+Iconvideostatic.displayName = 'Iconvideostatic';
 
-export default Iconvideostatic
+export default Iconvideostatic;

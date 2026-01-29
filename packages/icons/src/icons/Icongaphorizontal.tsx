@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IcongaphorizontalProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * gap_horizontal
  * @source figma
  */
-export const Icongaphorizontal = React.memo((props: IcongaphorizontalProps) => {
+const Icongaphorizontal = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path d="M3.24999 19.9999V3.99999H4.74999V19.9999H3.24999Z" fill="black" />
       <path d="M19.25 19.9999V3.99999H20.7499V19.9999H19.25Z" fill="black" />
@@ -25,9 +29,9 @@ export const Icongaphorizontal = React.memo((props: IcongaphorizontalProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Icongaphorizontal.displayName = 'Icongaphorizontal'
+Icongaphorizontal.displayName = 'Icongaphorizontal';
 
-export default Icongaphorizontal
+export default Icongaphorizontal;

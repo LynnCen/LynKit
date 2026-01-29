@@ -1,29 +1,33 @@
-import React from 'react'
-
-export interface IconhbregisterfilledProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_register_filled
  * @source figma
  */
-export const Iconhbregisterfilled = React.memo((props: IconhbregisterfilledProps) => {
+const Iconhbregisterfilled = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M19.6262 8.84091C20.7574 9.44069 21.528 10.6303 21.528 12C21.528 13.3696 20.7574 14.5593 19.6261 15.1591C20.002 16.3831 19.7057 17.7693 18.7371 18.7379C17.7686 19.7064 16.3825 20.0027 15.1584 19.6268C14.5586 20.758 13.369 21.5286 11.9993 21.5286C10.6297 21.5286 9.4401 20.758 8.84032 19.6268C7.61622 20.0027 6.22999 19.7065 5.26145 18.7379C4.2929 17.7694 3.9966 16.3831 4.37256 15.159C3.24129 14.5592 2.4707 13.3696 2.4707 12C2.4707 10.6303 3.24133 9.44062 4.37265 8.84086C3.99673 7.61678 4.29304 6.23058 5.26156 5.26206C6.23008 4.29354 7.61624 3.99723 8.84032 4.37313C9.4401 3.24188 10.6297 2.47131 11.9993 2.47131C13.369 2.47131 14.5587 3.24191 15.1584 4.3732C16.3825 3.99726 17.7687 4.29356 18.7373 5.2621C19.7058 6.23063 20.0021 7.61683 19.6262 8.84091ZM16.2618 10.8713C16.6252 10.4907 16.6112 9.88755 16.2306 9.52415C15.85 9.16074 15.2468 9.17471 14.8834 9.55534L11.2166 13.396L9.09987 11.2794C8.72775 10.9072 8.12443 10.9073 7.75232 11.2794C7.38021 11.6515 7.38022 12.2548 7.75234 12.6269L10.4737 15.3482C10.8985 15.773 11.5896 15.765 12.0044 15.3305L16.2618 10.8713Z"
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhbregisterfilled.displayName = 'Iconhbregisterfilled'
+Iconhbregisterfilled.displayName = 'Iconhbregisterfilled';
 
-export default Iconhbregisterfilled
+export default Iconhbregisterfilled;

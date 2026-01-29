@@ -1,41 +1,45 @@
-import React from 'react'
-
-export interface IconweibofillProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * weibo_fill
  * @source figma
  */
-export const Iconweibofill = React.memo((props: IconweibofillProps) => {
+const Iconweibofill = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M21.5212 4.82341C20.1137 3.30204 17.967 2.6086 15.5186 2.8311L15.7096 4.93275L16.0119 4.91099C17.7074 4.82157 19.0929 5.30616 19.9722 6.25654C20.8466 7.20169 21.115 8.49977 20.6964 9.8676L22.7143 10.4852L22.7909 10.2151C23.3088 8.23455 22.8569 6.2671 21.5212 4.82341Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M6.34631 16.524C5.95155 14.8405 7.25337 13.095 9.25402 12.6252C11.2546 12.1554 13.1965 13.1394 13.5913 14.8228C13.986 16.5063 12.6842 18.2518 10.6836 18.7216C8.68293 19.1914 6.74108 18.2075 6.34631 16.524ZM8.77595 16.601C8.23462 16.8785 7.62121 16.6881 7.4059 16.1758C7.19056 15.6635 7.45485 15.0233 7.99618 14.7458C8.53752 14.4683 9.15092 14.6586 9.36624 15.171C9.58157 15.6832 9.31729 16.3235 8.77595 16.601Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M17.953 11.3682C17.953 11.3682 17.547 11.4255 17.9337 10.699C18.3204 9.97251 18.0884 9.01657 18.0884 9.01657C18.0884 9.01657 17.7017 7.33411 14.84 7.98414L12.7905 8.55771C12.7905 8.55771 12.4811 8.67242 12.3651 8.67242C12.3552 8.67242 12.3446 8.67324 12.3335 8.6741C12.2139 8.68335 12.0466 8.69629 12.3651 7.71648C12.7131 6.64581 12.1331 5.84282 12.1331 5.84282C12.1331 5.84282 11.3596 4.65744 9.40676 5.32662C9.40676 5.32662 5.92638 6.35905 3.41275 9.6475C0.899134 12.936 0.705771 14.3125 1.24718 16.4921C1.78857 18.6716 5.46232 20.7747 8.71069 20.8894L9.05596 20.9018C12.1108 21.0124 14.1749 21.0871 17.605 19.207C21.1628 17.2568 21.0467 14.6567 21.0467 14.6567C21.0467 14.6567 21.2014 11.9417 17.953 11.3682ZM10.3611 19.8551C6.57962 20.188 3.33842 18.3495 3.12174 15.7486C2.90505 13.1478 5.79494 10.7695 9.57646 10.4366C13.358 10.1037 16.5992 11.9422 16.8159 14.543C17.0325 17.1438 14.1427 19.5221 10.3611 19.8551Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconweibofill.displayName = 'Iconweibofill'
+Iconweibofill.displayName = 'Iconweibofill';
 
-export default Iconweibofill
+export default Iconweibofill;

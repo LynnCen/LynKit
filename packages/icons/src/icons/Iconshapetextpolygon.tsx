@@ -1,35 +1,39 @@
-import React from 'react'
-
-export interface IconshapetextpolygonProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * shape_text_polygon
  * @source figma
  */
-export const Iconshapetextpolygon = React.memo((props: IconshapetextpolygonProps) => {
+const Iconshapetextpolygon = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M13.4833 17.6794H10.5109V17.3222C10.7747 17.3222 10.971 17.3034 11.0999 17.2658C11.2287 17.2219 11.3115 17.131 11.3483 16.9931C11.3913 16.8552 11.4127 16.6452 11.4127 16.3632V11.9913H10.9342C10.5968 11.9913 10.3422 12.0289 10.1704 12.1042C10.0048 12.1794 9.88514 12.3141 9.81152 12.5084C9.7379 12.6965 9.66735 12.9597 9.59987 13.2982H9.20416L9.30539 11.5024H14.7164L14.7992 13.2982H14.4035C14.336 12.9597 14.2624 12.6965 14.1826 12.5084C14.109 12.3141 13.9894 12.1794 13.8237 12.1042C13.6581 12.0289 13.4035 11.9913 13.06 11.9913H12.5906V16.3632C12.5906 16.6452 12.6121 16.8552 12.655 16.9931C12.698 17.131 12.7808 17.2219 12.9035 17.2658C13.0323 17.3034 13.2256 17.3222 13.4833 17.3222V17.6794Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M13.528 3.69624C12.8601 2.50116 11.1405 2.50116 10.4727 3.69624L2.67703 17.6463C2.02516 18.8128 2.8684 20.25 4.20468 20.25H19.7959C21.1322 20.25 21.9755 18.8128 21.3236 17.6463L13.528 3.69624ZM11.7821 4.42797C11.8775 4.25725 12.1231 4.25725 12.2185 4.42798L20.0142 18.378C20.1073 18.5447 19.9868 18.75 19.7959 18.75H4.20468C4.01378 18.75 3.89332 18.5447 3.98644 18.378L11.7821 4.42797Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconshapetextpolygon.displayName = 'Iconshapetextpolygon'
+Iconshapetextpolygon.displayName = 'Iconshapetextpolygon';
 
-export default Iconshapetextpolygon
+export default Iconshapetextpolygon;

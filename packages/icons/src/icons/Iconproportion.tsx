@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconproportionProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * proportion
  * @source figma
  */
-export const Iconproportion = React.memo((props: IconproportionProps) => {
+const Iconproportion = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -23,9 +27,9 @@ export const Iconproportion = React.memo((props: IconproportionProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconproportion.displayName = 'Iconproportion'
+Iconproportion.displayName = 'Iconproportion';
 
-export default Iconproportion
+export default Iconproportion;

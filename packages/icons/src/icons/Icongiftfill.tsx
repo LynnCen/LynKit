@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IcongiftfillProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * gift_fill
  * @source figma
  */
-export const Icongiftfill = React.memo((props: IcongiftfillProps) => {
+const Icongiftfill = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M11.25 20.9998H6.5C5.6716 20.9998 5.00005 20.3281 5 19.4998V14.4998H11.25V20.9998ZM19 19.4998C19 20.3281 18.3284 20.9998 17.5 20.9998H12.75V14.4998H19V19.4998ZM14.7402 3.94409C15.5223 3.35764 16.5542 3.22171 17.4619 3.58472C18.8633 4.1454 19.3225 5.81618 18.5693 6.99976H19.5C20.3283 6.99976 20.9998 7.67153 21 8.49976V11.4998C20.9999 12.3281 20.3284 12.9998 19.5 12.9998H4.5C3.6716 12.9998 3.00005 12.3281 3 11.4998V8.49976C3.00023 7.67153 3.67172 6.99976 4.5 6.99976H5.43066C4.70461 5.85882 5.10471 4.26492 6.38965 3.64917L6.53809 3.58472C7.44575 3.22171 8.47766 3.35764 9.25977 3.94409L12 5.99976L14.7402 3.94409ZM8.35938 5.14429C7.99618 4.87211 7.51717 4.80892 7.0957 4.97729C6.5171 5.20876 6.38665 5.97013 6.85547 6.38062L7.56348 6.99976H10.833L8.35938 5.14429ZM16.9043 4.97729C16.4828 4.80892 16.0038 4.87211 15.6406 5.14429L13.167 6.99976H16.4365L17.1445 6.38062C17.6133 5.97013 17.4829 5.20876 16.9043 4.97729Z"
@@ -25,9 +29,9 @@ export const Icongiftfill = React.memo((props: IcongiftfillProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Icongiftfill.displayName = 'Icongiftfill'
+Icongiftfill.displayName = 'Icongiftfill';
 
-export default Icongiftfill
+export default Icongiftfill;

@@ -1,33 +1,37 @@
-import React from 'react'
-
-export interface IconmainmenuProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * main_menu
  * @source figma
  */
-export const Iconmainmenu = React.memo((props: IconmainmenuProps) => {
+const Iconmainmenu = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M11.9215 5.47418C11.8096 5.37963 11.6459 5.37962 11.5341 5.47416L6.27135 9.92342C6.20393 9.98042 6.16504 10.0642 6.16504 10.1525V15.5828C6.16504 15.7485 6.29935 15.8828 6.46504 15.8828H9.60088V16.8828H6.46504C5.74707 16.8828 5.16504 16.3008 5.16504 15.5828V10.1525C5.16504 9.76993 5.33357 9.40677 5.62573 9.15976L10.8884 4.7105C11.373 4.30082 12.0826 4.30085 12.5671 4.71056L17.829 9.15979C18.1211 9.40679 18.2896 9.76993 18.2896 10.1525V11.6011H17.2896V10.1525C17.2896 10.0642 17.2508 9.9804 17.1833 9.9234L11.9215 5.47418Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M14.0502 12.5009V13.1537H16.4557C17.9077 13.1537 19.0848 14.3307 19.0848 15.7827C19.0848 17.2347 17.9077 18.4118 16.4557 18.4118H11.6215C11.3564 18.4118 11.1415 18.1969 11.1415 17.9318C11.1415 17.6667 11.3564 17.4518 11.6215 17.4518H16.4557C17.3775 17.4518 18.1248 16.7046 18.1248 15.7827C18.1248 14.8609 17.3775 14.1137 16.4557 14.1137H14.0502V14.7665C14.0502 14.9999 13.7838 15.1331 13.5971 14.9931L12.0867 13.8603C11.9357 13.747 11.9357 13.5204 12.0867 13.4072L13.5971 12.2744C13.7838 12.1344 14.0502 12.2676 14.0502 12.5009Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconmainmenu.displayName = 'Iconmainmenu'
+Iconmainmenu.displayName = 'Iconmainmenu';
 
-export default Iconmainmenu
+export default Iconmainmenu;

@@ -1,39 +1,41 @@
-import React from 'react'
-
-export interface IconborderhorizontalmultipleProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * border_horizontal_multiple
  * @source figma
  */
-export const Iconborderhorizontalmultiple = React.memo(
-  (props: IconborderhorizontalmultipleProps) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        {...props}
-      >
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M11.25 21L11.25 3L12.75 3L12.75 21L11.25 21Z"
-          fill="#222529"
-        />
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5ZM19 4.5C19.2761 4.5 19.5 4.72386 19.5 5V11.25H12.75V12.75H19.5V19C19.5 19.2761 19.2761 19.5 19 19.5H5C4.72386 19.5 4.5 19.2761 4.5 19L4.5 12.75H11.25V11.25H4.5L4.5 5C4.5 4.72386 4.72386 4.5 5 4.5H19Z"
-          fill="#B4B8BF"
-        />
-      </svg>
-    )
-  }
-)
+const Iconborderhorizontalmultiple = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
 
-Iconborderhorizontalmultiple.displayName = 'Iconborderhorizontalmultiple'
+  return (
+    <svg
+      ref={ref}
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      style={style}
+      className={className}
+      {...rest}
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M11.25 21L11.25 3L12.75 3L12.75 21L11.25 21Z"
+        fill={color}
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5ZM19 4.5C19.2761 4.5 19.5 4.72386 19.5 5V11.25H12.75V12.75H19.5V19C19.5 19.2761 19.2761 19.5 19 19.5H5C4.72386 19.5 4.5 19.2761 4.5 19L4.5 12.75H11.25V11.25H4.5L4.5 5C4.5 4.72386 4.72386 4.5 5 4.5H19Z"
+        fill={color}
+      />
+    </svg>
+  );
+});
 
-export default Iconborderhorizontalmultiple
+Iconborderhorizontalmultiple.displayName = 'Iconborderhorizontalmultiple';
+
+export default Iconborderhorizontalmultiple;

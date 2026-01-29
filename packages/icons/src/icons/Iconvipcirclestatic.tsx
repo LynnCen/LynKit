@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconvipcirclestaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * vip_circle_static
  * @source figma
  */
-export const Iconvipcirclestatic = React.memo((props: IconvipcirclestaticProps) => {
+const Iconvipcirclestatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <g clipPath="url(#clip0_10723_3476)">
         <rect width="24" height="24" rx="12" fill="#FBCA4E" />
@@ -64,9 +68,9 @@ export const Iconvipcirclestatic = React.memo((props: IconvipcirclestaticProps) 
         </clipPath>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconvipcirclestatic.displayName = 'Iconvipcirclestatic'
+Iconvipcirclestatic.displayName = 'Iconvipcirclestatic';
 
-export default Iconvipcirclestatic
+export default Iconvipcirclestatic;

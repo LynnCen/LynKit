@@ -1,29 +1,33 @@
-import React from 'react'
-
-export interface IconvipnewProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * vip_new
  * @source figma
  */
-export const Iconvipnew = React.memo((props: IconvipnewProps) => {
+const Iconvipnew = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M12.0001 3.25C12.2642 3.25 12.5093 3.38943 12.6447 3.61621L16.255 9.66797L20.7248 7.90234C20.9835 7.80021 21.2773 7.85008 21.4884 8.03125C21.6995 8.21247 21.7934 8.4954 21.7316 8.7666L19.3566 19.167C19.2787 19.5081 18.975 19.75 18.6251 19.75H5.37513C5.02531 19.7499 4.72157 19.508 4.64368 19.167L2.26868 8.7666C2.20693 8.49544 2.30087 8.21247 2.51185 8.03125C2.7229 7.85006 3.01678 7.80026 3.27552 7.90234L7.74427 9.66797L11.3556 3.61621C11.4909 3.38943 11.7361 3.25005 12.0001 3.25ZM8.70716 10.9844C8.51885 11.3 8.12906 11.4327 7.78724 11.2979L4.04798 9.82031L5.97376 18.25H18.0265L19.9513 9.82031L16.213 11.2979C15.8712 11.4327 15.4814 11.3 15.2931 10.9844L12.0001 5.46387L8.70716 10.9844ZM13.9699 12.9697C14.2627 12.6769 14.7375 12.6769 15.0304 12.9697C15.3233 13.2626 15.3233 13.7374 15.0304 14.0303L12.5304 16.5303C12.2561 16.8045 11.8176 16.8245 11.5197 16.5762L8.51966 14.0762L8.464 14.0244C8.19779 13.7528 8.17533 13.318 8.42396 13.0195C8.67262 12.7213 9.10401 12.6653 9.41908 12.8779L9.4806 12.9238L11.9542 14.9844L13.9699 12.9697Z"
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconvipnew.displayName = 'Iconvipnew'
+Iconvipnew.displayName = 'Iconvipnew';
 
-export default Iconvipnew
+export default Iconvipnew;
