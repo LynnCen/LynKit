@@ -5,9 +5,11 @@ node_modules/
 
 # Production
 lib/
+es/
 dist/
 build/
 packages/*/lib/
+packages/*/es/
 packages/*/dist/
 packages/*/build/
 

@@ -1,29 +1,63 @@
-// 主题色
-@primary-color: #1890ff;
-@success-color: #52c41a;
-@warning-color: #faad14;
-@error-color: #f5222d;
+/**
+ * Less 变量定义
+ * 所有变量都引用 CSS Variables，支持运行时主题切换
+ */
 
+// 主题色（引用 CSS Variables）
+@primary-color: var(--lynkit-color-primary);
+@primary-color-hover: var(--lynkit-color-primary-hover);
+@primary-color-active: var(--lynkit-color-primary-active);
+@success-color: var(--lynkit-color-success);
+@warning-color: var(--lynkit-color-warning);
+@error-color: var(--lynkit-color-error);
 
 // 文字颜色
-@text-color: rgba(0, 0, 0, 0.85);
-@text-color-secondary: rgba(0, 0, 0, 0.45);
+@text-color: var(--lynkit-color-text);
+@text-color-secondary: var(--lynkit-color-text-secondary);
+@text-color-disabled: var(--lynkit-color-text-disabled);
+@text-color-inverse: var(--lynkit-color-text-inverse);
 
-// 边框颜色
-@border-color: #d9d9d9;
-@border-radius-base: 2px;
+// 背景颜色
+@bg-color: var(--lynkit-color-bg);
+@bg-color-secondary: var(--lynkit-color-bg-secondary);
 
-// 字体大小
-@font-size-base: 14px;
-@font-size-sm: 12px;
-@font-size-lg: 16px;
+// 边框
+@border-color: var(--lynkit-color-border);
+@border-color-secondary: var(--lynkit-color-border-secondary);
+@border-radius-sm: var(--lynkit-border-radius-sm);
+@border-radius-base: var(--lynkit-border-radius-base);
+@border-radius-lg: var(--lynkit-border-radius-lg);
+
+// 字体
+@font-family: var(--lynkit-font-family);
+@font-size-xs: var(--lynkit-font-size-xs);
+@font-size-sm: var(--lynkit-font-size-sm);
+@font-size-base: var(--lynkit-font-size-base);
+@font-size-lg: var(--lynkit-font-size-lg);
+@line-height-base: var(--lynkit-line-height-base);
 
 // 间距
-@spacing-unit: 8px;
-@padding-sm: @spacing-unit;
-@padding-md: @spacing-unit * 2;
-@padding-lg: @spacing-unit * 3;
+@spacing-xs: var(--lynkit-spacing-xs);
+@spacing-sm: var(--lynkit-spacing-sm);
+@spacing-md: var(--lynkit-spacing-md);
+@spacing-lg: var(--lynkit-spacing-lg);
+@spacing-xl: var(--lynkit-spacing-xl);
+
+// 兼容旧变量名
+@padding-sm: var(--lynkit-spacing-sm);
+@padding-md: var(--lynkit-spacing-md);
+@padding-lg: var(--lynkit-spacing-lg);
+
+// 尺寸
+@height-sm: var(--lynkit-height-sm);
+@height-base: var(--lynkit-height-base);
+@height-lg: var(--lynkit-height-lg);
+
+// 阴影
+@shadow-sm: var(--lynkit-shadow-sm);
+@shadow-base: var(--lynkit-shadow-base);
+@shadow-lg: var(--lynkit-shadow-lg);
 
 // 动画
-@animation-duration-base: 0.2s;
-@animation-timing-function: ease-in-out; 
+@animation-duration-base: var(--lynkit-transition-duration);
+@animation-timing-function: var(--lynkit-transition-timing);

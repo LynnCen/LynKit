@@ -1,5 +1,3 @@
-
-
 # LynKit 介绍
 
 LynKit 是一个现代化的 React 组件库，专为构建优雅、高效的用户界面而设计。它提供了丰富的 UI 组件、实用 Hooks、API 工具函数和图标系统，帮助开发者快速构建专业级应用。
@@ -55,17 +53,17 @@ import { IconHome } from '@lynkit/icons';
 function App() {
   const [state, setState] = useSetState({
     count: 0,
-    loading: false
+    loading: false,
   });
 
   const handleClick = () => {
     setState({ loading: true });
-    
+
     // 模拟异步操作
     setTimeout(() => {
       setState({
         count: state.count + 1,
-        loading: false
+        loading: false,
       });
     }, 1000);
   };
@@ -73,11 +71,7 @@ function App() {
   return (
     <div>
       <h1>计数器: {state.count}</h1>
-      <Button 
-        type="primary" 
-        loading={state.loading}
-        onClick={handleClick}
-      >
+      <Button type="primary" loading={state.loading} onClick={handleClick}>
         <IconHome /> 增加计数
       </Button>
     </div>
@@ -101,6 +95,7 @@ import { debounce } from '@lynkit/api';
 LynKit 要求 React 16.8.0 或更高版本，以支持 React Hooks 功能。
 
 当前版本：
+
 - @lynkit/ui: v1.0.0
 - @lynkit/hooks: v1.0.0
 - @lynkit/icons: v1.0.0
@@ -117,10 +112,27 @@ LynKit 支持所有现代浏览器，包括：
 - Opera >= 76
 - iOS >= 14.4
 
+## 📚 文档
+
+| 文档                                          | 说明                    |
+| --------------------------------------------- | ----------------------- |
+| [在线文档](https://lynncen.github.io/LynKit/) | 完整的 API 文档和示例   |
+| [架构指南](./docs/ARCHITECTURE.md)            | Monorepo 架构设计与配置 |
+| [Monorepo 教程](./docs/MONOREPO_TUTORIAL.md)  | 深入学习 Monorepo 原理  |
+
+### 各包文档
+
+| 包            | 文档                                                                         |
+| ------------- | ---------------------------------------------------------------------------- |
+| @lynkit/ui    | [README](./packages/ui/README.md) · [开发指南](./packages/ui/DEVELOPMENT.md) |
+| @lynkit/hooks | [README](./packages/hooks/README.md)                                         |
+| @lynkit/api   | [README](./packages/api/README.md)                                           |
+| @lynkit/icons | [README](./packages/icons/README.md)                                         |
+
 ## 贡献指南
 
 我们欢迎社区贡献！如果你想为 LynKit 贡献代码，请查看我们的 [贡献指南](https://github.com/LynnCen/LynKit/blob/main/CONTRIBUTING.md)。
 
 ## 许可证
 
-LynKit 使用 [MIT 许可证](https://github.com/LynnCen/LynKit/blob/main/LICENSE)。 
+LynKit 使用 [MIT 许可证](https://github.com/LynnCen/LynKit/blob/main/LICENSE)。
