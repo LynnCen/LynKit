@@ -1,0 +1,110 @@
+---
+title: Select 选择器
+description: 下拉选择器，用于在多个选项中选择
+---
+
+# Select 选择器
+
+下拉选择器，用于在多个选项中选择。
+
+## 何时使用
+
+- 弹出一个下拉菜单给用户选择操作，用于代替原生的选择器
+- 当选项少时（少于 5 项），建议直接将选项平铺，使用 Radio 是更好的选择
+- 当选项过多时，使用下拉菜单展示并选择内容
+
+## 代码演示
+
+### 基础用法
+
+最简单的用法。
+
+```tsx preview
+import { Select } from '@lynkit/ui';
+
+export default () => (
+  <div style={{ width: '200px' }}>
+    <Select
+      placeholder="请选择"
+      options={[
+        { value: 'option1', label: '选项1' },
+        { value: 'option2', label: '选项2' },
+        { value: 'option3', label: '选项3' },
+      ]}
+    />
+  </div>
+);
+```
+
+### 禁用状态
+
+选择器不可用状态。
+
+```tsx preview
+import { Select } from '@lynkit/ui';
+
+export default () => (
+  <div style={{ width: '200px' }}>
+    <Select
+      placeholder="禁用状态"
+      disabled
+      options={[
+        { value: 'option1', label: '选项1' },
+        { value: 'option2', label: '选项2' },
+      ]}
+    />
+  </div>
+);
+```
+
+### 受控模式
+
+通过 `value` 和 `onChange` 控制选择器。
+
+```tsx preview
+import { Select } from '@lynkit/ui';
+import { useState } from 'react';
+
+export default () => {
+  const [value, setValue] = useState('');
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', width: '200px' }}>
+      <Select
+        value={value}
+        onChange={(val) => setValue(val)}
+        placeholder="请选择"
+        options={[
+          { value: 'apple', label: '苹果' },
+          { value: 'banana', label: '香蕉' },
+          { value: 'orange', label: '橙子' },
+        ]}
+      />
+      <p style={{ margin: 0, color: '#666', fontSize: '14px' }}>
+        选中值：{value || '(未选择)'}
+      </p>
+    </div>
+  );
+};
+```
+
+## API
+
+### Props
+
+| 属性 | 说明 | 类型 | 默认值 |
+|------|------|------|--------|
+| value | 选中的值 | `string` | - |
+| defaultValue | 默认选中的值 | `string` | - |
+| options | 选项列表 | `Option[]` | `[]` |
+| placeholder | 占位文本 | `string` | `'请选择'` |
+| disabled | 禁用状态 | `boolean` | `false` |
+| onChange | 选择回调 | `(value: string) => void` | - |
+
+### Option
+
+| 属性 | 说明 | 类型 | 必填 |
+|------|------|------|------|
+| value | 选项值 | `string` | ✓ |
+| label | 选项显示文本 | `string` | ✓ |
+| disabled | 是否禁用该选项 | `boolean` | - |
