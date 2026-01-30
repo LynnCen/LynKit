@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconquitProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * quit
  * @source figma
  */
-export const Iconquit = React.memo((props: IconquitProps) => {
+const Iconquit = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M6 2.25C4.48122 2.25 3.25 3.48122 3.25 5V19C3.25 20.5188 4.48122 21.75 6 21.75H11V20.25H6C5.30964 20.25 4.75 19.6904 4.75 19V5C4.75 4.30964 5.30964 3.75 6 3.75H11V2.25H6Z"
@@ -25,9 +29,9 @@ export const Iconquit = React.memo((props: IconquitProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconquit.displayName = 'Iconquit'
+Iconquit.displayName = 'Iconquit';
 
-export default Iconquit
+export default Iconquit;

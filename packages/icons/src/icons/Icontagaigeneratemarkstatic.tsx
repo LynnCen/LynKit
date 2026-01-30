@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IcontagaigeneratemarkstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag_ai_generate_mark_static
  * @source figma
  */
-export const Icontagaigeneratemarkstatic = React.memo((props: IcontagaigeneratemarkstaticProps) => {
+const Icontagaigeneratemarkstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Icontagaigeneratemarkstatic = React.memo((props: Icontagaigeneratem
       height="14"
       viewBox="0 0 42 14"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M0 2C0 0.89543 0.895431 0 2 0H33.454C37.8722 0 41.454 3.58172 41.454 8V12C41.454 13.1046 40.5585 14 39.454 14H8C3.58172 14 0 10.4183 0 6V2Z"
@@ -41,9 +44,9 @@ export const Icontagaigeneratemarkstatic = React.memo((props: Icontagaigeneratem
         />
       </g>
     </svg>
-  )
-})
+  );
+});
 
-Icontagaigeneratemarkstatic.displayName = 'Icontagaigeneratemarkstatic'
+Icontagaigeneratemarkstatic.displayName = 'Icontagaigeneratemarkstatic';
 
-export default Icontagaigeneratemarkstatic
+export default Icontagaigeneratemarkstatic;

@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IcontagpaidstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag_paid_static
  * @source figma
  */
-export const Icontagpaidstatic = React.memo((props: IcontagpaidstaticProps) => {
+const Icontagpaidstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Icontagpaidstatic = React.memo((props: IcontagpaidstaticProps) => {
       height="14"
       viewBox="0 0 26 14"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M0 3C0 1.34315 1.34315 0 3 0H23C24.6569 0 26 1.34315 26 3V11C26 12.6569 24.6569 14 23 14H3C1.34315 14 0 12.6569 0 11V3Z"
@@ -42,9 +45,9 @@ export const Icontagpaidstatic = React.memo((props: IcontagpaidstaticProps) => {
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Icontagpaidstatic.displayName = 'Icontagpaidstatic'
+Icontagpaidstatic.displayName = 'Icontagpaidstatic';
 
-export default Icontagpaidstatic
+export default Icontagpaidstatic;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconzanfillProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * zan_fill
  * @source figma
  */
-export const Iconzanfill = React.memo((props: IconzanfillProps) => {
+const Iconzanfill = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M11.827 2.16455C11.0313 2.16455 10.2984 2.59711 9.9139 3.29377L6.82706 8.88611C6.73367 9.05531 6.68111 9.24399 6.67357 9.4371L6.32383 18.3974C6.25188 20.2407 7.72671 21.7742 9.57136 21.7742H15.8835C18.1352 21.7742 20.0701 20.1946 20.5562 18.0069C20.6107 17.7613 20.6648 17.5187 20.7185 17.2779C21.0526 15.7791 21.3719 14.3463 21.7038 12.6688C22.1589 10.3683 20.3718 8.277 18.0556 8.277H13.287L13.9718 4.76831C14.2351 3.41895 13.2018 2.16455 11.827 2.16455Z"
@@ -27,9 +31,9 @@ export const Iconzanfill = React.memo((props: IconzanfillProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconzanfill.displayName = 'Iconzanfill'
+Iconzanfill.displayName = 'Iconzanfill';
 
-export default Iconzanfill
+export default Iconzanfill;

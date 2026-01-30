@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconstylestaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * style_static
  * @source figma
  */
-export const Iconstylestatic = React.memo((props: IconstylestaticProps) => {
+const Iconstylestatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -45,9 +49,9 @@ export const Iconstylestatic = React.memo((props: IconstylestaticProps) => {
         fill="#222529"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconstylestatic.displayName = 'Iconstylestatic'
+Iconstylestatic.displayName = 'Iconstylestatic';
 
-export default Iconstylestatic
+export default Iconstylestatic;

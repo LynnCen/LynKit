@@ -1,29 +1,33 @@
-import React from 'react'
-
-export interface IconhelpcenterProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * help_center
  * @source figma
  */
-export const Iconhelpcenter = React.memo((props: IconhelpcenterProps) => {
+const Iconhelpcenter = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M12.1945 4C10.5469 4 9.26545 4.48352 8.35011 5.45055C7.43478 6.37363 7 7.6044 7 9.14286H8.80778C8.80778 8.06593 9.0595 7.23077 9.56293 6.61538C10.1121 5.89011 10.9588 5.53846 12.103 5.53846C13.0641 5.53846 13.8192 5.78022 14.3455 6.30769C14.849 6.79121 15.1236 7.47253 15.1236 8.35165C15.1236 8.96703 14.8947 9.53846 14.4371 10.0879C14.2998 10.2637 14.0252 10.5275 13.659 10.8791C12.4233 11.9341 11.6682 12.7692 11.3478 13.4286C11.0732 13.978 10.9359 14.6154 10.9359 15.3407V15.8462H12.7666V15.3407C12.7666 14.7473 12.9039 14.2198 13.2014 13.7363C13.4302 13.3407 13.7735 12.9451 14.2769 12.5275C15.2838 11.6703 15.9016 11.0989 16.1304 10.8352C16.7025 10.1099 17 9.25275 17 8.26374C17 6.94506 16.5652 5.91209 15.7185 5.16484C14.8261 4.37363 13.659 4 12.1945 4ZM11.8513 17.3846C11.4622 17.3846 11.1419 17.4945 10.8673 17.7582C10.5927 18 10.4783 18.3077 10.4783 18.6813C10.4783 19.0549 10.5927 19.3626 10.8673 19.6264C11.1419 19.8681 11.4622 20 11.8513 20C12.2403 20 12.5606 19.8681 12.8352 19.6264C13.1098 19.3846 13.2471 19.0769 13.2471 18.6813C13.2471 18.3077 13.1098 18 12.8581 17.7582C12.5835 17.4945 12.2403 17.3846 11.8513 17.3846Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhelpcenter.displayName = 'Iconhelpcenter'
+Iconhelpcenter.displayName = 'Iconhelpcenter';
 
-export default Iconhelpcenter
+export default Iconhelpcenter;

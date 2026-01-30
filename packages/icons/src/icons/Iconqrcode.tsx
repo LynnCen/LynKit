@@ -1,61 +1,65 @@
-import React from 'react'
-
-export interface IconqrcodeProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * qrcode
  * @source figma
  */
-export const Iconqrcode = React.memo((props: IconqrcodeProps) => {
+const Iconqrcode = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M7 8C7.55228 8 8 7.55228 8 7C8 6.44772 7.55228 6 7 6C6.44772 6 6 6.44772 6 7C6 7.55228 6.44772 8 7 8Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M5 3C3.89543 3 3 3.89543 3 5V9C3 10.1046 3.89543 11 5 11H9C10.1046 11 11 10.1046 11 9V5C11 3.89543 10.1046 3 9 3H5ZM9 4.5H5C4.72386 4.5 4.5 4.72386 4.5 5V9C4.5 9.27614 4.72386 9.5 5 9.5H9C9.27614 9.5 9.5 9.27614 9.5 9V5C9.5 4.72386 9.27614 4.5 9 4.5Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M8 17C8 17.5523 7.55228 18 7 18C6.44772 18 6 17.5523 6 17C6 16.4477 6.44772 16 7 16C7.55228 16 8 16.4477 8 17Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M5 13C3.89543 13 3 13.8954 3 15V19C3 20.1046 3.89543 21 5 21H9C10.1046 21 11 20.1046 11 19V15C11 13.8954 10.1046 13 9 13H5ZM9.5 15C9.5 14.7239 9.27614 14.5 9 14.5H5C4.72386 14.5 4.5 14.7239 4.5 15V19C4.5 19.2761 4.72386 19.5 5 19.5H9C9.27614 19.5 9.5 19.2761 9.5 19V15Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M17 8C17.5523 8 18 7.55228 18 7C18 6.44772 17.5523 6 17 6C16.4477 6 16 6.44772 16 7C16 7.55228 16.4477 8 17 8Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M13 5C13 3.89543 13.8954 3 15 3H19C20.1046 3 21 3.89543 21 5V9C21 10.1046 20.1046 11 19 11H15C13.8954 11 13 10.1046 13 9V5ZM15 4.5H19C19.2761 4.5 19.5 4.72386 19.5 5V9C19.5 9.27614 19.2761 9.5 19 9.5H15C14.7239 9.5 14.5 9.27614 14.5 9V5C14.5 4.72386 14.7239 4.5 15 4.5Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M15 13C13.8954 13 13 13.8954 13 15V19C13 20.1046 13.8954 21 15 21H19C20.1046 21 21 20.1046 21 19V15C21 13.8954 20.1046 13 19 13H15ZM19.5 15C19.5 14.7239 19.2761 14.5 19 14.5H15C14.7239 14.5 14.5 14.7239 14.5 15V19C14.5 19.2761 14.7239 19.5 15 19.5H19C19.2761 19.5 19.5 19.2761 19.5 19V15Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconqrcode.displayName = 'Iconqrcode'
+Iconqrcode.displayName = 'Iconqrcode';
 
-export default Iconqrcode
+export default Iconqrcode;

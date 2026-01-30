@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IcontagnewinsmindstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag_new_insmind_static
  * @source figma
  */
-export const Icontagnewinsmindstatic = React.memo((props: IcontagnewinsmindstaticProps) => {
+const Icontagnewinsmindstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Icontagnewinsmindstatic = React.memo((props: Icontagnewinsmindstati
       height="14"
       viewBox="0 0 28 14"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M0 3C0 1.34315 1.34315 0 3 0H25C26.6569 0 28 1.34315 28 3V11C28 12.6569 26.6569 14 25 14H3C1.34315 14 0 12.6569 0 11V3Z"
@@ -27,9 +30,9 @@ export const Icontagnewinsmindstatic = React.memo((props: Icontagnewinsmindstati
         strokeWidth={0.5}
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontagnewinsmindstatic.displayName = 'Icontagnewinsmindstatic'
+Icontagnewinsmindstatic.displayName = 'Icontagnewinsmindstatic';
 
-export default Icontagnewinsmindstatic
+export default Icontagnewinsmindstatic;

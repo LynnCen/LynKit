@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconclosecomponentProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * close_component
  * @source figma
  */
-export const Iconclosecomponent = React.memo((props: IconclosecomponentProps) => {
+const Iconclosecomponent = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M13.0607 11.9996L15.7126 14.6516L14.6519 15.7122L12 13.0603L9.34795 15.7123L8.28729 14.6517L10.9393 11.9996L8.28797 9.34826L9.34863 8.2876L12 10.939L14.6513 8.28773L15.7119 9.34839L13.0607 11.9996Z"
@@ -27,9 +31,9 @@ export const Iconclosecomponent = React.memo((props: IconclosecomponentProps) =>
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconclosecomponent.displayName = 'Iconclosecomponent'
+Iconclosecomponent.displayName = 'Iconclosecomponent';
 
-export default Iconclosecomponent
+export default Iconclosecomponent;

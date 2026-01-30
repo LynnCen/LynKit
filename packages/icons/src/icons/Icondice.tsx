@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IcondiceProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * dice
  * @source figma
  */
-export const Icondice = React.memo((props: IcondiceProps) => {
+const Icondice = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M14 8.5C14 9.32843 14.6716 10 15.5 10C16.3284 10 17 9.32843 17 8.5C17 7.67157 16.3284 7 15.5 7C14.6716 7 14 7.67157 14 8.5Z"
@@ -35,9 +39,9 @@ export const Icondice = React.memo((props: IcondiceProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Icondice.displayName = 'Icondice'
+Icondice.displayName = 'Icondice';
 
-export default Icondice
+export default Icondice;

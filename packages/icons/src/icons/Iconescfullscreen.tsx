@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconescfullscreenProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * esc_full_screen
  * @source figma
  */
-export const Iconescfullscreen = React.memo((props: IconescfullscreenProps) => {
+const Iconescfullscreen = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M16.5 7V3H15V7C15 8.10457 15.8954 9 17 9L21 9L21 7.5L17 7.5C16.7239 7.5 16.5 7.27614 16.5 7Z"
@@ -33,9 +37,9 @@ export const Iconescfullscreen = React.memo((props: IconescfullscreenProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconescfullscreen.displayName = 'Iconescfullscreen'
+Iconescfullscreen.displayName = 'Iconescfullscreen';
 
-export default Iconescfullscreen
+export default Iconescfullscreen;

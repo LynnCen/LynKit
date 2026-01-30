@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconimagestyleProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * image_style
  * @source figma
  */
-export const Iconimagestyle = React.memo((props: IconimagestyleProps) => {
+const Iconimagestyle = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M19.0804 4.91964L18 2L16.9196 4.91964L14 6L16.9196 7.08036L18 10L19.0804 7.08036L22 6L19.0804 4.91964Z"
@@ -27,9 +31,9 @@ export const Iconimagestyle = React.memo((props: IconimagestyleProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconimagestyle.displayName = 'Iconimagestyle'
+Iconimagestyle.displayName = 'Iconimagestyle';
 
-export default Iconimagestyle
+export default Iconimagestyle;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconaddvideoProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * add_video
  * @source figma
  */
-export const Iconaddvideo = React.memo((props: IconaddvideoProps) => {
+const Iconaddvideo = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M4.75 6C4.75 5.30964 5.30964 4.75 6 4.75H9V3.25H6C4.48122 3.25 3.25 4.48122 3.25 6V9H4.75V6Z"
@@ -39,9 +43,9 @@ export const Iconaddvideo = React.memo((props: IconaddvideoProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconaddvideo.displayName = 'Iconaddvideo'
+Iconaddvideo.displayName = 'Iconaddvideo';
 
-export default Iconaddvideo
+export default Iconaddvideo;

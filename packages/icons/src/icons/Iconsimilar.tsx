@@ -1,29 +1,33 @@
-import React from 'react'
-
-export interface IconsimilarProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * similar
  * @source figma
  */
-export const Iconsimilar = React.memo((props: IconsimilarProps) => {
+const Iconsimilar = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M11.3997 2.84961C11.8137 2.84961 12.1494 3.18558 12.1497 3.59961C12.1497 4.01382 11.8139 4.34961 11.3997 4.34961C7.50614 4.34971 4.34985 7.50685 4.34985 11.4004C4.35006 15.2938 7.50627 18.4501 11.3997 18.4502C15.2931 18.4502 18.4493 15.2938 18.4495 11.4004C18.4495 10.9863 18.7854 10.6506 19.1995 10.6504C19.6137 10.6504 19.9495 10.9862 19.9495 11.4004C19.9494 13.4914 19.1979 15.406 17.9514 16.8916L20.9299 19.8701C21.2227 20.163 21.2228 20.6378 20.9299 20.9307C20.637 21.2232 20.1622 21.2234 19.8694 20.9307L16.8909 17.9521C15.4053 19.1984 13.4905 19.9502 11.3997 19.9502C6.67784 19.9501 2.85006 16.1222 2.84985 11.4004C2.84985 6.67842 6.67771 2.84971 11.3997 2.84961ZM16.6262 2.25391C16.7604 1.91544 17.2391 1.91549 17.3733 2.25391L17.9026 3.59082C18.175 4.27909 18.7202 4.8242 19.4084 5.09668L20.7454 5.62598C21.0841 5.76006 21.0841 6.23994 20.7454 6.37402L19.4084 6.90332C18.7202 7.1758 18.175 7.72091 17.9026 8.40918L17.3733 9.74609C17.2391 10.0845 16.7604 10.0846 16.6262 9.74609L16.0969 8.40918C15.8245 7.72086 15.2794 7.17578 14.5911 6.90332L13.2542 6.37402C12.9154 6.23994 12.9154 5.76006 13.2542 5.62598L14.5911 5.09668C15.2794 4.82422 15.8245 4.27914 16.0969 3.59082L16.6262 2.25391Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconsimilar.displayName = 'Iconsimilar'
+Iconsimilar.displayName = 'Iconsimilar';
 
-export default Iconsimilar
+export default Iconsimilar;

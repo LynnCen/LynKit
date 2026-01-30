@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IcontmalloffstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tmall_off_static
  * @source figma
  */
-export const Icontmalloffstatic = React.memo((props: IcontmalloffstaticProps) => {
+const Icontmalloffstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M23.9999 4.99999V19C23.9999 21.7999 21.7999 23.9999 19 23.9999H4.99999C2.19999 23.9999 0 21.7999 0 19V4.99999C0 2.19999 2.19999 0 4.99999 0H19C21.7999 0 23.9999 2.19999 23.9999 4.99999Z"
@@ -45,9 +49,9 @@ export const Icontmalloffstatic = React.memo((props: IcontmalloffstaticProps) =>
         fill="#B4B8BF"
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontmalloffstatic.displayName = 'Icontmalloffstatic'
+Icontmalloffstatic.displayName = 'Icontmalloffstatic';
 
-export default Icontmalloffstatic
+export default Icontmalloffstatic;

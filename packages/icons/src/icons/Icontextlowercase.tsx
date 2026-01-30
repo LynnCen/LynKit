@@ -1,33 +1,37 @@
-import React from 'react'
-
-export interface IcontextlowercaseProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * text_lowercase
  * @source figma
  */
-export const Icontextlowercase = React.memo((props: IcontextlowercaseProps) => {
+const Icontextlowercase = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M10.8801 18.0055H9.24071V16.9669C8.32993 17.8508 7.51022 18.1381 6.00744 18.1381C4.45911 18.1381 3.54833 17.8508 2.84247 17.1436C2.296 16.6133 2 15.7956 2 14.9337C2 13.0331 3.36617 11.7956 5.87082 11.7956H9.24071V10.7569C9.24071 9.16575 8.421 8.37017 6.37175 8.37017C4.93727 8.37017 4.20864 8.70166 3.54833 9.60773L2.43262 8.61326C3.43448 7.35359 4.57296 7 6.39452 7C9.40009 7 10.8801 8.25967 10.8801 10.6243V18.0055ZM9.24071 14.1602V12.989H6.09851C4.41357 12.989 3.59387 13.6519 3.59387 14.9116C3.59387 16.1713 4.3908 16.768 6.16682 16.768C7.12314 16.768 7.96562 16.7017 8.67147 16.0387C9.05855 15.6851 9.24071 15.0663 9.24071 14.1602Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M22 18.337C22 21.0331 20.2695 23 17.3322 23C15.6473 23 14.7138 22.5801 13.5297 21.5414L14.5999 20.5249C15.4196 21.232 15.9888 21.6077 17.2867 21.6077C19.4498 21.6077 20.3606 20.1271 20.3606 18.2707V16.5691C19.4498 17.6961 18.4252 17.9834 17.2184 17.9834C16.0799 17.9834 15.1008 17.5856 14.5088 17.0111C13.3931 15.9282 13.1427 14.2486 13.1427 12.4807C13.1427 10.7127 13.3931 9.03315 14.5088 7.95028C15.1008 7.37569 16.1027 7 17.2412 7C18.4707 7 19.4726 7.26519 20.3834 8.41436V7.1326H22V18.337ZM20.3606 12.4807C20.3606 10.4475 20.0191 8.41436 17.5827 8.41436C15.1464 8.41436 14.7821 10.4475 14.7821 12.4807C14.7821 14.5138 15.1464 16.547 17.5827 16.547C20.0191 16.547 20.3606 14.5138 20.3606 12.4807Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontextlowercase.displayName = 'Icontextlowercase'
+Icontextlowercase.displayName = 'Icontextlowercase';
 
-export default Icontextlowercase
+export default Icontextlowercase;

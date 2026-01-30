@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconbeautifyoffstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * beautify_off_static
  * @source figma
  */
-export const Iconbeautifyoffstatic = React.memo((props: IconbeautifyoffstaticProps) => {
+const Iconbeautifyoffstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -30,9 +34,9 @@ export const Iconbeautifyoffstatic = React.memo((props: IconbeautifyoffstaticPro
         fill="white"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconbeautifyoffstatic.displayName = 'Iconbeautifyoffstatic'
+Iconbeautifyoffstatic.displayName = 'Iconbeautifyoffstatic';
 
-export default Iconbeautifyoffstatic
+export default Iconbeautifyoffstatic;

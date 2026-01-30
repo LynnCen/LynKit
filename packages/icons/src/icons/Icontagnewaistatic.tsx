@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IcontagnewaistaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag_new_ai_static
  * @source figma
  */
-export const Icontagnewaistatic = React.memo((props: IcontagnewaistaticProps) => {
+const Icontagnewaistatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Icontagnewaistatic = React.memo((props: IcontagnewaistaticProps) =>
       height="14"
       viewBox="0 0 29 15"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M0 3.10668C0 1.39091 1.39091 0 3.10668 0H25.889C27.6048 0 28.9957 1.39091 28.9957 3.10668V11.3912C28.9957 13.1069 27.6048 14.4979 25.889 14.4979H3.10668C1.39091 14.4979 0 13.1069 0 11.3912V3.10668Z"
@@ -46,9 +49,9 @@ export const Icontagnewaistatic = React.memo((props: IcontagnewaistaticProps) =>
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Icontagnewaistatic.displayName = 'Icontagnewaistatic'
+Icontagnewaistatic.displayName = 'Icontagnewaistatic';
 
-export default Icontagnewaistatic
+export default Icontagnewaistatic;

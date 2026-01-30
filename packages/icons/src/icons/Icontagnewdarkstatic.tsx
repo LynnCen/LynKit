@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IcontagnewdarkstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag_new_dark_static
  * @source figma
  */
-export const Icontagnewdarkstatic = React.memo((props: IcontagnewdarkstaticProps) => {
+const Icontagnewdarkstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Icontagnewdarkstatic = React.memo((props: IcontagnewdarkstaticProps
       height="10"
       viewBox="0 0 20 10"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <rect width="20" height="10" rx="5" fill="#F54531" />
       <path
@@ -30,9 +33,9 @@ export const Icontagnewdarkstatic = React.memo((props: IcontagnewdarkstaticProps
         fill="white"
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontagnewdarkstatic.displayName = 'Icontagnewdarkstatic'
+Icontagnewdarkstatic.displayName = 'Icontagnewdarkstatic';
 
-export default Icontagnewdarkstatic
+export default Icontagnewdarkstatic;

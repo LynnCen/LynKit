@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IconappletfillProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * applet_fill
  * @source figma
  */
-export const Iconappletfill = React.memo((props: IconappletfillProps) => {
+const Iconappletfill = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M1.21389 15.6662C1.21538 12.3081 3.93565 9.58546 7.29368 9.581C7.78999 9.581 8.2486 9.84578 8.49675 10.2756C8.7449 10.7054 8.7449 11.235 8.49675 11.6648C8.2486 12.0946 7.78999 12.3594 7.29368 12.3594C5.95335 12.3588 4.7447 13.1658 4.2314 14.4039C3.7181 15.6421 4.00126 17.0675 4.94882 18.0155C5.89638 18.9634 7.32171 19.2472 8.56006 18.7344C9.79842 18.2216 10.6059 17.0132 10.6059 15.6729V6.84981H10.6248C10.864 3.55386 13.689 1.05067 16.9898 1.20982C20.2906 1.36897 22.8617 4.13234 22.7828 7.43602C22.7039 10.7397 20.0038 13.3771 16.6991 13.3785C15.9319 13.3785 15.31 12.7565 15.31 11.9893C15.31 11.2221 15.9319 10.6001 16.6991 10.6001C18.5268 10.5979 20.007 9.11515 20.006 7.28749C20.005 5.45983 18.5232 3.97868 16.6956 3.97843C14.8679 3.97818 13.3857 5.45893 13.3843 7.28659V16.1272H13.3681C13.1294 19.3965 10.344 21.8892 7.06839 21.765C3.79277 21.6407 1.2042 18.9441 1.21389 15.6662Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconappletfill.displayName = 'Iconappletfill'
+Iconappletfill.displayName = 'Iconappletfill';
 
-export default Iconappletfill
+export default Iconappletfill;

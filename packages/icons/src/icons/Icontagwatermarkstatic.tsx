@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IcontagwatermarkstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag_watermark_static
  * @source figma
  */
-export const Icontagwatermarkstatic = React.memo((props: IcontagwatermarkstaticProps) => {
+const Icontagwatermarkstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Icontagwatermarkstatic = React.memo((props: IcontagwatermarkstaticP
       height="14"
       viewBox="0 0 36 14"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M0 3C0 1.34315 1.34315 0 3 0H33C34.6569 0 36 1.34315 36 3V11C36 12.6569 34.6569 14 33 14H3C1.34315 14 0 12.6569 0 11V3Z"
@@ -33,9 +36,9 @@ export const Icontagwatermarkstatic = React.memo((props: IcontagwatermarkstaticP
         fill="white"
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontagwatermarkstatic.displayName = 'Icontagwatermarkstatic'
+Icontagwatermarkstatic.displayName = 'Icontagwatermarkstatic';
 
-export default Icontagwatermarkstatic
+export default Icontagwatermarkstatic;

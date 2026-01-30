@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconnavhomestaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * nav_home_static
  * @source figma
  */
-export const Iconnavhomestatic = React.memo((props: IconnavhomestaticProps) => {
+const Iconnavhomestatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M21.6004 11.2099V17.6001C21.6004 19.8093 19.8095 21.6001 17.6004 21.6001H16.2004H10.5004H6.40039C4.19125 21.6001 2.40039 19.8093 2.40039 17.6001V11.2099C2.40039 10.0364 2.91568 8.92213 3.8098 8.16213L10.0574 2.85163C11.1777 1.89939 12.8231 1.89939 13.9433 2.85163L20.191 8.16213C21.0851 8.92213 21.6004 10.0364 21.6004 11.2099Z"
@@ -58,9 +62,9 @@ export const Iconnavhomestatic = React.memo((props: IconnavhomestaticProps) => {
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconnavhomestatic.displayName = 'Iconnavhomestatic'
+Iconnavhomestatic.displayName = 'Iconnavhomestatic';
 
-export default Iconnavhomestatic
+export default Iconnavhomestatic;

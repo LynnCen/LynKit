@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconfundcardProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * fundcard
  * @source figma
  */
-export const Iconfundcard = React.memo((props: IconfundcardProps) => {
+const Iconfundcard = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M4.90625 5.72473C4.21589 5.72473 3.65625 6.28438 3.65625 6.97473V17.3488C3.65625 18.0391 4.21589 18.5988 4.90625 18.5988H17.5645C18.2548 18.5988 18.8145 18.0391 18.8145 17.3488V13.7283H20.3145V17.3488C20.3145 18.8675 19.0832 20.0988 17.5645 20.0988H4.90625C3.38747 20.0988 2.15625 18.8675 2.15625 17.3488V6.97473C2.15625 5.45595 3.38747 4.22473 4.90625 4.22473H13.9211V5.72473H4.90625Z"
@@ -31,9 +35,9 @@ export const Iconfundcard = React.memo((props: IconfundcardProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconfundcard.displayName = 'Iconfundcard'
+Iconfundcard.displayName = 'Iconfundcard';
 
-export default Iconfundcard
+export default Iconfundcard;

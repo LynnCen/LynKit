@@ -1,26 +1,30 @@
-import React from 'react'
-
-export interface IconbordercolorProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * border_color
  * @source figma
  */
-export const Iconbordercolor = React.memo((props: IconbordercolorProps) => {
+const Iconbordercolor = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M4 2C2.89543 2 2 2.89543 2 4V20C2 21.1046 2.89543 22 4 22H20C21.1046 22 22 21.1046 22 20V4C22 2.89543 21.1046 2 20 2H4ZM16 8H8V16H16V8Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         fillRule="evenodd"
@@ -37,9 +41,9 @@ export const Iconbordercolor = React.memo((props: IconbordercolorProps) => {
         fillOpacity={0.08}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconbordercolor.displayName = 'Iconbordercolor'
+Iconbordercolor.displayName = 'Iconbordercolor';
 
-export default Iconbordercolor
+export default Iconbordercolor;

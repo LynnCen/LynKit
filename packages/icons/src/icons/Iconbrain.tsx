@@ -1,33 +1,37 @@
-import React from 'react'
-
-export interface IconbrainProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * brain
  * @source figma
  */
-export const Iconbrain = React.memo((props: IconbrainProps) => {
+const Iconbrain = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M14.247 21C14.6884 19.562 15.3544 18.4899 16.245 17.7839C17.5809 16.7248 19.7034 17.383 20.4874 16.2907C21.2714 15.1982 20.4676 13.1853 19.9998 12C19.7486 11.3637 21.0213 11.0368 20.9998 10C20.982 9.14867 20.3193 9.35827 19.2524 8.90698C18.7488 8.69396 18.4626 8.18926 18.2929 7.66943C17.3401 4.75076 14.2704 3 10.9999 3C5.25758 3 3 7.5 3 10.9555C3 14.0483 3.99993 16.2907 6.9999 17.7839C6.9999 18.1852 7.49989 19 6.4999 21"
-        fill="#FF5EAB"
+        fill={color}
       />
       <path
         d="M14 7.5C14 8.32843 13.3284 9 12.5 9C12.0756 9 11.6923 8.82372 11.4194 8.54039L8.97013 9.65372C8.98976 9.76619 9 9.8819 9 10C9 10.2823 8.9415 10.551 8.83596 10.7945L10.6905 12.237C10.924 12.087 11.2019 12 11.5 12C12.3284 12 13 12.6716 13 13.5C13 14.3284 12.3284 15 11.5 15C10.6716 15 10 14.3284 10 13.5C10 13.3344 10.0268 13.1751 10.0764 13.0262L8.22168 11.5836C7.88378 11.8447 7.46003 12 7 12C5.89543 12 5 11.1046 5 10C5 8.89543 5.89543 8 7 8C7.62858 8 8.18943 8.28998 8.55608 8.74346L11.0056 7.63006C11.0019 7.5872 11 7.54382 11 7.5C11 6.67157 11.6716 6 12.5 6C13.3284 6 14 6.67157 14 7.5Z"
-        fill="#FFEBF1"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconbrain.displayName = 'Iconbrain'
+Iconbrain.displayName = 'Iconbrain';
 
-export default Iconbrain
+export default Iconbrain;

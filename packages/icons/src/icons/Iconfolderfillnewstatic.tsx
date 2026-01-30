@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconfolderfillnewstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * folder_fill_new_static
  * @source figma
  */
-export const Iconfolderfillnewstatic = React.memo((props: IconfolderfillnewstaticProps) => {
+const Iconfolderfillnewstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M2 5C2 3.89543 2.89543 3 4 3H8.67544C8.89041 3 9.10397 3.03466 9.3079 3.10263L11.6921 3.89737C11.896 3.96534 12.1096 4 12.3246 4H20C21.1046 4 22 4.89543 22 6V19C22 20.1046 21.1046 21 20 21H4C2.89543 21 2 20.1046 2 19V5Z"
@@ -80,9 +84,9 @@ export const Iconfolderfillnewstatic = React.memo((props: Iconfolderfillnewstati
         </radialGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconfolderfillnewstatic.displayName = 'Iconfolderfillnewstatic'
+Iconfolderfillnewstatic.displayName = 'Iconfolderfillnewstatic';
 
-export default Iconfolderfillnewstatic
+export default Iconfolderfillnewstatic;

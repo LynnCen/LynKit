@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IcontagkenengaistaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag_kenengai_static
  * @source figma
  */
-export const Icontagkenengaistatic = React.memo((props: IcontagkenengaistaticProps) => {
+const Icontagkenengaistatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Icontagkenengaistatic = React.memo((props: IcontagkenengaistaticPro
       height="16"
       viewBox="0 0 61 16"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -134,9 +137,9 @@ export const Icontagkenengaistatic = React.memo((props: IcontagkenengaistaticPro
         fillOpacity={0.16}
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontagkenengaistatic.displayName = 'Icontagkenengaistatic'
+Icontagkenengaistatic.displayName = 'Icontagkenengaistatic';
 
-export default Icontagkenengaistatic
+export default Icontagkenengaistatic;

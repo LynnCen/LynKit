@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhbmanagefilledProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_ manage_filled
  * @source figma
  */
-export const Iconhbmanagefilled = React.memo((props: IconhbmanagefilledProps) => {
+const Iconhbmanagefilled = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M15.0627 6.84986C15.0627 9.01478 13.3077 10.7698 11.1427 10.7698C8.97783 10.7698 7.22282 9.01478 7.22282 6.84986C7.22282 4.68494 8.97783 2.92993 11.1427 2.92993C13.3077 2.92993 15.0627 4.68494 15.0627 6.84986Z"
@@ -33,9 +37,9 @@ export const Iconhbmanagefilled = React.memo((props: IconhbmanagefilledProps) =>
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhbmanagefilled.displayName = 'Iconhbmanagefilled'
+Iconhbmanagefilled.displayName = 'Iconhbmanagefilled';
 
-export default Iconhbmanagefilled
+export default Iconhbmanagefilled;

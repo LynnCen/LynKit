@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhbaddProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_add
  * @source figma
  */
-export const Iconhbadd = React.memo((props: IconhbaddProps) => {
+const Iconhbadd = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -23,9 +27,9 @@ export const Iconhbadd = React.memo((props: IconhbaddProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhbadd.displayName = 'Iconhbadd'
+Iconhbadd.displayName = 'Iconhbadd';
 
-export default Iconhbadd
+export default Iconhbadd;

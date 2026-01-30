@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconfeaturemarketingstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * feature_marketing_static
  * @source figma
  */
-export const Iconfeaturemarketingstatic = React.memo((props: IconfeaturemarketingstaticProps) => {
+const Iconfeaturemarketingstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M4 5.34521C4 4.79293 4.44772 4.34521 5 4.34521H19C19.5523 4.34521 20 4.79293 20 5.34521V7.20215C20 7.47829 19.7761 7.70215 19.5 7.70215H4.5C4.22386 7.70215 4 7.47829 4 7.20215V5.34521Z"
@@ -44,9 +48,9 @@ export const Iconfeaturemarketingstatic = React.memo((props: Iconfeaturemarketin
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconfeaturemarketingstatic.displayName = 'Iconfeaturemarketingstatic'
+Iconfeaturemarketingstatic.displayName = 'Iconfeaturemarketingstatic';
 
-export default Iconfeaturemarketingstatic
+export default Iconfeaturemarketingstatic;

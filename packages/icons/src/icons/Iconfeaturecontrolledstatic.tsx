@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconfeaturecontrolledstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * feature_controlled_static
  * @source figma
  */
-export const Iconfeaturecontrolledstatic = React.memo((props: IconfeaturecontrolledstaticProps) => {
+const Iconfeaturecontrolledstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M12.8852 10.4507C13.1941 10.8292 13.5524 11.1658 13.9503 11.4507H3.64844C2.82001 11.4507 2.14844 10.7791 2.14844 9.95068V4.95068C2.14844 4.12226 2.82001 3.45068 3.64844 3.45068H12.9263C12.6699 3.75745 12.4463 4.09258 12.261 4.45068H3.64844C3.3723 4.45068 3.14844 4.67454 3.14844 4.95068V9.95068C3.14844 10.2268 3.3723 10.4507 3.64844 10.4507H12.8852Z"
@@ -64,9 +68,9 @@ export const Iconfeaturecontrolledstatic = React.memo((props: Iconfeaturecontrol
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconfeaturecontrolledstatic.displayName = 'Iconfeaturecontrolledstatic'
+Iconfeaturecontrolledstatic.displayName = 'Iconfeaturecontrolledstatic';
 
-export default Iconfeaturecontrolledstatic
+export default Iconfeaturecontrolledstatic;

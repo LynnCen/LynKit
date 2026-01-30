@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconimgradioProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * img_radio
  * @source figma
  */
-export const Iconimgradio = React.memo((props: IconimgradioProps) => {
+const Iconimgradio = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M8.5 15.5H12V17H8C7.48232 17 7.05621 16.6067 7.00488 16.1025L7 16V12H8.5V15.5Z"
@@ -31,9 +35,9 @@ export const Iconimgradio = React.memo((props: IconimgradioProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconimgradio.displayName = 'Iconimgradio'
+Iconimgradio.displayName = 'Iconimgradio';
 
-export default Iconimgradio
+export default Iconimgradio;

@@ -1,43 +1,47 @@
-import React from 'react'
-
-export interface IconnavaieraserProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * nav_ai_eraser
  * @source figma
  */
-export const Iconnavaieraser = React.memo((props: IconnavaieraserProps) => {
+const Iconnavaieraser = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M13.5518 3.70549C14.4303 2.82694 15.821 2.77196 16.7637 3.54045L16.9473 3.70549L22.3877 9.14592L22.5527 9.32952C23.3209 10.2721 23.2659 11.662 22.3877 12.5405L15.4297 19.4994H21.25C21.8021 19.4994 22.2497 19.9474 22.25 20.4994C22.25 21.0517 21.8023 21.4994 21.25 21.4994H9.28418L5.70312 17.9184L5.54395 17.7504C3.94805 15.9841 4.00119 13.2566 5.70312 11.5541L13.5518 3.70549ZM7.11816 12.9682C6.14212 13.9445 6.14204 15.5271 7.11816 16.5033L10.1143 19.4994H12.5996L14.3926 17.7074L8.38574 11.7006L7.11816 12.9682ZM15.5322 5.11955C15.3761 4.96371 15.1229 4.96368 14.9668 5.11955L9.7998 10.2865L15.8066 16.2934L20.9736 11.1264C21.1296 10.9702 21.1298 10.7161 20.9736 10.56L15.5322 5.11955Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M2.00195 19.4994C2.55379 19.4994 3.00175 19.9476 3.00195 20.4994C3.00174 21.0512 2.55379 21.4985 2.00195 21.4985C1.45012 21.4985 1.00217 21.0512 1.00195 20.4994C1.00215 19.9476 1.45011 19.4994 2.00195 19.4994Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M5.60059 19.4994C6.15242 19.4994 6.59941 19.9476 6.59961 20.4994C6.59939 21.0512 6.15242 21.4985 5.60059 21.4985H4.99902C4.44737 21.4982 4.00021 21.0511 4 20.4994C4.0002 19.9478 4.44736 19.4997 4.99902 19.4994H5.60059Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M3.49023 2.74846C3.66724 2.42482 4.13254 2.42484 4.30957 2.74846L4.61035 3.29827C4.93147 3.88542 5.41387 4.36868 6.00098 4.68987L6.55176 4.99065C6.87491 5.16772 6.87483 5.63187 6.55176 5.80901L6.00098 6.10979C5.41385 6.43095 4.9315 6.91426 4.61035 7.50139L4.30957 8.0512C4.13256 8.37485 3.66725 8.37485 3.49023 8.0512L3.18945 7.50139C2.86829 6.91425 2.38598 6.43094 1.79883 6.10979L1.24902 5.80901C0.925369 5.63199 0.925369 5.16766 1.24902 4.99065L1.79883 4.68987C2.38599 4.36868 2.86831 3.88546 3.18945 3.29827L3.49023 2.74846Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconnavaieraser.displayName = 'Iconnavaieraser'
+Iconnavaieraser.displayName = 'Iconnavaieraser';
 
-export default Iconnavaieraser
+export default Iconnavaieraser;

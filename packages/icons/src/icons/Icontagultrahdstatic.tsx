@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IcontagultrahdstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag_ultrahd__static
  * @source figma
  */
-export const Icontagultrahdstatic = React.memo((props: IcontagultrahdstaticProps) => {
+const Icontagultrahdstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Icontagultrahdstatic = React.memo((props: IcontagultrahdstaticProps
       height="16"
       viewBox="0 0 52 16"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M0 2C0 0.895431 0.895431 0 2 0H44C48.4183 0 52 3.58172 52 8V14C52 15.1046 51.1046 16 50 16H8C3.58172 16 0 12.4183 0 8V2Z"
@@ -50,9 +53,9 @@ export const Icontagultrahdstatic = React.memo((props: IcontagultrahdstaticProps
         fill="white"
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontagultrahdstatic.displayName = 'Icontagultrahdstatic'
+Icontagultrahdstatic.displayName = 'Icontagultrahdstatic';
 
-export default Icontagultrahdstatic
+export default Icontagultrahdstatic;

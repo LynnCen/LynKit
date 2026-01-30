@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconscrollProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * scroll
  * @source figma
  */
-export const Iconscroll = React.memo((props: IconscrollProps) => {
+const Iconscroll = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M12 5.99998C11.4477 5.99998 11 6.4477 11 6.99998V12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12V6.99998C13 6.4477 12.5523 5.99998 12 5.99998Z"
@@ -27,9 +31,9 @@ export const Iconscroll = React.memo((props: IconscrollProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconscroll.displayName = 'Iconscroll'
+Iconscroll.displayName = 'Iconscroll';
 
-export default Iconscroll
+export default Iconscroll;

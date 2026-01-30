@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconcapitalcustomstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * capital_custom_static
  * @source figma
  */
-export const Iconcapitalcustomstatic = React.memo((props: IconcapitalcustomstaticProps) => {
+const Iconcapitalcustomstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <foreignObject x="3" y="16.0001" width="18" height="8">
         <div
@@ -143,9 +147,9 @@ export const Iconcapitalcustomstatic = React.memo((props: Iconcapitalcustomstati
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconcapitalcustomstatic.displayName = 'Iconcapitalcustomstatic'
+Iconcapitalcustomstatic.displayName = 'Iconcapitalcustomstatic';
 
-export default Iconcapitalcustomstatic
+export default Iconcapitalcustomstatic;

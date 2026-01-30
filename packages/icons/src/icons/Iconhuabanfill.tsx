@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhuabanfillProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * huaban_fill
  * @source figma
  */
-export const Iconhuabanfill = React.memo((props: IconhuabanfillProps) => {
+const Iconhuabanfill = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M7.69047 3.00012C8.79799 3.00012 9.87396 3.13545 10.9027 3.39049C7.62878 5.49009 5.43762 9.13763 5.43762 13.3009V15.3689C3.90236 13.1992 3.00012 10.5498 3.00012 7.68986V3.00012H7.69047Z"
@@ -29,9 +33,9 @@ export const Iconhuabanfill = React.memo((props: IconhuabanfillProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhuabanfill.displayName = 'Iconhuabanfill'
+Iconhuabanfill.displayName = 'Iconhuabanfill';
 
-export default Iconhuabanfill
+export default Iconhuabanfill;

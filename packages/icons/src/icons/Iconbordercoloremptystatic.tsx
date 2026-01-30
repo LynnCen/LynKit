@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconbordercoloremptystaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * border_color_empty_static
  * @source figma
  */
-export const Iconbordercoloremptystatic = React.memo((props: IconbordercoloremptystaticProps) => {
+const Iconbordercoloremptystatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path d="M2 4C2 2.89543 2.89543 2 4 2H7V7H2V4Z" fill="#F0F0F0" />
       <path
@@ -38,9 +42,9 @@ export const Iconbordercoloremptystatic = React.memo((props: Iconbordercolorempt
         fillOpacity={0.08}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconbordercoloremptystatic.displayName = 'Iconbordercoloremptystatic'
+Iconbordercoloremptystatic.displayName = 'Iconbordercoloremptystatic';
 
-export default Iconbordercoloremptystatic
+export default Iconbordercoloremptystatic;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IcontradesjinrongProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * trades_jinrong
  * @source figma
  */
-export const Icontradesjinrong = React.memo((props: IcontradesjinrongProps) => {
+const Icontradesjinrong = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M13.75 9.75H16V8.25H14.6391L16.3588 6.53033L15.2982 5.46967L12.9142 7.85364L10.5303 5.46973L9.46961 6.53039L11.1892 8.25H10V9.75H12.25V10.75H10V12.25H12.25V13.5H13.75V12.25H16V10.75H13.75V9.75Z"
@@ -27,9 +31,9 @@ export const Icontradesjinrong = React.memo((props: IcontradesjinrongProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontradesjinrong.displayName = 'Icontradesjinrong'
+Icontradesjinrong.displayName = 'Icontradesjinrong';
 
-export default Icontradesjinrong
+export default Icontradesjinrong;

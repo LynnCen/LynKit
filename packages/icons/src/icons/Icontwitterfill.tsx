@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IcontwitterfillProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * twitter_fill
  * @source figma
  */
-export const Icontwitterfill = React.memo((props: IcontwitterfillProps) => {
+const Icontwitterfill = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <g opacity="0.9">
         <path
           d="M23 5.13074C22.1906 5.49221 21.3206 5.73641 20.4077 5.84627C21.3395 5.2839 22.0553 4.3934 22.3922 3.33224C21.5201 3.85307 20.5541 4.23115 19.526 4.43493C18.7027 3.55173 17.5297 3 16.2315 3C13.7389 3 11.7178 5.0345 11.7178 7.54399C11.7178 7.90015 11.7578 8.24701 11.8348 8.57958C8.08354 8.39009 4.75779 6.58095 2.53161 3.8317C2.14309 4.50281 1.92044 5.28335 1.92044 6.11616C1.92044 7.69273 2.71729 9.08357 3.92839 9.89844C3.18853 9.87485 2.49256 9.67042 1.88403 9.3301C1.88352 9.34903 1.88352 9.36808 1.88352 9.38724C1.88352 11.5889 3.43937 13.4253 5.50418 13.8431C5.12545 13.947 4.7267 14.0024 4.31507 14.0024C4.02423 14.0024 3.74154 13.9739 3.46588 13.9209C4.0403 15.7262 5.70713 17.04 7.68229 17.0765C6.13756 18.2954 4.19144 19.0219 2.07668 19.0219C1.71236 19.0219 1.3531 19.0003 1 18.9583C2.99749 20.2477 5.36998 21 7.9189 21C16.2209 21 20.761 14.0759 20.761 8.07081C20.761 7.87379 20.7566 7.67788 20.7479 7.48286C21.6297 6.84231 22.3948 6.04206 22.9999 5.13074H23Z"
-          fill="#222529"
+          fill={color}
         />
       </g>
     </svg>
-  )
-})
+  );
+});
 
-Icontwitterfill.displayName = 'Icontwitterfill'
+Icontwitterfill.displayName = 'Icontwitterfill';
 
-export default Icontwitterfill
+export default Icontwitterfill;

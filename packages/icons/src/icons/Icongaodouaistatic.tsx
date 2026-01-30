@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IcongaodouaistaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * gaodou_ai_static
  * @source figma
  */
-export const Icongaodouaistatic = React.memo((props: IcongaodouaistaticProps) => {
+const Icongaodouaistatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <g filter="url(#filter0_i_19629_265)">
         <path
@@ -105,9 +109,9 @@ export const Icongaodouaistatic = React.memo((props: IcongaodouaistaticProps) =>
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Icongaodouaistatic.displayName = 'Icongaodouaistatic'
+Icongaodouaistatic.displayName = 'Icongaodouaistatic';
 
-export default Icongaodouaistatic
+export default Icongaodouaistatic;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IcondeepthinkProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * deepthink
  * @source figma
  */
-export const Icondeepthink = React.memo((props: IcondeepthinkProps) => {
+const Icondeepthink = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z"
@@ -27,9 +31,9 @@ export const Icondeepthink = React.memo((props: IcondeepthinkProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Icondeepthink.displayName = 'Icondeepthink'
+Icondeepthink.displayName = 'Icondeepthink';
 
-export default Icondeepthink
+export default Icondeepthink;

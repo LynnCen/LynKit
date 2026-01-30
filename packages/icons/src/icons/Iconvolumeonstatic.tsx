@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconvolumeonstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * volume_on_static
  * @source figma
  */
-export const Iconvolumeonstatic = React.memo((props: IconvolumeonstaticProps) => {
+const Iconvolumeonstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M14.2432 2.45435C14.4799 2.31255 14.7867 2.38956 14.9287 2.62622C14.9752 2.70384 15 2.79256 15 2.88306V12.7288H13.5V4.64868L7.08301 8.49927L3.5 8.50024V15.5002L6.70898 15.4993C6.45993 15.962 6.27916 16.4665 6.17773 16.9993L3 17.0002C2.44778 17.0002 2.00011 16.5524 2 16.0002V8.00024C2.00001 7.44797 2.44772 7.00024 3 7.00024L6.66699 6.99927L14.2432 2.45435ZM17 7.02271C19.8032 7.27533 22 9.63124 22 12.5002C22 12.8183 21.9708 13.1296 21.9189 13.4329C21.5049 13.1935 21.0555 13.0087 20.5801 12.8889C20.5924 12.761 20.5996 12.6314 20.5996 12.5002C20.5996 10.4263 19.0211 8.72064 17 8.51978V7.02271Z"
@@ -27,9 +31,9 @@ export const Iconvolumeonstatic = React.memo((props: IconvolumeonstaticProps) =>
         fill="#1CCC66"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconvolumeonstatic.displayName = 'Iconvolumeonstatic'
+Iconvolumeonstatic.displayName = 'Iconvolumeonstatic';
 
-export default Iconvolumeonstatic
+export default Iconvolumeonstatic;

@@ -1,43 +1,47 @@
-import React from 'react'
-
-export interface IconvolumeoffProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * volume_off
  * @source figma
  */
-export const Iconvolumeoff = React.memo((props: IconvolumeoffProps) => {
+const Iconvolumeoff = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M11.4199 16.0696C12.4808 16.0699 13.3407 16.9296 13.3408 17.9905C13.3408 19.0515 12.4809 19.9121 11.4199 19.9124C10.3588 19.9124 9.49805 19.0517 9.49805 17.9905C9.49819 16.9295 10.3589 16.0696 11.4199 16.0696Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M19.5605 13.9856C21.6793 14.0929 23.3642 15.8451 23.3643 17.9905C23.3641 20.1359 21.6793 21.8881 19.5605 21.9954L19.3545 22.0003H11.334C9.11951 22.0002 7.32434 20.205 7.32422 17.9905C7.32428 15.776 9.11948 13.9808 11.334 13.9807H19.3545L19.5605 13.9856ZM11.334 15.4807C9.94791 15.4808 8.82428 16.6044 8.82422 17.9905C8.82434 19.3765 9.94794 20.5002 11.334 20.5003H19.3545C20.7405 20.5002 21.8641 19.3765 21.8643 17.9905C21.8642 16.6044 20.7406 15.4808 19.3545 15.4807H11.334Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M14.2432 2.45437C14.4799 2.31258 14.7867 2.3896 14.9287 2.62624C14.9752 2.70386 15 2.79259 15 2.88308V12.7288H13.5V4.6487L7.08301 8.49929L3.5 8.50027V15.5003L6.70898 15.4993C6.45994 15.962 6.27915 16.4665 6.17773 16.9993L3 17.0003C2.44778 17.0003 2.00011 16.5525 2 16.0003V8.00027C2.00003 7.44801 2.44773 7.00027 3 7.00027L6.66699 6.99929L14.2432 2.45437Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M17 7.02273C19.8032 7.27535 22 9.63128 22 12.5003C22 12.8183 21.9708 13.1296 21.9189 13.4329C21.5049 13.1935 21.0555 13.0087 20.5801 12.8889C20.5924 12.761 20.5996 12.6314 20.5996 12.5003C20.5996 10.4263 19.0211 8.72067 17 8.5198V7.02273Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconvolumeoff.displayName = 'Iconvolumeoff'
+Iconvolumeoff.displayName = 'Iconvolumeoff';
 
-export default Iconvolumeoff
+export default Iconvolumeoff;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconopenplatformProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * open_platform
  * @source figma
  */
-export const Iconopenplatform = React.memo((props: IconopenplatformProps) => {
+const Iconopenplatform = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -23,9 +27,9 @@ export const Iconopenplatform = React.memo((props: IconopenplatformProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconopenplatform.displayName = 'Iconopenplatform'
+Iconopenplatform.displayName = 'Iconopenplatform';
 
-export default Iconopenplatform
+export default Iconopenplatform;

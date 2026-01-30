@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconlisttopProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * list_top
  * @source figma
  */
-export const Iconlisttop = React.memo((props: IconlisttopProps) => {
+const Iconlisttop = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M12.75 18V11.8107L14.4697 13.5303L15.5303 12.4697L12 8.93934L8.46967 12.4697L9.53033 13.5303L11.25 11.8107V18H12.75Z"
@@ -28,9 +32,9 @@ export const Iconlisttop = React.memo((props: IconlisttopProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconlisttop.displayName = 'Iconlisttop'
+Iconlisttop.displayName = 'Iconlisttop';
 
-export default Iconlisttop
+export default Iconlisttop;

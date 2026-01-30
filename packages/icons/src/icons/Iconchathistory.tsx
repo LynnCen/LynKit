@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconchathistoryProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * chat_history
  * @source figma
  */
-export const Iconchathistory = React.memo((props: IconchathistoryProps) => {
+const Iconchathistory = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path d="M17.4502 15.0498H19.75V16.4502H16.0498V12.25H17.4502V15.0498Z" fill="black" />
       <path
@@ -27,9 +31,9 @@ export const Iconchathistory = React.memo((props: IconchathistoryProps) => {
       <path d="M8.5 12.5H3V11H8.5V12.5Z" fill="black" />
       <path d="M21.5 5.5H3V4H21.5V5.5Z" fill="black" />
     </svg>
-  )
-})
+  );
+});
 
-Iconchathistory.displayName = 'Iconchathistory'
+Iconchathistory.displayName = 'Iconchathistory';
 
-export default Iconchathistory
+export default Iconchathistory;

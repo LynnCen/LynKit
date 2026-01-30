@@ -1,29 +1,33 @@
-import React from 'react'
-
-export interface IconhbsettingfilledProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_ setting_filled
  * @source figma
  */
-export const Iconhbsettingfilled = React.memo((props: IconhbsettingfilledProps) => {
+const Iconhbsettingfilled = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M10.569 2.62341C10.1297 2.62341 9.75196 2.9346 9.66786 3.36576L9.52532 4.09656C8.34701 4.4654 7.28208 5.09071 6.3959 5.90712L5.68858 5.66318C5.27279 5.51978 4.8137 5.6914 4.59394 6.07238L3.16388 8.55165C2.94432 8.93228 3.02525 9.41512 3.35691 9.70336L3.92284 10.1952C3.79461 10.7739 3.727 11.3754 3.727 11.9928C3.727 12.6143 3.79554 13.2198 3.92548 13.8022L3.35691 14.2963C3.02525 14.5845 2.94432 15.0674 3.16388 15.448L4.59394 17.9273C4.8137 18.3083 5.27279 18.4799 5.68858 18.3365L6.40708 18.0887C7.29029 18.8994 8.35019 19.5206 9.52238 19.888L9.66786 20.6339C9.75196 21.0651 10.1297 21.3762 10.569 21.3762H13.4295C13.8688 21.3762 14.2466 21.0651 14.3307 20.6339L14.4761 19.8882C15.6485 19.5209 16.7085 18.8996 17.5919 18.0888L18.3099 18.3365C18.7257 18.4799 19.1848 18.3083 19.4046 17.9273L20.8346 15.448C21.0542 15.0674 20.9733 14.5845 20.6416 14.2963L20.0735 13.8026C20.2035 13.2201 20.2721 12.6144 20.2721 11.9928C20.2721 11.3753 20.2045 10.7736 20.0762 10.1948L20.6416 9.70336C20.9733 9.41512 21.0542 8.93228 20.8346 8.55165L19.4046 6.07239C19.1848 5.6914 18.7257 5.51978 18.3099 5.66318L17.603 5.90697C16.7167 5.0905 15.6517 4.46516 14.4732 4.09637L14.3307 3.36576C14.2466 2.93459 13.8688 2.62341 13.4295 2.62341H10.569ZM11.9998 15.5079C10.0591 15.5079 8.48579 13.9346 8.48579 11.9939C8.48579 10.0532 10.0591 8.47988 11.9998 8.47988C13.9406 8.47988 15.5138 10.0532 15.5138 11.9939C15.5138 13.9346 13.9406 15.5079 11.9998 15.5079Z"
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhbsettingfilled.displayName = 'Iconhbsettingfilled'
+Iconhbsettingfilled.displayName = 'Iconhbsettingfilled';
 
-export default Iconhbsettingfilled
+export default Iconhbsettingfilled;

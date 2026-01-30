@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhbcloseProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_close
  * @source figma
  */
-export const Iconhbclose = React.memo((props: IconhbcloseProps) => {
+const Iconhbclose = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path d="M5 5L19 19M5 19L19 5" stroke="black" strokeWidth={2} strokeLinecap="round" />
       <path
@@ -22,9 +26,9 @@ export const Iconhbclose = React.memo((props: IconhbcloseProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhbclose.displayName = 'Iconhbclose'
+Iconhbclose.displayName = 'Iconhbclose';
 
-export default Iconhbclose
+export default Iconhbclose;

@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IconproductcollagefillProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * productcollage_fill
  * @source figma
  */
-export const Iconproductcollagefill = React.memo((props: IconproductcollagefillProps) => {
+const Iconproductcollagefill = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M15.5 18.4713V8.04239C15.5095 8.01889 15.5316 7.97089 15.5788 7.8971C15.687 7.72815 15.8775 7.50382 16.1655 7.25056C16.7416 6.74398 17.577 6.2365 18.5126 5.89629C19.3795 5.58107 20.0705 5.48429 20.5 5.50193V15.9308C20.4905 15.9543 20.4684 16.0023 20.4212 16.0761C20.313 16.2451 20.1225 16.4694 19.8345 16.7226C19.2584 17.2292 18.423 17.7367 17.4874 18.0769C16.6205 18.3921 15.9295 18.4889 15.5 18.4713ZM14.5 6.82866C14.1816 7.23732 14 7.63718 14 7.9866V16.5702C13.9489 16.6197 13.8937 16.6705 13.8345 16.7226C13.2584 17.2292 12.423 17.7367 11.4874 18.0769C10.6205 18.3921 9.92951 18.4889 9.5 18.4713V8.04239C9.50947 8.01889 9.53155 7.97089 9.57881 7.8971C9.687 7.72815 9.87748 7.50382 10.1655 7.25056C10.7416 6.74398 11.577 6.2365 12.5126 5.89629C13.3795 5.58107 14.0705 5.48429 14.5 5.50193V6.82866ZM15.9299 5.54239C15.9531 5.52661 15.9765 5.51089 16 5.49523V4.9866C16 3.8866 14.2 3.6866 12 4.4866C11.2728 4.75105 10.5892 5.10291 10 5.49523V4.9866C10 3.8866 8.2 3.6866 6 4.4866C3.8 5.2866 2 6.8866 2 7.9866V18.9866C2 20.0866 3.8 20.2866 6 19.4866C6.72723 19.2222 7.41075 18.8703 8 18.478V18.9866C8 20.0866 9.8 20.2866 12 19.4866C12.7272 19.2222 13.4108 18.8703 14 18.478V18.9866C14 20.0866 15.8 20.2866 18 19.4866C20.2 18.6866 22 17.0866 22 15.9866V4.9866C22 3.8866 20.2 3.6866 18 4.4866C17.2437 4.7616 16.5348 5.13113 15.9299 5.54239ZM3.5 18.4713V8.04239C3.50947 8.01889 3.53155 7.97089 3.57881 7.8971C3.687 7.72815 3.87748 7.50382 4.1655 7.25056C4.74161 6.74398 5.57704 6.2365 6.51261 5.89629C7.37946 5.58107 8.07049 5.48429 8.5 5.50193V6.82866C8.18162 7.23732 8 7.63718 8 7.9866V16.5702C7.94887 16.6197 7.89375 16.6705 7.8345 16.7226C7.25839 17.2292 6.42296 17.7367 5.48739 18.0769C4.62054 18.3921 3.92951 18.4889 3.5 18.4713Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconproductcollagefill.displayName = 'Iconproductcollagefill'
+Iconproductcollagefill.displayName = 'Iconproductcollagefill';
 
-export default Iconproductcollagefill
+export default Iconproductcollagefill;

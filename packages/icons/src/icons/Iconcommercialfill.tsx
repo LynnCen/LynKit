@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconcommercialfillProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * commercial_fill
  * @source figma
  */
-export const Iconcommercialfill = React.memo((props: IconcommercialfillProps) => {
+const Iconcommercialfill = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path d="M12.8986 13.0701V14.0613H11.0915V13.0701H12.8986Z" fill="black" />
       <path
@@ -40,9 +44,9 @@ export const Iconcommercialfill = React.memo((props: IconcommercialfillProps) =>
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconcommercialfill.displayName = 'Iconcommercialfill'
+Iconcommercialfill.displayName = 'Iconcommercialfill';
 
-export default Iconcommercialfill
+export default Iconcommercialfill;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhbcollectionProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_collection
  * @source figma
  */
-export const Iconhbcollection = React.memo((props: IconhbcollectionProps) => {
+const Iconhbcollection = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M19.998 8.85352C20.5503 8.85352 20.998 9.30123 20.998 9.85352V17.9727C20.998 19.6295 19.6549 20.9727 17.998 20.9727H8.43555C7.88326 20.9727 7.43555 20.5249 7.43555 19.9727C7.43555 19.4204 7.88326 18.9727 8.43555 18.9727H17.998C18.5503 18.9727 18.998 18.5249 18.998 17.9727V13.0342L17.2471 13.0625C16.7085 13.0711 16.417 12.4345 16.7754 12.0322L19.0918 9.43262C19.2508 9.09087 19.5963 8.85352 19.998 8.85352Z"
@@ -25,9 +29,9 @@ export const Iconhbcollection = React.memo((props: IconhbcollectionProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhbcollection.displayName = 'Iconhbcollection'
+Iconhbcollection.displayName = 'Iconhbcollection';
 
-export default Iconhbcollection
+export default Iconhbcollection;

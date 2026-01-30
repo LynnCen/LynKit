@@ -1,41 +1,45 @@
-import React from 'react'
-
-export interface IconstartedfillProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * started_fill
  * @source figma
  */
-export const Iconstartedfill = React.memo((props: IconstartedfillProps) => {
+const Iconstartedfill = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M5.86371 7.47007C6.6743 7.30795 7.30792 6.67433 7.47004 5.86374L8.04525 2.98769C8.30863 1.67081 10.1914 1.67081 10.4548 2.98769L11.03 5.86374C11.1921 6.67434 11.8257 7.30795 12.6363 7.47007L15.5123 8.04528C16.8292 8.30866 16.8292 10.1914 15.5123 10.4548L12.6363 11.03C11.8257 11.1921 11.1921 11.8257 11.03 12.6363L10.4548 15.5124C10.1914 16.8293 8.30863 16.8292 8.04525 15.5124L7.47004 12.6363C7.30792 11.8257 6.6743 11.1921 5.86371 11.03L2.98766 10.4548C1.67078 10.1914 1.67078 8.30866 2.98766 8.04528L5.86371 7.47007Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M6 18C6 18.5523 5.55228 19 5 19C4.44772 19 4 18.5523 4 18C4 17.4477 4.44772 17 5 17C5.55228 17 6 17.4477 6 18Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M21 11.5C21.5523 11.5 22 11.0523 22 10.5C22 9.94772 21.5523 9.5 21 9.5C20.4477 9.5 20 9.94772 20 10.5C20 11.0523 20.4477 11.5 21 11.5Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M14 16.25C13.5858 16.25 13.25 16.5858 13.25 17C13.25 17.4142 13.5858 17.75 14 17.75H16.25V20C16.25 20.4142 16.5858 20.75 17 20.75C17.4142 20.75 17.75 20.4142 17.75 20V17.75H20C20.4142 17.75 20.75 17.4142 20.75 17C20.75 16.5858 20.4142 16.25 20 16.25H17.75V14C17.75 13.5858 17.4142 13.25 17 13.25C16.5858 13.25 16.25 13.5858 16.25 14V16.25H14Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconstartedfill.displayName = 'Iconstartedfill'
+Iconstartedfill.displayName = 'Iconstartedfill';
 
-export default Iconstartedfill
+export default Iconstartedfill;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconcustomizeddesignProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * customized_ design
  * @source figma
  */
-export const Iconcustomizeddesign = React.memo((props: IconcustomizeddesignProps) => {
+const Iconcustomizeddesign = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M5.65625 2.69489C4.13747 2.69489 2.90625 3.9261 2.90625 5.44488V13.9778H4.40625V5.44488C4.40625 4.79805 4.89755 4.26597 5.52734 4.20145V6.59015H7.02734V4.19489H9.19336V5.70379H10.6934V4.19489H12.8594V5.70379H14.3594V4.19489H16.5244V5.81702H18.0244V4.19489H18.6447C19.3351 4.19489 19.8947 4.75453 19.8947 5.44489V7.90942H18.4531V9.40942H19.8947V11.9094H18.4531V13.4094H19.8947V15.9094H17.68V17.4094H19.8947V18.4333C19.8947 19.1237 19.3351 19.6833 18.6447 19.6833H14.0301V21.1833H18.6447C20.1635 21.1833 21.3947 19.9521 21.3947 18.4333V5.44489C21.3947 3.9261 20.1635 2.69489 18.6447 2.69489H5.65625Z"
@@ -27,9 +31,9 @@ export const Iconcustomizeddesign = React.memo((props: IconcustomizeddesignProps
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconcustomizeddesign.displayName = 'Iconcustomizeddesign'
+Iconcustomizeddesign.displayName = 'Iconcustomizeddesign';
 
-export default Iconcustomizeddesign
+export default Iconcustomizeddesign;

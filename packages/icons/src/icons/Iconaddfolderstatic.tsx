@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconaddfolderstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * add_folder_static
  * @source figma
  */
-export const Iconaddfolderstatic = React.memo((props: IconaddfolderstaticProps) => {
+const Iconaddfolderstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M2 5C2 3.89543 2.89543 3 4 3H8.52786C8.83835 3 9.14458 3.07229 9.42229 3.21115L11.5777 4.28885C11.8554 4.42771 12.1616 4.5 12.4721 4.5H20C21.1046 4.5 22 5.39543 22 6.5V19C22 20.1046 21.1046 21 20 21H4C2.89543 21 2 20.1046 2 19V5Z"
@@ -28,9 +32,9 @@ export const Iconaddfolderstatic = React.memo((props: IconaddfolderstaticProps) 
         fillOpacity={0.12}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconaddfolderstatic.displayName = 'Iconaddfolderstatic'
+Iconaddfolderstatic.displayName = 'Iconaddfolderstatic';
 
-export default Iconaddfolderstatic
+export default Iconaddfolderstatic;

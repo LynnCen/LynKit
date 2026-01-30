@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconarrowrepeatProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * arrow_repeat
  * @source figma
  */
-export const Iconarrowrepeat = React.memo((props: IconarrowrepeatProps) => {
+const Iconarrowrepeat = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M18.9248 6.22168C20.5376 7.62397 21.5596 9.69295 21.5596 12C21.5596 16.2276 18.1319 19.6543 13.9043 19.6543H11.7666L13.7012 21.4502L12.6797 22.5498L9.34668 19.4541C9.12088 19.2443 9.04658 18.9178 9.15918 18.6309C9.2719 18.3438 9.54904 18.1543 9.85742 18.1543H13.9043C17.3035 18.1543 20.0596 15.3992 20.0596 12C20.0596 10.1453 19.2396 8.48307 17.9404 7.35352L18.9248 6.22168Z"
@@ -25,9 +29,9 @@ export const Iconarrowrepeat = React.memo((props: IconarrowrepeatProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconarrowrepeat.displayName = 'Iconarrowrepeat'
+Iconarrowrepeat.displayName = 'Iconarrowrepeat';
 
-export default Iconarrowrepeat
+export default Iconarrowrepeat;

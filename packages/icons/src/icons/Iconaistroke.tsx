@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IconaistrokeProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * ai_stroke
  * @source figma
  */
-export const Iconaistroke = React.memo((props: IconaistrokeProps) => {
+const Iconaistroke = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M18.1666 19.4171H14.9168V20.9171H18.1666C19.6854 20.9171 20.9166 19.6859 20.9166 18.1671V14.9177H19.4166V18.1671C19.4166 18.8575 18.8569 19.4171 18.1666 19.4171ZM4.58325 18.1671V14.9177H3.08325V18.1671C3.08325 19.6859 4.31447 20.9171 5.83325 20.9171H9.08351L9.08351 19.4171H5.83325C5.1429 19.4171 4.58325 18.8575 4.58325 18.1671ZM5.83325 4.5838H9.08351V3.0838H5.83325C4.31447 3.0838 3.08325 4.31502 3.08325 5.8338V9.08439H4.58325V5.8338C4.58325 5.14344 5.1429 4.5838 5.83325 4.5838ZM14.9168 3.0838V4.5838H18.1666C18.8569 4.5838 19.4166 5.14344 19.4166 5.8338V9.08439H20.9166V5.8338C20.9166 4.31502 19.6854 3.0838 18.1666 3.0838H14.9168ZM6.89526 15.4481L9.74307 8H11.1305L13.9783 15.4481H12.6743L11.9963 13.5809H8.87725L8.1992 15.4481H6.89526ZM10.4211 9.31437L9.24235 12.5794H11.6312L10.4628 9.31437H10.4211ZM14.7054 15.4481V8H15.9259V15.4481H14.7054Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconaistroke.displayName = 'Iconaistroke'
+Iconaistroke.displayName = 'Iconaistroke';
 
-export default Iconaistroke
+export default Iconaistroke;

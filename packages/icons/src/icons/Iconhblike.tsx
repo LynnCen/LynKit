@@ -1,29 +1,33 @@
-import React from 'react'
-
-export interface IconhblikeProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_like
  * @source figma
  */
-export const Iconhblike = React.memo((props: IconhblikeProps) => {
+const Iconhblike = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M12.0272 5.36803C14.2857 3.02554 17.9474 3.02566 20.206 5.36803C22.4645 7.71063 22.2764 12.1175 20.4091 14.7977C16.7316 20.0762 13.0666 21.1519 12.2128 21.3378C12.0901 21.3644 11.9642 21.3642 11.8417 21.3368C11.012 21.1508 7.53009 20.1121 4.02919 15.2772L3.69033 14.7977C1.83782 12.1069 1.4311 7.71059 3.68935 5.36803C5.94775 3.02553 9.60954 3.02573 11.8681 5.36803C11.9006 5.40178 11.9495 5.41028 11.9901 5.39342L12.0272 5.36803ZM18.7665 6.7567C17.2945 5.22999 14.9385 5.22914 13.4667 6.75572C12.6368 7.61657 11.2585 7.61657 10.4286 6.75572C8.95671 5.22914 6.60166 5.22955 5.12978 6.75572C4.4849 7.42466 4.10694 8.51932 4.14736 9.89342C4.18755 11.2593 4.64226 12.6537 5.33779 13.6639C8.25856 17.9062 11.125 19.0476 12.0321 19.3182C12.9303 19.0548 15.79 17.9293 18.7685 13.6542C19.4434 12.6852 19.8558 11.3234 19.8544 9.95885C19.8529 8.58815 19.4404 7.45568 18.7665 6.7567Z"
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhblike.displayName = 'Iconhblike'
+Iconhblike.displayName = 'Iconhblike';
 
-export default Iconhblike
+export default Iconhblike;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconplaceholderProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * placeholder
  * @source figma
  */
-export const Iconplaceholder = React.memo((props: IconplaceholderProps) => {
+const Iconplaceholder = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M9 4.75H6C5.30964 4.75 4.75 5.30964 4.75 6V9H3.25V6C3.25 4.48122 4.48122 3.25 6 3.25H9V4.75Z"
@@ -49,9 +53,9 @@ export const Iconplaceholder = React.memo((props: IconplaceholderProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconplaceholder.displayName = 'Iconplaceholder'
+Iconplaceholder.displayName = 'Iconplaceholder';
 
-export default Iconplaceholder
+export default Iconplaceholder;

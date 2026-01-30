@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconzoominksProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * zoom in_ks
  * @source figma
  */
-export const Iconzoominks = React.memo((props: IconzoominksProps) => {
+const Iconzoominks = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M11.25 6.75V9.75H14.25V11.25H11.25V14.25H9.75V11.25H6.75V9.75H9.75V6.75H11.25Z"
@@ -27,9 +31,9 @@ export const Iconzoominks = React.memo((props: IconzoominksProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconzoominks.displayName = 'Iconzoominks'
+Iconzoominks.displayName = 'Iconzoominks';
 
-export default Iconzoominks
+export default Iconzoominks;

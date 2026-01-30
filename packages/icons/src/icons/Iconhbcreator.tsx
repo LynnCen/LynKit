@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhbcreatorProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_creator
  * @source figma
  */
-export const Iconhbcreator = React.memo((props: IconhbcreatorProps) => {
+const Iconhbcreator = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M15.7098 20.5253C16.2545 20.5805 16.6801 21.0407 16.6801 21.6C16.6801 22.1592 16.2545 22.6194 15.7098 22.6746L15.5996 22.6804H8.39961C7.80314 22.6804 7.31914 22.1964 7.31914 21.6C7.31914 21.0035 7.80314 20.5195 8.39961 20.5195H15.5996L15.7098 20.5253Z"
@@ -31,9 +35,9 @@ export const Iconhbcreator = React.memo((props: IconhbcreatorProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhbcreator.displayName = 'Iconhbcreator'
+Iconhbcreator.displayName = 'Iconhbcreator';
 
-export default Iconhbcreator
+export default Iconhbcreator;

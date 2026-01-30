@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconworkflowdesignProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * workflow_design
  * @source figma
  */
-export const Iconworkflowdesign = React.memo((props: IconworkflowdesignProps) => {
+const Iconworkflowdesign = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M2.25 6.82248C2.25 4.29717 4.29717 2.25 6.82248 2.25H16.3787C18.904 2.25 20.9512 4.29717 20.9512 6.82248V11.098H19.4512V6.82248C19.4512 5.1256 18.0756 3.75 16.3787 3.75H6.82248C5.1256 3.75 3.75 5.1256 3.75 6.82248V16.3787C3.75 18.0756 5.1256 19.4512 6.82248 19.4512H11.048V20.9512H6.82248C4.29717 20.9512 2.25 18.904 2.25 16.3787V6.82248Z"
@@ -36,9 +40,9 @@ export const Iconworkflowdesign = React.memo((props: IconworkflowdesignProps) =>
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconworkflowdesign.displayName = 'Iconworkflowdesign'
+Iconworkflowdesign.displayName = 'Iconworkflowdesign';
 
-export default Iconworkflowdesign
+export default Iconworkflowdesign;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconfiltermatterProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * filter_matter
  * @source figma
  */
-export const Iconfiltermatter = React.memo((props: IconfiltermatterProps) => {
+const Iconfiltermatter = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M9 11.25C8.58579 11.25 8.25 11.5858 8.25 12C8.25 12.4142 8.58579 12.75 9 12.75H15C15.4142 12.75 15.75 12.4142 15.75 12C15.75 11.5858 15.4142 11.25 15 11.25H9Z"
@@ -27,9 +31,9 @@ export const Iconfiltermatter = React.memo((props: IconfiltermatterProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconfiltermatter.displayName = 'Iconfiltermatter'
+Iconfiltermatter.displayName = 'Iconfiltermatter';
 
-export default Iconfiltermatter
+export default Iconfiltermatter;

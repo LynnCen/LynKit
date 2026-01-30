@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IcontiktokfillProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tiktok_fill
  * @source figma
  */
-export const Icontiktokfill = React.memo((props: IcontiktokfillProps) => {
+const Icontiktokfill = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <g opacity="0.9">
         <path
@@ -23,9 +27,9 @@ export const Icontiktokfill = React.memo((props: IcontiktokfillProps) => {
         />
       </g>
     </svg>
-  )
-})
+  );
+});
 
-Icontiktokfill.displayName = 'Icontiktokfill'
+Icontiktokfill.displayName = 'Icontiktokfill';
 
-export default Icontiktokfill
+export default Icontiktokfill;

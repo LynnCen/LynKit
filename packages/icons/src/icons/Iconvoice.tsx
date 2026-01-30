@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IconvoiceProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * voice
  * @source figma
  */
-export const Iconvoice = React.memo((props: IconvoiceProps) => {
+const Iconvoice = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M6 3.25C6.41421 3.25 6.75 3.58579 6.75 4V20C6.75 20.4142 6.41421 20.75 6 20.75C5.58579 20.75 5.25 20.4142 5.25 20V4C5.25 3.58579 5.58579 3.25 6 3.25ZM18 3.25C18.4142 3.25 18.75 3.58579 18.75 4V20C18.75 20.4142 18.4142 20.75 18 20.75C17.5858 20.75 17.25 20.4142 17.25 20V4C17.25 3.58579 17.5858 3.25 18 3.25ZM3 6.25C3.41421 6.25 3.75 6.58579 3.75 7V17C3.75 17.4142 3.41421 17.75 3 17.75C2.58579 17.75 2.25 17.4142 2.25 17V7C2.25 6.58579 2.58579 6.25 3 6.25ZM9 7.25C9.41421 7.25 9.75 7.58579 9.75 8V16C9.75 16.4142 9.41421 16.75 9 16.75C8.58579 16.75 8.25 16.4142 8.25 16V8C8.25 7.58579 8.58579 7.25 9 7.25ZM15 7.25C15.4142 7.25 15.75 7.58579 15.75 8V16C15.75 16.4142 15.4142 16.75 15 16.75C14.5858 16.75 14.25 16.4142 14.25 16V8C14.25 7.58579 14.5858 7.25 15 7.25ZM21 8.25C21.4142 8.25 21.75 8.58579 21.75 9V15C21.75 15.4142 21.4142 15.75 21 15.75C20.5858 15.75 20.25 15.4142 20.25 15V9C20.25 8.58579 20.5858 8.25 21 8.25ZM12 9.25C12.4142 9.25 12.75 9.58579 12.75 10V14C12.75 14.4142 12.4142 14.75 12 14.75C11.5858 14.75 11.25 14.4142 11.25 14V10C11.25 9.58579 11.5858 9.25 12 9.25Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconvoice.displayName = 'Iconvoice'
+Iconvoice.displayName = 'Iconvoice';
 
-export default Iconvoice
+export default Iconvoice;

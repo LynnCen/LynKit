@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IcongaodouinsmindstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * gaodouinsmind_static
  * @source figma
  */
-export const Icongaodouinsmindstatic = React.memo((props: IcongaodouinsmindstaticProps) => {
+const Icongaodouinsmindstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M11.2907 5.54808C10.7128 6.5926 9.97454 7.58271 9.07782 8.47944L10.0597 9.46128C10.1243 9.40472 10.1875 9.3456 10.2492 9.28392C10.5866 8.94655 10.847 8.56318 11.0316 8.15468C11.1888 7.80674 11.5983 7.65213 11.9463 7.80936C12.2942 7.96659 12.4488 8.37611 12.2916 8.72405C12.0393 9.28225 11.684 9.80449 11.2269 10.2616C11.1654 10.3231 11.1027 10.3828 11.039 10.4406L18.1211 17.5227L12.3837 11.7861C12.3681 11.7702 12.3524 11.7543 12.3366 11.7385C12.3208 11.7226 12.3049 11.7069 12.2889 11.6913L11.039 10.4406C10.5387 10.8938 9.97023 11.2338 9.36856 11.4585C9.01088 11.5921 8.61262 11.4104 8.47903 11.0527C8.34543 10.6951 8.52709 10.2968 8.88477 10.1632C9.30501 10.0062 9.70399 9.77234 10.0597 9.46128L9.07782 8.47944C8.18119 9.37598 7.19082 10.1145 6.14645 10.6923C5.61579 10.9493 5.11837 11.298 4.67794 11.7385C2.56306 13.8533 2.56307 17.2822 4.67794 19.3971C5.66254 20.3817 6.93193 20.9079 8.22095 20.9757C11.7119 21.3848 15.3626 20.2497 18.069 17.5756L18.0789 17.5658L18.1211 17.5227C18.1542 17.4896 18.1877 17.4569 18.2203 17.4235C20.8613 14.7219 21.9808 11.0933 21.5741 7.62257C21.5063 6.33355 20.9801 5.06416 19.9955 4.07956C17.8806 1.96469 14.4517 1.96469 12.3368 4.07956C11.8964 4.51999 11.5477 5.01741 11.2907 5.54808Z"
@@ -423,9 +427,9 @@ export const Icongaodouinsmindstatic = React.memo((props: Icongaodouinsmindstati
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Icongaodouinsmindstatic.displayName = 'Icongaodouinsmindstatic'
+Icongaodouinsmindstatic.displayName = 'Icongaodouinsmindstatic';
 
-export default Icongaodouinsmindstatic
+export default Icongaodouinsmindstatic;

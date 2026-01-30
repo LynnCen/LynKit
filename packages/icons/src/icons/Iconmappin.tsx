@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconmappinProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * map_pin
  * @source figma
  */
-export const Iconmappin = React.memo((props: IconmappinProps) => {
+const Iconmappin = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M12 13.0999C13.1046 13.0999 14 12.2044 14 11.0999C14 9.99528 13.1046 9.09985 12 9.09985C10.8954 9.09985 10 9.99528 10 11.0999C10 12.2044 10.8954 13.0999 12 13.0999Z"
@@ -27,9 +31,9 @@ export const Iconmappin = React.memo((props: IconmappinProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconmappin.displayName = 'Iconmappin'
+Iconmappin.displayName = 'Iconmappin';
 
-export default Iconmappin
+export default Iconmappin;

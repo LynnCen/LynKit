@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconwealthofficeProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * wealth_office
  * @source figma
  */
-export const Iconwealthoffice = React.memo((props: IconwealthofficeProps) => {
+const Iconwealthoffice = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M11.8945 10.1599L14.0664 7.98804L15.1271 9.0487L13.1244 11.0514H14.876V12.5514H12.626V13.623H14.876V15.123H12.626V16.9171H11.126V15.123H8.87598V13.623H11.126V12.5514H8.87598V11.0514H10.6647L8.662 9.0487L9.72266 7.98804L11.8945 10.1599Z"
@@ -27,9 +31,9 @@ export const Iconwealthoffice = React.memo((props: IconwealthofficeProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconwealthoffice.displayName = 'Iconwealthoffice'
+Iconwealthoffice.displayName = 'Iconwealthoffice';
 
-export default Iconwealthoffice
+export default Iconwealthoffice;

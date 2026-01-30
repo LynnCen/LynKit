@@ -1,37 +1,41 @@
-import React from 'react'
-
-export interface IconphotoshopProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * photoshop
  * @source figma
  */
-export const Iconphotoshop = React.memo((props: IconphotoshopProps) => {
+const Iconphotoshop = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M2.53516 4.46956C2.53516 4.03619 2.88647 3.68488 3.31984 3.68488L7.79228 3.68488C10.4868 3.68488 12.6711 5.86922 12.6711 8.56374C12.6711 11.2583 10.4868 13.4426 7.79228 13.4426H4.03516L4.03516 20.3151H2.53516L2.53516 4.46956ZM4.03516 11.9426H7.79228C9.65838 11.9426 11.1711 10.4298 11.1711 8.56374C11.1711 6.69764 9.65838 5.18488 7.79228 5.18488H4.03516V11.9426Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M16.0428 10.2586C15.7204 10.5721 15.5011 11.0541 15.5011 11.7297C15.5011 12.0021 15.5632 12.1893 15.6492 12.3316C15.7385 12.4792 15.8784 12.6187 16.0891 12.7544C16.54 13.0449 17.1682 13.2343 17.9495 13.4697L17.9519 13.4705C18.6716 13.6873 19.5365 13.948 20.2097 14.4134C20.9427 14.9202 21.465 15.6795 21.465 16.8045C21.465 18.0601 21.0088 18.9919 20.2005 19.5787C19.4352 20.1344 18.4589 20.3034 17.5467 20.3034L17.5445 20.3033C16.3508 20.2998 15.2019 19.8601 14.2667 19.0686L13.6941 18.5841L14.6631 17.4391L15.2356 17.9236C15.9156 18.499 16.7266 18.8007 17.548 18.8033C18.3125 18.8032 18.9199 18.6549 19.3192 18.365C19.6758 18.1061 19.965 17.6634 19.965 16.8045C19.965 16.2379 19.7419 15.9136 19.3566 15.6472C18.9123 15.34 18.2875 15.1382 17.5167 14.9059C17.4801 14.8949 17.4431 14.8838 17.4057 14.8725C16.7185 14.6661 15.9098 14.4232 15.2769 14.0155C14.9285 13.7911 14.6025 13.4995 14.3656 13.1077C14.1255 12.7106 14.0011 12.2503 14.0011 11.7297C14.0011 10.7137 14.341 9.8213 14.997 9.18327C15.6505 8.54777 16.5494 8.23088 17.5467 8.23088H17.549C18.7426 8.23446 19.8915 8.67415 20.8268 9.46561L21.3993 9.9501L20.4303 11.0951L19.8578 10.6106C19.1779 10.0352 18.3669 9.73362 17.5456 9.73088C16.8661 9.73111 16.3676 9.94278 16.0428 10.2586Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconphotoshop.displayName = 'Iconphotoshop'
+Iconphotoshop.displayName = 'Iconphotoshop';
 
-export default Iconphotoshop
+export default Iconphotoshop;

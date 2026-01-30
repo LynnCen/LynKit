@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface Icon3rdstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * 3rd_static
  * @source figma
  */
-export const Icon3rdstatic = React.memo((props: Icon3rdstaticProps) => {
+const Icon3rdstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <g filter="url(#filter0_d_8448_3282)">
         <path
@@ -114,9 +118,9 @@ export const Icon3rdstatic = React.memo((props: Icon3rdstaticProps) => {
         </filter>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Icon3rdstatic.displayName = 'Icon3rdstatic'
+Icon3rdstatic.displayName = 'Icon3rdstatic';
 
-export default Icon3rdstatic
+export default Icon3rdstatic;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconscenebusinessProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * scene_business
  * @source figma
  */
-export const Iconscenebusiness = React.memo((props: IconscenebusinessProps) => {
+const Iconscenebusiness = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -23,9 +27,9 @@ export const Iconscenebusiness = React.memo((props: IconscenebusinessProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconscenebusiness.displayName = 'Iconscenebusiness'
+Iconscenebusiness.displayName = 'Iconscenebusiness';
 
-export default Iconscenebusiness
+export default Iconscenebusiness;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconapproximateProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * approximate
  * @source figma
  */
-export const Iconapproximate = React.memo((props: IconapproximateProps) => {
+const Iconapproximate = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M7.11567 12.2787C8.90491 12.1145 10.748 12.6846 12.435 13.8861C13.8866 14.92 15.3792 15.3477 16.7475 15.222C18.108 15.0971 19.4222 14.4189 20.5229 13.098C20.7881 12.7801 21.2614 12.7374 21.5795 13.0023C21.8975 13.2674 21.9402 13.7408 21.6752 14.0589C20.348 15.6515 18.6823 16.551 16.8852 16.7162C15.0957 16.8805 13.2522 16.3104 11.5649 15.1087C10.1133 14.0749 8.62061 13.6471 7.25239 13.7728C5.89199 13.8978 4.57767 14.5761 3.477 15.8968C3.2118 16.2149 2.73851 16.2576 2.42036 15.9925C2.10255 15.7273 2.0596 15.2539 2.32466 14.9359C3.65196 13.3433 5.3185 12.4437 7.11567 12.2787Z"
@@ -25,9 +29,9 @@ export const Iconapproximate = React.memo((props: IconapproximateProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconapproximate.displayName = 'Iconapproximate'
+Iconapproximate.displayName = 'Iconapproximate';
 
-export default Iconapproximate
+export default Iconapproximate;

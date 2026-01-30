@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconsuccessstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * success_static
  * @source figma
  */
-export const Iconsuccessstatic = React.memo((props: IconsuccessstaticProps) => {
+const Iconsuccessstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <circle cx="12" cy="12" r="10" fill="#0FBF77" />
       <path
@@ -30,9 +34,9 @@ export const Iconsuccessstatic = React.memo((props: IconsuccessstaticProps) => {
         fill="#222529"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconsuccessstatic.displayName = 'Iconsuccessstatic'
+Iconsuccessstatic.displayName = 'Iconsuccessstatic';
 
-export default Iconsuccessstatic
+export default Iconsuccessstatic;

@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IcontagspendstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag_spend_static
  * @source figma
  */
-export const Icontagspendstatic = React.memo((props: IcontagspendstaticProps) => {
+const Icontagspendstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Icontagspendstatic = React.memo((props: IcontagspendstaticProps) =>
       height="14"
       viewBox="0 0 22 14"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M0 3C0 1.34315 1.34315 0 3 0H19C20.6569 0 22 1.34315 22 3V11C22 12.6569 20.6569 14 19 14H3C1.34315 14 0 12.6569 0 11V3Z"
@@ -42,9 +45,9 @@ export const Icontagspendstatic = React.memo((props: IcontagspendstaticProps) =>
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Icontagspendstatic.displayName = 'Icontagspendstatic'
+Icontagspendstatic.displayName = 'Icontagspendstatic';
 
-export default Icontagspendstatic
+export default Icontagspendstatic;

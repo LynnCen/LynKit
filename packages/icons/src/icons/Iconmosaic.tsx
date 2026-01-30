@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconmosaicProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * mosaic
  * @source figma
  */
-export const Iconmosaic = React.memo((props: IconmosaicProps) => {
+const Iconmosaic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <g opacity="0.99">
         <path d="M4 4H5.77778V5.82857H4V4Z" fill="black" fillOpacity={0.1} />
@@ -77,9 +81,9 @@ export const Iconmosaic = React.memo((props: IconmosaicProps) => {
         <path d="M18.2222 18.1714H20V20H18.2222V18.1714Z" stroke="black" strokeOpacity={0.1} />
       </g>
     </svg>
-  )
-})
+  );
+});
 
-Iconmosaic.displayName = 'Iconmosaic'
+Iconmosaic.displayName = 'Iconmosaic';
 
-export default Iconmosaic
+export default Iconmosaic;

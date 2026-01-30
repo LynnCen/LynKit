@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconsidebarProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * sidebar
  * @source figma
  */
-export const Iconsidebar = React.memo((props: IconsidebarProps) => {
+const Iconsidebar = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path d="M19 9H17V10.5H19V9Z" fill="black" />
       <path d="M17 12H19V13.5H17V12Z" fill="black" />
@@ -26,9 +30,9 @@ export const Iconsidebar = React.memo((props: IconsidebarProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconsidebar.displayName = 'Iconsidebar'
+Iconsidebar.displayName = 'Iconsidebar';
 
-export default Iconsidebar
+export default Iconsidebar;

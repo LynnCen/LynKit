@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconqyrecommendProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * qy_recommend
  * @source figma
  */
-export const Iconqyrecommend = React.memo((props: IconqyrecommendProps) => {
+const Iconqyrecommend = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -29,9 +33,9 @@ export const Iconqyrecommend = React.memo((props: IconqyrecommendProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconqyrecommend.displayName = 'Iconqyrecommend'
+Iconqyrecommend.displayName = 'Iconqyrecommend';
 
-export default Iconqyrecommend
+export default Iconqyrecommend;

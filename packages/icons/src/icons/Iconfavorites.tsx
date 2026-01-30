@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IconfavoritesProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * favorites
  * @source figma
  */
-export const Iconfavorites = React.memo((props: IconfavoritesProps) => {
+const Iconfavorites = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M14.2328 7.27537L12 3.47523L9.7672 7.27537C9.34663 7.99116 8.6419 8.49872 7.82521 8.67403L3.48939 9.60477L6.44527 12.8841C7.00203 13.5018 7.27122 14.3231 7.18704 15.1472L6.74015 19.5226L10.7998 17.7492C11.5645 17.4152 12.4355 17.4152 13.2002 17.7492L17.2598 19.5226L16.813 15.1472C16.7288 14.3231 16.998 13.5018 17.5547 12.8841L20.5106 9.60477L16.1748 8.67403C15.3581 8.49872 14.6534 7.99116 14.2328 7.27537ZM13.286 2.73275C12.7119 1.75575 11.2881 1.75575 10.714 2.73275L8.48125 6.53288C8.27096 6.89078 7.9186 7.14456 7.51026 7.23221L3.17443 8.16296C2.05971 8.40225 1.61972 9.7446 2.37967 10.5877L5.33555 13.8671C5.61393 14.1759 5.74852 14.5865 5.70643 14.9986L5.25954 19.374C5.14465 20.4989 6.29654 21.3285 7.34026 20.8725L11.3999 19.0992C11.7822 18.9321 12.2178 18.9321 12.6001 19.0992L16.6597 20.8725C17.7035 21.3285 18.8553 20.4989 18.7405 19.374L18.2936 14.9986C18.2515 14.5865 18.3861 14.1759 18.6645 13.8671L21.6203 10.5877C22.3803 9.7446 21.9403 8.40225 20.8256 8.16296L16.4897 7.23221C16.0814 7.14456 15.729 6.89078 15.5188 6.53288L13.286 2.73275Z"
-        fill="#33383E"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconfavorites.displayName = 'Iconfavorites'
+Iconfavorites.displayName = 'Iconfavorites';
 
-export default Iconfavorites
+export default Iconfavorites;

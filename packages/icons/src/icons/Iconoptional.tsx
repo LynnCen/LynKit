@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconoptionalProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * optional
  * @source figma
  */
-export const Iconoptional = React.memo((props: IconoptionalProps) => {
+const Iconoptional = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M12.75 11.25H17V12.75H12.75V17H11.25V12.75H7V11.25H11.25V7H12.75V11.25Z"
@@ -27,9 +31,9 @@ export const Iconoptional = React.memo((props: IconoptionalProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconoptional.displayName = 'Iconoptional'
+Iconoptional.displayName = 'Iconoptional';
 
-export default Iconoptional
+export default Iconoptional;

@@ -1,29 +1,33 @@
-import React from 'react'
-
-export interface IcondingdingfillProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * dingding_fill
  * @source figma
  */
-export const Icondingdingfill = React.memo((props: IcondingdingfillProps) => {
+const Icondingdingfill = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M18.0593 11.3637C14.8755 8.90475 11.2819 5.64758 7.34578 2.1549C7.03688 1.87965 6.76163 1.98669 6.62094 2.3537C5.73401 4.69642 6.59342 6.77612 7.98193 7.975C9.37043 9.17389 11.4501 10.2871 12.7224 10.8774C12.7714 10.9019 12.7285 10.9722 12.6796 10.9508C10.3461 9.92319 8.72205 9.18001 6.52002 7.4826C6.28146 7.2991 6.04291 7.36945 6.01539 7.72728C5.83494 9.96601 7.26932 11.7246 8.86886 12.321C9.85977 12.688 10.9424 12.8929 11.9456 13.0152C11.9976 13.0213 11.9853 13.0978 11.9334 13.0978C10.6397 13.1009 9.07377 12.792 7.72196 12.272C7.43753 12.1619 7.33661 12.3913 7.38248 12.5718C7.61186 13.5168 8.78322 14.9634 10.6458 15.2692C10.9944 15.3274 11.3645 15.3335 11.6948 15.3243C11.7743 15.3243 11.7927 15.3641 11.7682 15.4252C11.7682 15.4252 10.502 17.5936 10.447 17.6854C10.4042 17.7588 10.4317 17.8169 10.5204 17.8169C10.6091 17.8169 12.1138 17.8169 12.1903 17.8169C12.2667 17.8169 12.3157 17.8658 12.2759 17.9331C12.2361 18.0004 10.0463 21.6307 9.94235 21.805C9.85365 21.9549 9.95764 22.0711 10.1289 21.9488C10.3002 21.8264 17.2978 16.7006 17.4996 16.5538C17.5914 16.4865 17.57 16.3947 17.4415 16.3947C17.313 16.3947 16.0408 16.3947 15.9429 16.3947C15.845 16.3947 15.8236 16.3305 15.8909 16.2632C15.9582 16.1959 17.5914 14.5689 18.1694 13.9603C18.7474 13.3516 19.0839 12.1589 18.0593 11.3698V11.3637Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Icondingdingfill.displayName = 'Icondingdingfill'
+Icondingdingfill.displayName = 'Icondingdingfill';
 
-export default Icondingdingfill
+export default Icondingdingfill;

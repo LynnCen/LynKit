@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhbcreativeProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_creative
  * @source figma
  */
-export const Iconhbcreative = React.memo((props: IconhbcreativeProps) => {
+const Iconhbcreative = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M13.8567 18.1778C14.8093 18.0021 15.664 18.2381 16.4583 18.7169L16.7161 18.8657C17.288 19.1822 17.664 19.2824 17.9887 19.2712C18.3566 19.2584 18.8561 19.0947 19.668 18.4825L19.7594 18.4204C20.2276 18.1365 20.8442 18.2482 21.1809 18.6946C21.5396 19.1707 21.4446 19.8473 20.9688 20.2063L20.6055 20.4688C19.7626 21.0476 18.9413 21.3994 18.0626 21.4298C17.187 21.4599 16.405 21.164 15.6602 20.7501L15.3426 20.5661C14.8896 20.293 14.5671 20.2424 14.2481 20.3013C13.875 20.3702 13.3609 20.6166 12.6016 21.2364C12.1396 21.6136 11.4589 21.5449 11.0817 21.0829C10.7047 20.6209 10.7733 19.9402 11.2352 19.563C12.1049 18.853 12.9582 18.3436 13.8567 18.1778Z"
@@ -27,9 +31,9 @@ export const Iconhbcreative = React.memo((props: IconhbcreativeProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhbcreative.displayName = 'Iconhbcreative'
+Iconhbcreative.displayName = 'Iconhbcreative';
 
-export default Iconhbcreative
+export default Iconhbcreative;

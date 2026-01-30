@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconwechatonstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * wechat_on_static
  * @source figma
  */
-export const Iconwechatonstatic = React.memo((props: IconwechatonstaticProps) => {
+const Iconwechatonstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M0 5.14286C0 2.30254 2.30254 0 5.14286 0H18.8571C21.6975 0 24 2.30254 24 5.14286V18.8571C24 21.6975 21.6975 24 18.8571 24H5.14286C2.30254 24 0 21.6975 0 18.8571V5.14286Z"
@@ -25,9 +29,9 @@ export const Iconwechatonstatic = React.memo((props: IconwechatonstaticProps) =>
         fill="white"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconwechatonstatic.displayName = 'Iconwechatonstatic'
+Iconwechatonstatic.displayName = 'Iconwechatonstatic';
 
-export default Iconwechatonstatic
+export default Iconwechatonstatic;

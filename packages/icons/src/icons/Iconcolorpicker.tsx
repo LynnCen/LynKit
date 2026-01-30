@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IconcolorpickerProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * colorpicker
  * @source figma
  */
-export const Iconcolorpicker = React.memo((props: IconcolorpickerProps) => {
+const Iconcolorpicker = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M15.5314 4.65246C16.6694 3.51445 18.5145 3.51445 19.6525 4.65246C20.7905 5.79047 20.7905 7.63555 19.6525 8.77356L16.3651 12.061L17.8128 13.5087L16.8618 14.4597L15.4141 13.012L7.7735 20.6525C7.59799 20.828 7.34012 20.8926 7.1027 20.8205L7.10183 20.8202L7.0942 20.818C7.08596 20.8157 7.07199 20.8118 7.0527 20.8066C7.01409 20.7964 6.95436 20.7813 6.87673 20.7643C6.72103 20.73 6.49582 20.6883 6.22625 20.6604C5.67988 20.604 4.98878 20.6086 4.332 20.8178C4.07704 20.899 3.79821 20.8213 3.62195 20.62C3.4457 20.4187 3.40556 20.132 3.51974 19.89C3.76831 19.3633 3.78212 18.7214 3.70747 18.1587C3.67122 17.8854 3.61663 17.6496 3.57135 17.4832C3.54882 17.4004 3.52889 17.3358 3.51521 17.2937C3.50839 17.2727 3.50314 17.2573 3.49995 17.2481L3.49704 17.2398C3.40634 16.9937 3.46691 16.7169 3.6524 16.5314L11.2611 8.92273L9.68871 7.35035L10.6397 6.39933L12.2121 7.97171L15.5314 4.65246ZM12.2169 9.869L14.4582 12.0658L7.08953 19.4344C6.90072 19.3953 6.65289 19.3524 6.3645 19.3226C5.99352 19.2843 5.5433 19.2663 5.05859 19.3109C5.11737 18.8241 5.09099 18.3606 5.04074 17.9818C4.99969 17.6724 4.94043 17.4027 4.88733 17.1985L12.2169 9.869Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconcolorpicker.displayName = 'Iconcolorpicker'
+Iconcolorpicker.displayName = 'Iconcolorpicker';
 
-export default Iconcolorpicker
+export default Iconcolorpicker;
