@@ -1,0 +1,112 @@
+---
+title: Input 输入框
+description: 通过鼠标或键盘输入内容
+---
+
+# Input 输入框
+
+通过鼠标或键盘输入内容，是最基础的表单域的包装。
+
+## 何时使用
+
+- 需要用户输入表单域内容时
+- 提供组合型输入框，带搜索的输入框，还可以进行大小选择
+
+## 代码演示
+
+### 基础用法
+
+基本使用方式。
+
+```tsx preview
+import { Input } from '@lynkit/ui';
+
+export default () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', maxWidth: '300px' }}>
+    <Input placeholder="请输入内容" />
+    <Input placeholder="禁用状态" disabled />
+    <Input placeholder="密码输入框" type="password" />
+  </div>
+);
+```
+
+### 不同尺寸
+
+提供大、中、小三种尺寸的输入框。
+
+```tsx preview
+import { Input } from '@lynkit/ui';
+
+export default () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', maxWidth: '300px' }}>
+    <Input size="large" placeholder="大尺寸" />
+    <Input placeholder="默认尺寸" />
+    <Input size="small" placeholder="小尺寸" />
+  </div>
+);
+```
+
+### 前缀和后缀
+
+在输入框上添加前缀或后缀图标。
+
+```tsx preview
+import { Input } from '@lynkit/ui';
+
+export default () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', maxWidth: '300px' }}>
+    <Input prefix="¥" placeholder="请输入金额" />
+    <Input suffix=".com" placeholder="请输入网址" />
+    <Input prefix="🔍" suffix="搜索" placeholder="搜索..." />
+  </div>
+);
+```
+
+### 受控组件
+
+受控的输入框。
+
+```tsx preview
+import { Input } from '@lynkit/ui';
+import { useState } from 'react';
+
+export default () => {
+  const [value, setValue] = useState('');
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', maxWidth: '300px' }}>
+      <Input
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="受控输入框"
+      />
+      <p style={{ margin: 0, color: '#666', fontSize: '14px' }}>
+        输入内容：{value || '(空)'}
+      </p>
+    </div>
+  );
+};
+```
+
+## API
+
+### Props
+
+| 属性 | 说明 | 类型 | 默认值 |
+|------|------|------|--------|
+| value | 输入值 | `string` | - |
+| defaultValue | 默认输入值 | `string` | - |
+| placeholder | 占位文本 | `string` | - |
+| type | 输入类型 | `'text' \| 'password' \| 'number'` | `'text'` |
+| size | 尺寸 | `'large' \| 'middle' \| 'small'` | `'middle'` |
+| disabled | 禁用状态 | `boolean` | `false` |
+| prefix | 前缀内容 | `ReactNode` | - |
+| suffix | 后缀内容 | `ReactNode` | - |
+| onChange | 值变化回调 | `(e: ChangeEvent) => void` | - |
+| onPressEnter | 按下回车回调 | `(e: KeyboardEvent) => void` | - |
+
+## 设计指南
+
+1. **尺寸一致**：同一表单内的输入框尺寸应保持一致
+2. **占位符提示**：使用 placeholder 提供输入提示
+3. **必填标识**：必填字段应有明确的标识

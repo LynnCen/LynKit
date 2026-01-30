@@ -1,0 +1,38 @@
+# LRUCache 缓存
+
+LRU（Least Recently Used）缓存实现。
+
+## 使用场景
+
+- 数据缓存
+- 请求缓存
+- 计算结果缓存
+
+## 代码演示
+
+```tsx pure
+import { LRUCache } from '@lynkit/api';
+
+const cache = new LRUCache(10);
+
+cache.put('key1', 'value1');
+cache.get('key1'); // 'value1'
+```
+
+## API
+
+### 构造函数
+
+```typescript
+new LRUCache(capacity: number)
+```
+
+### 方法
+
+| 方法 | 说明 | 参数 | 返回值 |
+|------|------|------|--------|
+| get | 获取值 | `key: string` | `T \| undefined` |
+| put | 设置值 | `key: string, value: T` | `void` |
+| has | 检查是否存在 | `key: string` | `boolean` |
+| delete | 删除值 | `key: string` | `boolean` |
+| clear | 清空缓存 | - | `void` |

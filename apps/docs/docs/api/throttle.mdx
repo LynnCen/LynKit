@@ -1,0 +1,38 @@
+# throttle 节流
+
+节流函数，用于限制函数在指定时间内只能执行一次。
+
+## 使用场景
+
+- 滚动事件
+- 窗口调整
+- 频繁点击
+
+## 代码演示
+
+```tsx pure
+import { throttle } from '@lynkit/api';
+
+const handleScroll = throttle(() => {
+  console.log('滚动');
+}, 100);
+```
+
+## API
+
+```typescript
+throttle(fn: Function, wait: number): Function
+```
+
+### 参数
+
+| 参数 | 说明 | 类型 | 默认值 |
+|------|------|------|--------|
+| fn | 需要节流的函数 | `Function` | - |
+| wait | 等待时间（毫秒） | `number` | - |
+
+### 返回值
+
+| 类型 | 说明 |
+|------|------|
+| `Function` | 节流后的函数 |

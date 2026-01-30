@@ -58,6 +58,12 @@ coverage/
 # Turbo
 .turbo
 
+# Cursor tasks
+.tasks/
+
+# Rspress build output
+apps/docs/doc_build/
+
 # Optional npm cache directory
 .npm
 

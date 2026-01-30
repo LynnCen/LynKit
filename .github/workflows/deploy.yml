@@ -1,4 +1,4 @@
-name: GitHub Actions Build and Deploy
+name: Deploy Docs
 
 # 触发条件
 on:
@@ -10,7 +10,8 @@ on:
       - main
     # 只在下列路径变更时触发
     paths:
-      - 'docs/**'
+      - "apps/docs/**"
+      - "packages/**"
 
 # 设置权限
 permissions:
@@ -46,13 +47,19 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
+          cache: "pnpm"
 
-      # 打包静态文件
-      - name: Build
-        env:
-          APP_BASE_PATH: /${{ github.repository }}
-        run: pnpm install && pnpm run docs:build
+      # 安装依赖
+      - name: Install dependencies
+        run: pnpm install
+
+      # 构建 packages（文档依赖）
+      - name: Build packages
+        run: pnpm run build
+
+      # 构建文档
+      - name: Build docs
+        run: pnpm run docs:build
 
       # 部署
       - name: Deploy
@@ -60,5 +67,5 @@ jobs:
         with:
           # GitHub Pages 读取的分支
           branch: gh-pages
-          # 静态文件所在目录
-          folder: docs/build
+          # Rspress 构建输出目录
+          folder: apps/docs/doc_build

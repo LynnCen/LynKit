@@ -1,0 +1,41 @@
+# ExponentialBackoff 指数退避
+
+指数退避算法，用于重试机制。
+
+## 使用场景
+
+- API 请求重试
+- 网络错误恢复
+- 限流后重试
+
+## 代码演示
+
+```tsx pure
+import { ExponentialBackoff } from '@lynkit/api';
+
+const backoff = new ExponentialBackoff({
+  maxRetries: 3,
+  baseDelay: 1000,
+});
+
+await backoff.execute(async () => {
+  // 可能失败的操作
+});
+```
+
+## API
+
+### 构造函数
+
+```typescript
+new ExponentialBackoff(options: BackoffOptions)
+```
+
+### Options
+
+| 参数 | 说明 | 类型 | 默认值 |
+|------|------|------|--------|
+| maxRetries | 最大重试次数 | `number` | `3` |
+| baseDelay | 基础延迟时间（毫秒） | `number` | `1000` |
+| maxDelay | 最大延迟时间（毫秒） | `number` | `30000` |
+| factor | 增长因子 | `number` | `2` |
