@@ -1,0 +1,40 @@
+# Hooks 总览
+
+LynKit Hooks 提供了一系列实用的 React Hooks。
+
+## 状态管理
+
+| Hook | 说明 |
+|------|------|
+| [useSetState](/hooks/use-set-state) | 类似 class 组件的 setState，支持对象合并 |
+| [usePrevious](/hooks/use-previous) | 获取上一次渲染时的值 |
+
+## 副作用
+
+| Hook | 说明 |
+|------|------|
+| [useInterval](/hooks/use-interval) | 处理定时器的 Hook |
+| [useIsFirstRender](/hooks/use-is-first-render) | 判断是否为首次渲染 |
+| [usePollingAI](/hooks/use-polling-ai) | AI 轮询请求 Hook |
+
+## 安装
+
+```bash
+pnpm add @lynkit/hooks
+```
+
+## 使用
+
+```tsx pure
+import { useSetState, useInterval } from '@lynkit/hooks';
+
+function Counter() {
+  const [state, setState] = useSetState({ count: 0 });
+  
+  useInterval(() => {
+    setState({ count: state.count + 1 });
+  }, 1000);
+  
+  return <div>{state.count}</div>;
+}
+```
