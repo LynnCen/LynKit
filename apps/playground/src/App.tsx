@@ -9,6 +9,8 @@ import {
   UseIsFirstRenderDemo,
   DebounceDemo,
   ThrottleDemo,
+  LRUCacheDemo,
+  RetryDemo,
   IconsDemo,
 } from './demos';
 import './index.css';
@@ -23,6 +25,8 @@ type DemoId =
   | 'useIsFirstRender'
   | 'debounce'
   | 'throttle'
+  | 'lruCache'
+  | 'retry'
   | 'icons';
 
 interface NavItem {
@@ -45,6 +49,8 @@ const navItems: NavItem[] = [
   // API
   { id: 'debounce', label: 'debounce', icon: '⏳', category: 'API' },
   { id: 'throttle', label: 'throttle', icon: '🚦', category: 'API' },
+  { id: 'lruCache', label: 'LRUCache', icon: '🗄️', category: 'API' },
+  { id: 'retry', label: 'retry', icon: '🔄', category: 'API' },
   // Icons
   { id: 'icons', label: 'Icons', icon: '🎨', category: 'Icons' },
 ];
@@ -59,6 +65,8 @@ const demoComponents: Record<DemoId, React.ComponentType> = {
   useIsFirstRender: UseIsFirstRenderDemo,
   debounce: DebounceDemo,
   throttle: ThrottleDemo,
+  lruCache: LRUCacheDemo,
+  retry: RetryDemo,
   icons: IconsDemo,
 };
 
