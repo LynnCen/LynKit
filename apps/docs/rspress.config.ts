@@ -68,7 +68,10 @@ export default defineConfig({
       '/icons/': [
         {
           text: '图标',
-          items: [{ text: '图标库', link: '/icons/index' }],
+          items: [
+            { text: '图标库', link: '/icons/index' },
+            { text: '图标预览', link: '/icons/gallery' },
+          ],
         },
       ],
     },
