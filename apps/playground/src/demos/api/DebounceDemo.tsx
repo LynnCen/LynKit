@@ -19,8 +19,7 @@ export const DebounceDemo: React.FC = () => {
   );
 
   const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const value = e.target.value;
+    (value: string) => {
       setInputValue(value);
       setCallCount((c) => c + 1);
       debouncedUpdate(value);
