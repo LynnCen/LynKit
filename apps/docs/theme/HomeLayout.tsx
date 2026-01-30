@@ -1,4 +1,4 @@
-import { useNavigate } from 'rspress/runtime';
+import { useNavigate, withBase } from 'rspress/runtime';
 import Navigation from './components/Navigation';
 import FluidBackground from './components/canvas/FluidBackground';
 import UIComponentsCanvas from './components/canvas/UIComponentsCanvas';
@@ -9,6 +9,10 @@ import './home.css';
 
 export default function HomeLayout() {
   const navigate = useNavigate();
+
+  const handleNavigate = (path: string) => {
+    navigate(withBase(path));
+  };
 
   const modules = [
     {
@@ -88,7 +92,7 @@ export default function HomeLayout() {
           <div className="hero-buttons">
             <button
               className="btn-primary-large"
-              onClick={() => navigate('/guide/getting-started')}
+              onClick={() => handleNavigate('/guide/getting-started')}
             >
               <span>快速开始</span>
               <svg
@@ -157,7 +161,7 @@ export default function HomeLayout() {
               <div
                 key={module.id}
                 className={`module-card-vertical module-${module.id}`}
-                onClick={() => navigate(module.link)}
+                onClick={() => handleNavigate(module.link)}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="module-left">
@@ -249,7 +253,7 @@ export default function HomeLayout() {
         <div className="cta-content-modern">
           <h2>准备好开始了吗？</h2>
           <p>立即使用 LynKit 开启你的下一个项目</p>
-          <button className="btn-cta" onClick={() => navigate('/guide/getting-started')}>
+          <button className="btn-cta" onClick={() => handleNavigate('/guide/getting-started')}>
             立即开始
             <svg
               width="20"
@@ -276,16 +280,16 @@ export default function HomeLayout() {
             <div className="footer-links-grid">
               <div className="footer-column">
                 <h4>产品</h4>
-                <a onClick={() => navigate('/components/overview')}>UI 组件</a>
-                <a onClick={() => navigate('/hooks/overview')}>React Hooks</a>
-                <a onClick={() => navigate('/api/overview')}>API 工具</a>
-                <a onClick={() => navigate('/icons/index')}>图标库</a>
+                <a onClick={() => handleNavigate('/components/overview')}>UI 组件</a>
+                <a onClick={() => handleNavigate('/hooks/overview')}>React Hooks</a>
+                <a onClick={() => handleNavigate('/api/overview')}>API 工具</a>
+                <a onClick={() => handleNavigate('/icons/index')}>图标库</a>
               </div>
               <div className="footer-column">
                 <h4>资源</h4>
-                <a onClick={() => navigate('/guide/introduction')}>使用文档</a>
-                <a onClick={() => navigate('/guide/getting-started')}>快速开始</a>
-                <a onClick={() => navigate('/guide/changelog')}>更新日志</a>
+                <a onClick={() => handleNavigate('/guide/introduction')}>使用文档</a>
+                <a onClick={() => handleNavigate('/guide/getting-started')}>快速开始</a>
+                <a onClick={() => handleNavigate('/guide/changelog')}>更新日志</a>
               </div>
               <div className="footer-column">
                 <h4>社区</h4>

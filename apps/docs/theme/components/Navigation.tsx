@@ -1,29 +1,33 @@
-import { useNavigate } from 'rspress/runtime';
+import { useNavigate, withBase } from 'rspress/runtime';
 
 export default function Navigation() {
   const navigate = useNavigate();
 
+  const handleNavigate = (path: string) => {
+    navigate(withBase(path));
+  };
+
   return (
     <nav className="home-nav">
       <div className="nav-container">
-        <div className="nav-logo" onClick={() => navigate('/')}>
+        <div className="nav-logo" onClick={() => handleNavigate('/')}>
           <span className="logo-text">LynKit</span>
         </div>
 
         <div className="nav-links">
-          <a onClick={() => navigate('/guide/introduction')} className="nav-link">
+          <a onClick={() => handleNavigate('/guide/introduction')} className="nav-link">
             指南
           </a>
-          <a onClick={() => navigate('/components/overview')} className="nav-link">
+          <a onClick={() => handleNavigate('/components/overview')} className="nav-link">
             组件
           </a>
-          <a onClick={() => navigate('/hooks/overview')} className="nav-link">
+          <a onClick={() => handleNavigate('/hooks/overview')} className="nav-link">
             Hooks
           </a>
-          <a onClick={() => navigate('/api/overview')} className="nav-link">
+          <a onClick={() => handleNavigate('/api/overview')} className="nav-link">
             API
           </a>
-          <a onClick={() => navigate('/icons/index')} className="nav-link">
+          <a onClick={() => handleNavigate('/icons/index')} className="nav-link">
             图标
           </a>
         </div>
