@@ -10,8 +10,8 @@ on:
       - main
     # 只在下列路径变更时触发
     paths:
-      - 'apps/docs/**'
-      - 'packages/**'
+      - "apps/docs/**"
+      - "packages/**"
 
 # 设置权限
 permissions:
@@ -47,7 +47,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
+          cache: "pnpm"
 
       # 安装依赖
       - name: Install dependencies
