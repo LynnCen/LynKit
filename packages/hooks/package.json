@@ -7,23 +7,30 @@
   "license": "MIT",
   "type": "module",
   "main": "./lib/index.cjs",
-  "module": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
   "exports": {
     ".": {
-      "types": "./lib/index.d.ts",
-      "import": "./lib/index.js",
+      "types": "./es/index.d.ts",
+      "import": "./es/index.js",
       "require": "./lib/index.cjs"
+    },
+    "./*": {
+      "types": "./es/*/index.d.ts",
+      "import": "./es/*/index.js",
+      "require": "./lib/*/index.cjs"
     }
   },
   "files": [
+    "es",
     "lib"
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "test": "node ./__tests__/@lynkit/hook.test.js"
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "publishConfig": {
     "access": "public",
@@ -41,11 +48,15 @@
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
-    "tsup": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-dts": "catalog:",
+    "@vitejs/plugin-react": "catalog:",
     "typescript": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "vitest": "catalog:",
+    "@testing-library/react": "catalog:"
   }
 }
