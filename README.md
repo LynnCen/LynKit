@@ -1,54 +1,56 @@
-# LynKit 介绍
+# LynKit
 
-LynKit 是一个现代化的 React 组件库，专为构建优雅、高效的用户界面而设计。它提供了丰富的 UI 组件、实用 Hooks、API 工具函数和图标系统，帮助开发者快速构建专业级应用。
+A modern React component library designed for building elegant and efficient user interfaces. It provides rich UI components, practical Hooks, API utilities, and an icon system to help developers quickly build professional applications.
 
-## 特性
+## Features
 
-- 🎨 **精美的设计** - 遵循现代设计理念，组件美观且易用
-- 📦 **开箱即用** - 无需复杂配置，安装即可使用
-- 🛠️ **高度可定制** - 支持主题定制、样式覆盖和功能扩展
-- 📝 **详细的文档** - 提供完整的文档和示例代码
-- 🔧 **TypeScript 支持** - 完整的类型定义，提供优秀的开发体验
-- 🧩 **模块化结构** - 可按需引入，降低应用体积
-- 🔄 **持续更新** - 定期维护和更新，确保兼容性和安全性
+- 🎨 **Beautiful Design** - Following modern design principles, components are both aesthetic and user-friendly
+- 📦 **Ready to Use** - No complex configuration required, works right out of the box
+- 🛠️ **Highly Customizable** - Supports theme customization, style overrides, and feature extensions
+- 📝 **Comprehensive Documentation** - Complete documentation with example code
+- 🔧 **TypeScript Support** - Full type definitions for excellent developer experience
+- 🧩 **Modular Architecture** - Import only what you need to reduce bundle size
+- 🔄 **Actively Maintained** - Regular updates to ensure compatibility and security
 
-## 技术栈
+## Tech Stack
 
-LynKit 基于以下技术构建：
+LynKit is built with:
 
-- **React** - 使用最新的 React 特性，包括 Hooks、Context 等
-- **TypeScript** - 提供完整的类型定义，增强代码质量和开发体验
-- **CSS-in-JS** - 使用现代 CSS 解决方案，提供灵活的样式定制
-- **Jest & Testing Library** - 完善的测试覆盖，确保组件质量
-- **Storybook** - 组件开发和文档工具，提供交互式示例
+- **React** - Leveraging the latest React features including Hooks and Context
+- **TypeScript** - Complete type definitions for enhanced code quality
+- **Vite** - Fast build tooling for development and production
+- **Turborepo** - Efficient monorepo management
 
-## 安装
+## Installation
 
 ```bash
-# 使用 npm
+# Using npm
 npm install @lynkit/ui @lynkit/hooks @lynkit/icons @lynkit/api
 
-# 使用 yarn
+# Using yarn
 yarn add @lynkit/ui @lynkit/hooks @lynkit/icons @lynkit/api
 
-# 使用 pnpm
+# Using pnpm
 pnpm add @lynkit/ui @lynkit/hooks @lynkit/icons @lynkit/api
 ```
 
-你也可以单独安装需要的包：
+You can also install individual packages:
 
 ```bash
-npm install @lynkit/ui  # 仅安装UI组件
+npm install @lynkit/ui     # UI components only
+npm install @lynkit/hooks  # React hooks only
+npm install @lynkit/api    # API utilities only
+npm install @lynkit/icons  # Icons only
 ```
 
-## 快速上手
+## Quick Start
 
-### 基础示例
+### Basic Example
 
 ```jsx
 import { Button } from '@lynkit/ui';
 import { useSetState } from '@lynkit/hooks';
-import { IconHome } from '@lynkit/icons';
+import { Iconhome } from '@lynkit/icons';
 
 function App() {
   const [state, setState] = useSetState({
@@ -59,7 +61,6 @@ function App() {
   const handleClick = () => {
     setState({ loading: true });
 
-    // 模拟异步操作
     setTimeout(() => {
       setState({
         count: state.count + 1,
@@ -70,69 +71,74 @@ function App() {
 
   return (
     <div>
-      <h1>计数器: {state.count}</h1>
+      <h1>Counter: {state.count}</h1>
       <Button type="primary" loading={state.loading} onClick={handleClick}>
-        <IconHome /> 增加计数
+        <Iconhome /> Increment
       </Button>
     </div>
   );
 }
 ```
 
-### 模块化使用
+### Modular Usage
 
-LynKit 采用模块化设计，可以只引入所需的组件：
+LynKit uses modular design - import only what you need:
 
 ```jsx
-// 仅导入所需的组件
-import { Button, Input, Modal } from '@lynkit/ui';
+// Import specific components
+import { Button, Input } from '@lynkit/ui';
 import { useSetState, useInterval } from '@lynkit/hooks';
-import { debounce } from '@lynkit/api';
+import { debounce, throttle } from '@lynkit/api';
+import { Iconhome, Iconsearch } from '@lynkit/icons';
 ```
 
-## 版本和兼容性
+## Packages
 
-LynKit 要求 React 16.8.0 或更高版本，以支持 React Hooks 功能。
+| Package                           | Description            | Version                                            |
+| --------------------------------- | ---------------------- | -------------------------------------------------- |
+| [@lynkit/ui](./packages/ui)       | React UI Components    | ![npm](https://img.shields.io/npm/v/@lynkit/ui)    |
+| [@lynkit/hooks](./packages/hooks) | React Hooks Collection | ![npm](https://img.shields.io/npm/v/@lynkit/hooks) |
+| [@lynkit/api](./packages/api)     | API Utilities          | ![npm](https://img.shields.io/npm/v/@lynkit/api)   |
+| [@lynkit/icons](./packages/icons) | 1000+ SVG Icons        | ![npm](https://img.shields.io/npm/v/@lynkit/icons) |
 
-当前版本：
+## Requirements
 
-- @lynkit/ui: v1.0.0
-- @lynkit/hooks: v1.0.0
-- @lynkit/icons: v1.0.0
-- @lynkit/api: v1.0.0
+- React >= 16.8.0 (Hooks support required)
+- Node.js >= 18
 
-## 浏览器支持
+## Browser Support
 
-LynKit 支持所有现代浏览器，包括：
+LynKit supports all modern browsers:
 
-- Edge >= 91
-- Firefox >= 78
-- Chrome >= 90
-- Safari >= 14
-- Opera >= 76
-- iOS >= 14.4
+| Browser    | Version |
+| ---------- | ------- |
+| Edge       | >= 91   |
+| Firefox    | >= 78   |
+| Chrome     | >= 90   |
+| Safari     | >= 14   |
+| iOS Safari | >= 14.4 |
 
-## 📚 文档
+## 📚 Documentation
 
-| 文档                                          | 说明                    |
-| --------------------------------------------- | ----------------------- |
-| [在线文档](https://lynncen.github.io/LynKit/) | 完整的 API 文档和示例   |
-| [架构指南](./docs/ARCHITECTURE.md)            | Monorepo 架构设计与配置 |
-| [Monorepo 教程](./docs/MONOREPO_TUTORIAL.md)  | 深入学习 Monorepo 原理  |
+| Resource                                         | Description                             |
+| ------------------------------------------------ | --------------------------------------- |
+| [Online Docs](https://lynncen.github.io/LynKit/) | Complete API documentation and examples |
+| [Architecture Guide](./docs/ARCHITECTURE.md)     | Monorepo architecture and configuration |
+| [Monorepo Tutorial](./docs/MONOREPO_TUTORIAL.md) | Deep dive into monorepo concepts        |
 
-### 各包文档
+### Package Documentation
 
-| 包            | 文档                                                                         |
-| ------------- | ---------------------------------------------------------------------------- |
-| @lynkit/ui    | [README](./packages/ui/README.md) · [开发指南](./packages/ui/DEVELOPMENT.md) |
-| @lynkit/hooks | [README](./packages/hooks/README.md)                                         |
-| @lynkit/api   | [README](./packages/api/README.md)                                           |
-| @lynkit/icons | [README](./packages/icons/README.md)                                         |
+| Package       | Links                                                                                 |
+| ------------- | ------------------------------------------------------------------------------------- |
+| @lynkit/ui    | [README](./packages/ui/README.md) · [Development Guide](./packages/ui/DEVELOPMENT.md) |
+| @lynkit/hooks | [README](./packages/hooks/README.md)                                                  |
+| @lynkit/api   | [README](./packages/api/README.md)                                                    |
+| @lynkit/icons | [README](./packages/icons/README.md)                                                  |
 
-## 贡献指南
+## Contributing
 
-我们欢迎社区贡献！如果你想为 LynKit 贡献代码，请查看我们的 [贡献指南](https://github.com/LynnCen/LynKit/blob/main/CONTRIBUTING.md)。
+We welcome contributions! Please see our [Contributing Guide](https://github.com/LynnCen/LynKit/blob/main/CONTRIBUTING.md) for details.
 
-## 许可证
+## License
 
-LynKit 使用 [MIT 许可证](https://github.com/LynnCen/LynKit/blob/main/LICENSE)。
+LynKit is [MIT licensed](https://github.com/LynnCen/LynKit/blob/main/LICENSE).
