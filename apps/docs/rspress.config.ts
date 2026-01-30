@@ -7,6 +7,7 @@ export default defineConfig({
   outDir: 'doc_build',
   title: 'LynKit',
   description: '轻量级 React 组件库',
+  icon: '/logo-final.svg',
 
   themeConfig: {
     darkMode: true,

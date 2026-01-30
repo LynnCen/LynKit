@@ -1,0 +1,23 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景圆角方形 -->
+  <rect x="1" y="1" width="30" height="30" rx="8" fill="url(#mainGradient)"/>
+  
+  <!-- L 字母主体 -->
+  <path d="M9 7V25H21V21H13.5V7H9Z" fill="white"/>
+  
+  <!-- 三个模块化方块 - 代表 Kit (组件库) -->
+  <rect x="18" y="7" width="5" height="5" rx="1" fill="white" opacity="0.9"/>
+  <rect x="18" y="13" width="5" height="5" rx="1" fill="white" opacity="0.6"/>
+  <rect x="24" y="7" width="5" height="5" rx="1" fill="url(#accentGradient)" opacity="0.9"/>
+</svg>

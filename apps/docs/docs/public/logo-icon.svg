@@ -1,0 +1,14 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+  <!-- 抽象 L + 闪电/Kit 符号 -->
+  <path d="M6 4C6 2.89543 6.89543 2 8 2H16C17.1046 2 18 2.89543 18 4V18H26C27.1046 18 28 18.8954 28 20V28C28 29.1046 27.1046 30 26 30H18C16.8954 30 16 29.1046 16 28V14H8C6.89543 14 6 13.1046 6 12V4Z" fill="url(#iconGradient)"/>
+  <!-- 内部装饰 -->
+  <rect x="9" y="5" width="6" height="6" rx="1.5" fill="white" opacity="0.3"/>
+  <rect x="19" y="21" width="6" height="6" rx="1.5" fill="white" opacity="0.3"/>
+</svg>
