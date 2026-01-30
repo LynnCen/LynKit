@@ -1,0 +1,53 @@
+# 主题定制
+
+LynKit 支持灵活的主题定制，你可以根据项目需求调整组件的样式。
+
+## CSS 变量
+
+LynKit 使用 CSS 变量来定义主题色，你可以通过覆盖这些变量来自定义主题：
+
+```css
+:root {
+  --lynkit-primary: #4f46e5;
+  --lynkit-primary-hover: #4338ca;
+  --lynkit-success: #10b981;
+  --lynkit-warning: #f59e0b;
+  --lynkit-error: #ef4444;
+}
+```
+
+## 暗黑模式
+
+LynKit 内置暗黑模式支持，组件会自动适配：
+
+```css
+[data-theme='dark'] {
+  --lynkit-primary: #818cf8;
+  --lynkit-bg: #1e293b;
+  --lynkit-text: #f1f5f9;
+}
+```
+
+## ConfigProvider
+
+使用 `ConfigProvider` 组件可以全局配置主题：
+
+```tsx pure
+import { ConfigProvider, Button } from '@lynkit/ui';
+
+function App() {
+  return (
+    <ConfigProvider
+      theme={{
+        primaryColor: '#4f46e5',
+      }}
+    >
+      <Button type="primary">主题按钮</Button>
+    </ConfigProvider>
+  );
+}
+```
+
+## 更多
+
+主题定制功能持续完善中，敬请期待更多功能。

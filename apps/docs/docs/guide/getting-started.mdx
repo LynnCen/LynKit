@@ -1,0 +1,90 @@
+# 快速开始
+
+本文将帮助你快速上手 LynKit 组件库。
+
+## 安装
+
+:::code-group
+
+```bash [npm]
+npm install @lynkit/ui @lynkit/hooks @lynkit/icons @lynkit/api
+```
+
+```bash [yarn]
+yarn add @lynkit/ui @lynkit/hooks @lynkit/icons @lynkit/api
+```
+
+```bash [pnpm]
+pnpm add @lynkit/ui @lynkit/hooks @lynkit/icons @lynkit/api
+```
+
+:::
+
+你也可以按需安装：
+
+```bash
+# 仅安装 UI 组件
+pnpm add @lynkit/ui
+
+# 仅安装 Hooks
+pnpm add @lynkit/hooks
+```
+
+## 基础用法
+
+```tsx pure
+import { Button } from '@lynkit/ui';
+import { useSetState } from '@lynkit/hooks';
+
+function App() {
+  const [state, setState] = useSetState({
+    count: 0,
+    loading: false,
+  });
+
+  const handleClick = () => {
+    setState({ loading: true });
+    setTimeout(() => {
+      setState({ count: state.count + 1, loading: false });
+    }, 1000);
+  };
+
+  return (
+    <div>
+      <h1>计数器: {state.count}</h1>
+      <Button type="primary" loading={state.loading} onClick={handleClick}>
+        增加计数
+      </Button>
+    </div>
+  );
+}
+```
+
+## 按需引入
+
+LynKit 默认支持 Tree-shaking，你只需要直接导入所需的组件：
+
+```tsx pure
+// ✅ 推荐：直接导入
+import { Button, Input } from '@lynkit/ui';
+import { useSetState, useInterval } from '@lynkit/hooks';
+import { debounce, throttle } from '@lynkit/api';
+```
+
+## TypeScript 支持
+
+LynKit 使用 TypeScript 编写，提供完整的类型定义：
+
+```tsx pure
+import type { ButtonProps } from '@lynkit/ui';
+
+const MyButton: React.FC<ButtonProps> = (props) => {
+  return <Button {...props} />;
+};
+```
+
+## 下一步
+
+- 查看 [组件文档](/components/overview) 了解所有可用组件
+- 查看 [Hooks 文档](/hooks/overview) 了解实用的 React Hooks
+- 查看 [API 文档](/api/overview) 了解工具函数
