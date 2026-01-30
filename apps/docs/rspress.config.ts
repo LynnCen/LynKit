@@ -5,6 +5,7 @@ import path from 'path';
 export default defineConfig({
   root: 'docs',
   outDir: 'doc_build',
+  base: '/LynKit/',
   title: 'LynKit',
   description: '轻量级 React 组件库',
   icon: '/logo-final.svg',
