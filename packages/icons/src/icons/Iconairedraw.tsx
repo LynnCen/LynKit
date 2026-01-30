@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconairedrawProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * ai_redraw
  * @source figma
  */
-export const Iconairedraw = React.memo((props: IconairedrawProps) => {
+const Iconairedraw = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M5.05 21C3.91782 21 3 20.0822 3 18.95V5.05C3 3.91782 3.91782 3 5.05 3H12.5V4.5H5.05C4.74624 4.5 4.5 4.74624 4.5 5.05V18.95C4.5 19.2538 4.74624 19.5 5.05 19.5H18.95C19.2538 19.5 19.5 19.2538 19.5 18.95V11H21V18.95C21 20.0822 20.0822 21 18.95 21H5.05Z"
@@ -33,9 +37,9 @@ export const Iconairedraw = React.memo((props: IconairedrawProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconairedraw.displayName = 'Iconairedraw'
+Iconairedraw.displayName = 'Iconairedraw';
 
-export default Iconairedraw
+export default Iconairedraw;

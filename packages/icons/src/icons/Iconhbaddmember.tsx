@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhbaddmemberProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_add_member
  * @source figma
  */
-export const Iconhbaddmember = React.memo((props: IconhbaddmemberProps) => {
+const Iconhbaddmember = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M10.9199 13.2006C11.5163 13.2006 12.0003 13.6835 12.0004 14.2799C12.0004 14.8764 11.5164 15.3604 10.9199 15.3604H7.20039C5.74236 15.3604 4.56016 16.5426 4.56016 18.0006V19.4397H10.9199C11.5164 19.4397 12.0004 19.9237 12.0004 20.5201C12.0004 21.1166 11.5164 21.6006 10.9199 21.6006H2.40039V18.0006C2.40039 15.3496 4.54942 13.2006 7.20039 13.2006H10.9199Z"
@@ -31,9 +35,9 @@ export const Iconhbaddmember = React.memo((props: IconhbaddmemberProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhbaddmember.displayName = 'Iconhbaddmember'
+Iconhbaddmember.displayName = 'Iconhbaddmember';
 
-export default Iconhbaddmember
+export default Iconhbaddmember;

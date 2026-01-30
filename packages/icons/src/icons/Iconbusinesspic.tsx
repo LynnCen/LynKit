@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconbusinesspicProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * business_pic
  * @source figma
  */
-export const Iconbusinesspic = React.memo((props: IconbusinesspicProps) => {
+const Iconbusinesspic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M16.0884 10.8645C16.3803 10.5705 16.3785 10.0957 16.0845 9.80384C15.7906 9.51203 15.3157 9.51378 15.0239 9.80775L11.3845 13.4741L9.57511 11.8676C9.26537 11.5926 8.79133 11.6207 8.51632 11.9305C8.2413 12.2402 8.26946 12.7143 8.5792 12.9893L10.919 15.0667C11.2167 15.331 11.6689 15.3167 11.9493 15.0343L16.0884 10.8645Z"
@@ -27,9 +31,9 @@ export const Iconbusinesspic = React.memo((props: IconbusinesspicProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconbusinesspic.displayName = 'Iconbusinesspic'
+Iconbusinesspic.displayName = 'Iconbusinesspic';
 
-export default Iconbusinesspic
+export default Iconbusinesspic;

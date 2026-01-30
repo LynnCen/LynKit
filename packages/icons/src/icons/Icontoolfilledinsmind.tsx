@@ -1,41 +1,45 @@
-import React from 'react'
-
-export interface IcontoolfilledinsmindProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tool_filled_insmind
  * @source figma
  */
-export const Icontoolfilledinsmind = React.memo((props: IcontoolfilledinsmindProps) => {
+const Icontoolfilledinsmind = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M16.1205 4.98209C16.0258 5.45581 15.6555 5.8261 15.1818 5.92084L13.501 6.25699C12.7314 6.41091 12.7314 7.5112 13.501 7.66512L15.1818 8.00128C15.6555 8.09602 16.0258 8.46631 16.1205 8.94002L16.4567 10.6208C16.6106 11.3904 17.7109 11.3904 17.8648 10.6208L18.201 8.94002C18.2957 8.46631 18.666 8.09602 19.1397 8.00128L20.8205 7.66512C21.5901 7.5112 21.5901 6.41091 20.8205 6.257L19.1397 5.92084C18.666 5.8261 18.2957 5.45581 18.201 4.98209L17.8648 3.30131C17.7109 2.53172 16.6106 2.53172 16.4567 3.30131L16.1205 4.98209Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M5 2.99994C3.89543 2.99994 3 3.89537 3 4.99994V9.06891C3 10.1735 3.89543 11.0689 5 11.0689H9.06897C10.1735 11.0689 11.069 10.1735 11.069 9.06891V4.99994C11.069 3.89537 10.1735 2.99994 9.06897 2.99994H5Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M5 12.931C3.89543 12.931 3 13.8264 3 14.931V18.9999C3 20.1045 3.89543 20.9999 5 20.9999H9.06897C10.1735 20.9999 11.069 20.1045 11.069 18.9999V14.931C11.069 13.8264 10.1735 12.931 9.06897 12.931H5Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M19 12.931C20.1045 12.931 21 13.8264 21 14.931V18.9999C21 20.1045 20.1045 20.9999 19 20.9999H14.931C13.8264 20.9999 12.931 20.1045 12.931 18.9999V14.931C12.931 13.8264 13.8264 12.931 14.931 12.931H19Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontoolfilledinsmind.displayName = 'Icontoolfilledinsmind'
+Icontoolfilledinsmind.displayName = 'Icontoolfilledinsmind';
 
-export default Icontoolfilledinsmind
+export default Icontoolfilledinsmind;

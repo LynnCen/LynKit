@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IcongapverticalProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * gap_vertical
  * @source figma
  */
-export const Icongapvertical = React.memo((props: IcongapverticalProps) => {
+const Icongapvertical = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path d="M20.4999 5.74999L3.49999 5.74999V4.24999H20.4999V5.74999Z" fill="black" />
       <path d="M20.4999 19.7499L3.49999 19.7499V18.25L20.4999 18.25V19.7499Z" fill="black" />
@@ -25,9 +29,9 @@ export const Icongapvertical = React.memo((props: IcongapverticalProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Icongapvertical.displayName = 'Icongapvertical'
+Icongapvertical.displayName = 'Icongapvertical';
 
-export default Icongapvertical
+export default Icongapvertical;

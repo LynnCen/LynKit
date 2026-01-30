@@ -1,37 +1,41 @@
-import React from 'react'
-
-export interface IconsynchronizefilledProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * synchronize_filled
  * @source figma
  */
-export const Iconsynchronizefilled = React.memo((props: IconsynchronizefilledProps) => {
+const Iconsynchronizefilled = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M12 19.3125C16.0501 19.3125 19.3333 16.0386 19.3333 12H17.359L20.1795 8.0625L23 12H21.0256C21.0256 16.9706 16.9847 21 12 21C9.50764 21 7.25123 19.9926 5.61791 18.364L6.81455 17.1707C8.14162 18.494 9.97496 19.3125 12 19.3125Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M18.9214 6.22329C17.2657 4.25292 14.7796 3 12 3C7.01528 3 2.97436 7.02944 2.97436 12H1L3.82051 15.9375L6.64103 12H4.66667C4.66667 7.96142 7.94991 4.6875 12 4.6875C14.3124 4.6875 16.3749 5.75478 17.719 7.42228L18.9214 6.22329Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M23.4863 12.25H21.2695C21.1366 17.2437 17.0383 21.25 12 21.25C9.43892 21.25 7.11975 20.2146 5.44141 18.541L5.26367 18.3643L5.44141 18.1865L6.6377 16.9941L6.81445 16.8174L6.99121 16.9941C8.27324 18.2724 10.0438 19.0625 12 19.0625C15.8287 19.0625 18.9451 16.0341 19.0771 12.25H16.8721L19.9766 7.91699L20.1797 7.63281L23.4863 12.25ZM17.8457 11.75H19.583V12C19.583 16.1773 16.1875 19.5625 12 19.5625C9.99569 19.5625 8.17412 18.785 6.81836 17.5186L5.97559 18.3594C7.54767 19.8405 9.66646 20.75 12 20.75C16.8473 20.75 20.7754 16.8318 20.7754 12V11.75H22.5137L20.1797 8.49121L17.8457 11.75ZM12 2.75C14.8563 2.75 17.4111 4.03803 19.1123 6.0625L19.2607 6.23828L19.0977 6.40039L17.8955 7.59961L17.6982 7.7959L17.5244 7.5791C16.2258 5.96806 14.2338 4.9375 12 4.9375C8.17129 4.9375 5.05494 7.96592 4.92285 11.75H7.12793L4.02344 16.083L3.82031 16.3672L0.513672 11.75H2.73047C2.86336 6.75634 6.96171 2.75 12 2.75ZM12 3.25C7.15268 3.25 3.22461 7.16818 3.22461 12V12.25H1.48633L3.82031 15.5078L6.1543 12.25H4.41699V12C4.41699 7.82268 7.81251 4.4375 12 4.4375C14.291 4.4375 16.3432 5.45247 17.7334 7.05371L18.5771 6.21191C16.9689 4.39653 14.6199 3.25 12 3.25Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconsynchronizefilled.displayName = 'Iconsynchronizefilled'
+Iconsynchronizefilled.displayName = 'Iconsynchronizefilled';
 
-export default Iconsynchronizefilled
+export default Iconsynchronizefilled;

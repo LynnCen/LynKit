@@ -1,32 +1,36 @@
-import React from 'react'
-
-export interface IconarrangeverticalmultipleProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * arrange_vertical_multiple
  * @source figma
  */
-export const Iconarrangeverticalmultiple = React.memo((props: IconarrangeverticalmultipleProps) => {
+const Iconarrangeverticalmultiple = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M6.5 11L17.5 11L17.5 13L6.5 13L6.5 11Z"
-        fill="#222529"
+        fill={color}
       />
-      <path d="M21 20.75H3V19.25H21V20.75ZM21 4.75H3V3.25H21V4.75Z" fill="#B4B8BF" />
+      <path d="M21 20.75H3V19.25H21V20.75ZM21 4.75H3V3.25H21V4.75Z" fill={color} />
     </svg>
-  )
-})
+  );
+});
 
-Iconarrangeverticalmultiple.displayName = 'Iconarrangeverticalmultiple'
+Iconarrangeverticalmultiple.displayName = 'Iconarrangeverticalmultiple';
 
-export default Iconarrangeverticalmultiple
+export default Iconarrangeverticalmultiple;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhbfolderProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_folder
  * @source figma
  */
-export const Iconhbfolder = React.memo((props: IconhbfolderProps) => {
+const Iconhbfolder = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M3 17.8V6.80005C3 5.69548 3.89543 4.80005 5 4.80005H8.17157C8.70201 4.80005 9.21071 5.01076 9.58579 5.38584L10.8142 6.61426C11.1893 6.98934 11.698 7.20005 12.2284 7.20005H19C20.1046 7.20005 21 8.09548 21 9.20005V17.8C21 18.9046 20.1046 19.8 19 19.8H5C3.89543 19.8 3 18.9046 3 17.8Z"
@@ -26,9 +30,9 @@ export const Iconhbfolder = React.memo((props: IconhbfolderProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhbfolder.displayName = 'Iconhbfolder'
+Iconhbfolder.displayName = 'Iconhbfolder';
 
-export default Iconhbfolder
+export default Iconhbfolder;

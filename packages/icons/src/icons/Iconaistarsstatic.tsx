@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconaistarsstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * ai_stars_static
  * @source figma
  */
-export const Iconaistarsstatic = React.memo((props: IconaistarsstaticProps) => {
+const Iconaistarsstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M5 18C5 18.5523 4.55228 19 4 19C3.44772 19 3 18.5523 3 18C3 17.4477 3.44772 17 4 17C4.55228 17 5 17.4477 5 18Z"
@@ -79,9 +83,9 @@ export const Iconaistarsstatic = React.memo((props: IconaistarsstaticProps) => {
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconaistarsstatic.displayName = 'Iconaistarsstatic'
+Iconaistarsstatic.displayName = 'Iconaistarsstatic';
 
-export default Iconaistarsstatic
+export default Iconaistarsstatic;

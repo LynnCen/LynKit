@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IconcutProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * cut
  * @source figma
  */
-export const Iconcut = React.memo((props: IconcutProps) => {
+const Iconcut = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M12.2449 18.625L12.2449 13.1201L7.47753 15.8725L7.47752 15.8726C5.68392 16.9081 3.39046 16.2935 2.35493 14.5C1.3194 12.7064 1.93393 10.4129 3.72753 9.37736C5.52112 8.34182 7.81459 8.95635 8.85012 10.75C9.27223 11.4811 9.42016 12.2952 9.32584 13.0734L12.2449 11.3881V1.625H13.7449V10.522L21.45 6.07352L22.2 7.37256L13.7449 12.2541V15.6247C14.3716 15.1539 15.1507 14.875 15.9949 14.875C18.066 14.875 19.7449 16.5539 19.7449 18.625C19.7449 20.6961 18.066 22.375 15.9949 22.375C13.9238 22.375 12.2449 20.6961 12.2449 18.625ZM6.72753 14.5735C5.65137 15.1948 4.27529 14.8261 3.65397 13.75C3.03265 12.6738 3.40137 11.2977 4.47753 10.6764C5.55368 10.0551 6.92976 10.4238 7.55108 11.5C8.1724 12.5761 7.80369 13.9522 6.72753 14.5735ZM13.7449 18.625C13.7449 17.3823 14.7523 16.375 15.9949 16.375C17.2375 16.375 18.2449 17.3823 18.2449 18.625C18.2449 19.8676 17.2375 20.875 15.9949 20.875C14.7523 20.875 13.7449 19.8676 13.7449 18.625Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconcut.displayName = 'Iconcut'
+Iconcut.displayName = 'Iconcut';
 
-export default Iconcut
+export default Iconcut;

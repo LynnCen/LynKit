@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IcontagpuzzlestaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag_puzzle_static
  * @source figma
  */
-export const Icontagpuzzlestatic = React.memo((props: IcontagpuzzlestaticProps) => {
+const Icontagpuzzlestatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Icontagpuzzlestatic = React.memo((props: IcontagpuzzlestaticProps) 
       height="16"
       viewBox="0 0 60 16"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <rect width="60" height="16" rx="3" fill="#4D7CFF" />
       <path
@@ -75,9 +78,9 @@ export const Icontagpuzzlestatic = React.memo((props: IcontagpuzzlestaticProps) 
         </filter>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Icontagpuzzlestatic.displayName = 'Icontagpuzzlestatic'
+Icontagpuzzlestatic.displayName = 'Icontagpuzzlestatic';
 
-export default Icontagpuzzlestatic
+export default Icontagpuzzlestatic;

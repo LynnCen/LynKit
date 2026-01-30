@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconworkflowdiscussionProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * workflow_discussion
  * @source figma
  */
-export const Iconworkflowdiscussion = React.memo((props: IconworkflowdiscussionProps) => {
+const Iconworkflowdiscussion = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M8.44788 2.56885C5.87869 2.56885 3.79594 4.65159 3.79594 7.22078L3.7959 9.56199L5.2959 9.56201L5.29594 7.22079C5.29594 5.48002 6.70711 4.06885 8.44788 4.06885H16.8896C18.6303 4.06885 20.0415 5.48002 20.0415 7.22079V15.6625C20.0415 17.4032 18.6303 18.8144 16.8896 18.8144H15.3851V20.3144H16.8896C19.4588 20.3144 21.5415 18.2317 21.5415 15.6625V7.22079C21.5415 4.6516 19.4588 2.56885 16.8896 2.56885H8.44788Z"
@@ -43,9 +47,9 @@ export const Iconworkflowdiscussion = React.memo((props: IconworkflowdiscussionP
       <path d="M12.417 6.25513H18.417V7.75513H12.417V6.25513Z" fill="black" />
       <path d="M18.417 9.44385H15.417V10.9438H18.417V9.44385Z" fill="black" />
     </svg>
-  )
-})
+  );
+});
 
-Iconworkflowdiscussion.displayName = 'Iconworkflowdiscussion'
+Iconworkflowdiscussion.displayName = 'Iconworkflowdiscussion';
 
-export default Iconworkflowdiscussion
+export default Iconworkflowdiscussion;

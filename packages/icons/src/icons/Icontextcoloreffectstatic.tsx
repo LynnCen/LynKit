@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IcontextcoloreffectstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * text_color_effect_static
  * @source figma
  */
-export const Icontextcoloreffectstatic = React.memo((props: IcontextcoloreffectstaticProps) => {
+const Icontextcoloreffectstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -369,9 +373,9 @@ export const Icontextcoloreffectstatic = React.memo((props: Icontextcoloreffects
         </filter>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Icontextcoloreffectstatic.displayName = 'Icontextcoloreffectstatic'
+Icontextcoloreffectstatic.displayName = 'Icontextcoloreffectstatic';
 
-export default Icontextcoloreffectstatic
+export default Icontextcoloreffectstatic;

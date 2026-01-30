@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconaiphotoProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * AI_photo
  * @source figma
  */
-export const Iconaiphoto = React.memo((props: IconaiphotoProps) => {
+const Iconaiphoto = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M19 4.5H5C4.72386 4.5 4.5 4.72386 4.5 5V19C4.5 19.2761 4.72386 19.5 5 19.5H15.6381L17.1381 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V17.1381L19.5 15.6381V5C19.5 4.72386 19.2761 4.5 19 4.5Z"
@@ -27,9 +31,9 @@ export const Iconaiphoto = React.memo((props: IconaiphotoProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconaiphoto.displayName = 'Iconaiphoto'
+Iconaiphoto.displayName = 'Iconaiphoto';
 
-export default Iconaiphoto
+export default Iconaiphoto;

@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IconwindowsminimizeProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * windows_minimize
  * @source figma
  */
-export const Iconwindowsminimize = React.memo((props: IconwindowsminimizeProps) => {
+const Iconwindowsminimize = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,13 +15,15 @@ export const Iconwindowsminimize = React.memo((props: IconwindowsminimizeProps) 
       height="16"
       viewBox="0 0 16 16"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
-      <rect x="2.5" y="7.5" width="11" height="1" rx="0.5" fill="#222529" />
+      <rect x="2.5" y="7.5" width="11" height="1" rx="0.5" fill={color} />
     </svg>
-  )
-})
+  );
+});
 
-Iconwindowsminimize.displayName = 'Iconwindowsminimize'
+Iconwindowsminimize.displayName = 'Iconwindowsminimize';
 
-export default Iconwindowsminimize
+export default Iconwindowsminimize;

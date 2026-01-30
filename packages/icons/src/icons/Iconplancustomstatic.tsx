@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconplancustomstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * plan_custom_static
  * @source figma
  */
-export const Iconplancustomstatic = React.memo((props: IconplancustomstaticProps) => {
+const Iconplancustomstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M5 7C5 5.34315 6.34315 4 8 4H19C20.6569 4 22 5.34315 22 7V15C22 16.6569 20.6569 18 19 18H8C6.34315 18 5 16.6569 5 15V7Z"
@@ -117,9 +121,9 @@ export const Iconplancustomstatic = React.memo((props: IconplancustomstaticProps
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconplancustomstatic.displayName = 'Iconplancustomstatic'
+Iconplancustomstatic.displayName = 'Iconplancustomstatic';
 
-export default Iconplancustomstatic
+export default Iconplancustomstatic;

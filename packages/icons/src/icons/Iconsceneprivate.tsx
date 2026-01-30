@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconsceneprivateProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * scene_private
  * @source figma
  */
-export const Iconsceneprivate = React.memo((props: IconsceneprivateProps) => {
+const Iconsceneprivate = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M14.0314 10.7246L10.8042 8.00732L6.44336 12.3681L7.50402 13.4288L10.8913 10.0415L14.0656 12.7142L18.004 9.16008L16.999 8.04649L14.0314 10.7246Z"
@@ -31,9 +35,9 @@ export const Iconsceneprivate = React.memo((props: IconsceneprivateProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconsceneprivate.displayName = 'Iconsceneprivate'
+Iconsceneprivate.displayName = 'Iconsceneprivate';
 
-export default Iconsceneprivate
+export default Iconsceneprivate;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconaiassetsProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * ai assets
  * @source figma
  */
-export const Iconaiassets = React.memo((props: IconaiassetsProps) => {
+const Iconaiassets = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M19.0945 2.27738C19.0121 2.68973 18.6897 3.01206 18.2774 3.09453L16.8143 3.38714C16.1444 3.52112 16.1444 4.47888 16.8143 4.61287L18.2774 4.90548C18.6897 4.98795 19.0121 5.31027 19.0945 5.72263L19.3871 7.18569C19.5211 7.85559 20.4789 7.85559 20.6129 7.18569L20.9055 5.72263C20.9879 5.31027 21.3103 4.98795 21.7226 4.90548L23.1857 4.61287C23.8556 4.47889 23.8556 3.52112 23.1857 3.38714L21.7226 3.09453C21.3103 3.01206 20.9879 2.68973 20.9055 2.27738L20.6129 0.814318C20.4789 0.144415 19.5211 0.144413 19.3871 0.814316L19.0945 2.27738Z"
@@ -39,9 +43,9 @@ export const Iconaiassets = React.memo((props: IconaiassetsProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconaiassets.displayName = 'Iconaiassets'
+Iconaiassets.displayName = 'Iconaiassets';
 
-export default Iconaiassets
+export default Iconaiassets;

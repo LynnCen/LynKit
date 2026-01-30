@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconaitextProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * AI_text
  * @source figma
  */
-export const Iconaitext = React.memo((props: IconaitextProps) => {
+const Iconaitext = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -24,9 +28,9 @@ export const Iconaitext = React.memo((props: IconaitextProps) => {
         fillOpacity={0.1}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconaitext.displayName = 'Iconaitext'
+Iconaitext.displayName = 'Iconaitext';
 
-export default Iconaitext
+export default Iconaitext;

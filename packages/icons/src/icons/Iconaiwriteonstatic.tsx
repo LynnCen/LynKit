@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconaiwriteonstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * ai_write_on_static
  * @source figma
  */
-export const Iconaiwriteonstatic = React.memo((props: IconaiwriteonstaticProps) => {
+const Iconaiwriteonstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -37,9 +41,9 @@ export const Iconaiwriteonstatic = React.memo((props: IconaiwriteonstaticProps) 
         fill="#1CCC66"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconaiwriteonstatic.displayName = 'Iconaiwriteonstatic'
+Iconaiwriteonstatic.displayName = 'Iconaiwriteonstatic';
 
-export default Iconaiwriteonstatic
+export default Iconaiwriteonstatic;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhandopenstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * handopen__static
  * @source figma
  */
-export const Iconhandopenstatic = React.memo((props: IconhandopenstaticProps) => {
+const Iconhandopenstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 25 27"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <g filter="url(#filter0_d_11832_3572)">
         <path
@@ -61,9 +65,9 @@ export const Iconhandopenstatic = React.memo((props: IconhandopenstaticProps) =>
         </filter>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconhandopenstatic.displayName = 'Iconhandopenstatic'
+Iconhandopenstatic.displayName = 'Iconhandopenstatic';
 
-export default Iconhandopenstatic
+export default Iconhandopenstatic;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IcongooglestaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * google_static
  * @source figma
  */
-export const Icongooglestatic = React.memo((props: IcongooglestaticProps) => {
+const Icongooglestatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M6.164 12.068C6.164 11.414 6.274 10.787 6.469 10.199L3.044 7.60852C2.35505 8.99401 1.99765 10.5207 2.00001 12.068C2.00001 13.6705 2.37501 15.182 3.042 16.524L6.46601 13.929C6.26601 13.329 6.1645 12.7005 6.164 12.068Z"
@@ -33,9 +37,9 @@ export const Icongooglestatic = React.memo((props: IcongooglestaticProps) => {
         fill="#4285F4"
       />
     </svg>
-  )
-})
+  );
+});
 
-Icongooglestatic.displayName = 'Icongooglestatic'
+Icongooglestatic.displayName = 'Icongooglestatic';
 
-export default Icongooglestatic
+export default Icongooglestatic;

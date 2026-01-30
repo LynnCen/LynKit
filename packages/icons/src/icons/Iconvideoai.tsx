@@ -1,39 +1,43 @@
-import React from 'react'
-
-export interface IconvideoaiProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * video_ai
  * @source figma
  */
-export const Iconvideoai = React.memo((props: IconvideoaiProps) => {
+const Iconvideoai = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M14 4.50023H5C4.72386 4.50023 4.5 4.72409 4.5 5.00023V19.0002C4.50016 19.2762 4.72396 19.5002 5 19.5002H19C19.276 19.5002 19.4998 19.2762 19.5 19.0002V10.0002H21V19.0002C20.9998 20.1047 20.1045 21.0002 19 21.0002H5C3.89553 21.0002 3.00016 20.1047 3 19.0002V5.00023C3 3.89566 3.89543 3.00023 5 3.00023H14V4.50023Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M9.65527 7.2932C9.88239 7.29327 10.105 7.35729 10.2969 7.47875L16.1846 11.2073C16.674 11.5174 16.8188 12.166 16.5088 12.6555C16.4259 12.7863 16.3154 12.8978 16.1846 12.9807L10.2969 16.7092C9.73698 17.0636 8.99529 16.8969 8.64062 16.3371C8.51921 16.1453 8.45519 15.9226 8.45508 15.6955V8.49339C8.45508 7.83053 8.99241 7.2932 9.65527 7.2932ZM9.95508 15.1506L14.7803 12.094L9.95508 9.03832V15.1506Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M19.3867 0.814683C19.5207 0.14478 20.4793 0.14478 20.6133 0.814683L20.9053 2.27757C20.9878 2.6898 21.3104 3.0115 21.7227 3.09398L23.1855 3.38695C23.8554 3.52093 23.8554 4.47855 23.1855 4.61253L21.7227 4.9055C21.3103 4.98797 20.9877 5.31053 20.9053 5.72289L20.6133 7.18578C20.4793 7.85558 19.5208 7.85558 19.3867 7.18578L19.0947 5.72289C19.0123 5.31053 18.6897 4.98797 18.2773 4.9055L16.8145 4.61253C16.1446 4.47855 16.1446 3.52093 16.8145 3.38695L18.2773 3.09398C18.6896 3.0115 19.0122 2.68981 19.0947 2.27757L19.3867 0.814683Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconvideoai.displayName = 'Iconvideoai'
+Iconvideoai.displayName = 'Iconvideoai';
 
-export default Iconvideoai
+export default Iconvideoai;

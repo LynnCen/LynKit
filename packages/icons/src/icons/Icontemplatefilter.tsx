@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IcontemplatefilterProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * template_filter
  * @source figma
  */
-export const Icontemplatefilter = React.memo((props: IcontemplatefilterProps) => {
+const Icontemplatefilter = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M4 6.75L20 6.75V5.25H4V6.75ZM18 12.75H6V11.25H18V12.75ZM16 18.75H8V17.25H16V18.75Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontemplatefilter.displayName = 'Icontemplatefilter'
+Icontemplatefilter.displayName = 'Icontemplatefilter';
 
-export default Icontemplatefilter
+export default Icontemplatefilter;

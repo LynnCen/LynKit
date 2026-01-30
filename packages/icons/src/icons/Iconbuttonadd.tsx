@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IconbuttonaddProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * button_add
  * @source figma
  */
-export const Iconbuttonadd = React.memo((props: IconbuttonaddProps) => {
+const Iconbuttonadd = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,9 +15,11 @@ export const Iconbuttonadd = React.memo((props: IconbuttonaddProps) => {
       height="16"
       viewBox="0 0 16 16"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
-      <rect width="16" height="16" rx="8" fill="#2254F4" />
+      <rect width="16" height="16" rx="8" fill={color} />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -24,9 +27,9 @@ export const Iconbuttonadd = React.memo((props: IconbuttonaddProps) => {
         fill="white"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconbuttonadd.displayName = 'Iconbuttonadd'
+Iconbuttonadd.displayName = 'Iconbuttonadd';
 
-export default Iconbuttonadd
+export default Iconbuttonadd;

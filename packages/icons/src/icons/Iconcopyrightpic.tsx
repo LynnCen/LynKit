@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconcopyrightpicProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * copyright_pic
  * @source figma
  */
-export const Iconcopyrightpic = React.memo((props: IconcopyrightpicProps) => {
+const Iconcopyrightpic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M16.8205 6.10156C16.2325 6.10156 15.7559 6.57824 15.7559 7.16625C15.7559 7.75426 16.2325 8.23094 16.8205 8.23094C17.2213 8.23094 17.5714 8.00988 17.7538 7.67948L19.067 8.40434C18.6313 9.19362 17.7892 9.73094 16.8205 9.73094C15.4041 9.73094 14.2559 8.58269 14.2559 7.16625C14.2559 5.74981 15.4041 4.60156 16.8205 4.60156C17.7892 4.60156 18.6313 5.13888 19.067 5.92816L17.7538 6.65302C17.5714 6.32263 17.2213 6.10156 16.8205 6.10156Z"
@@ -37,9 +41,9 @@ export const Iconcopyrightpic = React.memo((props: IconcopyrightpicProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconcopyrightpic.displayName = 'Iconcopyrightpic'
+Iconcopyrightpic.displayName = 'Iconcopyrightpic';
 
-export default Iconcopyrightpic
+export default Iconcopyrightpic;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconfolderdamstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * folder_dam_static
  * @source figma
  */
-export const Iconfolderdamstatic = React.memo((props: IconfolderdamstaticProps) => {
+const Iconfolderdamstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M21 19.5V10.5H3V19.5C3 19.9142 3.33579 20.25 3.75 20.25H20.25C20.6642 20.25 21 19.9142 21 19.5Z"
@@ -33,9 +37,9 @@ export const Iconfolderdamstatic = React.memo((props: IconfolderdamstaticProps) 
         fill="#7F8792"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconfolderdamstatic.displayName = 'Iconfolderdamstatic'
+Iconfolderdamstatic.displayName = 'Iconfolderdamstatic';
 
-export default Iconfolderdamstatic
+export default Iconfolderdamstatic;

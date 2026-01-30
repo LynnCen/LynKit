@@ -1,29 +1,33 @@
-import React from 'react'
-
-export interface IconexpansiontextProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * expansion_text
  * @source figma
  */
-export const Iconexpansiontext = React.memo((props: IconexpansiontextProps) => {
+const Iconexpansiontext = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M18.9995 3.00024C20.1041 3.00024 20.9995 3.89568 20.9995 5.00024L20.9995 19.0002C20.9995 20.1048 20.1041 21.0002 18.9995 21.0002L4.99951 21.0002C3.89494 21.0002 2.99951 20.1048 2.99951 19.0002L2.99951 5.00024C2.99951 3.89567 3.89494 3.00024 4.99951 3.00024L18.9995 3.00024ZM4.99951 4.50024C4.72337 4.50024 4.49951 4.7241 4.49951 5.00024L4.49951 19.0002C4.49951 19.2764 4.72337 19.5002 4.99951 19.5002L18.9995 19.5002C19.2757 19.5002 19.4995 19.2764 19.4995 19.0002L19.4995 5.00024C19.4995 4.7241 19.2757 4.50024 18.9995 4.50024L4.99951 4.50024ZM13.2505 15.0002C13.6645 15.0005 14.0005 15.3362 14.0005 15.7502C14.0004 16.1642 13.6644 16.5 13.2505 16.5002H7.25049C6.83636 16.5002 6.50062 16.1643 6.50049 15.7502C6.50049 15.336 6.83627 15.0002 7.25049 15.0002L13.2505 15.0002ZM16.2505 12.0002C16.6645 12.0005 17.0005 12.3362 17.0005 12.7502C17.0004 13.1642 16.6644 13.5 16.2505 13.5002L7.25049 13.5002C6.83636 13.5002 6.50062 13.1643 6.50049 12.7502C6.50049 12.336 6.83627 12.0002 7.25049 12.0002L16.2505 12.0002ZM16.2505 9.00024C16.6645 9.00051 17.0005 9.33619 17.0005 9.75024C17.0004 10.1642 16.6644 10.5 16.2505 10.5002L7.25049 10.5002C6.83636 10.5002 6.50062 10.1643 6.50049 9.75024C6.50049 9.33603 6.83627 9.00024 7.25049 9.00024L16.2505 9.00024Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconexpansiontext.displayName = 'Iconexpansiontext'
+Iconexpansiontext.displayName = 'Iconexpansiontext';
 
-export default Iconexpansiontext
+export default Iconexpansiontext;

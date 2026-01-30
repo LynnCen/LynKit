@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IconusersProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * users
  * @source figma
  */
-export const Iconusers = React.memo((props: IconusersProps) => {
+const Iconusers = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M9 10.5C7.61929 10.5 6.5 9.38071 6.5 8C6.5 6.61929 7.61929 5.5 9 5.5C10.3807 5.5 11.5 6.61929 11.5 8C11.5 9.38071 10.3807 10.5 9 10.5ZM9 12C11.2091 12 13 10.2091 13 8C13 5.79086 11.2091 4 9 4C6.79086 4 5 5.79086 5 8C5 10.2091 6.79086 12 9 12ZM3 18.0382V18.5H15V18.0382L14.9986 18.0272C14.9939 17.9919 14.9815 17.9196 14.9511 17.8224C14.8915 17.6316 14.7611 17.3384 14.4682 17.0259C13.9066 16.4269 12.4931 15.5 9 15.5C5.50688 15.5 4.09339 16.4269 3.53181 17.0259C3.23887 17.3384 3.10855 17.6316 3.04891 17.8224C3.01852 17.9196 3.00611 17.9919 3.00137 18.0272L3 18.0382ZM16.5 18V19.5C16.5 19.7761 16.2761 20 16 20H2C1.72386 20 1.5 19.7761 1.5 19.5V18C1.5 18 1.5 14 9 14C16.5 14 16.5 18 16.5 18ZM14.4804 10.4459C14.3901 10.648 14.289 10.8442 14.1777 11.0337C14.6112 11.316 15.0203 11.6328 15.401 11.9801C17.4218 11.779 19 10.0738 19 8C19 5.79086 17.2091 4 15 4C14.5323 4 14.0833 4.08027 13.6661 4.2278C13.9918 4.63019 14.2666 5.07555 14.4804 5.55406C14.648 5.51863 14.8218 5.5 15 5.5C16.3807 5.5 17.5 6.61929 17.5 8C17.5 9.38071 16.3807 10.5 15 10.5C14.8218 10.5 14.648 10.4814 14.4804 10.4459ZM22 20H18.448C18.4824 19.6714 18.5 19.3377 18.5 19C18.5 18.8323 18.4957 18.6656 18.4871 18.5H21V18.0382L20.9986 18.0272C20.9939 17.9919 20.9815 17.9196 20.9511 17.8224C20.8915 17.6316 20.7611 17.3384 20.4682 17.0259C20.1019 16.6352 19.3733 16.1051 17.9417 15.7836C17.7329 15.2032 17.4692 14.649 17.1569 14.1273C22.5 14.8093 22.5 18 22.5 18V19.5C22.5 19.7761 22.2761 20 22 20Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconusers.displayName = 'Iconusers'
+Iconusers.displayName = 'Iconusers';
 
-export default Iconusers
+export default Iconusers;

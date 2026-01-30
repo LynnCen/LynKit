@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IcontextcolorwhitestaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * text_color_white_static
  * @source figma
  */
-export const Icontextcolorwhitestatic = React.memo((props: IcontextcolorwhitestaticProps) => {
+const Icontextcolorwhitestatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -37,9 +41,9 @@ export const Icontextcolorwhitestatic = React.memo((props: Icontextcolorwhitesta
         fillOpacity={0.24}
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontextcolorwhitestatic.displayName = 'Icontextcolorwhitestatic'
+Icontextcolorwhitestatic.displayName = 'Icontextcolorwhitestatic';
 
-export default Icontextcolorwhitestatic
+export default Icontextcolorwhitestatic;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconcolorwheelstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * colorwheel_static
  * @source figma
  */
-export const Iconcolorwheelstatic = React.memo((props: IconcolorwheelstaticProps) => {
+const Iconcolorwheelstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <mask
         id="mask0_3209_4433"
@@ -329,9 +333,9 @@ export const Iconcolorwheelstatic = React.memo((props: IconcolorwheelstaticProps
         <path d="M13 12.5V11.5L1.00002 11.5L1.00002 12.5L13 12.5Z" fill="#7969FF" />
       </g>
     </svg>
-  )
-})
+  );
+});
 
-Iconcolorwheelstatic.displayName = 'Iconcolorwheelstatic'
+Iconcolorwheelstatic.displayName = 'Iconcolorwheelstatic';
 
-export default Iconcolorwheelstatic
+export default Iconcolorwheelstatic;

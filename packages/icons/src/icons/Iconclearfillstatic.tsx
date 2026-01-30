@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconclearfillstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * clear_fill_static
  * @source figma
  */
-export const Iconclearfillstatic = React.memo((props: IconclearfillstaticProps) => {
+const Iconclearfillstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <circle cx="12" cy="12" r="10" fill="#7F8792" />
       <path
@@ -29,9 +33,9 @@ export const Iconclearfillstatic = React.memo((props: IconclearfillstaticProps) 
         fill="white"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconclearfillstatic.displayName = 'Iconclearfillstatic'
+Iconclearfillstatic.displayName = 'Iconclearfillstatic';
 
-export default Iconclearfillstatic
+export default Iconclearfillstatic;

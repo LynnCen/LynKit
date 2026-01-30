@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconnavsquarestaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * nav_square_static
  * @source figma
  */
-export const Iconnavsquarestatic = React.memo((props: IconnavsquarestaticProps) => {
+const Iconnavsquarestatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M19.7705 6.35156C20.4639 7.28756 20.9878 8.35547 21.3008 9.51074C21.1748 9.68168 21.045 9.85435 20.9092 10.0264C19.3483 12.003 17.0146 14.2026 14.25 15.7988C11.4963 17.3886 8.62786 18.2632 6.31348 18.5723C5.99142 18.6153 5.67545 18.6472 5.36816 18.6689C4.50229 17.7907 3.80721 16.7446 3.33398 15.584C3.41087 15.6056 3.51211 15.6302 3.64258 15.6494C4.1658 15.7266 4.94255 15.7276 5.91602 15.5977C7.85248 15.339 10.3451 14.5886 12.75 13.2002C15.1437 11.8181 17.1966 9.88649 18.5537 8.16797C19.0939 7.48388 19.4996 6.8621 19.7705 6.35156Z"
@@ -31,9 +35,9 @@ export const Iconnavsquarestatic = React.memo((props: IconnavsquarestaticProps) 
         fill="#14DDF4"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconnavsquarestatic.displayName = 'Iconnavsquarestatic'
+Iconnavsquarestatic.displayName = 'Iconnavsquarestatic';
 
-export default Iconnavsquarestatic
+export default Iconnavsquarestatic;

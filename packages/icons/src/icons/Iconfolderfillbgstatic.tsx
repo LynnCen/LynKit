@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconfolderfillbgstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * folder_fill_bg_static
  * @source figma
  */
-export const Iconfolderfillbgstatic = React.memo((props: IconfolderfillbgstaticProps) => {
+const Iconfolderfillbgstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M2 6.2C2 5.0799 2 4.51984 2.21799 4.09202C2.40973 3.71569 2.71569 3.40973 3.09202 3.21799C3.51984 3 4.0799 3 5.2 3H8.24512C8.52666 3 8.66742 3 8.8053 3.01929C8.92775 3.03642 9.04835 3.06487 9.16555 3.10427C9.29751 3.14864 9.42344 3.21155 9.67529 3.33738L11.3247 4.16143C11.5766 4.28726 11.7025 4.35017 11.8345 4.39454C11.9516 4.43394 12.0722 4.46239 12.1947 4.47952C12.3326 4.49881 12.4733 4.49881 12.7549 4.49881H18.8C19.9201 4.49881 20.4802 4.49881 20.908 4.71679C21.2843 4.90854 21.5903 5.2145 21.782 5.59083C22 6.01865 22 6.5787 22 7.69881V17.8C22 18.9201 22 19.4802 21.782 19.908C21.5903 20.2843 21.2843 20.5903 20.908 20.782C20.4802 21 19.9201 21 18.8 21H5.2C4.0799 21 3.51984 21 3.09202 20.782C2.71569 20.5903 2.40973 20.2843 2.21799 19.908C2 19.4802 2 18.9201 2 17.8V6.2Z"
@@ -52,9 +56,9 @@ export const Iconfolderfillbgstatic = React.memo((props: IconfolderfillbgstaticP
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconfolderfillbgstatic.displayName = 'Iconfolderfillbgstatic'
+Iconfolderfillbgstatic.displayName = 'Iconfolderfillbgstatic';
 
-export default Iconfolderfillbgstatic
+export default Iconfolderfillbgstatic;

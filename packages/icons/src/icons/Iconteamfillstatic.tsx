@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconteamfillstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * team_fill_static
  * @source figma
  */
-export const Iconteamfillstatic = React.memo((props: IconteamfillstaticProps) => {
+const Iconteamfillstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <g filter="url(#filter0_iii_11291_3525)">
         <path
@@ -170,9 +174,9 @@ export const Iconteamfillstatic = React.memo((props: IconteamfillstaticProps) =>
         </radialGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconteamfillstatic.displayName = 'Iconteamfillstatic'
+Iconteamfillstatic.displayName = 'Iconteamfillstatic';
 
-export default Iconteamfillstatic
+export default Iconteamfillstatic;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconhbaicommunityProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * hb_ai_community
  * @source figma
  */
-export const Iconhbaicommunity = React.memo((props: IconhbaicommunityProps) => {
+const Iconhbaicommunity = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M16.416 2.40588C18.6354 2.51813 20.4004 4.35275 20.4004 6.60002V7.30198L18.2406 9.46174V6.60002C18.2406 5.47336 17.3271 4.55979 16.2004 4.55979H6.60039C5.47373 4.55979 4.56016 5.47336 4.56016 6.60002V17.4C4.56016 18.5267 5.47373 19.4403 6.60039 19.4403H16.2004C17.3271 19.4403 18.2406 18.5267 18.2406 17.4V16.1684L20.4004 14.0086V17.4C20.4004 19.6473 18.6354 21.4819 16.416 21.5942L16.2004 21.6H6.60039L6.38477 21.5942C4.16538 21.4819 2.40039 19.6473 2.40039 17.4V6.60002C2.40039 4.35275 4.16538 2.51813 6.38477 2.40588L6.60039 2.40002H16.2004L16.416 2.40588Z"
@@ -33,9 +37,9 @@ export const Iconhbaicommunity = React.memo((props: IconhbaicommunityProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhbaicommunity.displayName = 'Iconhbaicommunity'
+Iconhbaicommunity.displayName = 'Iconhbaicommunity';
 
-export default Iconhbaicommunity
+export default Iconhbaicommunity;

@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IconhelpProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * help
  * @source figma
  */
-export const Iconhelp = React.memo((props: IconhelpProps) => {
+const Iconhelp = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M20.5 12C20.5 16.6944 16.6944 20.5 12 20.5C7.30558 20.5 3.5 16.6944 3.5 12C3.5 7.30558 7.30558 3.5 12 3.5C16.6944 3.5 20.5 7.30558 20.5 12ZM22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM14.7058 10.9204C14.5163 11.2111 14.143 11.6394 13.5478 12.2005C13.1384 12.6192 12.8771 12.933 12.7494 13.1942L12.7453 13.2025C12.6267 13.404 12.5797 13.7456 12.5797 14.3083V14.4285H11.1985V14.3083C11.1985 13.69 11.2909 13.1631 11.4341 12.7733C11.5808 12.3742 11.9157 11.9395 12.4187 11.4234L12.9218 10.9091C13.0604 10.7691 13.1841 10.6412 13.2652 10.4739L13.2719 10.4601C13.4423 10.1987 13.526 9.94105 13.526 9.64021C13.526 9.24694 13.399 8.90033 13.1891 8.64213L13.1836 8.63538C12.9899 8.35845 12.5856 8.21958 12.0478 8.21958C11.3538 8.21958 10.8972 8.48317 10.6492 8.94736C10.5226 9.20751 10.4332 9.65469 10.3872 10.1652L10.3773 10.2746H9L9.0066 10.1481C9.05378 9.24479 9.28689 8.4668 9.86104 7.87679C10.3904 7.28673 11.1572 7 12.0942 7C12.9384 7 13.6568 7.23997 14.186 7.77975C14.7141 8.27101 15 8.95777 15 9.73321C15 10.2149 14.9042 10.6141 14.7058 10.9204ZM12.6706 17H11.1985V15.4066H12.6706V17Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconhelp.displayName = 'Iconhelp'
+Iconhelp.displayName = 'Iconhelp';
 
-export default Iconhelp
+export default Iconhelp;

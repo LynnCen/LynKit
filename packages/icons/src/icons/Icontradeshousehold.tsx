@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IcontradeshouseholdProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * trades_household
  * @source figma
  */
-export const Icontradeshousehold = React.memo((props: IcontradeshouseholdProps) => {
+const Icontradeshousehold = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M17.7314 5.5C17.7314 5.91421 17.3957 6.25 16.9814 6.25C16.5672 6.25 16.2314 5.91421 16.2314 5.5C16.2314 5.08579 16.5672 4.75 16.9814 4.75C17.3957 4.75 17.7314 5.08579 17.7314 5.5Z"
@@ -37,9 +41,9 @@ export const Icontradeshousehold = React.memo((props: IcontradeshouseholdProps) 
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontradeshousehold.displayName = 'Icontradeshousehold'
+Icontradeshousehold.displayName = 'Icontradeshousehold';
 
-export default Icontradeshousehold
+export default Icontradeshousehold;

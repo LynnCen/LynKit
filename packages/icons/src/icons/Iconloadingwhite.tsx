@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconloadingwhiteProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * loading_white
  * @source figma
  */
-export const Iconloadingwhite = React.memo((props: IconloadingwhiteProps) => {
+const Iconloadingwhite = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <rect width="24" height="24" fill="black" />
       <path
@@ -31,9 +35,9 @@ export const Iconloadingwhite = React.memo((props: IconloadingwhiteProps) => {
         fill="white"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconloadingwhite.displayName = 'Iconloadingwhite'
+Iconloadingwhite.displayName = 'Iconloadingwhite';
 
-export default Iconloadingwhite
+export default Iconloadingwhite;

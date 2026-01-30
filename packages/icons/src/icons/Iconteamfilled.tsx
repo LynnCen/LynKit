@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IconteamfilledProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * team_filled
  * @source figma
  */
-export const Iconteamfilled = React.memo((props: IconteamfilledProps) => {
+const Iconteamfilled = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M21.5489 18.5139C22.3845 17.0665 21.8886 15.2158 20.4412 14.3801C18.9939 13.5445 17.1431 14.0404 16.3075 15.4878C15.4718 16.9351 15.9677 18.7859 17.4151 19.6215C18.8625 20.4571 20.7132 19.9612 21.5489 18.5139ZM11.9999 8C13.6568 8 14.9999 6.65685 14.9999 5C14.9999 3.34315 13.6568 2 11.9999 2C10.3431 2 8.99993 3.34315 8.99993 5C8.99993 6.65685 10.3431 8 11.9999 8ZM3.57194 14.4023C5.00649 13.5741 6.84085 14.0656 7.66909 15.5002C8.49733 16.9347 8.00582 18.7691 6.57127 19.5973C5.13671 20.4256 3.30235 19.9341 2.47411 18.4995C1.64587 17.0649 2.13738 15.2306 3.57194 14.4023ZM15.3156 19.7294C15.6291 20.1449 16.0193 20.512 16.4801 20.8077C15.1608 21.5664 13.631 22.0003 11.9999 22.0003C10.3578 22.0003 8.81836 21.5605 7.49303 20.7923C7.95465 20.498 8.34549 20.1319 8.65933 19.7171C9.66526 20.2184 10.7996 20.5003 11.9999 20.5003C13.1903 20.5003 14.3159 20.223 15.3156 19.7294ZM16.4956 5.20188C19.1816 6.7537 20.9912 9.65337 20.9998 12.9764C20.5134 12.7255 20.0004 12.5713 19.484 12.5076C19.3281 10.1039 18.0398 8.00884 16.1473 6.75044C16.3498 6.27099 16.4716 5.74913 16.4956 5.20188ZM7.59569 5.92839C7.65535 6.21318 7.74194 6.48808 7.85267 6.75029C5.95304 8.01331 4.6622 10.1193 4.51413 12.5342C3.99804 12.5984 3.48555 12.7536 2.99989 13.0059L2.99988 13.0003C2.99988 9.66718 4.8118 6.75725 7.50438 5.20175C7.51528 5.4497 7.54624 5.69244 7.59569 5.92839Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconteamfilled.displayName = 'Iconteamfilled'
+Iconteamfilled.displayName = 'Iconteamfilled';
 
-export default Iconteamfilled
+export default Iconteamfilled;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconretractProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * retract
  * @source figma
  */
-export const Iconretract = React.memo((props: IconretractProps) => {
+const Iconretract = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M4.94597 6.96624C5.25571 7.26429 5.74563 7.26429 6.05537 6.96624L7.96732 5.12646C8.48626 4.62712 8.13279 3.75 7.41263 3.75L3.58872 3.75C2.86855 3.75 2.51508 4.62711 3.03402 5.12646L4.94597 6.96624Z"
@@ -28,9 +32,9 @@ export const Iconretract = React.memo((props: IconretractProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconretract.displayName = 'Iconretract'
+Iconretract.displayName = 'Iconretract';
 
-export default Iconretract
+export default Iconretract;

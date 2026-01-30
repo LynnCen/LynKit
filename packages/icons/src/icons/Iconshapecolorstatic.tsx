@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconshapecolorstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * shape_color_static
  * @source figma
  */
-export const Iconshapecolorstatic = React.memo((props: IconshapecolorstaticProps) => {
+const Iconshapecolorstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <g clipPath="url(#clip0_6398_3312)">
         <g filter="url(#filter0_f_6398_3312)">
@@ -84,9 +88,9 @@ export const Iconshapecolorstatic = React.memo((props: IconshapecolorstaticProps
         </clipPath>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconshapecolorstatic.displayName = 'Iconshapecolorstatic'
+Iconshapecolorstatic.displayName = 'Iconshapecolorstatic';
 
-export default Iconshapecolorstatic
+export default Iconshapecolorstatic;

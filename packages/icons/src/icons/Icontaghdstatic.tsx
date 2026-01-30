@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IcontaghdstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag_hd__static
  * @source figma
  */
-export const Icontaghdstatic = React.memo((props: IcontaghdstaticProps) => {
+const Icontaghdstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Icontaghdstatic = React.memo((props: IcontaghdstaticProps) => {
       height="16"
       viewBox="0 0 26 16"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M0 2C0 0.895431 0.895431 0 2 0H18C22.4183 0 26 3.58172 26 8V14C26 15.1046 25.1046 16 24 16H8C3.58172 16 0 12.4183 0 8V2Z"
@@ -30,9 +33,9 @@ export const Icontaghdstatic = React.memo((props: IcontaghdstaticProps) => {
         fill="white"
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontaghdstatic.displayName = 'Icontaghdstatic'
+Icontaghdstatic.displayName = 'Icontaghdstatic';
 
-export default Icontaghdstatic
+export default Icontaghdstatic;

@@ -1,29 +1,33 @@
-import React from 'react'
-
-export interface IconmergelayersProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * merge_layers
  * @source figma
  */
-export const Iconmergelayers = React.memo((props: IconmergelayersProps) => {
+const Iconmergelayers = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M13.3027 4.7002C13.3027 4.57964 13.2169 4.47834 13.1025 4.45508L13.0527 4.4502H4.69922C4.56115 4.4502 4.44922 4.56212 4.44922 4.7002V13.0537L4.4541 13.1035C4.47736 13.2179 4.57866 13.3037 4.69922 13.3037H8.91113C9.87763 13.3037 10.6611 14.0872 10.6611 15.0537V19.2646C10.6611 19.4026 10.773 19.5146 10.9111 19.5146H19.2646L19.3145 19.5098C19.4288 19.4866 19.5146 19.3853 19.5146 19.2646V10.9121C19.5146 10.7914 19.4288 10.6902 19.3145 10.667L19.2646 10.6621H15.0527C14.0862 10.6621 13.3027 9.87861 13.3027 8.91211V4.7002ZM14.8027 8.91211C14.8027 9.05018 14.9147 9.16211 15.0527 9.16211H19.2646C20.2306 9.1624 21.0146 9.94549 21.0146 10.9121V19.2646C21.0146 20.171 20.3256 20.9162 19.4434 21.0059L19.2646 21.0146H10.9111C9.94485 21.0145 9.16113 20.2312 9.16113 19.2646V15.0537C9.16113 14.9156 9.0492 14.8037 8.91113 14.8037H4.69922C3.79282 14.8037 3.0477 14.1145 2.95801 13.2324L2.94922 13.0537V4.7002C2.94922 3.7337 3.73272 2.9502 4.69922 2.9502H13.0527L13.2314 2.95898C14.1135 3.04867 14.8027 3.7938 14.8027 4.7002V8.91211Z"
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconmergelayers.displayName = 'Iconmergelayers'
+Iconmergelayers.displayName = 'Iconmergelayers';
 
-export default Iconmergelayers
+export default Iconmergelayers;

@@ -1,12 +1,13 @@
-import React from 'react'
-
-export interface IcontagyisiaistaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag_yisiai_static
  * @source figma
  */
-export const Icontagyisiaistatic = React.memo((props: IcontagyisiaistaticProps) => {
+const Icontagyisiaistatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +15,9 @@ export const Icontagyisiaistatic = React.memo((props: IcontagyisiaistaticProps) 
       height="16"
       viewBox="0 0 61 16"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M5.91466 6.83097L5.68728 7.30423H8.0808L8.00563 8.19767H6.80376C6.79225 8.33468 6.78024 8.47902 6.76757 8.62974C6.75547 8.77354 6.73534 8.92446 6.70817 9.08195H8.15133L8.07152 10.0266H6.53462C6.53347 10.0403 6.5288 10.0542 6.5207 10.0678C6.52012 10.0747 6.51999 10.0853 6.51884 10.099L7.14066 10.6537C7.36613 10.8729 7.53589 11.0545 7.64924 11.1984L6.90028 11.8968C6.83699 11.8216 6.76331 11.7395 6.68033 11.6506C6.59677 11.5685 6.50073 11.4725 6.3917 11.3631L6.11142 11.0858C6.07839 11.1473 6.04187 11.2091 6.0019 11.2707C5.96248 11.3254 5.92217 11.3839 5.88218 11.4455C5.67627 11.7399 5.41573 12.0207 5.10074 12.2877C4.79208 12.5616 4.44751 12.8082 4.06686 13.0273L3.47845 12.1852C3.8082 11.9934 4.09639 11.8012 4.3425 11.6094C4.59545 11.4177 4.80096 11.2124 4.95874 10.9933C5.07653 10.8358 5.17708 10.6808 5.25944 10.5301C5.34923 10.3727 5.42591 10.2046 5.4896 10.0266H3.77544L3.85433 9.08195H5.71513C5.76022 8.79422 5.79559 8.49909 5.82093 8.19767H5.17313C5.07626 8.35522 4.97604 8.50602 4.87336 8.64988C4.77825 8.78682 4.6839 8.92072 4.58937 9.05082L3.81349 8.57847C4.09433 8.22225 4.33087 7.89309 4.52347 7.59167C4.71665 7.28339 4.89488 6.94045 5.05897 6.56367L5.91466 6.83097Z"
@@ -123,9 +126,9 @@ export const Icontagyisiaistatic = React.memo((props: IcontagyisiaistaticProps) 
         fillOpacity={0.16}
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontagyisiaistatic.displayName = 'Icontagyisiaistatic'
+Icontagyisiaistatic.displayName = 'Icontagyisiaistatic';
 
-export default Icontagyisiaistatic
+export default Icontagyisiaistatic;

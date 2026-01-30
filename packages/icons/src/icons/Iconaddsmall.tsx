@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IconaddsmallProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * add_small
  * @source figma
  */
-export const Iconaddsmall = React.memo((props: IconaddsmallProps) => {
+const Iconaddsmall = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M11.25 12.75V18H12.75V12.75H18V11.25H12.75V6H11.25V11.25H6V12.75H11.25Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconaddsmall.displayName = 'Iconaddsmall'
+Iconaddsmall.displayName = 'Iconaddsmall';
 
-export default Iconaddsmall
+export default Iconaddsmall;

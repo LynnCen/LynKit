@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconloadingsmallProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * loading_small
  * @source figma
  */
-export const Iconloadingsmall = React.memo((props: IconloadingsmallProps) => {
+const Iconloadingsmall = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <g clipPath="url(#paint0_angular_20031_308_clip_path)">
         <g transform="matrix(0.00174476 0.00863781 -0.00863781 0.00174476 12 12)">
@@ -38,9 +42,9 @@ export const Iconloadingsmall = React.memo((props: IconloadingsmallProps) => {
         </clipPath>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconloadingsmall.displayName = 'Iconloadingsmall'
+Iconloadingsmall.displayName = 'Iconloadingsmall';
 
-export default Iconloadingsmall
+export default Iconloadingsmall;

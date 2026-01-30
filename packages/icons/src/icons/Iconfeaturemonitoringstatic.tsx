@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconfeaturemonitoringstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * feature_monitoring_static
  * @source figma
  */
-export const Iconfeaturemonitoringstatic = React.memo((props: IconfeaturemonitoringstaticProps) => {
+const Iconfeaturemonitoringstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M10.002 12.5515C10.002 12.2754 10.2258 12.0515 10.502 12.0515H13.502C13.7781 12.0515 14.002 12.2754 14.002 12.5515V19.3669C14.002 19.6431 13.7781 19.8669 13.502 19.8669H10.502C10.2258 19.8669 10.002 19.6431 10.002 19.3669V12.5515Z"
@@ -59,9 +63,9 @@ export const Iconfeaturemonitoringstatic = React.memo((props: Iconfeaturemonitor
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconfeaturemonitoringstatic.displayName = 'Iconfeaturemonitoringstatic'
+Iconfeaturemonitoringstatic.displayName = 'Iconfeaturemonitoringstatic';
 
-export default Iconfeaturemonitoringstatic
+export default Iconfeaturemonitoringstatic;

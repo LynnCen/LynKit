@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconfeaturespecialstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * feature_special_static
  * @source figma
  */
-export const Iconfeaturespecialstatic = React.memo((props: IconfeaturespecialstaticProps) => {
+const Iconfeaturespecialstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M14.1163 2.27858C13.339 2.12673 12.5857 2.63375 12.4339 3.41105L11.439 8.50381L7.81838 7.79647C6.8753 7.61222 5.93448 8.1247 5.57779 9.01696L5.25195 9.83204L19.6153 12.6381L19.5713 11.6511C19.5302 10.7286 18.863 9.95423 17.9568 9.77719L14.2538 9.05374L15.2487 3.96096C15.4006 3.18366 14.8936 2.43044 14.1163 2.27858Z"
@@ -40,9 +44,9 @@ export const Iconfeaturespecialstatic = React.memo((props: Iconfeaturespecialsta
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconfeaturespecialstatic.displayName = 'Iconfeaturespecialstatic'
+Iconfeaturespecialstatic.displayName = 'Iconfeaturespecialstatic';
 
-export default Iconfeaturespecialstatic
+export default Iconfeaturespecialstatic;

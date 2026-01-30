@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconinteractioncustomstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * interaction_custom_static
  * @source figma
  */
-export const Iconinteractioncustomstatic = React.memo((props: IconinteractioncustomstaticProps) => {
+const Iconinteractioncustomstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M2 5C2 3.34315 3.34315 2 5 2H16.5928C18.2496 2 19.5928 3.34315 19.5928 5V16.5928C19.5928 18.2496 18.2496 19.5928 16.5928 19.5928H5C3.34315 19.5928 2 18.2496 2 16.5928V5Z"
@@ -143,9 +147,9 @@ export const Iconinteractioncustomstatic = React.memo((props: Iconinteractioncus
         </linearGradient>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconinteractioncustomstatic.displayName = 'Iconinteractioncustomstatic'
+Iconinteractioncustomstatic.displayName = 'Iconinteractioncustomstatic';
 
-export default Iconinteractioncustomstatic
+export default Iconinteractioncustomstatic;

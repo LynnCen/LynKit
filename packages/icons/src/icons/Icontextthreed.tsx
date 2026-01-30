@@ -1,35 +1,39 @@
-import React from 'react'
-
-export interface IcontextthreedProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * text_three_d
  * @source figma
  */
-export const Icontextthreed = React.memo((props: IcontextthreedProps) => {
+const Icontextthreed = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M10.8073 15.2402C11.2278 13.2776 14.639 12.2496 16.2745 12.1561C16.2745 14.1187 15.8091 15.2851 14.7325 16.3617C13.8913 17.2029 10.2083 18.036 10.8073 15.2402Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M6.23589 19.8314L10.4297 20.9884L10.4399 20.9865C10.9259 21.1004 11.426 21.1353 11.9134 21.1082C12.8094 21.0585 13.7125 20.7989 14.513 20.3825L15.207 20.6056L15.2155 20.5995L19.8677 19.0443V9.63263C19.8677 7.98675 19.519 6.19501 18.4158 4.91618C17.788 4.18845 16.9723 3.68876 15.9754 3.45454C14.2636 2.83308 11.9777 2.26469 10.6889 2.47951C6.08228 3.24733 4.54674 7.23974 4.08614 9.23613L6.23589 10.311C5.92878 10.2087 4.27261 12.7205 4.08614 14.1499C3.62543 17.6815 5.10983 19.3195 6.23589 19.8314ZM17.9082 5.89245C17.0621 4.66983 15.5831 3.98572 13.1902 4.44594C9.54541 5.14696 8.14355 8.79174 8.14355 10.3338L11.0874 9.77293C11.3211 8.8851 12.1809 7.08138 13.7509 6.96923C15.7135 6.82905 16.2743 8.65145 16.2743 9.77293C13.564 9.77294 8.14355 11.1749 8.14355 16.2215C8.14355 22.1094 15.362 20.4232 16.2031 17.0587V19.215L18.8677 18.3242V9.63263M18.8677 9.63263C18.8677 8.24677 18.5987 6.89026 17.9082 5.89245L18.8677 9.63263Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontextthreed.displayName = 'Icontextthreed'
+Icontextthreed.displayName = 'Icontextthreed';
 
-export default Icontextthreed
+export default Icontextthreed;

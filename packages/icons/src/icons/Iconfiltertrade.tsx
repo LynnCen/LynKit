@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconfiltertradeProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * filter_trade
  * @source figma
  */
-export const Iconfiltertrade = React.memo((props: IconfiltertradeProps) => {
+const Iconfiltertrade = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M12.0526 13.0114C12.6049 13.0114 13.0526 12.5636 13.0526 12.0114C13.0526 11.4591 12.6049 11.0114 12.0526 11.0114C11.5004 11.0114 11.0526 11.4591 11.0526 12.0114C11.0526 12.5636 11.5004 13.0114 12.0526 13.0114Z"
@@ -27,9 +31,9 @@ export const Iconfiltertrade = React.memo((props: IconfiltertradeProps) => {
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconfiltertrade.displayName = 'Iconfiltertrade'
+Iconfiltertrade.displayName = 'Iconfiltertrade';
 
-export default Iconfiltertrade
+export default Iconfiltertrade;

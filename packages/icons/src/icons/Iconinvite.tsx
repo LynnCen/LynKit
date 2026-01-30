@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IconinviteProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * invite
  * @source figma
  */
-export const Iconinvite = React.memo((props: IconinviteProps) => {
+const Iconinvite = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M11.8649 4C11.1297 4 10.4204 4.29996 9.89409 4.84086C9.36713 5.38245 9.06757 6.12128 9.06757 6.89583C9.06757 7.27893 9.14101 7.65781 9.28322 8.01068C9.42542 8.36352 9.63332 8.6828 9.89409 8.95081C10.1548 9.21878 10.4632 9.43021 10.8011 9.57407C11.139 9.71792 11.5004 9.79167 11.8649 9.79167C12.2293 9.79167 12.5907 9.71792 12.9286 9.57407C13.2665 9.43021 13.5749 9.21878 13.8356 8.95081C14.0964 8.6828 14.3043 8.36352 14.4465 8.01068C14.5887 7.65781 14.6622 7.27893 14.6622 6.89583C14.6622 6.12128 14.3626 5.38245 13.8356 4.84086C13.3094 4.29996 12.6 4 11.8649 4ZM8.819 3.79482C9.62322 2.96827 10.7184 2.5 11.8649 2.5C13.0113 2.5 14.1065 2.96827 14.9107 3.79482C15.7143 4.62068 16.1622 5.73652 16.1622 6.89583C16.1622 7.47029 16.0521 8.03959 15.8378 8.57138C15.6234 9.10321 15.3088 9.58776 14.9107 9.99684C14.5127 10.406 14.039 10.7316 13.5161 10.9542C12.9933 11.1768 12.4321 11.2917 11.8649 11.2917C11.2976 11.2917 10.7365 11.1768 10.2136 10.9542C9.69077 10.7316 9.21707 10.406 8.819 9.99684C8.42098 9.58776 8.1063 9.10321 7.89196 8.57138C7.67763 8.03959 7.56757 7.47029 7.56757 6.89583C7.56757 5.73652 8.01547 4.62068 8.819 3.79482ZM2.5 18.875C2.5 15.6037 5.0853 12.9167 8.31757 12.9167H12.3716V14.4167H8.31757C5.9522 14.4167 4 16.3931 4 18.875V20.2083H12.3716V21.7083H2.5V18.875ZM18.6959 18.5833H22V17.0833H18.6959V13.6667H17.1959V17.0833H13.8919V18.5833H17.1959V22H18.6959V18.5833Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconinvite.displayName = 'Iconinvite'
+Iconinvite.displayName = 'Iconinvite';
 
-export default Iconinvite
+export default Iconinvite;

@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IconfontsizeaddProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * font_size_add
  * @source figma
  */
-export const Iconfontsizeadd = React.memo((props: IconfontsizeaddProps) => {
+const Iconfontsizeadd = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M7.41613 4.5L2 19.5H3.59479L5.30989 14.75H10.8393L12.4225 19.5H14.0036L9.00408 4.5H7.41613ZM10.3393 13.25L8.18517 6.78688L5.85151 13.25H10.3393ZM21.5 11.5H18.5V8.5H17V11.5H14V13H17V16H18.5V13H21.5V11.5Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconfontsizeadd.displayName = 'Iconfontsizeadd'
+Iconfontsizeadd.displayName = 'Iconfontsizeadd';
 
-export default Iconfontsizeadd
+export default Iconfontsizeadd;

@@ -1,31 +1,35 @@
-import React from 'react'
-
-export interface IcontagProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * tag
  * @source figma
  */
-export const Icontag = React.memo((props: IcontagProps) => {
+const Icontag = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M20.1187 11.3158C20.2369 11.1976 20.2882 11.0281 20.2554 10.8642L19.1949 5.56132C19.1553 5.36339 19.0006 5.20867 18.8026 5.16909L13.4998 4.10851C13.3358 4.07573 13.1664 4.12704 13.0482 4.24525L3.83883 13.4546C3.64357 13.6498 3.64357 13.9664 3.83883 14.1617L7.02055 17.3434L10.2023 20.5251C10.3975 20.7204 10.7141 20.7204 10.9094 20.5251L20.1187 11.3158ZM11.9875 3.18459C12.4603 2.71174 13.1382 2.5065 13.7939 2.63764L19.0968 3.69821C19.8885 3.85656 20.5074 4.47542 20.6657 5.26714L21.7263 10.57C21.8575 11.2257 21.6522 11.9036 21.1794 12.3765L11.97 21.5858C11.189 22.3668 9.92266 22.3668 9.14161 21.5858L5.95989 18.4041L2.77817 15.2223C1.99712 14.4413 1.99712 13.175 2.77817 12.3939L11.9875 3.18459ZM15.5 10C14.6715 10 14 9.32843 14 8.5C14 7.67157 14.6715 7 15.5 7C16.3284 7 17 7.67157 17 8.5C17 9.32843 16.3284 10 15.5 10Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Icontag.displayName = 'Icontag'
+Icontag.displayName = 'Icontag';
 
-export default Icontag
+export default Icontag;

@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconefolderfillstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * e_folder_fill_static
  * @source figma
  */
-export const Iconefolderfillstatic = React.memo((props: IconefolderfillstaticProps) => {
+const Iconefolderfillstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M3 14V5.5C3 4.39543 3.89543 3.5 5 3.5H9.22302C9.40426 3.5 9.5821 3.54926 9.73751 3.64251L11.7625 4.85749C11.9179 4.95074 12.0957 5 12.277 5H19C20.1046 5 21 5.89543 21 7V14C21 15.1046 20.1046 16 19 16H5C3.89543 16 3 15.1046 3 14Z"
@@ -58,9 +62,9 @@ export const Iconefolderfillstatic = React.memo((props: IconefolderfillstaticPro
         </filter>
       </defs>
     </svg>
-  )
-})
+  );
+});
 
-Iconefolderfillstatic.displayName = 'Iconefolderfillstatic'
+Iconefolderfillstatic.displayName = 'Iconefolderfillstatic';
 
-export default Iconefolderfillstatic
+export default Iconefolderfillstatic;

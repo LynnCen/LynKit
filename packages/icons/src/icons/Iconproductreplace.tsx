@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconproductreplaceProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * product_replace
  * @source figma
  */
-export const Iconproductreplace = React.memo((props: IconproductreplaceProps) => {
+const Iconproductreplace = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 25 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
@@ -31,9 +35,9 @@ export const Iconproductreplace = React.memo((props: IconproductreplaceProps) =>
         fill="black"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconproductreplace.displayName = 'Iconproductreplace'
+Iconproductreplace.displayName = 'Iconproductreplace';
 
-export default Iconproductreplace
+export default Iconproductreplace;

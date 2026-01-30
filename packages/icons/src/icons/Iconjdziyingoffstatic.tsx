@@ -1,20 +1,24 @@
-import React from 'react'
-
-export interface IconjdziyingoffstaticProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * jdziying_off_static
  * @source figma
  */
-export const Iconjdziyingoffstatic = React.memo((props: IconjdziyingoffstaticProps) => {
+const Iconjdziyingoffstatic = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         d="M18.8571 24H5.14286C2.30571 24 0 21.6943 0 18.8571V5.14286C0 2.30571 2.30571 0 5.14286 0H18.8571C21.6943 0 24 2.30571 24 5.14286V18.8571C24 21.6943 21.6943 24 18.8571 24Z"
@@ -37,9 +41,9 @@ export const Iconjdziyingoffstatic = React.memo((props: IconjdziyingoffstaticPro
         fill="white"
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconjdziyingoffstatic.displayName = 'Iconjdziyingoffstatic'
+Iconjdziyingoffstatic.displayName = 'Iconjdziyingoffstatic';
 
-export default Iconjdziyingoffstatic
+export default Iconjdziyingoffstatic;

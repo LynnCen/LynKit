@@ -1,47 +1,51 @@
-import React from 'react'
-
-export interface IconcolorProps extends React.SVGProps<SVGSVGElement> {}
+import { forwardRef } from 'react';
+import type { IconProps } from '../types';
 
 /**
  * color
  * @source figma
  */
-export const Iconcolor = React.memo((props: IconcolorProps) => {
+const Iconcolor = forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const { size = 24, color = 'currentColor', style, className, ...rest } = props;
+
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
-      {...props}
+      style={style}
+      className={className}
+      {...rest}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M3.66667 12C3.66667 16.6024 7.39763 20.3333 12 20.3333C12.8059 20.3333 13.5825 20.2194 14.3157 20.0078C14.3247 20.0052 14.333 20.0027 14.3405 20.0003C14.3644 19.8915 14.3784 19.6976 14.3956 19.2487C14.3963 19.2294 14.397 19.2085 14.3978 19.1863C14.4114 18.7896 14.4405 17.9434 14.8742 17.2257C15.475 16.2313 16.5101 15.8889 17.5556 15.8889C18.4691 15.8889 19.0857 15.5563 19.5131 15.0169C19.9765 14.4319 20.3333 13.4476 20.3333 12C20.3333 7.39763 16.6024 3.66667 12 3.66667C7.39763 3.66667 3.66667 7.39763 3.66667 12ZM17.5556 17.5556C20.3333 17.5556 22 15.3975 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C12.9639 22 13.8959 21.8636 14.7778 21.6091C15.9891 21.2596 16.0247 20.2947 16.058 19.3939C16.0932 18.4386 16.1258 17.5556 17.5556 17.5556Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M8.5 11C8.5 11.6904 7.94036 12.25 7.25 12.25C6.55964 12.25 6 11.6904 6 11C6 10.3096 6.55964 9.75 7.25 9.75C7.94036 9.75 8.5 10.3096 8.5 11Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M10.75 7.5C10.75 8.19036 10.1904 8.75 9.5 8.75C8.80964 8.75 8.25 8.19036 8.25 7.5C8.25 6.80964 8.80964 6.25 9.5 6.25C10.1904 6.25 10.75 6.80964 10.75 7.5Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M15 7.25C15 7.94036 14.4404 8.5 13.75 8.5C13.0596 8.5 12.5 7.94036 12.5 7.25C12.5 6.55964 13.0596 6 13.75 6C14.4404 6 15 6.55964 15 7.25Z"
-        fill="#222529"
+        fill={color}
       />
       <path
         d="M18 10C18 10.6904 17.4404 11.25 16.75 11.25C16.0596 11.25 15.5 10.6904 15.5 10C15.5 9.30964 16.0596 8.75 16.75 8.75C17.4404 8.75 18 9.30964 18 10Z"
-        fill="#222529"
+        fill={color}
       />
     </svg>
-  )
-})
+  );
+});
 
-Iconcolor.displayName = 'Iconcolor'
+Iconcolor.displayName = 'Iconcolor';
 
-export default Iconcolor
+export default Iconcolor;
