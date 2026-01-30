@@ -3,24 +3,23 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "docusaurus start",
-    "build": "docusaurus build",
-    "serve": "docusaurus serve",
-    "clear": "docusaurus clear"
+    "dev": "rspress dev",
+    "build": "rspress build",
+    "preview": "rspress preview"
   },
   "dependencies": {
-    "@docusaurus/core": "catalog:",
-    "@docusaurus/preset-classic": "catalog:",
-    "@docusaurus/theme-live-codeblock": "^3.7.0",
-    "@mdx-js/react": "^3.0.0",
-    "clsx": "^2.1.0",
-    "prism-react-renderer": "^2.3.0",
+    "@lynkit/ui": "workspace:*",
+    "@lynkit/hooks": "workspace:*",
+    "@lynkit/api": "workspace:*",
+    "@lynkit/icons": "workspace:*",
     "react": "catalog:",
-    "react-dom": "catalog:",
-    "react-live": "^3.1.0"
+    "react-dom": "catalog:"
   },
   "devDependencies": {
-    "@docusaurus/types": "^3.7.0",
+    "@rspress/plugin-preview": "^1.32.0",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "rspress": "^1.32.0",
     "typescript": "catalog:"
   }
 }
