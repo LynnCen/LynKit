@@ -1,22 +1,43 @@
-import { useRef } from 'react'
+import { useRef } from 'react';
 
-type ShouldUpdateFunc<T> = (prev: T | undefined, next: T) => boolean
+/**
+ * 自定义比较函数类型
+ */
+export type ShouldUpdateFunc<T> = (prev: T | undefined, next: T) => boolean;
 
-const defalutShouldUpdate = <T>(prev?: T, next?: T) => prev !== next
+const defaultShouldUpdate = <T>(prev?: T, next?: T) => !Object.is(prev, next);
 
-function usePrevious<T>(
+/**
+ * 获取状态的前一个值
+ *
+ * @param state - 要追踪的状态值
+ * @param shouldUpdate - 可选的自定义比较函数，决定是否更新前值
+ * @returns 状态的前一个值，首次渲染返回 undefined
+ *
+ * @example
+ * ```tsx
+ * const [count, setCount] = useState(0);
+ * const prevCount = usePrevious(count);
+ *
+ * console.log(`Current: ${count}, Previous: ${prevCount}`);
+ *
+ * // 自定义比较函数（仅当变化超过 5 时才更新）
+ * const prevValue = usePrevious(value, (prev, next) => {
+ *   return prev !== undefined && Math.abs(next - prev) > 5;
+ * });
+ * ```
+ */
+export default function usePrevious<T>(
   state: T,
-  shouldUpdateFun: ShouldUpdateFunc<T> = defalutShouldUpdate,
+  shouldUpdate: ShouldUpdateFunc<T> = defaultShouldUpdate
 ): T | undefined {
+  const prevRef = useRef<T | undefined>(undefined);
+  const curRef = useRef<T | undefined>(undefined);
 
-  const prev = useRef<T>(null)
-  const cur = useRef<T>(null)
-
-  if (shouldUpdateFun(cur.current, state)) {
-    prev.current = cur.current
-    cur.current = state
+  if (shouldUpdate(curRef.current, state)) {
+    prevRef.current = curRef.current;
+    curRef.current = state;
   }
-  return prev.current
-}
 
-export default usePrevious
+  return prevRef.current;
+}

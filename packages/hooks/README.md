@@ -1,139 +1,206 @@
 # @lynkit/hooks
 
-一个实用的 React Hooks 工具库，提供了一系列常用的自定义 Hooks，帮助你更高效地开发 React 应用。
+高质量的 React Hooks 工具库，支持 Tree-shaking 和按需引入。
 
-## 📦 安装
+## 安装
 
 ```bash
 npm install @lynkit/hooks
+# or
+pnpm add @lynkit/hooks
 ```
 
-## 🎯 特性
+## 特性
 
-- 📦 开箱即用
-- 🎨 支持 TypeScript
-- 🔥 支持按需加载
-- 📚 详细的文档和示例
-- ⚡️ 轻量级
+- **Tree-shaking** - 只打包使用的 hooks
+- **TypeScript** - 完整的类型定义
+- **SSR 兼容** - 支持服务端渲染
+- **零依赖** - 仅依赖 React
 
-## 📚 Hooks 列表
+## Hooks 列表
+
+| Hook               | 描述                                     |
+| ------------------ | ---------------------------------------- |
+| `useSetState`      | 类组件风格的状态管理，支持部分更新和回调 |
+| `usePrevious`      | 获取状态的前一个值                       |
+| `useIsFirstRender` | 判断是否为首次渲染                       |
+| `useInterval`      | 声明式的 setInterval                     |
+| `useAsync`         | 管理异步操作状态                         |
+| `usePollingAI`     | 支持指数退避的智能轮询                   |
+
+## 使用方式
+
+### 方式一：命名导入（推荐）
+
+```tsx
+import { useSetState, usePrevious } from '@lynkit/hooks';
+```
+
+### 方式二：路径导入
+
+```tsx
+import useSetState from '@lynkit/hooks/useSetState';
+import usePrevious from '@lynkit/hooks/usePrevious';
+```
+
+## API 文档
 
 ### useSetState
 
-一个模拟类组件 `setState` 行为的 Hook，让函数组件也能像类组件一样方便地管理状态。
+模拟 class 组件的 `setState` 方法，支持部分更新和回调。
 
-#### 基础用法
+```tsx
+const [state, setState] = useSetState({ name: '', age: 0 });
 
-```typescript
-import { useSetState } from '@lynkit/hooks';
+// 部分更新（自动合并）
+setState({ name: 'John' });
 
-function Demo() {
-  const [state, setState] = useSetState({
-    hello: 'world',
-    count: 0,
-  });
+// 函数式更新
+setState((prev) => ({ age: prev.age + 1 }));
 
-  return (
-    <div>
-      <p>hello: {state.hello}</p>
-      <p>count: {state.count}</p>
-      <button onClick={() => setState({ count: state.count + 1 })}>
-        count + 1
-      </button>
-    </div>
-  );
-}
+// 带回调（状态更新后执行）
+setState({ name: 'Jane' }, () => console.log('Updated!'));
 ```
 
-#### API
+**类型定义：**
 
-```typescript
-const [state, setState] = useSetState<T extends object>(initialState: T);
+```ts
+function useSetState<T extends object>(initialState: T | (() => T)): [T, SetStateFn<T>];
+
+type SetStateFn<T> = (state: Partial<T> | ((prev: T) => Partial<T>), callback?: () => void) => void;
 ```
 
-##### 参数
+---
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| initialState | 初始状态值 | `T` | - |
+### usePrevious
 
-##### 返回值
+获取状态的前一个值。
 
-| 参数 | 说明 | 类型 |
-| --- | --- | --- |
-| state | 当前状态 | `T` |
-| setState | 更新状态的函数 | `(state: Partial<T> \| ((prevState: T) => Partial<T>), callback?: () => void) => void` |
+```tsx
+const [count, setCount] = useState(0);
+const prevCount = usePrevious(count);
 
-#### 进阶用法
+console.log(`Current: ${count}, Previous: ${prevCount}`);
 
-1. 对象方式更新：
-```typescript
-setState({ hello: 'lynkit' });
+// 自定义比较函数
+const prevValue = usePrevious(value, (prev, next) => {
+  return prev !== undefined && Math.abs(next - prev) > 5;
+});
 ```
 
-2. 函数方式更新：
-```typescript
-setState((prev) => ({ count: prev.count + 1 }));
+**类型定义：**
+
+```ts
+function usePrevious<T>(state: T, shouldUpdate?: ShouldUpdateFunc<T>): T | undefined;
+
+type ShouldUpdateFunc<T> = (prev: T | undefined, next: T) => boolean;
 ```
 
-3. 带回调的更新：
-```typescript
-setState(
-  { count: 100 },
-  () => { console.log('状态已更新') }
+---
+
+### useIsFirstRender
+
+判断是否为组件首次渲染。
+
+```tsx
+const isFirstRender = useIsFirstRender();
+
+useEffect(() => {
+  if (!isFirstRender) {
+    // 跳过首次渲染的副作用
+    fetchData();
+  }
+}, [dependency]);
+```
+
+---
+
+### useInterval
+
+声明式的 `setInterval`，支持动态调整间隔和暂停。
+
+```tsx
+const [count, setCount] = useState(0);
+const [isRunning, setIsRunning] = useState(true);
+
+// 每秒增加计数，传入 null 可暂停
+useInterval(
+  () => {
+    setCount((c) => c + 1);
+  },
+  isRunning ? 1000 : null
 );
 ```
 
-#### 最佳实践
+---
 
-1. 表单状态管理：
-```typescript
-const [form, setForm] = useSetState({
-  username: '',
-  password: '',
-  remember: false,
-});
+### useAsync
 
-// 更新单个字段
-setForm({ username: 'lynn' });
+管理异步操作状态。
 
-// 批量更新
-setForm({
-  username: 'lynn',
-  remember: true,
-});
+```tsx
+const { loading, data, error, trigger } = useAsync(fetchUserList);
+
+// 手动触发
+<button onClick={() => trigger()}>加载数据</button>;
+
+// 立即执行
+const { loading, data } = useAsync(fetchUserList, undefined, true);
+
+// 带参数
+const { trigger } = useAsync((id: string) => fetchUser(id));
+trigger('user-123');
 ```
 
-2. 异步操作状态管理：
-```typescript
-const [requestState, setRequestState] = useSetState({
-  loading: false,
-  data: null,
-  error: null,
-});
+**类型定义：**
 
-const fetchData = async () => {
-  setRequestState({ loading: true });
-  try {
-    const data = await api.getData();
-    setRequestState({ loading: false, data });
-  } catch (error) {
-    setRequestState({ loading: false, error });
+```ts
+interface AsyncState<T> {
+  loading: boolean;
+  data?: T;
+  isError: boolean;
+  error?: Error;
+}
+
+interface UseAsyncReturn<T, A extends unknown[]> extends AsyncState<T> {
+  trigger: (...args: A) => Promise<T | void>;
+}
+```
+
+---
+
+### usePollingAI
+
+支持指数退避的智能轮询。
+
+```tsx
+const { start, stop, isPolling, attempts, error } = usePollingAI(
+  async () => {
+    const result = await checkTaskStatus(taskId);
+    if (result.status === 'completed') {
+      stop();
+    }
+  },
+  {
+    initialInterval: 2000,    // 初始间隔 2s
+    maxInterval: 30000,       // 最大间隔 30s
+    backoffFactor: 2,         // 退避因子
+    maxAttempts: 10,          // 最大重试次数
+    onSuccess: () => {},
+    onError: (err) => {},
   }
-};
+);
+
+<button onClick={start}>开始轮询</button>
+<button onClick={stop}>停止</button>
 ```
 
-#### 注意事项
+**特性：**
 
-1. 初始值必须是一个对象
-2. 更新时会自动合并对象，不会覆盖未提及的字段
-3. 回调函数会在状态实际更新后执行
-4. 不要在回调函数中直接使用更新前的 state 值
+- 成功后重置间隔
+- 失败后指数退避（间隔翻倍）
+- 可配置最大重试次数
 
-## 🤝 贡献指南
+## License
 
-欢迎提交 issue 和 Pull Request 帮助我们改进代码。
-
-## 📄 许可证
-
-[ISC](LICENSE)
+MIT

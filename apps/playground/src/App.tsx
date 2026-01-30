@@ -7,6 +7,8 @@ import {
   UseIntervalDemo,
   UsePreviousDemo,
   UseIsFirstRenderDemo,
+  UseAsyncDemo,
+  UsePollingAIDemo,
   DebounceDemo,
   ThrottleDemo,
   LRUCacheDemo,
@@ -23,6 +25,8 @@ type DemoId =
   | 'useInterval'
   | 'usePrevious'
   | 'useIsFirstRender'
+  | 'useAsync'
+  | 'usePollingAI'
   | 'debounce'
   | 'throttle'
   | 'lruCache'
@@ -46,6 +50,8 @@ const navItems: NavItem[] = [
   { id: 'useInterval', label: 'useInterval', icon: '⏱️', category: 'Hooks' },
   { id: 'usePrevious', label: 'usePrevious', icon: '⏮️', category: 'Hooks' },
   { id: 'useIsFirstRender', label: 'useIsFirstRender', icon: '1️⃣', category: 'Hooks' },
+  { id: 'useAsync', label: 'useAsync', icon: '📡', category: 'Hooks' },
+  { id: 'usePollingAI', label: 'usePollingAI', icon: '🔁', category: 'Hooks' },
   // API
   { id: 'debounce', label: 'debounce', icon: '⏳', category: 'API' },
   { id: 'throttle', label: 'throttle', icon: '🚦', category: 'API' },
@@ -63,6 +69,8 @@ const demoComponents: Record<DemoId, React.ComponentType> = {
   useInterval: UseIntervalDemo,
   usePrevious: UsePreviousDemo,
   useIsFirstRender: UseIsFirstRenderDemo,
+  useAsync: UseAsyncDemo,
+  usePollingAI: UsePollingAIDemo,
   debounce: DebounceDemo,
   throttle: ThrottleDemo,
   lruCache: LRUCacheDemo,
