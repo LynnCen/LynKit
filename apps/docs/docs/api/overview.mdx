@@ -1,0 +1,37 @@
+# API 工具总览
+
+LynKit API 提供了一系列实用的工具函数。
+
+## 函数工具
+
+| 函数 | 说明 |
+|------|------|
+| [debounce](/api/debounce) | 防抖函数 |
+| [throttle](/api/throttle) | 节流函数 |
+
+## 算法工具
+
+| 函数 | 说明 |
+|------|------|
+| [LRUCache](/api/lru-cache) | LRU 缓存实现 |
+| [ExponentialBackoff](/api/exponential-backoff) | 指数退避算法 |
+
+## 安装
+
+```bash
+pnpm add @lynkit/api
+```
+
+## 使用
+
+```tsx pure
+import { debounce, throttle } from '@lynkit/api';
+
+const handleSearch = debounce((value) => {
+  console.log('搜索:', value);
+}, 300);
+
+const handleScroll = throttle(() => {
+  console.log('滚动');
+}, 100);
+```

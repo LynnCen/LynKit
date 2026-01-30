@@ -1,0 +1,188 @@
+---
+title: debounce 防抖
+description: 限制函数执行频率的工具函数
+---
+
+# debounce 防抖
+
+防抖函数，用于限制函数的执行频率。在事件被触发 n 毫秒后再执行回调，如果在这 n 毫秒内又被触发，则重新计时。
+
+## 使用场景
+
+- **搜索框输入**：用户停止输入后再发起搜索请求
+- **窗口调整**：窗口大小变化停止后再计算布局
+- **按钮提交**：防止用户多次点击提交
+- **滚动加载**：滚动停止后再加载数据
+
+## 安装
+
+```bash
+npm install @lynkit/api
+# 或
+pnpm add @lynkit/api
+```
+
+## 代码演示
+
+### 基础用法
+
+最简单的防抖使用方式。
+
+```tsx preview
+import { debounce } from '@lynkit/api';
+import { useState, useCallback } from 'react';
+
+export default () => {
+  const [count, setCount] = useState(0);
+  const [debounceCount, setDebounceCount] = useState(0);
+
+  const handleDebounce = useCallback(
+    debounce(() => {
+      setDebounceCount(c => c + 1);
+    }, 500),
+    []
+  );
+
+  const handleClick = () => {
+    setCount(c => c + 1);
+    handleDebounce();
+  };
+
+  return (
+    <div>
+      <button
+        onClick={handleClick}
+        style={{
+          padding: '8px 16px',
+          background: '#646cff',
+          color: 'white',
+          border: 'none',
+          borderRadius: '6px',
+          cursor: 'pointer',
+          marginBottom: '16px'
+        }}
+      >
+        点击我
+      </button>
+      <p style={{ margin: '8px 0', color: '#666' }}>普通点击次数：{count}</p>
+      <p style={{ margin: '8px 0', color: '#666' }}>防抖执行次数：{debounceCount}</p>
+      <p style={{ fontSize: '12px', color: '#999' }}>快速点击后，防抖函数会在停止点击 500ms 后执行</p>
+    </div>
+  );
+};
+```
+
+### 搜索场景
+
+典型的搜索防抖应用。
+
+```tsx preview
+import { debounce } from '@lynkit/api';
+import { useState, useCallback } from 'react';
+
+export default () => {
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  const search = useCallback(
+    debounce((value: string) => {
+      if (!value) {
+        setResults([]);
+        return;
+      }
+      setLoading(true);
+      // 模拟 API 请求
+      setTimeout(() => {
+        setResults([
+          `搜索结果 1: ${value}`,
+          `搜索结果 2: ${value}`,
+          `搜索结果 3: ${value}`,
+        ]);
+        setLoading(false);
+      }, 300);
+    }, 500),
+    []
+  );
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setQuery(value);
+    search(value);
+  };
+
+  return (
+    <div style={{ maxWidth: '300px' }}>
+      <input
+        value={query}
+        onChange={handleChange}
+        placeholder="输入搜索内容..."
+        style={{
+          width: '100%',
+          padding: '8px 12px',
+          border: '1px solid #ddd',
+          borderRadius: '6px',
+          fontSize: '14px'
+        }}
+      />
+      {loading && <p style={{ color: '#999', margin: '12px 0' }}>搜索中...</p>}
+      {results.length > 0 && (
+        <ul style={{ margin: '12px 0', paddingLeft: '20px' }}>
+          {results.map((r, i) => (
+            <li key={i} style={{ color: '#666', padding: '4px 0' }}>{r}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
+```
+
+## API
+
+### 类型签名
+
+```typescript
+function debounce<T extends (...args: any[]) => any>(
+  fn: T,
+  wait: number,
+  immediate?: boolean
+): T & { cancel: () => void }
+```
+
+### 参数
+
+| 参数 | 说明 | 类型 | 默认值 | 必填 |
+|------|------|------|--------|------|
+| fn | 需要防抖的函数 | `Function` | - | ✓ |
+| wait | 等待时间（毫秒） | `number` | - | ✓ |
+| immediate | 是否在触发时立即执行 | `boolean` | `false` | - |
+
+### 返回值
+
+返回一个防抖后的函数，该函数具有以下额外方法：
+
+| 方法 | 说明 |
+|------|------|
+| `cancel()` | 取消防抖，清除定时器 |
+
+## 与 throttle 的区别
+
+| 特性 | debounce 防抖 | throttle 节流 |
+|------|--------------|---------------|
+| 执行时机 | 最后一次触发后 | 固定间隔执行 |
+| 适用场景 | 搜索、验证 | 滚动、resize |
+| 执行次数 | 连续触发只执行一次 | 固定频率执行 |
+
+## 最佳实践
+
+```typescript
+// ✅ 推荐：在组件外部或使用 useCallback 创建
+const debouncedSearch = debounce(search, 300);
+
+// ❌ 不推荐：在渲染函数中创建
+function Component() {
+  // 每次渲染都会创建新的防抖函数
+  const debouncedSearch = debounce(search, 300);
+}
+```
