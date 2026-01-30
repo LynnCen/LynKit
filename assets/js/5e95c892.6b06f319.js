@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_lynkit_docs=self.webpackChunk_lynkit_docs||[]).push([[647],{4673:(e,s,r)=>{r.r(s),r.d(s,{default:()=>d});r(8225);var c=r(3372),n=r(7808),t=r(6930),u=r(4969),a=r(4769),l=r(7557);function d(e){return(0,l.jsx)(n.e3,{className:(0,c.A)(t.G.wrapper.docsPages),children:(0,l.jsx)(a.A,{children:(0,u.v)(e.route.routes)})})}}}]);

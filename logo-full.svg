@@ -1,0 +1,20 @@
+<svg width="120" height="32" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fullGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Icon -->
+  <rect x="1" y="1" width="30" height="30" rx="8" fill="url(#fullGradient)"/>
+  <path d="M9 7V25H21V21H13.5V7H9Z" fill="white"/>
+  <rect x="18" y="7" width="5" height="5" rx="1" fill="white" opacity="0.9"/>
+  <rect x="18" y="13" width="5" height="5" rx="1" fill="white" opacity="0.6"/>
+  <rect x="24" y="7" width="5" height="5" rx="1" fill="white" opacity="0.4"/>
+  
+  <!-- Text: LynKit -->
+  <text x="40" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" fill="#1e293b">
+    <tspan fill="url(#fullGradient)">Lyn</tspan><tspan fill="#475569">Kit</tspan>
+  </text>
+</svg>
