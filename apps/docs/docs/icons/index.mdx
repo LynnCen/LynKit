@@ -1,0 +1,148 @@
+---
+title: 图标库
+description: 1000+ 精美图标，支持按需加载
+---
+
+# 图标库
+
+LynKit Icons 提供了 1000+ 精美图标，支持按需加载，体积小巧。
+
+## 安装
+
+```bash
+pnpm add @lynkit/icons
+```
+
+## 基础用法
+
+图标组件采用 `Icon` + `图标名称（小写）` 的命名规范。
+
+```tsx pure
+import { Iconhome, Iconsearch, Iconuser } from '@lynkit/icons';
+
+function App() {
+  return (
+    <div style={{ display: 'flex', gap: '16px' }}>
+      <Iconhome />
+      <Iconsearch />
+      <Iconuser />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## 自定义样式
+
+支持通过 `size`、`color`、`style` 等属性自定义图标样式。
+
+```tsx pure
+import { Iconhome, Iconsetting, Iconnotice } from '@lynkit/icons';
+
+function App() {
+  return (
+    <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+      <Iconhome size={24} color="#4f46e5" />
+      <Iconsetting size={32} color="#059669" />
+      <Iconnotice size={40} color="#dc2626" />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## 常用图标示例
+
+```tsx pure
+import {
+  Iconhome,
+  Iconsearch,
+  Iconuser,
+  Iconsetting,
+  Iconnotice,
+  Iconlike,
+  Iconedit,
+  Icondelete,
+  Icondownload,
+  Iconupload,
+} from '@lynkit/icons';
+
+function IconGrid() {
+  const icons = [
+    { Icon: Iconhome, name: 'home' },
+    { Icon: Iconsearch, name: 'search' },
+    { Icon: Iconuser, name: 'user' },
+    { Icon: Iconsetting, name: 'setting' },
+    { Icon: Iconnotice, name: 'notice' },
+    { Icon: Iconlike, name: 'like' },
+    { Icon: Iconedit, name: 'edit' },
+    { Icon: Icondelete, name: 'delete' },
+    { Icon: Icondownload, name: 'download' },
+    { Icon: Iconupload, name: 'upload' },
+  ];
+
+  return (
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(5, 1fr)',
+      gap: '24px'
+    }}>
+      {icons.map(({ Icon, name }) => (
+        <div
+          key={name}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '8px'
+          }}
+        >
+          <Icon size={32} />
+          <span style={{ fontSize: '12px', color: '#666' }}>{name}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default IconGrid;
+```
+
+## API
+
+### Props
+
+| 属性 | 说明 | 类型 | 默认值 |
+|------|------|------|--------|
+| size | 图标大小 | `number \| string` | `'1em'` |
+| color | 图标颜色 | `string` | `'currentColor'` |
+| className | 自定义类名 | `string` | - |
+| style | 自定义样式 | `CSSProperties` | - |
+
+## 命名规范
+
+图标命名遵循以下规范：
+
+| 类型 | 格式 | 示例 |
+|------|------|------|
+| 基础图标 | `Icon{name}` | `Iconhome`, `Iconsearch` |
+| 填充变体 | `Icon{name}fill` | `Iconhomefill`, `Iconuserfill` |
+| 静态变体 | `Icon{name}static` | `Iconhomestatic` |
+
+## 按需加载
+
+所有图标都支持按需加载，只需导入所需的图标组件即可：
+
+```typescript
+// ✅ 推荐：按需导入
+import { Iconhome, Iconsearch } from '@lynkit/icons';
+
+// ❌ 不推荐：全量导入会增加打包体积
+import * as Icons from '@lynkit/icons';
+```
+
+## 图标列表
+
+查看完整的 1000+ 图标列表，请访问 [Playground](/playground) 页面。
